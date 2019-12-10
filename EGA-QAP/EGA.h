@@ -1,6 +1,6 @@
 #pragma once
 #include "Header.h"
-//#include "individ_Data.h"
+#include "individ_Data.h"
 #include "info_Data.h"
 /*
 void population_crossover(int &SELECTION_DEFINE, std::vector<individ_Data> population, std::vector<individ_Data>  &reproducts);

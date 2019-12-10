@@ -38,15 +38,15 @@ void info_Data::fileInput(const char* fname)
 			else
 				break;
 		}
-		count = stoi(test);
-		stream = new int* [count];
-		price = new int* [count];
-		position_cost = new int* [count];
-		for (int i = 0; i < count; i++)
+		problem_size = stoi(test);
+		stream = new int* [problem_size];
+		price = new int* [problem_size];
+		position_cost = new int* [problem_size];
+		for (int i = 0; i < problem_size; i++)
 		{
-			stream[i] = new int[count];
-			price[i] = new int[count];
-			position_cost[i] = new int[count];
+			stream[i] = new int[problem_size];
+			price[i] = new int[problem_size];
+			position_cost[i] = new int[problem_size];
 		}
 		test = "";
 		uk_t++;
@@ -56,12 +56,12 @@ void info_Data::fileInput(const char* fname)
 				test += buf[uk_t];
 			else
 			{
-					if (uk_w == count)
+					if (uk_w == problem_size)
 					{
 						uk_w = 0;
 						uk_p++;
 					}
-					if (uk_p == count)
+					if (uk_p == problem_size)
 					{
 						uk_p = 0;
 						diver++;
@@ -86,30 +86,30 @@ void info_Data::fileInput(const char* fname)
 			}
 		}
 		if (diver < 2)
-			for (int i = 0; i < count; i++)
-				for (int ii = 0; ii < count; ii++)
+			for (int i = 0; i < problem_size; i++)
+				for (int ii = 0; ii < problem_size; ii++)
 					position_cost[i][ii] = 0;
 
 		//check out
-		std::cout << "Size: " << count << "\n";
+		std::cout << "Size: " << problem_size << "\n";
 		std::cout << "Price per stream point\n";
-		for (int i = 0; i < count; i++)
+		for (int i = 0; i < problem_size; i++)
 		{
-			for (int ii = 0; ii < count; ii++)
+			for (int ii = 0; ii < problem_size; ii++)
 				std::cout << price[i][ii] << " ";
 			std::cout << '\n';
 		}
-		std::cout << "Stream point count\n";
-		for (int i = 0; i < count; i++)
+		std::cout << "Stream point problem_size\n";
+		for (int i = 0; i < problem_size; i++)
 		{
-			for (int ii = 0; ii < count; ii++)
+			for (int ii = 0; ii < problem_size; ii++)
 				std::cout << stream[i][ii] << " ";
 			std::cout << '\n';
 		}
 		std::cout << "Assigment cost\n";
-		for (int i = 0; i < count; i++)
+		for (int i = 0; i < problem_size; i++)
 		{
-			for (int ii = 0; ii < count; ii++)
+			for (int ii = 0; ii < problem_size; ii++)
 				std::cout << position_cost[i][ii] << " ";
 			std::cout << '\n';
 		}
@@ -118,33 +118,31 @@ void info_Data::fileInput(const char* fname)
 	}
 
 }
-/*
-info_Data::info_Data(int pos_count)
-{
-	count = pos_count;
-	stream = new int*[count];
-	price = new int*[count];
-	position_cost = new int* [count];
-	for (int i = 0; i < count; i++)
-	{
-		stream[i] = new int[count];
-		price[i] = new int[count];
-		position_cost[i] = new int[count];
-	}
-}
-*/
+
 info_Data::info_Data()
 {
-	count = 0;
+	problem_size = 0;
 	stream = NULL;
 	price = NULL;
 	position_cost = NULL;
 }
 
+individ_Data info_Data::individ_generate_type1()
+{
+	//TODO
+	return individ_Data();
+}
+
+individ_Data info_Data::individ_generate_type2()
+{
+	//TODO
+	return individ_Data();
+}
+
 info_Data::~info_Data()
 {
-	if(count!=0)
-		for (int i = 0; i < count; i++)
+	if(problem_size !=0)
+		for (int i = 0; i < problem_size; i++)
 		{
 			delete[] stream[i], price[i], position_cost[i];
 		}

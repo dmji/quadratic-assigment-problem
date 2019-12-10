@@ -26,6 +26,9 @@
     <ClCompile Include="info_Data.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="individ_Data.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EGA.h">
@@ -43,5 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ex1.txt" />
+    <Text Include="ex2.txt" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,33 @@
+\documentclass[12pt,twoside]{article}
+\usepackage[utf8]{inputenc} % Включаем поддержку UTF8  
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+%\usepackage{lingmacros}
+%\usepackage{tree-dvips} 
+%\usepackage{ucs}
+\usepackage[a4paper,width=175mm,top=25mm,bottom=25mm]{geometry}
+\usepackage{csquotes}
+\usepackage[backend=biber,bibencoding=UTF8,sorting=nty,maxcitenames=2]{biblatex}
+
+\addbibresource{lib.bib}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\begin{document}
+
+\section*{\centering Abstract}
+\input{sections/abstract.tex}
+
+\tableofcontents
+\newpage
+
+\section{Этапы к постановке задачи}
+\input{sections/introduction.tex}
+
+\section{Постановка задачи}
+\input{sections/section1.tex}
+
+\section{Жадные методы решения задачи}
+\input{sections/section2.tex}
+
+\printbibliography
+
+\end{document}
