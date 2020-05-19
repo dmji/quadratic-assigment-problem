@@ -30,9 +30,22 @@ namespace QAP_test_generator
         static void Main(string[] args)
         {
             int sizeQAP = 10, omeg = 9, z = 3; //input args
-            int []p = { 8, 2, 1, 10, 5, 9, 7, 4, 3, 6 };
-            List<List<int>> D = new List<List<int>>();
+            int []p = { 7, 10, 1, 4, 5, 2, 3, 9, 6, 8 };
+            /*
+            int kq;
+            List<int>  p = new List<int>(sizeQAP);
+            List<int> filler = new List<int>();
+            for (int i = 0; i < sizeQAP; i++)
+                filler.Add(i + 1);
+            for (int i = 0; i < sizeQAP; i++)
+            {
+                kq = new Random().Next(0, filler.Count);
+                p.Add(filler[kq]);
+                filler.RemoveAt(kq);
+            }
+            */
 
+            List<List<int>> D = new List<List<int>>();
             int[] rs = rs_count(sizeQAP);
             //D countig
             for (int y = 0; y < rs[1]; y++)
@@ -44,7 +57,7 @@ namespace QAP_test_generator
                             D[D.Count - 1].Add(Math.Abs(x - xP) + Math.Abs(y - yP));
                 }
 
-            outprint(D);
+            //outprint(D);
             // omeg & g declare
             List<List<int>> omegar = new List<List<int>>(sizeQAP);
             for (int i = 0; i < sizeQAP; i++)
@@ -98,8 +111,8 @@ namespace QAP_test_generator
             } while (true);
 
             //omeg & g output
-            outprint(omegar);
-            outprint(g);
+            //outprint(omegar);
+            //outprint(g);
 
             List<List<int>> F = new List<List<int>>(sizeQAP);
             for (int i = 0; i < sizeQAP; i++)
@@ -111,10 +124,13 @@ namespace QAP_test_generator
 
             for (int i = 0; i < sizeQAP; i++)
                 for (int j = 0; j < sizeQAP; j++)
-                    F[p[i]-1][p[j]-1]=omegar[i][j];
+                    F[i][j] =omegar[p[i] - 1][p[j] - 1];
 
-            outprint(F);
+            Console.WriteLine(sizeQAP);
             outprint(D);
+            outprint(F);
+            foreach(int a in p)
+            Console.Write(a + ", ");
         }
     }
 }
