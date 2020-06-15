@@ -8,8 +8,8 @@ namespace QAP
     {
         public individ algorithms_local_search(individ p)
         {
-            individ minp = new individ(p);
-            individ temp = new individ(p);
+           Individ minp = new individ(p);
+           Individ temp = new individ(p);
             Console.WriteLine("sizeQAP=" + problem_size.ToString() + " Q=" + cost(p));
             int i = 0;
             do

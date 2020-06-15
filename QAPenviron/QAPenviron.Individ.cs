@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using QAP_LSA;
 
-namespace QAP
+namespace QAPenviron
 {
-    public class individ
+    public partial class Individ
     {
-        
-        public void print()                                       //console out permutation
+        public void console_print()                                       //console out permutation
         {
             for (int i = 0; i < p.Count; i++)
                 Console.Write(p[i] + " ");

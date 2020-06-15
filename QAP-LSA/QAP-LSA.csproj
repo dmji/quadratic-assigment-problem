@@ -6,4 +6,8 @@
     <RootNamespace>QAP_LSA</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QAPenviron\QAPenviron.csproj" />
+  </ItemGroup>
+
 </Project>

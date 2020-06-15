@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using QAP;
+using QAPenviron;
 
 namespace QAP_LSA
 {
     class Program
     {
+        QAPenviron
         static void Main(string[] args)
         {
             int size = 10, g_omega = 9, g_z = 3;
             int generate = 1;
             info data = new info("ex_30 1 0.txt");
-            individ p = null;
+           Individ p = null;
             if (generate == 0)
             {
                 p = data.test_generator(size, g_omega, g_z);
