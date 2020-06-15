@@ -1,14 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.IO;
 
-namespace QAP
+namespace QAPenviron
 {
-	public partial class info
-	{
-		public individ test_generator(int sizeQAP, int omeg, int z, individ p = null)
-		{
+    public partial class Info
+    {
+        /// <summary>
+        /// Generation test problem w/ known solve
+        /// </summary>
+        /// <param name="sizeQAP">size for generation problem</param>
+        /// <param name="omeg">quality-param</param>
+        /// <param name="z">random cap</param>
+        /// <param name="p">target permutation for solve</param>
+        /// <returns>return individ-permutation with known criteria</returns>
+        public Individ PalubetskisTestGeneration(int sizeQAP, int omeg, int z, Individ p = null)
+        {
             static int[] rs_count(int sizeQAP)
             {
                 List<int> rs = new List<int>();
@@ -21,7 +28,7 @@ namespace QAP
             }
 
             if (p == null)
-                p = new individ(sizeQAP);
+                p = new Individ(sizeQAP);
 
             List<List<int>> D = new List<List<int>>();
             int[] rs = rs_count(sizeQAP);
@@ -49,7 +56,7 @@ namespace QAP
                 for (int j = 0; j < sizeQAP; j++)
                     g[i].Add(2 - D[i][j]);
             }
-            int [,] lm = new int[sizeQAP, sizeQAP];
+            int[,] lm = new int[sizeQAP, sizeQAP];
             do
             {
                 int l = -1, m = -1;
@@ -59,14 +66,14 @@ namespace QAP
                         {
                             if (l == -1)
                             {
-                                l = i; 
+                                l = i;
                                 m = j;
                             }
                             else
                             {
                                 if (D[l][m] < D[i][j] && lm[i, j] == 0)
                                 {
-                                    l = i; 
+                                    l = i;
                                     m = j;
                                 }
                             }
@@ -105,56 +112,11 @@ namespace QAP
             {
                 for (int j = 0; j < sizeQAP; j++)
                 {
-                    stream[i,j] = D[i][j];
-                    price[i,j] = F[i][j];
-                } 
+                    stream[i, j] = D[i][j];
+                    price[i, j] = F[i][j];
+                }
             }
             return p;
         }
-
-        public void export_txt(individ p=null, int omeg=-1, int z=-1)
-        {
-            string buf = problem_size.ToString() + "\n";
-            for (int i = 0; i < problem_size; i++)
-                for (int j = 0; j < problem_size; j++)
-                {
-                    if (j == problem_size - 1)
-                        buf = buf + price[i, j] + "\n";
-                    else
-                        buf = buf + price[i, j] + " ";
-                }
-            buf = buf + '\n';
-            for (int i = 0; i < problem_size; i++)
-                for (int j = 0; j < problem_size; j++)
-                {
-                    if (j == problem_size - 1)
-                        buf = buf + stream[i, j] + "\n";
-                    else
-                        buf = buf + stream[i, j] + " ";
-                }
-            buf = buf + '\n';
-            for (int i = 0; i < problem_size; i++)
-                for (int j = 0; j < problem_size; j++)
-                {
-                    if (j == problem_size - 1)
-                        buf = buf + position_cost[i, j] + "\n";
-                    else
-                        buf = buf + position_cost[i, j] + " ";
-                }
-            if (p != null)
-            {
-                buf = buf + "\np={";
-                for (int i = 0; i < problem_size; i++)
-                    buf = buf + p[i] + ", ";
-                buf = buf + "}";
-            }
-            StreamWriter file;
-            if (omeg==-1)
-                 file = new StreamWriter("ex_"+problem_size+".txt");
-            else
-                file = new StreamWriter("ex_"+problem_size+" "+omeg+" "+z+".txt");
-            file.WriteLine(buf);
-            file.Close();
-        }
-	}
+    }
 }
