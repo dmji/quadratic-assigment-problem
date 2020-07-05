@@ -3,16 +3,14 @@ using System.Collections.Generic;
 
 namespace QAPenviron
 {
+
     /// <summary>Class <c>Individ</c> models a single permutation in QAP (like in evalution algorithm).</summary>
     public partial class Individ
     {
         ///<summary>permutation</summary>
-        private List<int> p;
-
+        protected List<int> p;
         public int this[int i]{ get => p[i]; set => p[i] = value; }
-        /// <summary>
-        /// return current permutation size
-        /// </summary>
+        /// <summary>return current permutation size</summary>
         public int size { get => p.Count; }
         //
         // constructors
@@ -56,18 +54,31 @@ namespace QAPenviron
     /// <summary>Class <c>Info</c> is all-in one QAP data.</summary>
     public partial class Info
     {
-        /// <summary>
-        /// to get some conole output set 1 
-        /// </summary>
+        public class algorithm_properties
+        {
+            public System.Diagnostics.Stopwatch _timer;
+            public int _steppredict;
+            public int calculation_counter;
+
+            public algorithm_properties()
+            {
+                _timer = new System.Diagnostics.Stopwatch();
+                _steppredict = 0;
+                calculation_counter = 0;
+            }
+        }
+        public algorithm_properties _algorithm = new algorithm_properties();
+
+        /// <summary>to get some conole output set 1</summary>
         public int DEBUG_CONSOLE_OUT = 0;
         /// <summary>D-matrix</summary>
-		public int[,] stream;
+		public static int[,] stream;
         ///<summary> F-matix</summary>
-        public int[,] price;
+        public static int[,] price;
         ///<summary> C-matix</summary>
-        public int[,] position_cost;
+        public static int[,] position_cost;
         ///<summary>n</summary>
-		public int problem_size;
+		public static int problem_size;
         //
         // constructors
         //

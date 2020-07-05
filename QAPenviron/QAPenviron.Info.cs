@@ -124,11 +124,56 @@ namespace QAPenviron
 		/// <returns>double value</returns>
 		public double cost(Individ IndividSrc)
 		{
+			_algorithm.calculation_counter++;
 			double res = 0;
 			for (int i = 0; i < IndividSrc.size; i++)
 				for (int j = 0; j < IndividSrc.size; j++)
 					res = res + Convert.ToDouble(stream[IndividSrc[i], IndividSrc[j]] * price[i, j] + position_cost[i, IndividSrc[j]]);
 			return res;
+		}
+		/// <summary>
+		/// Comparer
+		/// </summary>
+		/// <returns>0 - equal, 1 - x>y, -1 - x<y </returns>
+		protected int individComparision(Individ x, Individ y) // decrease -> y-x // increase -> x-y
+		{
+			if (x == null)
+			{
+				if (y == null)
+				{
+					// If x is null and y is null, they're
+					// equal. 
+					return 0;
+				}
+				else
+				{
+					// If x is null and y is not null, y
+					// is greater. 
+					return -1;
+				}
+			}
+			else
+			{
+				// If x is not null...
+				//
+				if (y == null)
+				// ...and y is null, x is greater.
+				{
+					return 1;
+				}
+				else
+				{
+					// ...and y is not null, compare the 
+					// lengths of the two strings.
+					//
+					if (cost(x) == cost(y))
+						return 0;
+					else if (cost(x) > cost(y))
+						return 1;
+					else
+						return -1;
+				}
+			}
 		}
 	}
 }

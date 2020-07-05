@@ -11,7 +11,7 @@ namespace QAP_LSA
             int size = 10, g_omega = 9, g_z = 3;
             int generate = 1;
             Info data = new Info("ex_30 1 0.txt");
-            Individ p = null
+            Individ p = null;
             if (generate == 0)
             {
                 p = data.PalubetskisTestGeneration(size, g_omega, g_z);
