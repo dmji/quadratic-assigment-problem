@@ -72,13 +72,13 @@ namespace QAPenviron
         /// <summary>to get some conole output set 1</summary>
         public int DEBUG_CONSOLE_OUT = 0;
         /// <summary>D-matrix</summary>
-		public static int[,] stream;
+		public int[,] stream;
         ///<summary> F-matix</summary>
-        public static int[,] price;
+        public int[,] price;
         ///<summary> C-matix</summary>
-        public static int[,] position_cost;
+        public int[,] position_cost;
         ///<summary>n</summary>
-		public static int problem_size;
+		public int problem_size;
         //
         // constructors
         //

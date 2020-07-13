@@ -1,18 +1,17 @@
 ﻿using System;
-using QAPenviron;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using QAPenviron;
 
-namespace QAP_FULLFORCE
+namespace QAPenviron
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            Info ff = new Info("ex1.txt");
-            ff.DEBUG_CONSOLE_OUT = 0;
-            List<Individ> ss = ff.FullForce();
-            ss[0].console_print();
-            Console.WriteLine("Q=" + ff.cost(ss[0]));
+            QAP_FULLFORCE ss = new QAP_FULLFORCE(new Info("ex1.txt"));
+            ss.Start();
+            ss.ShowInConsole();
         }
     }
 }
