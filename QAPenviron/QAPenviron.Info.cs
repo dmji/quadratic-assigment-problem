@@ -131,10 +131,7 @@ namespace QAPenviron
 					res = res + Convert.ToDouble(stream[IndividSrc[i], IndividSrc[j]] * price[i, j] + position_cost[i, IndividSrc[j]]);
 			return res;
 		}
-		/// <summary>
-		/// Comparer
-		/// </summary>
-		/// <returns>0 - equal, 1 - x>y, -1 - x<y </returns>
+
 		protected int individComparision(Individ x, Individ y) // decrease -> y-x // increase -> x-y
 		{
 			if (x == null)

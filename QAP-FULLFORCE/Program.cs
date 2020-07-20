@@ -9,7 +9,7 @@ namespace QAPenviron
     {
         public static void Main()
         {
-            QAP_FULLFORCE ss = new QAP_FULLFORCE(new Info("ex1.txt"));
+            QAP_FULLFORCE ss = new QAP_FULLFORCE(new Info("..\\..\\..\\..\\QAP-CONTEST\\ex1.txt"));
             ss.Start();
             ss.ShowInConsole();
         }
