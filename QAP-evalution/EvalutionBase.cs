@@ -42,7 +42,7 @@ namespace QAPenviron
 
                 population = _selection(generation, POPULATION_SIZE, 15);
 
-                Console.WriteLine($"Step {step}. Current best: {curbest.ToString()}, Cost: {problem.cost(curbest)}");
+                Console.WriteLine($"Step {step}. Current best: {curbest.ToString()}, Cost: {problem.cost(curbest)} Calculations: {problem._algorithm.calculation_counter}");
 
                 if (step++ > _breakpoint)
                     break;
