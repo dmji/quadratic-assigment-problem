@@ -124,7 +124,8 @@ namespace QAPenviron
 		/// <returns>double value</returns>
 		public double cost(Individ IndividSrc)
 		{
-			_algorithm.calculation_counter++;
+			lock(_algorithm._timer)
+				_algorithm.calculation_counter++;
 			double res = 0;
 			for (int i = 0; i < IndividSrc.size; i++)
 				for (int j = 0; j < IndividSrc.size; j++)

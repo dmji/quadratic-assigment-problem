@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "QAP-FULLFORCE": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

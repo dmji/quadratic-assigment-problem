@@ -17,22 +17,20 @@ namespace QAPenviron
         {
             _problem = src;
             permutation_size = src.problem_size;
+            _problem._algorithm._steppredict = 1;
+            for (int i = 0; i < permutation_size; i++) _problem._algorithm._steppredict *= (i + 1);
         }
 
         public void ShowInConsole()
         {
             if (best_cost.Count != 0)
             {
-                _problem._algorithm._steppredict = 1;
-                for (int i = 0; i < permutation_size; i++) _problem._algorithm._steppredict *= (i + 1);
                 Console.WriteLine("FullForce algorithm. Step to do: " + _problem._algorithm._steppredict.ToString());
                 Console.WriteLine("In-work time: " + _problem._algorithm._timer.ElapsedMilliseconds + "\nCalculated: " + _problem._algorithm.calculation_counter + "\nCost: " + _problem.cost(best_cost[0]));
                 foreach (Individ a in best_cost) a.console_print();
             }
             else if (best_cost.Count == 0 && _problem != null)
             {
-                _problem._algorithm._steppredict = 1;
-                for (int i = 0; i < permutation_size; i++) _problem._algorithm._steppredict *= (i + 1);
                 Console.WriteLine("FullForce algorithm not Start. Step to do: " + _problem._algorithm._steppredict.ToString());
             }
             else
