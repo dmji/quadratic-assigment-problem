@@ -1,0 +1,16 @@
+﻿<Window x:Class="QAP_UX.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QAP_UX"
+        mc:Ignorable="d"
+        Title="QAP - interface" Height="450" Width="370">
+    <Grid>
+        <Border x:Name="Force_methods" BorderThickness="1" Margin="58,146,128,71">
+            <RadioButton Content="Fullforce" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,29,0,0"/>
+        </Border>
+        <Label Content="Force methods" HorizontalAlignment="Left" Margin="100,146,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
