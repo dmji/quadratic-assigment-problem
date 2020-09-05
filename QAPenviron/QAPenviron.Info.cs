@@ -9,7 +9,7 @@ namespace QAPenviron
 	public partial class Info
 	{
 
-		///<summary>Construct problem from file with formatting:<para>problem_size</para><para>D-matrix</para><para>F-matrix</para><para>C-matrix</para></summary>
+		///<summary>Construct problem from file with formatting:<para>problem_size</para><para>F-matrix</para><para>D-matrix</para><para>C-matrix</para></summary>
 		/// <param name="fname">path to file w/ problem</param>
 		public Info(string fname)
 		{
@@ -30,23 +30,13 @@ namespace QAPenviron
 			{
 				int parseInd = 0;
 				while(buf.Contains("  ")==true)
-					buf.Replace("  ", " ");
-				fparse=buf.Split('\n');
+					buf = buf.Replace("  ", " ");
+				while (buf.Contains("\n ") == true)
+					buf = buf.Replace("\n ", "\n");
+				fparse = buf.Split('\n');
 				problem_size = int.Parse(fparse[parseInd++]);
-				//problem_size = Convert.ToInt32(buf.Substring(0, buf.IndexOf('\n')));
-				//buf = buf.Substring(buf.IndexOf('\n') + 1);
-				base_init(problem_size);
 
-				for (int i = 0; i < problem_size; i++)
-					if (fparse[parseInd].Length > problem_size)
-					{
-						buf = fparse[parseInd++];
-						string[] bufParse = buf.Split(' ');
-						for (int j = 0; j < problem_size; j++)
-							distance[i, j] = int.Parse(bufParse[j]);
-					}
-					else
-						parseInd++;
+				base_init(problem_size);
 
 				for (int i = 0; i < problem_size; i++)
 					if (fparse[parseInd].Length > problem_size)
@@ -57,9 +47,25 @@ namespace QAPenviron
 							flow[i, j] = int.Parse(bufParse[j]);
 					}
 					else
+					{
+						i--;
 						parseInd++;
-				
-				if(parseInd+problem_size/2 < fparse.Length)
+					}
+				for (int i = 0; i < problem_size; i++)
+					if (fparse[parseInd].Length > problem_size)
+					{
+						buf = fparse[parseInd++];
+						string[] bufParse = buf.Split(' ');
+						for (int j = 0; j < problem_size; j++)
+							distance[i, j] = int.Parse(bufParse[j]);
+					}
+					else
+					{
+						i--;
+						parseInd++;
+					}
+
+				if(parseInd+problem_size-1< fparse.Length)
 					for (int i = 0; i < problem_size; i++)
 						if (fparse[parseInd].Length > problem_size)
 						{
@@ -69,58 +75,10 @@ namespace QAPenviron
 								position_cost[i, j] = int.Parse(bufParse[j]);
 						}
 						else
+						{
+							i--;
 							parseInd++;
-
-				/*
-				for (int i = 0; i < problem_size; i++)
-					for (int j = 0; j < problem_size; j++)
-					{
-						if (j < problem_size - 1)
-						{
-							distance[i, j] = Convert.ToInt32(buf.Substring(0, buf.IndexOf(' ')));
-							buf = buf.Substring(buf.IndexOf(' ') + 1);
 						}
-						else
-						{
-							distance[i, j] = Convert.ToInt32(buf.Substring(0, buf.IndexOf('\n')));
-							buf = buf.Substring(buf.IndexOf('\n') + 1);
-						}
-					}
-				if (buf.Length > problem_size * problem_size)
-				{
-					for (int i = 0; i < problem_size; i++)
-						for (int j = 0; j < problem_size; j++)
-						{
-							if (j < problem_size - 1)
-							{
-								flow[i, j] = Convert.ToInt32(buf.Substring(0, buf.IndexOf(' ')));
-								buf = buf.Substring(buf.IndexOf(' ') + 1);
-							}
-							else
-							{
-								flow[i, j] = Convert.ToInt32(buf.Substring(0, buf.IndexOf('\n')));
-								buf = buf.Substring(buf.IndexOf('\n') + 1);
-							}
-						}
-				}
-				if (buf.Length > problem_size * problem_size)
-				{
-					for (int i = 0; i < problem_size; i++)
-						for (int j = 0; j < problem_size; j++)
-						{
-							if (j < problem_size - 1)
-							{
-								position_cost[i, j] = Convert.ToInt32(buf.Substring(0, buf.IndexOf(' ')));
-								buf = buf.Substring(buf.IndexOf(' ') + 1);
-							}
-							else
-							{
-								position_cost[i, j] = Convert.ToInt32(buf.Substring(0, buf.IndexOf('\n')));
-								buf = buf.Substring(buf.IndexOf('\n') + 1);
-							}
-						}
-				}
-				*/
 			}
 		}
 		/// <summary>
@@ -175,12 +133,17 @@ namespace QAPenviron
 		/// <summary>calculate criterion</summary>
 		/// <param name="IndividSrc">premutation to calculate</param>
 		/// <returns>double value</returns>
-		public double calculate(Individ IndividSrc)
+		public int calculate(Individ IndividSrc)
 		{
-			double res = 0;
-			for (int i = 0; i < IndividSrc.size; i++)
-				for (int j = 0; j < IndividSrc.size; j++)
-					res = res + Convert.ToDouble(flow[IndividSrc[i], IndividSrc[j]] * distance[i, j] + position_cost[i, IndividSrc[j]]);
+			return calculate(IndividSrc.GetList);
+		}
+
+		public int calculate(List<int> IndividSrc)
+		{
+			int res = 0;
+			for (int i = 0; i < IndividSrc.Count; i++)
+				for (int j = 0; j < IndividSrc.Count; j++)
+					res = res + Convert.ToInt32(flow[IndividSrc[i], IndividSrc[j]] * distance[i, j] + position_cost[i, IndividSrc[j]]);
 			return res;
 		}
 

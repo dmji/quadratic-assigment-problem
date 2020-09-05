@@ -11,6 +11,7 @@ namespace QAPenviron
     {
         ///<summary>permutation</summary>
         protected List<int> p;
+        public List<int> GetList { get { return p; } }
         public int this[int i]{ get => p[i]; set => p[i] = value; }
         /// <summary>return current permutation size</summary>
         public int size { get => p.Count; }

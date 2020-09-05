@@ -17,7 +17,7 @@ namespace QAPenviron
             Individ minp = new Individ(pt);
             double minp_cost = 0;
             int i = 0;
-            if (DEBUG_CONSOLE_OUT==1) Console.WriteLine($"sizeQAP={problem.problem_size} Individ: {this.ToStr()} Q={problem.cost(pt)}");
+            if (DEBUG_CONSOLE_OUT==1) Console.WriteLine($"sizeQAP={problem.problem_size} Individ: {this.ToStr()} Q={problem.calculate(pt)}");
             do
             {
                 pt = new Individ(minp);
@@ -28,14 +28,14 @@ namespace QAPenviron
                         int swap = temp[y];
                         temp[y] = temp[u];
                         temp[u] = swap;
-                        if (problem.cost(temp) < minp_cost)
+                        if (problem.calculate(temp) < minp_cost)
                         {
                             minp = new Individ(temp);
-                            minp_cost = problem.cost(minp);
+                            minp_cost = problem.calculate(minp);
                         }
                     }
-                if (DEBUG_CONSOLE_OUT == 1) Console.WriteLine($"$Local search step{i}: Individ: {minp.ToStr()} Q={problem.cost(minp)}");
-            } while (stepCount != ++i && problem.cost(pt) != problem.cost(minp));
+                if (DEBUG_CONSOLE_OUT == 1) Console.WriteLine($"$Local search step{i}: Individ: {minp.ToStr()} Q={problem.calculate(minp)}");
+            } while (stepCount != ++i && problem.calculate(pt) != problem.calculate(minp));
 
             p = new List<int>(minp.p);
         }

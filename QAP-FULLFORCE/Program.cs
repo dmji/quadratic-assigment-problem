@@ -11,14 +11,13 @@ namespace AlgorithmsBase
         public static void Main(string[] args)
         {
             QAP_FULLFORCE ss;
-            if(args.Length >0)
-                ss= new QAP_FULLFORCE(new Info(args[0]));
-            else
-                ss= new QAP_FULLFORCE(new Info("..\\..\\..\\..\\QAP-CONTEST\\ex1.txt"));
+            Info s;
+            s = new Info("..\\..\\..\\..\\QAP-CONTEST\\contest\\ex1.txt");
+            ss = new QAP_FULLFORCE(s.calculate, s.problem_size);
             ss.Start();
-            ss.ShowInConsole();
+            Console.WriteLine(ss.ToStr());
             ss.StartMT();
-            ss.ShowInConsole();
+            Console.WriteLine(ss.ToStr());
         }
     }
 }
