@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+/*
 
+INTEGRATED TO ENV SO NOW USELESS
+
+*/
 namespace QAP_test_generator
 {
     class Program
@@ -134,3 +138,9 @@ namespace QAP_test_generator
         }
     }
 }
+
+/*
+
+INTEGRATED TO ENV SO NOW USELESS
+
+*/

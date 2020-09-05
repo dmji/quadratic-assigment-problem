@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using QAPenviron;
 
-namespace QAPenviron
+namespace AlgorithmsBase
 {
     public partial class QAP_FULLFORCE
     {
@@ -15,9 +15,9 @@ namespace QAPenviron
         }
         protected void recursion(Individ src, int position)
         {
-            if (position != permutation_size)
+            if (position != size)
             {
-                for (int i = 0; i < permutation_size; i++)
+                for (int i = 0; i < size; i++)
                 {
                     if (_isExist(src, ref i, position) == 0)
                     {
@@ -45,11 +45,11 @@ namespace QAPenviron
 
         public List<Individ> Start()
         {
-            _problem._algorithm.calculation_counter = 0;
+            _stats.calculation_counter = 0;
 
-            _problem._algorithm._timer.Restart();
-            recursion(new Individ(permutation_size), 0);
-            _problem._algorithm._timer.Stop();
+            _stats._timer.Restart();
+            recursion(new Individ(size), 0);
+            _stats._timer.Stop();
 
             return best_cost;
         }

@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="algorithm_stats.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AlgorithmsBaseStats\AlgorithmsBaseStats.csproj" />
     <ProjectReference Include="..\QAPenviron\QAPenviron.csproj" />
   </ItemGroup>
 

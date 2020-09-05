@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using QAPenviron;
 
-namespace QAPenviron
+namespace AlgorithmsBase
 {
     public class Program
     {

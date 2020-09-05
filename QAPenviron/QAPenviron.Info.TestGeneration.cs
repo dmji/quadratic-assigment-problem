@@ -6,9 +6,7 @@ namespace QAPenviron
 {
     public partial class Info
     {
-        /// <summary>
-        /// Generation test problem w/ known solve
-        /// </summary>
+        /// <summary>Generation test problem w/ known solve </summary>
         /// <param name="sizeQAP">size for generation problem</param>
         /// <param name="omeg">quality-param</param>
         /// <param name="z">random cap</param>
@@ -70,13 +68,11 @@ namespace QAPenviron
                                 m = j;
                             }
                             else
-                            {
                                 if (D[l][m] < D[i][j] && lm[i, j] == 0)
                                 {
                                     l = i;
                                     m = j;
                                 }
-                            }
                         }
                 if (l == -1 && m == -1)
                     break;
@@ -109,13 +105,11 @@ namespace QAPenviron
             base_init(sizeQAP);
             problem_size = sizeQAP;
             for (int i = 0; i < sizeQAP; i++)
-            {
                 for (int j = 0; j < sizeQAP; j++)
                 {
-                    stream[i, j] = D[i][j];
-                    price[i, j] = F[i][j];
+                    flow[i, j] = D[i][j];
+                    distance[i, j] = F[i][j];
                 }
-            }
             return p;
         }
     }
