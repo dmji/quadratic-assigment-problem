@@ -38,6 +38,14 @@ namespace QAPenviron
                 filler.RemoveAt(k);
             }
         }
+        ///<summary>Construct corrupted permutation, <c>count</c> is problem size, <c>fill</c> is int in all slots </summary>
+        public Individ(int count, int filler)
+        {
+            int k;
+            p = new List<int>(count);
+            for (int i = 0; i < count; i++)
+                p.Add(filler);
+        }
     }
 
 

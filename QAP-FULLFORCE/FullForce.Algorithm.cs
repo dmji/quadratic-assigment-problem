@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using QAPenviron;
 
 namespace AlgorithmsBase
 {
     public partial class QAP_FULLFORCE
     {
-        protected int _isExist(Individ src, ref int point, int position)
+        protected int _isExist(Individ src, int point, int position)
         {
             for (int i = 0; i < position; i++)
                 if (src[i] == point)
@@ -19,7 +20,7 @@ namespace AlgorithmsBase
             {
                 for (int i = 0; i < size; i++)
                 {
-                    if (_isExist(src, ref i, position) == 0)
+                    if (_isExist(src, i, position) == 0)
                     {
                         src[position] = i;
                         recursion(new Individ(src), position + 1);
@@ -29,17 +30,17 @@ namespace AlgorithmsBase
             else
             {
                 double cur_cost = _problem.cost(src);
-                if (best_cost.Count == 0 || cur_cost < temp_cost)
+                lock (best_cost)
                 {
-                    temp_cost = cur_cost;
-                    best_cost.Clear();
-                    best_cost.Add(src);
+                    if (best_cost.Count == 0 || cur_cost < temp_cost)
+                    {
+                        temp_cost = cur_cost;
+                        best_cost.Clear();
+                        best_cost.Add(src);
+                    }
+                    else if (cur_cost == temp_cost)
+                        best_cost.Add(src);
                 }
-                else if (cur_cost == temp_cost)
-                {
-                    best_cost.Add(src);
-                }
-
             }
         }
 
