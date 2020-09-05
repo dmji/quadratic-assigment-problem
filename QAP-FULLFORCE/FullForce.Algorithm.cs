@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
-using QAPenviron;
 
 namespace AlgorithmsBase
 {
@@ -17,10 +15,10 @@ namespace AlgorithmsBase
 
         protected void recursion(List<int> src)
         {
-            if (src.Count < size)
+            if (src.Count < problem_size)
             {
                 src.Add(-1);
-                for (int i = 0; i < size; i++)
+                for (int i = 0; i < problem_size; i++)
                     if (_isExist(src, i) == 0)
                     {
                         src[src.Count-1]=i;
@@ -30,30 +28,27 @@ namespace AlgorithmsBase
             else
             {
                 double cur_cost = calculate(src);
-                lock (_stats._timer)
-                    _stats.calculation_counter++;
-                lock (best_cost)
+
+                lock (curbests)
                 {
-                    if (best_cost.Count == 0 || cur_cost < temp_cost)
+                    if (curbests.Count == 0 || cur_cost < temp_cost)
                     {
                         temp_cost = cur_cost;
-                        best_cost.Clear();
-                        best_cost.Add(src);
+                        curbests.Clear();
+                        curbests.Add(src);
                     }
                     else if (cur_cost == temp_cost)
-                        best_cost.Add(src);
+                        curbests.Add(src);
                 }
             }
         }
 
         public List<List<int>> Start()
         {
-            _stats.calculation_counter = 0;
-            _stats._timer.Restart();
+            statReset();
             recursion(new List<int>());
-            _stats._timer.Stop();
-
-            return best_cost;
+            _timer.Stop();
+            return curbests;
         }
     }
 }

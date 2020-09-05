@@ -25,6 +25,7 @@ namespace QAPenviron
 			catch(Exception ex)
             {
 				Console.WriteLine(ex.Message);
+				throw ex;
             }
 			if (buf != "")
 			{

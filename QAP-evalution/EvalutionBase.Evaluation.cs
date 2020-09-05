@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace QAPenviron
+namespace AlgorithmsBase
 {
     public partial class Evalution
     {

@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace QAPenviron
+namespace AlgorithmsBase
 {
     public partial class Evalution
     {
-        protected List<Individ> _generate_population(int count)
+        protected List<List<int>> _generate_population(int count)
         {
-            List<Individ> res = new List<Individ>();
+            List<List<int>> res = new List<List<int>>();
             for(int i=0;i<count;i++)
-                res.Add(new Individ(problem.problem_size));
+                res.Add(randomPermutation(problem_size));
             return res;
         }
     }

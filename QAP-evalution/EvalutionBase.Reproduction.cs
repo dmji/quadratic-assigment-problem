@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace QAPenviron
+namespace AlgorithmsBase
 {
     public partial class Evalution
     {
         /// <summary>
         /// CX - Cycle Crossiver
         /// </summary>
-        protected List<Individ> _crossover(Individ a, Individ b)
+        protected List<List<int>> _crossover(List<int> a, List<int> b)
         {
             List<List<int>> cycles = new List<List<int>>();
             List<int> temp = new List<int>();
-            List<Individ> result = new List<Individ>();
+            List<List<int>> result = new List<List<int>>();
             //
             //FUNCTION FOR LOOP
             //
             int _find(int that)
             {
-                for(int i = 0; i<problem.problem_size;i++)
+                for(int i = 0; i<problem_size;i++)
                     if(a[i]==that)
                         return i;
                 return -1;
@@ -31,7 +31,7 @@ namespace QAPenviron
                         return i;
                 return -1;
             }
-            void _recursion(Individ src, int curcycle)
+            void _recursion(List<int> src, int curcycle)
             {
                 if (curcycle < cycles.Count)
                 {
@@ -43,13 +43,13 @@ namespace QAPenviron
                     _recursion(src, curcycle + 1);
                 }
                 else
-                    result.Add(new Individ(src));
+                    result.Add(new List<int>(src));
             }
             //
             //CYCLES CONSTRUCTION
             //
             int ind;
-            for (int i = 0; i < problem.problem_size; i++)
+            for (int i = 0; i < problem_size; i++)
                 temp.Add(i);
             while (temp.Count != 0)
             {
@@ -65,18 +65,21 @@ namespace QAPenviron
             //
             //CYCLES CONSUMING
             //
-            _recursion(new Individ(problem.problem_size), 0);
+            _recursion(randomPermutation(problem_size), 0);
             return result;
         }
         /// <summary>
         /// Panmixia
         /// </summary>
-        protected List<Individ> _reproduction(List<Individ> population, int loopcount)
+        protected List<List<int>> _reproduction(List<List<int>> population, int loopcount)
         {
-            List<Individ> result = new List<Individ>(), current = new List<Individ>();
+            List<List<int>> result = new List<List<int>>(), current;
             for (int i = 0; i < loopcount; i++)
             {
-                current = _crossover(population[new Random().Next(population.Count)], population[new Random().Next(population.Count)]);
+                int temp1 = new Random().Next(population.Count), temp2 = new Random().Next(population.Count);
+                while (temp2 == temp1) temp2 = new Random().Next(population.Count);
+
+                current = _crossover(population[temp1], population[temp2]);
                 result.AddRange(current);
             }
             return result;

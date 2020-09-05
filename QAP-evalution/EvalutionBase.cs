@@ -1,35 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace QAPenviron
+namespace AlgorithmsBase
 {
-    public partial class Evalution
+    public partial class Evalution : Algorithms
     {
-        protected Info problem;
-        
-        Individ curbest;
-
-        int _mutationCounter = 0;
-        public Evalution(Info src)
+        public int CONSOLE_DEBUG = 1;
+        const int _breakpointDef = 3;
+        int _mutationCounter = 0, _breakvalue, _breakpoint= _breakpointDef;
+        public List<int> curbest { get { return curbests[0]; } set { curbests[0] = value; } }
+        public Evalution(Func<List<int>, int> calculate, int problem_size):base(calculate, problem_size) 
         {
-            problem = src;
+            curbests.Add(randomPermutation(problem_size));
         }
 
         public void Start(int POPULATION_SIZE, double MUTATION_CHANCE)
         {
+            statReset();
+            curbests.Add(randomPermutation(problem_size));
             _mutationCounter = 0;
-            int _breakpoint = 50;
-            List<Individ> population = _generate_population(POPULATION_SIZE);           // start population
-            List<Individ> generation = new List<Individ>();
+            List<List<int>> population = _generate_population(POPULATION_SIZE);           // start population
+            List<List<int>> generation = new List<List<int>>();
 
             int step = 0;
 
-            while (true)
+            while (_breakpoint > 0)
             {
-                List<Individ> tempgen = _reproduction(population, POPULATION_SIZE);
+                List<List<int>> tempgen = _reproduction(population, POPULATION_SIZE);
 
-                foreach (Individ a in tempgen)
+                foreach (List<int> a in tempgen)
                     if (new Random().NextDouble() < MUTATION_CHANCE)
                         _mutation(a);
 
@@ -42,11 +41,12 @@ namespace QAPenviron
 
                 population = _selection(generation, POPULATION_SIZE, 15);
 
-                Console.WriteLine($"Step {step}. Current best: {curbest.ToString()}, Cost: {problem.cost(curbest)} Calculations: {problem._algorithm.calculation_counter}");
-
-                if (step++ > _breakpoint)
-                    break;
+                if(CONSOLE_DEBUG>0) Console.WriteLine($"Step {step++}. Current best: {getPermutation(curbest)}, Cost: {calculate(curbest)} Calculations: {calculation_counter}");
+                foreach (List<int> a in population)
+                    Console.WriteLine($" # {getPermutation(a)} :: {calculate(a)}");
             }
+
+            _timer.Stop();
         }
     }
 }
