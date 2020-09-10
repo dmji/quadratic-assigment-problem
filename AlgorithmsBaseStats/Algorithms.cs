@@ -48,7 +48,7 @@ namespace AlgorithmsBase
             string log = "";
             if (curbests.Count != 0)
             {
-                log = log + "FullForce algorithm.";
+                log = log + this.GetType().Name + "algorithm.";
                 if (_steppredict != 0)
                     log = log + "Step to do: " + _steppredict.ToString();
                 log = log + "\nIn-work time: " + _timer.ElapsedMilliseconds.ToString() + "\nCalculated: " + calculation_counter.ToString() + "\nCost: " + calculate(curbests[0]).ToString() + '\n';

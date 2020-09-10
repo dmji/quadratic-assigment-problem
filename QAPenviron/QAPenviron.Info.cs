@@ -34,24 +34,37 @@ namespace QAPenviron
 					buf = buf.Replace("  ", " ");
 				while (buf.Contains("\n ") == true)
 					buf = buf.Replace("\n ", "\n");
-				fparse = buf.Split('\n');
-				problem_size = int.Parse(fparse[parseInd++]);
+				buf = buf.Replace("\r\n", "\n");
+				problem_size = int.Parse(buf.Substring(0,buf.IndexOf('\n')));
+				fparse = buf.Substring(buf.IndexOf('\n')+1).Split("\n\n");
+				for (int i = 0; i < fparse.Length; i++)
+					fparse[i] = fparse[i].Replace('\n', ' ');
 
 				base_init(problem_size);
-
-				for (int i = 0; i < problem_size; i++)
-					if (fparse[parseInd].Length > problem_size)
-					{
-						buf = fparse[parseInd++];
-						string[] bufParse = buf.Split(' ');
+				for (int arr = 0; arr < fparse.Length; arr++)
+				{
+					int ind = 0;
+					string[] bufParse = fparse[arr].Split(' ');
+					for (int i = 0; i < problem_size; i++)
 						for (int j = 0; j < problem_size; j++)
-							flow[i, j] = int.Parse(bufParse[j]);
-					}
-					else
-					{
-						i--;
-						parseInd++;
-					}
+						{
+							switch (arr)
+							{
+								case 0:
+									flow[i, j] = int.Parse(bufParse[ind++]);
+									break;
+								case 1:
+									distance[i, j] = int.Parse(bufParse[ind++]);
+									break;
+								case 2:
+									position_cost[i, j] = int.Parse(bufParse[ind++]);
+									break;
+							}
+						}
+				}
+
+
+				/*
 				for (int i = 0; i < problem_size; i++)
 					if (fparse[parseInd].Length > problem_size)
 					{
@@ -80,6 +93,7 @@ namespace QAPenviron
 							i--;
 							parseInd++;
 						}
+				*/
 			}
 		}
 		/// <summary>

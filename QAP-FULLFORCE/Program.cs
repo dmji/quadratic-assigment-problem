@@ -12,10 +12,10 @@ namespace AlgorithmsBase
         {
             QAP_FULLFORCE ss;
             Info s;
-            s = new Info("..\\..\\..\\..\\QAP-CONTEST\\contest\\ex1.txt");
+            s = new Info("..\\..\\..\\..\\QAP-CONTEST\\contest\\ex1.dat");
             ss = new QAP_FULLFORCE(s.calculate, s.problem_size);
-            ss.Start();
-            Console.WriteLine(ss.ToStr());
+            //ss.Start();
+            //Console.WriteLine(ss.ToStr());
             ss.StartMT();
             Console.WriteLine(ss.ToStr());
         }
