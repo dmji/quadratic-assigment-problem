@@ -12,16 +12,16 @@ namespace QAPenviron
         /// <returns>matrix of double</returns>
         public double[,] ReflectionToLAP()
         {
-            double calculation(int a, int b)
+            double calcReflection(int a, int b)
 			{
                 List<double> min = new List<double>(problem_size - 1), max = new List<double>(problem_size - 1);
 
 				for (int i = 0; i < problem_size; i++)
 				{
 					if (i != a)
-						min.Add(price[i,a]);
+						min.Add(distance[i,a]);
 					if (i != b)
-						max.Add(stream[i,b]);
+						max.Add(flow[i,b]);
 				}
                 min.Sort();
                 max.Sort();
@@ -37,7 +37,7 @@ namespace QAPenviron
 
             for (int i = 0; i < problem_size; i++)
                 for (int j = 0; j < problem_size; j++)
-                    res[i,j] = calculation(i, j);
+                    res[i,j] = calcReflection(i, j);
 
             return null;
         }

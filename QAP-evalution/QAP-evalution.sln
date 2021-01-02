@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QAP-EVALUTION", "QAP-EVALUT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QAPenviron", "..\QAPenviron\QAPenviron.csproj", "{9DF7481D-B8C2-4BFD-B017-1FE80868F62F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgorithmsBaseStats", "..\AlgorithmsBaseStats\AlgorithmsBaseStats.csproj", "{0B3F69AE-89C3-4D62-9894-E18D2F9CBF5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9DF7481D-B8C2-4BFD-B017-1FE80868F62F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DF7481D-B8C2-4BFD-B017-1FE80868F62F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DF7481D-B8C2-4BFD-B017-1FE80868F62F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B3F69AE-89C3-4D62-9894-E18D2F9CBF5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B3F69AE-89C3-4D62-9894-E18D2F9CBF5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B3F69AE-89C3-4D62-9894-E18D2F9CBF5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B3F69AE-89C3-4D62-9894-E18D2F9CBF5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

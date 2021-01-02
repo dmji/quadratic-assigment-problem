@@ -1,51 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace QAPenviron
+namespace AlgorithmsBase
 {
-    public partial class Evalution
+    public partial class Evalution : Algorithms
     {
-        protected Info problem;
-        
-        Individ curbest;
+        public int CONSOLE_DEBUG = 0;
+        const int _breakpointDef = 5;
+        int _mutationCounter = 0, _breakvalue=int.MaxValue, _breakpoint= _breakpointDef;
+        //ищем 1 индивид вместо нескольких 
+        public List<int> curbest { get { return curbests[0]; } set { curbests[0] = value; } }
+        public Evalution(Func<List<int>, int> calculate, int problem_size):base(calculate, problem_size) {}
 
-        int _mutationCounter = 0;
-        public Evalution(Info src)
+        protected class Individ
         {
-            problem = src;
-        }
-
-        public void Start(int POPULATION_SIZE, double MUTATION_CHANCE)
-        {
-            _mutationCounter = 0;
-            int _breakpoint = 50;
-            List<Individ> population = _generate_population(POPULATION_SIZE);           // start population
-            List<Individ> generation = new List<Individ>();
-
-            int step = 0;
-
-            while (true)
+            public List<int> info;
+            public int cost;
+            public Individ(List<int> src, int val=0)
             {
-                List<Individ> tempgen = _reproduction(population, POPULATION_SIZE);
-
-                foreach (Individ a in tempgen)
-                    if (new Random().NextDouble() < MUTATION_CHANCE)
-                        _mutation(a);
-
-                tempgen.AddRange(population);
-                while (tempgen.Count > 0)
-                {
-                    generation.Add(tempgen[0]);
-                    tempgen.RemoveAll(x => tempgen[0].Equals(x) == true);
-                }
-
-                population = _selection(generation, POPULATION_SIZE, 15);
-
-                Console.WriteLine($"Step {step}. Current best: {curbest.ToString()}, Cost: {problem.cost(curbest)} Calculations: {problem._algorithm.calculation_counter}");
-
-                if (step++ > _breakpoint)
-                    break;
+                info = src;
+                cost = val;
+            }
+            public Individ(Individ src)
+            {
+                info = new List<int>(src.info);
+                cost = src.cost;
+            }
+            public string toStr()
+            {
+                string result = "";
+                for (int i = 0; i < info.Count; i++)
+                    result += info[i].ToString() + ' ';
+                return result + " : "+cost.ToString();
             }
         }
     }

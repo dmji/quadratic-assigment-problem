@@ -3,11 +3,12 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>QAPenviron</RootNamespace>
+    <RootNamespace>AlgorithmsBase</RootNamespace>
     <AssemblyName>QAP-EVALUTION</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AlgorithmsBaseStats\AlgorithmsBaseStats.csproj" />
     <ProjectReference Include="..\QAPenviron\QAPenviron.csproj" />
   </ItemGroup>
 

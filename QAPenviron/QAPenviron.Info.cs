@@ -2,71 +2,98 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Threading;
 
 namespace QAPenviron
 {
 	public partial class Info
 	{
 
-		///<summary>Construct problem from file with formatting:<para>problem_size</para><para>D-matrix</para><para>F-matrix</para><para>C-matrix</para></summary>
+		///<summary>Construct problem from file with formatting:<para>problem_size</para><para>F-matrix</para><para>D-matrix</para><para>C-matrix</para></summary>
 		/// <param name="fname">path to file w/ problem</param>
 		public Info(string fname)
 		{
-			StreamReader file = new StreamReader(fname);
-			string buf = file.ReadToEnd();
-			file.Close();
-			problem_size = Convert.ToInt32(buf.Substring(0, buf.IndexOf('\n')));
-			buf = buf.Substring(buf.IndexOf('\n') + 1);
+			StreamReader file;
+			string buf="";
+			string[] fparse;
+			try
+			{
+				file = new StreamReader(fname);
+				buf = file.ReadToEnd();
+				file.Close();
+			}
+			catch(Exception ex)
+            {
+				Console.WriteLine(ex.Message);
+				throw ex;
+            }
+			if (buf != "")
+			{
+				int parseInd = 0;
+				while(buf.Contains("  ")==true)
+					buf = buf.Replace("  ", " ");
+				while (buf.Contains("\n ") == true)
+					buf = buf.Replace("\n ", "\n");
+				buf = buf.Replace("\r\n", "\n");
+				problem_size = int.Parse(buf.Substring(0,buf.IndexOf('\n')));
+				fparse = buf.Substring(buf.IndexOf('\n')+1).Split("\n\n");
+				for (int i = 0; i < fparse.Length; i++)
+					fparse[i] = fparse[i].Replace('\n', ' ');
 
-			base_init(problem_size);
-
-			for (int i = 0; i < problem_size; i++)
-				for (int j = 0; j < problem_size; j++)
+				base_init(problem_size);
+				for (int arr = 0; arr < fparse.Length; arr++)
 				{
-					if (j < problem_size - 1)
+					int ind = 0;
+					string[] bufParse = fparse[arr].Split(' ');
+					for (int i = 0; i < problem_size; i++)
+						for (int j = 0; j < problem_size; j++)
+						{
+							switch (arr)
+							{
+								case 0:
+									flow[i, j] = int.Parse(bufParse[ind++]);
+									break;
+								case 1:
+									distance[i, j] = int.Parse(bufParse[ind++]);
+									break;
+								case 2:
+									position_cost[i, j] = int.Parse(bufParse[ind++]);
+									break;
+							}
+						}
+				}
+
+
+				/*
+				for (int i = 0; i < problem_size; i++)
+					if (fparse[parseInd].Length > problem_size)
 					{
-						price[i, j] = Convert.ToInt32(buf.Substring(0, buf.IndexOf(' ')));
-						buf = buf.Substring(buf.IndexOf(' ') + 1);
+						buf = fparse[parseInd++];
+						string[] bufParse = buf.Split(' ');
+						for (int j = 0; j < problem_size; j++)
+							distance[i, j] = int.Parse(bufParse[j]);
 					}
 					else
 					{
-						price[i, j] = Convert.ToInt32(buf.Substring(0, buf.IndexOf('\n')));
-						buf = buf.Substring(buf.IndexOf('\n') + 1);
+						i--;
+						parseInd++;
 					}
-				}
-			if (buf.Length > problem_size * problem_size)
-			{
-				for (int i = 0; i < problem_size; i++)
-					for (int j = 0; j < problem_size; j++)
-					{
-						if (j < problem_size - 1)
+
+				if(parseInd+problem_size-1< fparse.Length)
+					for (int i = 0; i < problem_size; i++)
+						if (fparse[parseInd].Length > problem_size)
 						{
-							stream[i, j] = Convert.ToInt32(buf.Substring(0, buf.IndexOf(' ')));
-							buf = buf.Substring(buf.IndexOf(' ') + 1);
+							buf = fparse[parseInd++];
+							string[] bufParse = buf.Split(' ');
+							for (int j = 0; j < problem_size; j++)
+								position_cost[i, j] = int.Parse(bufParse[j]);
 						}
 						else
 						{
-							stream[i, j] = Convert.ToInt32(buf.Substring(0, buf.IndexOf('\n')));
-							buf = buf.Substring(buf.IndexOf('\n') + 1);
+							i--;
+							parseInd++;
 						}
-					}
-			}
-			if (buf.Length > problem_size * problem_size)
-			{
-				for (int i = 0; i < problem_size; i++)
-					for (int j = 0; j < problem_size; j++)
-					{
-						if (j < problem_size - 1)
-						{
-							position_cost[i, j] = Convert.ToInt32(buf.Substring(0, buf.IndexOf(' ')));
-							buf = buf.Substring(buf.IndexOf(' ') + 1);
-						}
-						else
-						{
-							position_cost[i, j] = Convert.ToInt32(buf.Substring(0, buf.IndexOf('\n')));
-							buf = buf.Substring(buf.IndexOf('\n') + 1);
-						}
-					}
+				*/
 			}
 		}
 		/// <summary>
@@ -80,18 +107,18 @@ namespace QAPenviron
 				for (int j = 0; j < problem_size; j++)
 				{
 					if (j == problem_size - 1)
-						buf = buf + price[i, j] + "\n";
+						buf = buf + distance[i, j] + "\n";
 					else
-						buf = buf + price[i, j] + " ";
+						buf = buf + distance[i, j] + " ";
 				}
 			buf = buf + '\n';
 			for (int i = 0; i < problem_size; i++)
 				for (int j = 0; j < problem_size; j++)
 				{
 					if (j == problem_size - 1)
-						buf = buf + stream[i, j] + "\n";
+						buf = buf + flow[i, j] + "\n";
 					else
-						buf = buf + stream[i, j] + " ";
+						buf = buf + flow[i, j] + " ";
 				}
 			buf = buf + '\n';
 			for (int i = 0; i < problem_size; i++)
@@ -111,25 +138,27 @@ namespace QAPenviron
 			}
 			StreamWriter file;
 			if (omeg == -1)
-				file = new StreamWriter("ex_" + problem_size + ".txt");
+				file = new StreamWriter("ex_" + problem_size + "_" + DateTime.Now + ".txt");
 			else
-				file = new StreamWriter("ex_" + problem_size + " " + omeg + " " + z + ".txt");
+				file = new StreamWriter("ex_" + problem_size + " " + omeg + " " + z + "_" + DateTime.Now + ".txt");
 			file.WriteLine(buf);
 			file.Close();
 		}
-		/// <summary>
-		/// calculate criterion
-		/// </summary>
+
+		/// <summary>calculate criterion</summary>
 		/// <param name="IndividSrc">premutation to calculate</param>
 		/// <returns>double value</returns>
-		public double cost(Individ IndividSrc)
+		public int calculate(Individ IndividSrc)
 		{
-			lock(_algorithm._timer)
-				_algorithm.calculation_counter++;
-			double res = 0;
-			for (int i = 0; i < IndividSrc.size; i++)
-				for (int j = 0; j < IndividSrc.size; j++)
-					res = res + Convert.ToDouble(stream[IndividSrc[i], IndividSrc[j]] * price[i, j] + position_cost[i, IndividSrc[j]]);
+			return calculate(IndividSrc.GetList);
+		}
+
+		public int calculate(List<int> IndividSrc)
+		{
+			int res = 0;
+			for (int i = 0; i < IndividSrc.Count; i++)
+				for (int j = 0; j < IndividSrc.Count; j++)
+					res = res + Convert.ToInt32(flow[IndividSrc[i], IndividSrc[j]] * distance[i, j] + position_cost[i, IndividSrc[j]]);
 			return res;
 		}
 
@@ -138,35 +167,19 @@ namespace QAPenviron
 			if (x == null)
 			{
 				if (y == null)
-				{
-					// If x is null and y is null, they're
-					// equal. 
 					return 0;
-				}
 				else
-				{
-					// If x is null and y is not null, y
-					// is greater. 
 					return -1;
-				}
 			}
 			else
 			{
-				// If x is not null...
-				//
 				if (y == null)
-				// ...and y is null, x is greater.
-				{
 					return 1;
-				}
 				else
 				{
-					// ...and y is not null, compare the 
-					// lengths of the two strings.
-					//
-					if (cost(x) == cost(y))
+					if (calculate(x) == calculate(y))
 						return 0;
-					else if (cost(x) > cost(y))
+					else if (calculate(x) > calculate(y))
 						return 1;
 					else
 						return -1;

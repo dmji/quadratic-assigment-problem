@@ -1,60 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading;
-using QAPenviron;
 
-namespace QAPenviron
+namespace AlgorithmsBase
 {
     public partial class QAP_FULLFORCE
     {
-        protected int _isExist(Individ src, int point, int position)
+        protected int _isExist(List<int> src, int point)
         {
-            for (int i = 0; i < position; i++)
+            for (int i = 0; i < src.Count; i++)
                 if (src[i] == point)
                     return 1;
             return 0;
         }
-        protected void recursion(Individ src, int position)
-        {
 
-            if (position != permutation_size)
+        protected void recursion(List<int> src)
+        {
+            if (src.Count < problem_size)
             {
-                for (int i = 0; i < permutation_size; i++)
-                {
-                    if (_isExist(src, i, position) == 0)
+                src.Add(-1);
+                for (int i = 0; i < problem_size; i++)
+                    if (_isExist(src, i) == 0)
                     {
-                        src[position] = i;
-                        recursion(new Individ(src), position + 1);
+                        src[src.Count-1]=i;
+                        recursion(new List<int>(src));
                     }
-                }
             }
             else
             {
-                double cur_cost = _problem.cost(src);
-                lock (best_cost)
+                double cur_cost = calculate(src);
+
+                lock (curbests)
                 {
-                    if (best_cost.Count == 0 || cur_cost < temp_cost)
+                    if (curbests.Count == 0 || cur_cost < temp_cost)
                     {
                         temp_cost = cur_cost;
-                        best_cost.Clear();
-                        best_cost.Add(src);
+                        curbests.Clear();
+                        curbests.Add(src);
                     }
                     else if (cur_cost == temp_cost)
-                        best_cost.Add(src);
+                        curbests.Add(src);
                 }
             }
         }
 
-        public List<Individ> Start()
+        public List<List<int>> Start()
         {
-            best_cost.Clear();
-            _problem._algorithm.calculation_counter = 0;
-
-            _problem._algorithm._timer.Restart();
-            recursion(new Individ(permutation_size), 0);
-            _problem._algorithm._timer.Stop();
-
-            return best_cost;
+            statReset();
+            recursion(new List<int>());
+            _timer.Stop();
+            return curbests;
         }
     }
 }

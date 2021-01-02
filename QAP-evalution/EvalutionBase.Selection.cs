@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace QAPenviron
+namespace AlgorithmsBase
 {
     public partial class Evalution
     {
@@ -10,11 +10,6 @@ namespace QAPenviron
         {
             Random rand = new Random();
             List<Individ> result = new List<Individ>();
-            List<double> populationCost = new List<double>(src.Count);
-            int bestOverAllIndex=-1;
-
-            for (int i = 0; i < src.Count; i++)
-                populationCost.Add(Convert.ToDouble(-1));
 
             for (int i = 0; i < populationSize; i++)
             {
@@ -23,21 +18,14 @@ namespace QAPenviron
                 for (int j = 0; j < BtournamentSize; j++)
                 {
                     curIndex = rand.Next(src.Count);
-                    if (populationCost[curIndex] == -1)
-                        populationCost[curIndex] = problem.cost(src[curIndex]);
+                    if (src[curIndex].cost == 0)
+                        src[curIndex].cost = calculate(src[curIndex].info);
 
-                    if (bestIndex == -1 || populationCost[bestIndex] > populationCost[curIndex])
+                    if (bestIndex == -1 || src[bestIndex].cost > src[curIndex].cost)
                         bestIndex = curIndex;
                 }
-
-                if (bestOverAllIndex == -1 || populationCost[bestOverAllIndex] > populationCost[bestIndex])
-                    bestOverAllIndex = bestIndex;
-
                 result.Add(new Individ(src[bestIndex]));
             }
-
-            if (curbest==null || populationCost[bestOverAllIndex] < problem.cost(curbest))
-                curbest = new Individ(src[bestOverAllIndex]);
             return result;
         }
     }
