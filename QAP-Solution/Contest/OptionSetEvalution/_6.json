@@ -1,0 +1,9 @@
+{
+	"DEFINE_POPULATION_SIZE"	:	100, 	// int 		Размер популяции
+	"DEFINE_COSSOVERING_SIZE"	:	30, 	// int 		Количество скрещиваний
+	"DEFINE_CROSSOVER_CHANCE"	:	1,		// double 	Шанс скрещивания
+	"DEFINE_MUTATION_CHANCE"	:	1,		// double	Шанс мутации
+	"DEFINE_MUTATING_SIZE"		:	20,		// int		Количество мутантов в поколении
+	"DEFINE_STEP_MAXIMUM"		:	150,	// int 		Оограничение количества шагов
+	"DEFINE_DELETE_DUPLICAET"	:	false	// bool 	Убрать дубликаты перед составлением новой популяции
+}
