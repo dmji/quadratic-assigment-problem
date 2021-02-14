@@ -7,7 +7,7 @@ namespace Problem
     {
         static void Main(string[] args)
         {
-            TestSystem.StartTestEvalution("C:\\Users\\leysh\\source\\repos\\dmji\\quadratic-assigment-problem\\QAP-Solution\\Contest\\_all.xml");
+            TestSystem.StartTestEvalution("C:\\Users\\leysh\\source\\repos\\dmji\\quadratic-assigment-problem\\QAP-Solution\\Contest\\_bur.xml");
         }
     }
 }

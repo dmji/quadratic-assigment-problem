@@ -8,7 +8,7 @@ namespace Algorithms
     {
         //LOGGER
         protected Func<string, bool> msg = (string s) => false;
-        public void setLogger(Log.Logger log = null)
+        public void setLogger(Util.Logger log = null)
         {
             msg = log == null ? (string s) => false : log.init();
         }
@@ -49,6 +49,9 @@ namespace Algorithms
                 log = ("Not yet started!");
             return log;
         }
+
+        public string strCalcCount() => m_calculationCounter.ToString();
+        public string strResultValue() => m_q.calc(m_p[0]).ToString();
 
         protected void diagReset()
         {

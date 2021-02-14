@@ -19,6 +19,8 @@ namespace Algorithms
         {
             Options opt = (Options)obj;
             diagReset();
+            rand.init(opt.DEFINE_RANDOM_SEED);
+
             START_TIMER();
 
             Individ bestIndivid = null;

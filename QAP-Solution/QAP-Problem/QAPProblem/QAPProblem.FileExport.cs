@@ -49,10 +49,10 @@ namespace Problem
 				buf = buf + "}";
 			}
 			StreamWriter file;
-			if(omeg == -1)
-				file = new StreamWriter("ex_" + m_ProblemSize + "_" + DateTime.Now + ".txt");
-			else
-				file = new StreamWriter("ex_" + m_ProblemSize + " " + omeg + " " + z + "_" + DateTime.Now + ".txt");
+			string pathFile = omeg == -1 ? $"ex_{m_ProblemSize}_{DateTime.Now}.bin" : pathFile = $"ex_{m_ProblemSize} {omeg} {z}_{DateTime.Now}.bin";
+			if(!System.IO.File.Exists(pathFile))
+				System.IO.File.Create(pathFile).Close();
+			file = new StreamWriter(pathFile);
 			file.WriteLine(buf);
 			file.Close();
 			msg("ExportTxt end");

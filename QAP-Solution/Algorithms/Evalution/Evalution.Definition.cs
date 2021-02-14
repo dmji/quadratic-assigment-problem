@@ -26,31 +26,51 @@ namespace Algorithms
             public int DEFINE_MUTATING_SIZE { get; set; }
             public int DEFINE_STEP_MAXIMUM { get; set; }
             public bool DEFINE_DELETE_DUPLICAET { get; set; }
+            public int DEFINE_RANDOM_SEED { get; set; }
+
+            string m_name;
+
+            public string getName() => m_name;
 
             public void serielize(string path)
             {
-                //if(!System.IO.File.Exists(path))
-                //    System.IO.File.Create(path);
+                if(!System.IO.File.Exists(path))
+                    System.IO.File.Create(path).Close();
                 System.IO.StreamWriter export = new System.IO.StreamWriter(path);
-                export.WriteLine(System.Text.Json.JsonSerializer.Serialize(this));
+                export.WriteLine(System.Text.Json.JsonSerializer.Serialize<Options>(this));
                 export.Close();
             }
             
+            public Options()
+            {
+                DEFINE_POPULATION_SIZE = 0;
+                DEFINE_COSSOVERING_SIZE = 0;
+                DEFINE_CROSSOVER_CHANCE = 0;
+                DEFINE_MUTATION_CHANCE = 0;
+                DEFINE_MUTATING_SIZE = 0;
+                DEFINE_STEP_MAXIMUM = 0;
+                DEFINE_DELETE_DUPLICAET = false;
+                DEFINE_RANDOM_SEED = -1;
+            }
+
             public Options(string path)
             {
                 System.IO.StreamReader reader = new System.IO.StreamReader(path);
-                System.Text.Json.JsonSerializer.Deserialize<Options>(reader.ReadToEnd());
+                string file = reader.ReadToEnd();
+                init(System.Text.Json.JsonSerializer.Deserialize<Options>(file));
+                m_name = path.Substring(path.LastIndexOf('\\'), path.LastIndexOf('.')-path.LastIndexOf('\\')+1); 
                 reader.Close();
             }
 
-            public Options(
+            public void init(
                 int POPULATION_SIZE,
                 int COSSOVERING_SIZE,
                 double CROSSOVER_CHANCE,
                 double MUTATION_CHANCE,
                 int MUTATING_SIZE,
                 int STEP_MAXIMUM,
-                bool DELETE_DUPLICAET
+                bool DELETE_DUPLICAET,
+                int SEED
                 )
             {
                 DEFINE_POPULATION_SIZE = POPULATION_SIZE;
@@ -60,6 +80,19 @@ namespace Algorithms
                 DEFINE_MUTATING_SIZE = MUTATING_SIZE;
                 DEFINE_STEP_MAXIMUM = STEP_MAXIMUM;
                 DEFINE_DELETE_DUPLICAET = DELETE_DUPLICAET;
+                DEFINE_RANDOM_SEED = SEED;
+            }
+
+            public void init(Options obj)
+            {
+                DEFINE_POPULATION_SIZE = obj.DEFINE_POPULATION_SIZE;
+                DEFINE_COSSOVERING_SIZE = obj.DEFINE_COSSOVERING_SIZE;
+                DEFINE_CROSSOVER_CHANCE = obj.DEFINE_CROSSOVER_CHANCE;
+                DEFINE_MUTATION_CHANCE = obj.DEFINE_MUTATION_CHANCE;
+                DEFINE_MUTATING_SIZE = obj.DEFINE_MUTATING_SIZE;
+                DEFINE_STEP_MAXIMUM = obj.DEFINE_STEP_MAXIMUM;
+                DEFINE_DELETE_DUPLICAET = obj.DEFINE_DELETE_DUPLICAET;
+                DEFINE_RANDOM_SEED = obj.DEFINE_RANDOM_SEED;
             }
         }
     }

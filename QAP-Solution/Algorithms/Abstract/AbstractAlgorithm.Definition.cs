@@ -7,6 +7,7 @@ namespace Algorithms
     public interface IOptions
     {
         void serielize(string path);
+        string getName();
     }
 
     public abstract partial class Algorithm

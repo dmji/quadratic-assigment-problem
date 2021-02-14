@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Log
+namespace Util
 {
     public class Logger
     {
@@ -18,7 +18,10 @@ namespace Log
                 time = time.Replace(":", "_");
                 time = time.Replace(" ", "_");
                 time = time.Replace(".", "_");
-                m_s = new StreamWriter($"{path}{sAlg}_{time}_log.~.txt");
+                string pathLog = $"{path}{sAlg}_{time}_log.~.txt";
+                if(!System.IO.File.Exists(pathLog))
+                    System.IO.File.Create(pathLog).Close();
+                m_s = new StreamWriter(pathLog);
             }
             if(m_s == null)
                 throw new Exception("Need init w/ params");

@@ -15,14 +15,22 @@ namespace Algorithms
             ///<summary>Construct permutation from list</summary>
             public Individ(ICollection<ushort> src) : base(src) {}
 
-            /////<summary>Construct permutation from array</summary>
-            //public Individ(params ushort[] src) : base(src) {}
-
-            ///<summary>Construct random permutation, <c>count</c> is problem size</summary>
-            public Individ(ushort count = 0) : base(count) {}
-
             ///<summary>Construct corrupted permutation, <c>count</c> is problem size, <c>fill</c> is int in all slots </summary>
             public Individ(ushort count, ushort filler) : base(count,filler) {}
+
+            ///<summary>Construct random permutation, <c>count</c> is problem size</summary>
+            public Individ(ushort count = 0) : base(count, 0)
+            {
+                List<ushort> filler = new List<ushort>();
+                for(ushort i = 0; i < count; i++)
+                    filler.Add(i);
+                for(int i = 0; i < count; i++)
+                {
+                    int k = rand.next(filler.Count);
+                    this[i] = filler[k];
+                    filler.RemoveAt(k);
+                }
+            }
 
             public static bool operator==(Individ a, Individ b) => a.cost() == b.cost();
             public static bool operator!=(Individ a, Individ b) => a.cost() != b.cost();
@@ -31,13 +39,12 @@ namespace Algorithms
             /// <param name="src"></param>
             public void _mutationSaltation(int distance = 4)
             {
-                Random rnd = new Random();
                 List<ushort> pool = new List<ushort>(this.ToArray());
-                ushort iFirst = (ushort)rnd.Next(size());
+                ushort iFirst = (ushort)rand.next(size());
                 pool.Remove(iFirst);
                 for(int i = 0; i < distance; i++)
                 {
-                    ushort iSecond = (ushort)rnd.Next(pool.Count);
+                    ushort iSecond = (ushort)rand.next(pool.Count);
                     pool.Remove(iSecond);
                     swap(iFirst, iSecond);
                 }
@@ -47,7 +54,7 @@ namespace Algorithms
             /// <param name="src"></param>
             public void _mutationDot()
             {
-                int iRnd = new Random().Next(size() - 1);
+                int iRnd = rand.next(size() - 1);
                 swap(iRnd, iRnd + 1);
             }
 

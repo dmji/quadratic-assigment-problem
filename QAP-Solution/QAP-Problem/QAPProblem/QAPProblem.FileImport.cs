@@ -53,7 +53,7 @@ namespace Problem
 					if(aData[iData].Length == 0)
 						continue;
 					int ind = 0;
-					string[] pData = aData[iData].Split(' ');
+					string[] pData = aData[iData].Split(' ', StringSplitOptions.RemoveEmptyEntries);
 					for(int i = 0; i < m_ProblemSize; i++)
 					{
 						for(int j = 0; j < m_ProblemSize; j++)

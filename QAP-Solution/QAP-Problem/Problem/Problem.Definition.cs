@@ -7,7 +7,7 @@ namespace Problem
     {
         //LOGGER
         protected Func<string, bool> msg = (string s) => false;
-        public void setLogger(Log.Logger log = null)
+        public void setLogger(Util.Logger log = null)
         {
             msg = log == null ? (string s) => false : log.init();
         }

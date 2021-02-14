@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Algorithms\Algorithms.csproj" />
-    <ProjectReference Include="..\Logger\Logger.csproj" />
+    <ProjectReference Include="..\Logger\Util.csproj" />
     <ProjectReference Include="..\QAP-Problem\QAP-Problem.csproj" />
   </ItemGroup>
 

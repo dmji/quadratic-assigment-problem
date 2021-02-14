@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QAP-Problem", "QAP-Problem\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms", "Algorithms\Algorithms.csproj", "{74C81FE4-16DC-423A-96E4-867F7C9A874E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger", "Logger\Logger.csproj", "{354A5348-66EF-4268-9375-32E9B38B367B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Util", "Logger\Util.csproj", "{354A5348-66EF-4268-9375-32E9B38B367B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

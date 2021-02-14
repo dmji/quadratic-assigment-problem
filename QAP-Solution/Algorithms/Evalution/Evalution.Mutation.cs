@@ -15,7 +15,7 @@ namespace Algorithms
                 count = src.Count;
             while (mutationCounter < count)
             {
-                int iRnd = new Random().Next(src.Count);
+                int iRnd = rand.next(src.Count);
                 if (aMutatedIndividsId.Contains(iRnd) == false)
                 {
                     switch (type)

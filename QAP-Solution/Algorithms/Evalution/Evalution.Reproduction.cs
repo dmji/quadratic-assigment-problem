@@ -157,14 +157,13 @@ namespace Algorithms
         protected List<Individ> REPRODUCTION(List<Individ> aPopulation, int count)
         {
             int iter=0;
-            Random rnd = new Random();
             List<Individ> aResult = new List<Individ>();
             List<int> aPool = new List<int>();
             for(int i = 0; i < aPopulation.Count; i++)
                 aPool.Add(i);
             while(iter++ < count)
             {
-                int rnd1 = rnd.Next(aPool.Count), rnd2 = rnd.Next(aPool.Count);
+                int rnd1 = rand.next(aPool.Count), rnd2 = rand.next(aPool.Count);
                 aResult.AddRange(cx_all_crossover(aPopulation[aPool[rnd1]], aPopulation[aPool[rnd2]]));
             }
             return aResult;
