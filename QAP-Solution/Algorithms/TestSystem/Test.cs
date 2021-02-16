@@ -41,13 +41,12 @@ namespace Algorithms
 
             List<string> aProblemFile = getArrtibuteDirFiles(xml, "pathProblems", path, ".dat");
             List<string> aResultFile = getArrtibuteDirFiles(xml, "pathProblems", path, ".bin");
-            aResultFile.AddRange(getArrtibuteDirFiles(xml, "pathProblems", path, ".sln"));
 
             aTest = new List<TestInfo>();
             while(aProblemFile.Count > 0)
             {
                 int index = aProblemFile[0].LastIndexOf('\\') + 1;
-                string name = aProblemFile[0].Substring(index, aProblemFile[0].LastIndexOf('.') - index) + ".sln";
+                string name = aProblemFile[0].Substring(index, aProblemFile[0].LastIndexOf('.') - index) + ".bin";
                 Regex reg = new Regex(name);
                 bool bExamFound = false;
                 for(int i = 0; i < aResultFile.Count; i++)
