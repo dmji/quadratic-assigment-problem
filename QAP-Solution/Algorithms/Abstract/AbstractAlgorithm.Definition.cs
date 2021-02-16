@@ -8,11 +8,14 @@ namespace Algorithms
     {
         void serielize(string path);
         string getName();
+        int getSeed();
+        string getValues();
+        string getValuesNames();
     }
 
     public abstract partial class Algorithm
     {
-        IProblem m_q;
+        protected IProblem m_q;
         protected List<IPermutation> m_p;
         protected bool m_bFinish;
 

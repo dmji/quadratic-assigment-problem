@@ -27,7 +27,7 @@ namespace Algorithms
             return aResult;
         }
 
-        private static void init(string path, ref List<TestInfo> aTest, ref List<IOptions> aOptions, ref Logger log, ref Tabler tbl)
+        private static void init(string path, ref List<TestInfo> aTest, ref List<IOptions> aOptions, ref Logger log, ref ITabler tbl)
         {
             XmlReader xml = XmlReader.Create(path);
             xml.Read();
@@ -40,7 +40,9 @@ namespace Algorithms
             aOptionsFile.Clear();
 
             List<string> aProblemFile = getArrtibuteDirFiles(xml, "pathProblems", path, ".dat");
-            List<string> aResultFile = getArrtibuteDirFiles(xml, "pathProblems", path, ".sln");
+            List<string> aResultFile = getArrtibuteDirFiles(xml, "pathProblems", path, ".bin");
+            aResultFile.AddRange(getArrtibuteDirFiles(xml, "pathProblems", path, ".sln"));
+
             aTest = new List<TestInfo>();
             while(aProblemFile.Count > 0)
             {
@@ -65,6 +67,8 @@ namespace Algorithms
 
             string pathLog = path + xml.GetAttribute("pathLog");
             log = new Logger(pathLog, $"{xml.GetAttribute("name")}_{EvalutionAlgorithm.getName(true)}");
+
+
             string pathTable = path + xml.GetAttribute("pathTable");
             string pathTemplate = path + xml.GetAttribute("pathTemplate");
             tbl = new Tabler(pathTable, $"{xml.GetAttribute("name")}_{EvalutionAlgorithm.getName(true)}", pathTemplate);
@@ -73,24 +77,29 @@ namespace Algorithms
         public static void StartTestEvalution(string path)
         {
             Logger log = null;
-            Tabler tbl = null;
+            ITabler tbl = null;
             List<TestInfo> aTest = null;
             List<IOptions> aOptions = null;
             init(path, ref aTest, ref aOptions, ref log, ref tbl);
             Timer timer = new Timer();
 
+            tbl.addCells("boldGrey",aOptions[0].getValuesNames().Replace("DEFINE_", "").Replace("_"," ").Split(';',StringSplitOptions.RemoveEmptyEntries));
+            foreach(IOptions opt in aOptions)
+            {
+                tbl.addRow();
+                tbl.addCells("greyColored", opt.getValues().Split(';', StringSplitOptions.RemoveEmptyEntries));
+            }
+            tbl.addRow();
+            tbl.addRow();
             foreach(TestInfo test in aTest)
             {
-                tbl.addCell("bold", "Name problem", 1);
-                tbl.addCell("bold", test.nameProblem(), 1);
-                tbl.addCells("bold", "Optimal:", test.exam());
-
                 timer.Reset();
                 CQAPProblem QAP = new CQAPProblem(test.pathProblem);
                 string timeLoad = timer.Stop();
-                tbl.addCells("bold", "Size:", QAP.size().ToString(),"Load time: ", timeLoad);
+                long examVal = test.exam();
+                tbl.addCells("bold", "Name problem", test.nameProblem(), $"Size: {QAP.size()}",$"Load time: {timeLoad}","Optimal:", test.isExamed() ? examVal.ToString() : "UNDEFINED");
                 tbl.addRow();
-                tbl.addCells("greenColored", "Option set", "Timer", "Calc count", "Result");
+                tbl.addCells("bold", "Option set", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
                 Algorithm ALG = new EvalutionAlgorithm(QAP);
 
                 //ALG.setLogger(log);
@@ -100,12 +109,22 @@ namespace Algorithms
                     timer.Reset();
                     ALG.Start(opt);
                     string timerAlg = timer.Stop();
-                    tbl.addCells("", opt.getName(), timer.Stop(),ALG.strCalcCount(), ALG.strResultValue());
-                    tbl.addRow();
+                    log.msg($"On opt: {opt.getName()} problem {test.nameProblem()} log:{ALG})");
+                    if(test.isExamed())
+                    {
+                        double err = ALG.ResultValue() - examVal;
+                        double errPersent = (err / ((double)examVal) * 100);
+                        test.AddRow(errPersent, opt.getName(), timerAlg, ALG.strCalcCount(), err.ToString(), errPersent.ToString(), ALG.ResultValue().ToString());
+                    }
+                    else
+                    {
+                        tbl.addRow();
+                        tbl.addCells("simple", opt.getName(), timerAlg, ALG.strCalcCount(), "-", "-", ALG.ResultValue().ToString());
+                    }
                 }
-
+                test.RelaseRow(tbl);
                 tbl.addRow();
-                log.msg(ALG.ToString());
+                tbl.addRow();
             }
             log.Close();
             tbl.Close();

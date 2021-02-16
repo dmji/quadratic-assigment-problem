@@ -8,9 +8,9 @@ namespace Algorithms
     {
         double GenerationAvgCost(List<Individ> aPopulation)
         {
-            ulong curGenCost = 0;
+            long curGenCost = 0;
             foreach(Individ a in aPopulation)
-                curGenCost += a.cost();
+                curGenCost += calc(a);
             //вычисление среднего значения поколения
             return curGenCost / (double)aPopulation.Count;
         }
@@ -55,9 +55,10 @@ namespace Algorithms
 
                 //селекция
                 curGen = SELECTION(nextGen, opt.DEFINE_POPULATION_SIZE, 2);
-                
-                //поиск лушчего
-                bestIndivid = curGen.Find(x=>x.cost() == curGen.Min(x => x.cost()));
+
+                var min = curGen.Min(x => calc(x));
+                //поиск лучшего
+                bestIndivid = curGen.Find(x=>calc(x) == min);
 
                 //вычисление суммы
                 double curGenAvgCost = GenerationAvgCost(curGen);
@@ -74,6 +75,7 @@ namespace Algorithms
             }
             result = bestIndivid;
             STOP_TIMER();
+            m_bFinish = true;
         }
     }
 }

@@ -35,17 +35,17 @@
     </Style>
     <Style ss:ID="bold">
       <Interior ss:Color="#FFFFF0" ss:Pattern="Solid" />
-      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" x:Size="12" ss:Bold="1" />
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
     </Style>
   </Styles>
   <Worksheet ss:Name="Results">
-    <Table x:FullColumns="1" x:FullRows="1" ss:DefaultRowHeight="20">
+    <Table x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="93" ss:DefaultRowHeight="20">
       <Row ss:AutoFitHeight="0">
-        <Cell ss:StyleID="bold" ss:MergeAcross="1">
+        <Cell ss:StyleID="bold">
           <Data ss:Type="String">Name problem</Data>
         </Cell>
-        <Cell ss:StyleID="bold" ss:MergeAcross="1">
-          <Data ss:Type="String">\bur26a.</Data>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">bur26a.</Data>
         </Cell>
         <Cell ss:StyleID="bold">
           <Data ss:Type="String">Optimal:</Data>
@@ -63,7 +63,7 @@
           <Data ss:Type="String">Load time: </Data>
         </Cell>
         <Cell ss:StyleID="bold">
-          <Data ss:Type="String">16</Data>
+          <Data ss:Type="String">6</Data>
         </Cell>
       </Row>
       <Row ss:AutoFitHeight="0">
@@ -79,73 +79,21 @@
         <Cell ss:StyleID="greenColored">
           <Data ss:Type="String">Result</Data>
         </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
         <Cell>
           <Data ss:Type="String">\_0.</Data>
         </Cell>
         <Cell>
-          <Data ss:Type="String">2698</Data>
+          <Data ss:Type="String">2208</Data>
         </Cell>
         <Cell>
-          <Data ss:Type="String">0</Data>
+          <Data ss:Type="String">45530</Data>
         </Cell>
         <Cell>
-          <Data ss:Type="String">5478165</Data>
+          <Data ss:Type="String">5480390</Data>
         </Cell>
       </Row>
-      <Row ss:AutoFitHeight="0" />
-      <Row ss:AutoFitHeight="0">
-        <Cell ss:StyleID="bold" ss:MergeAcross="1">
-          <Data ss:Type="String">Name problem</Data>
-        </Cell>
-        <Cell ss:StyleID="bold" ss:MergeAcross="1">
-          <Data ss:Type="String">\bur26b.</Data>
-        </Cell>
-        <Cell ss:StyleID="bold">
-          <Data ss:Type="String">Optimal:</Data>
-        </Cell>
-        <Cell ss:StyleID="bold">
-          <Data ss:Type="String">3817852</Data>
-        </Cell>
-        <Cell ss:StyleID="bold">
-          <Data ss:Type="String">Size:</Data>
-        </Cell>
-        <Cell ss:StyleID="bold">
-          <Data ss:Type="String">26</Data>
-        </Cell>
-        <Cell ss:StyleID="bold">
-          <Data ss:Type="String">Load time: </Data>
-        </Cell>
-        <Cell ss:StyleID="bold">
-          <Data ss:Type="String">0</Data>
-        </Cell>
-      </Row>
-      <Row ss:AutoFitHeight="0">
-        <Cell ss:StyleID="greenColored">
-          <Data ss:Type="String">Option set</Data>
-        </Cell>
-        <Cell ss:StyleID="greenColored">
-          <Data ss:Type="String">Timer</Data>
-        </Cell>
-        <Cell ss:StyleID="greenColored">
-          <Data ss:Type="String">Calc count</Data>
-        </Cell>
-        <Cell ss:StyleID="greenColored">
-          <Data ss:Type="String">Result</Data>
-        </Cell>
-        <Cell>
-          <Data ss:Type="String">\_0.</Data>
-        </Cell>
-        <Cell>
-          <Data ss:Type="String">5509</Data>
-        </Cell>
-        <Cell>
-          <Data ss:Type="String">0</Data>
-        </Cell>
-        <Cell>
-          <Data ss:Type="String">3877328</Data>
-        </Cell>
-      </Row>
-      <Row ss:AutoFitHeight="0" />
       <Row />
     </Table>
     <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

@@ -29,9 +29,12 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="bgColor">
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Results">
-  <Table x:FullColumns="1" x:FullRows="1" ss:DefaultRowHeight="20">
+  <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="bgColor" ss:DefaultColumnWidth="93" ss:DefaultRowHeight="20">
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>

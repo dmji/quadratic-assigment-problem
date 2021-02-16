@@ -32,10 +32,10 @@ namespace Algorithms
             List<Individ> res = new List<Individ>();
             while(res.Count < count)
             {
-                Individ temp = new Individ(size());
+                Individ temp = new Individ(m_q.calc, size());
                 if(Hemming(res, temp))
                 {
-                    msg($"GEENERETE_POPULATION Step {res.Count+1}: created {temp.ToString()};");
+                    msg($"GEENERETE_POPULATION Step {res.Count+1}: created {temp};");
                     res.Add(temp);
                 }
             }

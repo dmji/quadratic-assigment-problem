@@ -13,14 +13,15 @@ namespace Algorithms
             public Individ(CPermutation src) : base(src) { }
 
             ///<summary>Construct permutation from list</summary>
-            public Individ(ICollection<ushort> src) : base(src) {}
+            public Individ(Func<IPermutation,long> calc,ICollection<ushort> src) : base(calc,src) {}
 
             ///<summary>Construct corrupted permutation, <c>count</c> is problem size, <c>fill</c> is int in all slots </summary>
-            public Individ(ushort count, ushort filler) : base(count,filler) {}
+            public Individ(Func<IPermutation, long> calc, ushort count, ushort filler) : base(calc, count,filler) {}
 
             ///<summary>Construct random permutation, <c>count</c> is problem size</summary>
-            public Individ(ushort count = 0) : base(count, 0)
+            public Individ(Func<IPermutation, long> calc, ushort count = 0) : base(calc, count, 0)
             {
+                OnEdit();
                 List<ushort> filler = new List<ushort>();
                 for(ushort i = 0; i < count; i++)
                     filler.Add(i);
@@ -32,13 +33,11 @@ namespace Algorithms
                 }
             }
 
-            public static bool operator==(Individ a, Individ b) => a.cost() == b.cost();
-            public static bool operator!=(Individ a, Individ b) => a.cost() != b.cost();
-
             /// <summary>Макромутация: Сальтация </summary>
             /// <param name="src"></param>
             public void _mutationSaltation(int distance = 4)
             {
+                OnEdit();
                 List<ushort> pool = new List<ushort>(this.ToArray());
                 ushort iFirst = (ushort)rand.next(size());
                 pool.Remove(iFirst);
@@ -54,6 +53,7 @@ namespace Algorithms
             /// <param name="src"></param>
             public void _mutationDot()
             {
+                OnEdit();
                 int iRnd = rand.next(size() - 1);
                 swap(iRnd, iRnd + 1);
             }

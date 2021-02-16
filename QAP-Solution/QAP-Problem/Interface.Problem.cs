@@ -7,7 +7,7 @@ namespace Problem
     /// <summary>Class <c>CPermutation</c> models a single permutation in QAP (like in evalution algorithm).</summary>
     public interface IProblem
     {
-        ulong calc(IPermutation src);
+        long calc(IPermutation src);
         ushort size();
     }
 }

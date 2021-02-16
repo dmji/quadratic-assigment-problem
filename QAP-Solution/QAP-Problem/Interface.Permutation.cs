@@ -5,7 +5,7 @@ using System.Linq;
 namespace Problem
 {
     /// <summary>Class <c>CPermutation</c> models a single permutation in QAP (like in evalution algorithm).</summary>
-    public interface IPermutation : IEquatable<IPermutation>
+    public interface IPermutation : IEquatable<object>
     {
         /// <summary> Get permutation as ushort array </summary>
         ushort[] ToArray();
@@ -21,7 +21,7 @@ namespace Problem
 
         IPermutation Clone();
 
-        ulong cost();
+        long cost();
 
         void swap(int i1, int i2);
     }

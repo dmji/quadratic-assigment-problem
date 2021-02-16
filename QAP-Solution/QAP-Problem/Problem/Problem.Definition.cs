@@ -21,11 +21,11 @@ namespace Problem
         /// <summary>calculate criterion</summary>
         /// <param name="CPermutationSrc">premutation to calculate</param>
         /// <returns>double value</returns>
-        public virtual ulong calc(IPermutation src)
+        public virtual long calc(IPermutation src)
         {
             return 0;
         }
 
-        public AProblem(ushort size = 0) { CPermutation.calc = calc; }
+        public AProblem(ushort size = 0) {}
     }
 }

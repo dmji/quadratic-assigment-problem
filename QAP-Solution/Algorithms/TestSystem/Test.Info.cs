@@ -9,15 +9,17 @@ namespace Algorithms
 {
     public partial class TestSystem
     {
-        class TestInfo
+        partial class TestInfo
         {
             public string pathProblem { get; }
-            ulong resultExam;
+            long resultExam;
             bool bExamExist;
 
             public TestInfo(string problem, string resultPath = "")
             {
                 pathProblem = problem;
+                m_aCriterio = new List<double>();
+                m_aCells = new List<string[]>();
                 if(resultPath=="")
                 {
                     resultExam = 0;
@@ -43,12 +45,14 @@ namespace Algorithms
                     str = str.Replace("\r\n", "\n");
                     string[] strSplitN = str.Split('\n');
                     string[] strSplitNSpace = strSplitN[0].Split(' ',StringSplitOptions.RemoveEmptyEntries);
-                    resultExam = Convert.ToUInt64(strSplitNSpace[1]);
+                    resultExam = Convert.ToInt64(strSplitNSpace[1]);
                     bExamExist = true;
                 }
             }
-            public string exam() => resultExam.ToString();
-            public string nameProblem() => pathProblem.Substring(pathProblem.LastIndexOf("\\"), pathProblem.LastIndexOf('.')- pathProblem.LastIndexOf("\\")+1);
+            public long exam() => resultExam;
+            public bool isExamed() => bExamExist;
+
+            public string nameProblem() => pathProblem.Substring(pathProblem.LastIndexOf("\\")+1, pathProblem.LastIndexOf('.')- pathProblem.LastIndexOf("\\")-1);
         }
     }
 }

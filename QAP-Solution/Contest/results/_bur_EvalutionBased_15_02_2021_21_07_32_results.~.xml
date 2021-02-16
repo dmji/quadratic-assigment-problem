@@ -1,0 +1,611 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+    <Version>16.00</Version>
+  </DocumentProperties>
+  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+    <AllowPNG />
+  </OfficeDocumentSettings>
+  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+    <WindowHeight>7980</WindowHeight>
+    <WindowWidth>17490</WindowWidth>
+    <WindowTopX>32767</WindowTopX>
+    <WindowTopY>32767</WindowTopY>
+    <ProtectStructure>False</ProtectStructure>
+    <ProtectWindows>False</ProtectWindows>
+  </ExcelWorkbook>
+  <Styles>
+    <Style ss:ID="Default" ss:Name="Normal">
+      <Alignment ss:Vertical="Bottom" />
+      <Borders />
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Color="#000000" />
+      <Interior />
+      <NumberFormat />
+      <Protection />
+    </Style>
+    <Style ss:ID="yellowColored">
+      <Interior ss:Color="#FFCFF0" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="greenColored">
+      <Interior ss:Color="#009933" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="redColored">
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="greyColored">
+      <Interior ss:Color="#DFDFDF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="boldGrey">
+      <Interior ss:Color="#DFDFDF" ss:Pattern="Solid" />
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
+    </Style>
+    <Style ss:ID="bold">
+      <Interior ss:Color="#FFFFF0" ss:Pattern="Solid" />
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="Results">
+    <Table x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="93" ss:DefaultRowHeight="20">
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">POPULATION_SIZE</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">COSSOVERING_SIZE</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">CROSSOVER_CHANCE</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">MUTATION_CHANCE</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">MUTATING_SIZE</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">STEP_MAXIMUM</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">DELETE_DUPLICAET</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">RANDOM_SEED</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">10</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">20</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">1</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">1</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">5</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">100</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">True</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">50</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">bur26a.</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 26</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 27</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">5426670</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">_0.</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">89</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">4554</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">103610</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">1,90927401150245</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">5530280</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">bur26b.</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 26</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 0</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">3817852</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">_0.</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">68</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">4540</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">89811</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">2,3523960593548416</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">3907663</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">bur26c.</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 26</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 0</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">5426795</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">_0.</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">93</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">4529</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">109529</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">2,018299935781617</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">5536324</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">bur26d.</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 26</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 0</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">3821225</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">_0.</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">69</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">4552</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">73265</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">1,9173170907235244</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">3894490</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">bur26e.</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 26</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 0</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">5386879</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">_0.</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">80</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">4518</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">103994</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">1,9305055858874869</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">5490873</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">bur26f.</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 26</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 0</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">3782044</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">_0.</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">70</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">4494</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">125607</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">3,3211406318911147</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">3907651</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">bur26g.</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 26</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 0</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">10117172</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">_0.</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">68</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">4516</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">200634</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">1,9831035787471043</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">10317806</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">bur26h.</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 26</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 0</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">7098658</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell>
+          <Data ss:Type="String">_0.</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">68</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">4564</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">175248</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">2,4687483183441152</Data>
+        </Cell>
+        <Cell>
+          <Data ss:Type="String">7273906</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row />
+    </Table>
+    <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+      <PageSetup>
+        <Header x:Margin="0.3" />
+        <Footer x:Margin="0.3" />
+        <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75" />
+      </PageSetup>
+      <Selected />
+      <Panes>
+        <Pane>
+          <Number>1</Number>
+          <ActiveRow>1</ActiveRow>
+          <ActiveCol>1</ActiveCol>
+        </Pane>
+      </Panes>
+      <ProtectObjects>False</ProtectObjects>
+      <ProtectScenarios>False</ProtectScenarios>
+    </WorksheetOptions>
+  </Worksheet>
+</Workbook>

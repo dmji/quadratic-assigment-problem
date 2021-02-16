@@ -5,15 +5,19 @@ namespace Util
 {
     public class Logger
     {
-        StreamWriter m_s;
+        System.Threading.Thread m_thread;
+        string m_log="";
+        StreamWriter m_stream;
+        bool m_bThreadOk;
+        public Logger() {}
         public Logger(string path, string name) { init(path,name); }
 
         public Func<string,bool> init(string path="", string sAlg = "")
         {
             if(path.Length>0 && sAlg.Length>0)
             {
-                if(m_s != null)
-                    m_s.Close();
+                if(m_stream != null)
+                    m_stream.Close();
                 string time = DateTime.Now.ToString();
                 time = time.Replace(":", "_");
                 time = time.Replace(" ", "_");
@@ -21,28 +25,52 @@ namespace Util
                 string pathLog = $"{path}{sAlg}_{time}_log.~.txt";
                 if(!System.IO.File.Exists(pathLog))
                     System.IO.File.Create(pathLog).Close();
-                m_s = new StreamWriter(pathLog);
+                m_stream = new StreamWriter(pathLog);
+                m_thread = new System.Threading.Thread(threadWorker);
+                m_bThreadOk = true;
+                m_thread.Start();
             }
-            if(m_s == null)
+            if(m_stream == null)
                 throw new Exception("Need init w/ params");
             return msg;
         }
 
         public bool msg(string str)
         {
-            m_s.WriteLine($"{DateTime.Now} {str}");
+            lock(m_log)
+            {
+                m_log += $"{DateTime.Now} {str}\n";
+            } 
             Console.WriteLine($"{DateTime.Now} {str}");
             return true;
         }
 
         public bool Close()
         {
-            if(m_s != null)
+            m_bThreadOk = false;
+            while(m_thread.IsAlive) System.Threading.Thread.Sleep(150);
+            if(m_stream != null)
             {
-                m_s.Close();
+                m_stream.Close();
                 return true;
             }
             return false;
+        }
+
+        void threadWorker()
+        {
+            while(m_bThreadOk || m_log.Length>0)
+            {
+                if(m_log.Length > 0)
+                {
+                    lock(m_log)
+                    {
+                        m_stream.Write(m_log);
+                        m_log = "";
+                    }
+                }
+                System.Threading.Thread.Sleep(1000);
+            }
         }
     }
 }

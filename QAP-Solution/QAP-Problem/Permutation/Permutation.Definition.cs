@@ -7,18 +7,24 @@ namespace Problem
     /// <summary>Class <c>CPermutation</c> models a single permutation in QAP (like in evalution algorithm).</summary>
     public partial class CPermutation : IPermutation
     {
-        public static Func<CPermutation, ulong> calc;
+        Func<IPermutation, long> m_calc = null;
         ///<summary>permutation</summary>
         ushort[] m_p;
-        ulong m_c;
-        bool m_bUncalc = true;
+        long m_c;
+        bool m_bCalced = false;
 
-
-        public ulong cost()
+        protected void OnEdit()
         {
-            if(m_bUncalc)
-                m_c = calc(this);
-            m_bUncalc = false;
+            m_bCalced = false;
+        }
+
+        public long cost()
+        {
+            if(!m_bCalced)
+            {
+                m_c = m_calc(this);
+                m_bCalced = true;
+            }
             return m_c;
         }
 
@@ -26,19 +32,7 @@ namespace Problem
         public int size() => m_p.Length;
 
         /// <summary>index operator</summary>
-        public ushort this[int i] { get => m_p[i]; set { m_bUncalc = true; m_p[i] = value; } }
-
-		public bool Equals(IPermutation other)
-        {
-            if(this.GetType() != other.GetType() || other == null)
-                return false;
-            for(int i = 0; i < m_p.Length; i++)
-            {
-                if(m_p[i] != other[i])
-                    return false;
-            }
-            return true;
-        }
+        public ushort this[int i] { get => m_p[i]; set { OnEdit(); m_p[i] = value; } }
 
         /// <summary> Get permutation as ushort array </summary>
         public ushort[] ToArray() => m_p/*.Clone()*/; // ??
@@ -51,7 +45,7 @@ namespace Problem
             for(; i < m_p.Length-1; i++)
                 result = result + m_p[i] + " ";
             result = result + m_p[i];
-            return result + " : " + cost();
+            return result + (m_c >= 0 ? (" : " + m_c.ToString()) : "");
         }
 
         public IPermutation Clone() => new CPermutation(this);
@@ -61,7 +55,30 @@ namespace Problem
             ushort tmp = m_p[i1];
             m_p[i1] = m_p[i2];
             m_p[i2] = tmp;
+            OnEdit();
         }
-
+        public override int GetHashCode() => m_p.GetHashCode();
+        public static bool operator ==(CPermutation a, CPermutation b) => a.cost() == b.cost();
+        public static bool operator !=(CPermutation a, CPermutation b) => !(a == b);
+        public override bool Equals(object a)
+        {
+            if(a is IPermutation)
+            {
+                if(a != null && GetType() == a.GetType())
+                {
+                    CPermutation other = (CPermutation)a;
+                    if(!(m_bCalced && other.m_bCalced && m_c == other.m_c))
+                    {
+                        for(int i = 0; i < m_p.Length; i++)
+                        {
+                            if(m_p[i] != other[i])
+                                return false;
+                        }
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

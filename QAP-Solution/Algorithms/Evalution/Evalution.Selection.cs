@@ -16,7 +16,7 @@ namespace Algorithms
                 for (int iTour = 0; iTour < BtournamentSize; iTour++)
                 {
                     int curIndex = rand.next(src.Count);
-                    if (bestIndex == -1 || src[bestIndex].cost() > src[curIndex].cost())
+                    if (bestIndex == -1 || calc(src[bestIndex]) > calc(src[curIndex]))
                         bestIndex = curIndex;
                 }
                 aResult.Add(src[bestIndex]);

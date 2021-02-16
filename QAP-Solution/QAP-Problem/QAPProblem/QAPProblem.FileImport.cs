@@ -35,42 +35,73 @@ namespace Problem
 					while(buf.Contains("\n "))
 						buf = buf.Replace("\n ", "\n");
 					buf = buf.Replace("\r\n", "\n");
-					//while(buf.Contains("\n\n"))
-					//	buf = buf.Replace("\n\n", "\n");
 				}
 				m_ProblemSize = ushort.Parse(buf.Substring(0, buf.IndexOf('\n')));
-				aData = buf.Substring(buf.IndexOf('\n') + 1).Split("\n\n");
-				for(int i = 0; i < aData.Length; i++)
-				{
-					aData[i] = aData[i].Replace('\n', ' ');
-					aData[i] = aData[i].Trim(' ');
-				}
-
 				init(m_ProblemSize);
-
-				for(int iData = 0; iData < aData.Length; iData++)
+				buf = buf.Substring(buf.IndexOf('\n') + 1);
+				aData = buf.Split("\n\n", StringSplitOptions.RemoveEmptyEntries);
+				if(aData.Length > 1 && aData.Length < 3)
 				{
-					if(aData[iData].Length == 0)
-						continue;
-					int ind = 0;
-					string[] pData = aData[iData].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-					for(int i = 0; i < m_ProblemSize; i++)
+					for(int i = 0; i < aData.Length; i++)
 					{
-						for(int j = 0; j < m_ProblemSize; j++)
+						aData[i] = aData[i].Replace('\n', ' ');
+						aData[i] = aData[i].Trim(' ');
+					}
+					for(int iData = 0; iData < aData.Length; iData++)
+					{
+						if(aData[iData].Length == 0)
+							continue;
+						int ind = 0;
+						string[] pData = aData[iData].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+						for(int i = 0; i < m_ProblemSize; i++)
 						{
-							switch(iData)
+							for(int j = 0; j < m_ProblemSize; j++)
 							{
-								case 0:
-									m_tFlow[i, j] = int.Parse(pData[ind++]);
-									break;
-								case 1:
-									m_tDistance[i, j] = int.Parse(pData[ind++]);
-									break;
-								case 2:
-									m_tPositionCost[i, j] = int.Parse(pData[ind++]);
-									break;
-								default:
-									break;
+								switch(iData)
+								{
+									case 0:
+										m_tFlow[i, j] = int.Parse(pData[ind++]);
+										break;
+									case 1:
+										m_tDistance[i, j] = int.Parse(pData[ind++]);
+										break;
+									case 2:
+										m_tPositionCost[i, j] = int.Parse(pData[ind++]);
+										break;
+									default:
+										break;
+								}
+							}
+						}
+					}
+				}
+				else
+                {
+					buf = buf.Replace("\n\n", "\n");
+					buf = buf.Replace("\n", " ");
+					string[] data = buf.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+					int n = Convert.ToInt32(Math.Pow(m_ProblemSize, 2)), ind=0;
+					if(data.Length >= n)
+					{
+						for(int i = 0; i < m_ProblemSize; i++)
+						{
+							for(int j=0;j<m_ProblemSize;j++)
+								m_tFlow[i, j] = int.Parse(data[ind++]);
+						}
+						if(data.Length >= 2*n)
+                        {
+							for(int i = 0; i < m_ProblemSize; i++)
+							{
+								for(int j = 0; j < m_ProblemSize; j++)
+									m_tDistance[i, j] = int.Parse(data[ind++]);
+							}
+							if(data.Length >= 3*n)
+							{
+								for(int i = 0; i < m_ProblemSize; i++)
+								{
+									for(int j = 0; j < m_ProblemSize; j++)
+										m_tPositionCost[i, j] = int.Parse(data[ind++]);
+								}
 							}
 						}
 					}

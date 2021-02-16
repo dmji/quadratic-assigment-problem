@@ -31,7 +31,7 @@ namespace Algorithms
             string m_name;
 
             public string getName() => m_name;
-
+            public int getSeed() => DEFINE_RANDOM_SEED;
             public void serielize(string path)
             {
                 if(!System.IO.File.Exists(path))
@@ -58,7 +58,7 @@ namespace Algorithms
                 System.IO.StreamReader reader = new System.IO.StreamReader(path);
                 string file = reader.ReadToEnd();
                 init(System.Text.Json.JsonSerializer.Deserialize<Options>(file));
-                m_name = path.Substring(path.LastIndexOf('\\'), path.LastIndexOf('.')-path.LastIndexOf('\\')+1); 
+                m_name = path.Substring(path.LastIndexOf('\\')+1, path.LastIndexOf('.')-path.LastIndexOf('\\')-1); 
                 reader.Close();
             }
 
@@ -85,15 +85,19 @@ namespace Algorithms
 
             public void init(Options obj)
             {
-                DEFINE_POPULATION_SIZE = obj.DEFINE_POPULATION_SIZE;
-                DEFINE_COSSOVERING_SIZE = obj.DEFINE_COSSOVERING_SIZE;
-                DEFINE_CROSSOVER_CHANCE = obj.DEFINE_CROSSOVER_CHANCE;
-                DEFINE_MUTATION_CHANCE = obj.DEFINE_MUTATION_CHANCE;
-                DEFINE_MUTATING_SIZE = obj.DEFINE_MUTATING_SIZE;
-                DEFINE_STEP_MAXIMUM = obj.DEFINE_STEP_MAXIMUM;
-                DEFINE_DELETE_DUPLICAET = obj.DEFINE_DELETE_DUPLICAET;
-                DEFINE_RANDOM_SEED = obj.DEFINE_RANDOM_SEED;
+                init(obj.DEFINE_POPULATION_SIZE,
+                obj.DEFINE_COSSOVERING_SIZE,
+                obj.DEFINE_CROSSOVER_CHANCE,
+                obj.DEFINE_MUTATION_CHANCE,
+                obj.DEFINE_MUTATING_SIZE,
+                obj.DEFINE_STEP_MAXIMUM,
+                obj.DEFINE_DELETE_DUPLICAET,
+                obj.DEFINE_RANDOM_SEED);
             }
+
+            public string getValues() => $"{m_name};{DEFINE_POPULATION_SIZE};{DEFINE_COSSOVERING_SIZE};{DEFINE_CROSSOVER_CHANCE};{DEFINE_MUTATION_CHANCE};{DEFINE_MUTATING_SIZE};{DEFINE_STEP_MAXIMUM};{DEFINE_DELETE_DUPLICAET};{DEFINE_RANDOM_SEED}";
+            public string getValuesNames() => "OPTIONSET_NAME;DEFINE_POPULATION_SIZE;DEFINE_COSSOVERING_SIZE;DEFINE_CROSSOVER_CHANCE;DEFINE_MUTATION_CHANCE;DEFINE_MUTATING_SIZE;DEFINE_STEP_MAXIMUM;DEFINE_DELETE_DUPLICAET;DEFINE_RANDOM_SEED";
+
         }
     }
 }

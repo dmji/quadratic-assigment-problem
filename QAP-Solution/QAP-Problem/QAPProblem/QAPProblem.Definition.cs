@@ -25,14 +25,21 @@ namespace Problem
         /// <summary>calculate criterion</summary>
         /// <param name="CPermutationSrc">premutation to calculate</param>
         /// <returns>double value</returns>
-        public override ulong calc(IPermutation src)
+        public override long calc(IPermutation src)
         {
-            ulong res = 0;
+            long res = 0, res_check = 0;
+
             for(int i = 0; i < src.size(); i++)
             {
                 for(int j = 0; j < src.size(); j++)
-                    res = res + Convert.ToUInt64(m_tFlow[src[i], src[j]] * m_tDistance[i, j] + m_tPositionCost[i, src[j]]);
+                    res +=  m_tDistance[src[i], src[j]] * m_tFlow[i, j] + m_tPositionCost[i, src[j]];
             }
+
+            //System.Threading.Tasks.ParallelLoopResult lp = System.Threading.Tasks.Parallel.For(0, src.size(), i =>
+            // {
+            //     for(int j = 0; j < src.size(); j++)
+            //         res_check += m_tDistance[src[i], src[j]] * m_tFlow[i, j] + m_tPositionCost[i, src[j]];
+            // });
             return res;
         }
     }

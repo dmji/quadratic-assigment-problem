@@ -1,1 +1,1 @@
-<test name="_bur" pathProblems="qap-lib\bur26*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
+<test name="_bur" pathProblems="qap-lib\bur*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>

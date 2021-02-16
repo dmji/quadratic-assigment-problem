@@ -89,7 +89,7 @@ namespace Algorithms
         //}
 
         /// <summary>CX - Cycle Crossiver : all variant in List return</summary>
-        protected List<Individ> cx_all_crossover(Individ a, Individ b)
+        protected List<Individ> cx_all_crossover(Individ a, Individ b, int limiter=-1)
         {
             List<List<int>> aCycles = new List<List<int>>();
             List<int> aTemp = new List<int>();
@@ -112,7 +112,7 @@ namespace Algorithms
                 }
                 else
                 {
-                    aResult.Add(new Individ(src));
+                    aResult.Add(new Individ(m_q.calc, src));
                 }
             }
             //CYCLES CONSTRUCTION
@@ -137,6 +137,11 @@ namespace Algorithms
             }
             //CYCLES CONSUMING
             _recursion(aPerm,0);
+            if(limiter>0)
+            {
+                while(aResult.Count>limiter)
+                    aResult.RemoveAt(rand.next(aResult.Count));
+            }
             return aResult;
         }
 
@@ -161,10 +166,19 @@ namespace Algorithms
             List<int> aPool = new List<int>();
             for(int i = 0; i < aPopulation.Count; i++)
                 aPool.Add(i);
-            while(iter++ < count)
+            //while(iter++ < count)
+            //{
+            //    int rnd1 = rand.next(aPool.Count), rnd2 = rand.next(aPool.Count);
+            //    aResult.AddRange(cx_all_crossover(aPopulation[aPool[rnd1]], aPopulation[aPool[rnd2]], count));
+            //}
+            while(aPool.Count > 0)
             {
-                int rnd1 = rand.next(aPool.Count), rnd2 = rand.next(aPool.Count);
-                aResult.AddRange(cx_all_crossover(aPopulation[aPool[rnd1]], aPopulation[aPool[rnd2]]));
+                int rnd = rand.next(aPool.Count), v1 = aPool[rnd], v2=0;
+                aPool.RemoveAt(rnd);
+                rnd = rand.next(aPool.Count);
+                v2 = aPool[rnd];
+                aPool.RemoveAt(rnd);
+                aResult.AddRange(cx_all_crossover(aPopulation[v1], aPopulation[v2], count));
             }
             return aResult;
         }

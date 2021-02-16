@@ -37,7 +37,7 @@ namespace Problem
 						msg(log + "ERROR");
 						return -2;
 					}
-					ulong a = calc(x), b = calc(y);
+					long a = calc(x), b = calc(y);
 					if(a == b)
 					{
 						msg(log + "EQUAL(0)");

@@ -1,1 +1,1 @@
-<test name="_tai" pathProblems="qap-lib\tai*" pathOptions="OptionSetEvalution\*" pathLog="logs\"></test>
+<test name="_bur" pathProblems="qap-lib\tai10b*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>

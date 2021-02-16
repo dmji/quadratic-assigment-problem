@@ -26,8 +26,12 @@ namespace Problem
             }
 
             if(p == null)
-                p = new CPermutation(sizeQAP);
-
+            {
+                List<ushort> ar = new List<ushort>();
+                for(ushort i = 0; i < sizeQAP; i++)
+                    ar.Add(i);
+                p = new CPermutation(null, ar);
+            }
             List<List<int>> D = new List<List<int>>();
             int[] rs = rs_count(sizeQAP);
             //D countig
