@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using Problem;
 using Util;
 using System.IO;
 using System.Xml;
@@ -127,6 +126,30 @@ namespace Algorithms
                 aRes.Add(convName);
             }
             return aRes;
+        }
+
+        static void addResult(TestInfo test, string optName, string timer, double calcs, double resultValue, bool bSingleExec=true, OptionsStatistic optStat=null, string resultBest = "", int size = 0)
+        {
+            if(test.isExamed())
+            {
+                long examVal = test.exam();
+                double err = resultValue - examVal;
+                double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : 0;
+                if(bSingleExec)
+                    test.AddRow(errPersent, optName, timer, calcs.ToString(), err.ToString(), errPersent.ToString(), resultValue.ToString());
+                else
+                {
+                    test.AddRow(errPersent, optName, timer, calcs.ToString(), err.ToString(), errPersent.ToString(), resultValue.ToString(), resultBest);
+                    optStat.addStat(optName, size, errPersent);
+                }
+            }
+            else
+            {
+                if(bSingleExec)
+                    test.AddRow(-1, optName, timer, calcs.ToString(), "-", "-", resultValue.ToString());
+                else
+                    test.AddRow(-1, optName, timer, calcs.ToString(), "-", "-", resultValue.ToString(), resultBest);
+            }
         }
     }
 }

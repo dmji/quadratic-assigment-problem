@@ -25,10 +25,15 @@ namespace Problem
                             "C:\\Users\\leysh\\source\\repos\\dmji\\quadratic-assigment-problem\\QAP-Solution\\Contest\\_bur.xml",    //15
                             "C:\\Users\\leysh\\source\\repos\\dmji\\quadratic-assigment-problem\\QAP-Solution\\Contest\\_ff.xml" };    //16
 
-            TestSystem.StartTestProblemPerformance(path[7]);
-            //TestSystem.StartTestEvalutionSingle(path[0]);
-            //TestSystem.StartTestEvalutionMultiply(10, path[0]);
+
+            //for(int i = 0; i < 15; i++)
+                TestSystem.StartTestEvalution(path[0],20);
+            
+            //fullforce for size <15
             //TestSystem.StartTestFullforce(path[16]);
+            
+            //performance check - "nug"
+            //TestSystem.StartTestProblemPerformance(path[7]);
         }
     }
 }

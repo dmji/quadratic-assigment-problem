@@ -39,6 +39,8 @@ namespace Algorithms
                             minVal = m_aCriterio[i];
                         }
                     }
+                    if(minVal == -1)
+                        min = -1;
                     for(int i = 0; i < m_aCells.Count; i++)
                     {
                         tbl.addRow();

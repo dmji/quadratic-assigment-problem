@@ -23,14 +23,22 @@ namespace Algorithms
                 List<ushort> perm = new List<ushort>(QAP.size());
                 for(ushort i = 0; i < QAP.size(); i++)
                     perm.Add(i);
-                timer.Reset();
-                long cST = QAP.calc(new CPermutation(QAP.calc, perm));
-                long timeST = timer.StopT();
-                timer.Reset();
-                long cMT = QAP.calc(new CPermutation(QAP.calc, perm));
-                long timeMT = timer.StopT();
-                string check = cST == cMT ? "OK" : "NK";
-                Console.WriteLine($"{QAP.size()} {check} : {timeST} vs {timeMT} = {timeST-timeMT}"); 
+
+                CPermutation cur = new CPermutation(QAP.calc, perm);
+                for(int i = 0; i < 100; i++)
+                {
+                    long ct = QAP.calc(cur);
+                    string tt = (ct+1).ToString();
+                }
+                Console.Write($"{QAP.size()} : ");
+                for(int i = 0; i < 10; i++)
+                {
+                    timer.Reset();
+                    long c = QAP.calc(cur);
+                    long t = timer.StopT();
+                    Console.Write($"{t} ");
+                }
+                Console.Write("\n");
             }
         }
     }
