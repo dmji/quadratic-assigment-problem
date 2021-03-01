@@ -9,7 +9,8 @@ namespace Algorithms
         protected List<Individ> SELECTION(List<Individ> src,int populationSize, int BtournamentSize=2)
         {
             List<Individ> aResult = new List<Individ>();
-
+            if(src.Count == 0)
+                msg("T");
             for (int i = 0; i < populationSize; i++)
             {
                 int bestIndex = -1;

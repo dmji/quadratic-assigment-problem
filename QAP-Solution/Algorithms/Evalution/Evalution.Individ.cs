@@ -35,13 +35,13 @@ namespace Algorithms
 
             /// <summary>Макромутация: Сальтация </summary>
             /// <param name="src"></param>
-            public void _mutationSaltation(int distance = 4)
+            public void _mutationSaltation(int M_SALT_SIZEi = 4)
             {
                 OnEdit();
                 List<ushort> pool = new List<ushort>(this.ToArray());
                 ushort iFirst = (ushort)rand.next(size());
                 pool.Remove(iFirst);
-                for(int i = 0; i < distance; i++)
+                for(int i = 0; i < M_SALT_SIZEi; i++)
                 {
                     ushort iSecond = (ushort)rand.next(pool.Count);
                     pool.Remove(iSecond);

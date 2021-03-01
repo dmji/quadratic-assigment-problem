@@ -11,6 +11,12 @@ namespace Algorithms
     {
         partial class TestInfo
         {
+            void resetStats()
+            {
+                m_aCriterio = new List<double>();
+                m_aCells = new List<string[]>();
+            }
+
             List<double> m_aCriterio;
             List<string[]> m_aCells;
             public void AddRow(double criterio, params string[] aStr)

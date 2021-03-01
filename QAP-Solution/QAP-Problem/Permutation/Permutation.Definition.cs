@@ -58,7 +58,17 @@ namespace Problem
             OnEdit();
         }
         public override int GetHashCode() => m_p.GetHashCode();
-        public static bool operator ==(CPermutation a, CPermutation b) => a.cost() == b.cost();
+        public static bool operator ==(CPermutation a, CPermutation b)
+        {
+            if((object)a == null && (object)b == null)
+                return true;
+            else if(((object)a == null && (object)b != null) || ((object)a != null && (object)b == null))
+                return false;
+            else if(a.m_bCalced == true && b.m_bCalced == true)
+                return a.cost() == b.cost();
+            else
+                return a.m_c == b.m_c;
+        }
         public static bool operator !=(CPermutation a, CPermutation b) => !(a == b);
         public override bool Equals(object a)
         {

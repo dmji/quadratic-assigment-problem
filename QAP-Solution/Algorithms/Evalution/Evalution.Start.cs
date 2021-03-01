@@ -19,30 +19,32 @@ namespace Algorithms
         {
             Options opt = (Options)obj;
             diagReset();
-            rand.init(opt.DEFINE_RANDOM_SEED);
+            rand.init(opt.U_SEEDi);
 
             START_TIMER();
 
             Individ bestIndivid = null;
-            int POPULATION_ITERATION = 0, CONTROL_ITERATION=0;
+            int POPULATION_ITERATION = 0            // всего итераций
+                , CONTROL_ITERATION=0;              // итераций для выхода
             
             //генерация начальной популяции
-            //GEENERETE_POPULATION - создает DEFINE_POPULATION_SIZE перестановок с Хемминговым расстоянием не равным 0
-            List<Individ> curGen = GEENERETE_POPULATION(opt.DEFINE_POPULATION_SIZE);
+            //GEENERETE_POPULATION - создает P_SIZEi перестановок с Хемминговым расстоянием не равным 0
+            List<Individ> curGen = GEENERETE_POPULATION(opt.P_SIZEi, opt.H_MINi);
             double prevGenAvgCost = GenerationAvgCost(curGen);
-            while (CONTROL_ITERATION <= opt.DEFINE_STEP_MAXIMUM)
+            while (CONTROL_ITERATION <= opt.E_LIMi)
             {
                 msg($"Start. Iteration {++POPULATION_ITERATION} begin");
                 //создание нового поколения
-                List<Individ> nextGen = REPRODUCTION(curGen, opt.DEFINE_COSSOVERING_SIZE);
+                List<Individ> nextGen = REPRODUCTION(curGen, opt.C_SIZEi, opt.C_CHANCEi);
 
                 //мутация с вероятностью MUTATION_CHANCE всех индивидов нового поколения
-                nextGen=MUTATION(nextGen, opt.DEFINE_MUTATING_SIZE, 0, opt.DEFINE_MUTATION_CHANCE);
-
-                //nextGen.AddRange(curGen); // использование прошлого поколения в селекции
+                nextGen=MUTATION(nextGen, opt.M_SIZEi, opt.M_TYPEi, opt.M_CHANCEi, opt.M_SALT_SIZEi);
+                
+                if(opt.S_EXTENDb)
+                    nextGen.AddRange(curGen); // использование прошлого поколения в селекции
 
                 //очистка от дубликатов
-                if(opt.DEFINE_DELETE_DUPLICAET)
+                if(!opt.S_DUPLICATEb)
                 {
                     List<Individ> aDuplicateless = new List<Individ>();
                     while(nextGen.Count > 0)
@@ -54,11 +56,14 @@ namespace Algorithms
                 }
 
                 //селекция
-                curGen = SELECTION(nextGen, opt.DEFINE_POPULATION_SIZE, 2);
+                curGen = SELECTION(nextGen, opt.P_SIZEi, opt.S_TOURNi);
 
                 var min = curGen.Min(x => calc(x));
                 //поиск лучшего
-                bestIndivid = curGen.Find(x=>calc(x) == min);
+                if(bestIndivid == null)
+                    bestIndivid = curGen.Find(x=>calc(x) == min);
+                else if(bestIndivid != null && bestIndivid.cost() > min)
+                    bestIndivid = curGen.Find(x => calc(x) == min);
 
                 //вычисление суммы
                 double curGenAvgCost = GenerationAvgCost(curGen);

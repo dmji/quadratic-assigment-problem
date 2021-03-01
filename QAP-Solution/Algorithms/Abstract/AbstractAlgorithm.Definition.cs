@@ -32,7 +32,6 @@ namespace Algorithms
         public void reset(IProblem problem)
         {
             diagReset();
-            m_stepPredict = 0;
             m_q = problem;
         }
 

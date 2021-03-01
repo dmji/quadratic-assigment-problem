@@ -22,24 +22,19 @@ namespace Problem
             m_tPositionCost = size == 0 ? null : new int[m_ProblemSize, m_ProblemSize];
         }
 
+        string locker = "a";
+
         /// <summary>calculate criterion</summary>
         /// <param name="CPermutationSrc">premutation to calculate</param>
         /// <returns>double value</returns>
         public override long calc(IPermutation src)
         {
-            long res = 0, res_check = 0;
-
+            long res = 0;
             for(int i = 0; i < src.size(); i++)
             {
                 for(int j = 0; j < src.size(); j++)
-                    res +=  m_tDistance[src[i], src[j]] * m_tFlow[i, j] + m_tPositionCost[i, src[j]];
+                    res += m_tDistance[src[i], src[j]] * m_tFlow[i, j] + m_tPositionCost[i, src[j]];
             }
-
-            //System.Threading.Tasks.ParallelLoopResult lp = System.Threading.Tasks.Parallel.For(0, src.size(), i =>
-            // {
-            //     for(int j = 0; j < src.size(); j++)
-            //         res_check += m_tDistance[src[i], src[j]] * m_tFlow[i, j] + m_tPositionCost[i, src[j]];
-            // });
             return res;
         }
     }

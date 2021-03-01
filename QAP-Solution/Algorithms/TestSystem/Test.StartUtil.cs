@@ -27,7 +27,19 @@ namespace Algorithms
             return aResult;
         }
 
-        private static void init(string path, ref List<TestInfo> aTest, ref List<IOptions> aOptions, ref Logger log, ref ITabler tbl)
+        static void writeHeader(ITabler tbl, List<IOptions> aOptions)
+        {
+            tbl.addCells("boldGrey", aOptions[0].getValuesNames().Replace("DEFINE_", "").Replace("_", " ").Split(';', StringSplitOptions.RemoveEmptyEntries));
+            foreach(IOptions opt in aOptions)
+            {
+                tbl.addRow();
+                tbl.addCells("greyColored", opt.getValues().Split(';', StringSplitOptions.RemoveEmptyEntries));
+            }
+            tbl.addRow();
+            tbl.addRow();
+        }
+
+        static void initEvalution(string path, ref List<TestInfo> aTest, ref List<IOptions> aOptions, ref Logger log, ref ITabler tbl)
         {
             XmlReader xml = XmlReader.Create(path);
             xml.Read();
@@ -41,6 +53,10 @@ namespace Algorithms
 
             List<string> aProblemFile = getArrtibuteDirFiles(xml, "pathProblems", path, ".dat");
             List<string> aResultFile = getArrtibuteDirFiles(xml, "pathProblems", path, ".bin");
+            List<string> aResultFileCorrupt = new List<string>();
+
+            List<string> aResultFileToConvert = getArrtibuteDirFiles(xml, "pathProblems", path, ".sln");
+            aResultFile.AddRange(convertResultsToBin(aResultFileToConvert, ".sln", ".bin"));
 
             aTest = new List<TestInfo>();
             while(aProblemFile.Count > 0)
@@ -60,7 +76,10 @@ namespace Algorithms
                     }
                 }
                 if(!bExamFound)
+                {
                     aTest.Add(new TestInfo(aProblemFile[0]));
+                    aResultFileCorrupt.Add(aTest[aTest.Count-1].nameProblem());
+                } 
                 aProblemFile.RemoveAt(0);
             }
 
@@ -73,60 +92,41 @@ namespace Algorithms
             tbl = new Tabler(pathTable, $"{xml.GetAttribute("name")}_{EvalutionAlgorithm.getName(true)}", pathTemplate);
         }
 
-        public static void StartTestEvalution(string path)
+        static string initFullforce(string path, ref List<TestInfo> aTest)
         {
-            Logger log = null;
-            ITabler tbl = null;
-            List<TestInfo> aTest = null;
-            List<IOptions> aOptions = null;
-            init(path, ref aTest, ref aOptions, ref log, ref tbl);
-            Timer timer = new Timer();
+            XmlReader xml = XmlReader.Create(path);
+            xml.Read();
+            path = path.Substring(0, path.LastIndexOf('\\') + 1);
 
-            tbl.addCells("boldGrey",aOptions[0].getValuesNames().Replace("DEFINE_", "").Replace("_"," ").Split(';',StringSplitOptions.RemoveEmptyEntries));
-            foreach(IOptions opt in aOptions)
-            {
-                tbl.addRow();
-                tbl.addCells("greyColored", opt.getValues().Split(';', StringSplitOptions.RemoveEmptyEntries));
-            }
-            tbl.addRow();
-            tbl.addRow();
-            foreach(TestInfo test in aTest)
-            {
-                timer.Reset();
-                CQAPProblem QAP = new CQAPProblem(test.pathProblem);
-                string timeLoad = timer.Stop();
-                long examVal = test.exam();
-                tbl.addCells("bold", "Name problem", test.nameProblem(), $"Size: {QAP.size()}",$"Load time: {timeLoad}","Optimal:", test.isExamed() ? examVal.ToString() : "UNDEFINED");
-                tbl.addRow();
-                tbl.addCells("bold", "Option set", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
-                Algorithm ALG = new EvalutionAlgorithm(QAP);
+            List<string> aProblemFile = getArrtibuteDirFiles(xml, "pathProblems", path, ".dat");
 
-                //ALG.setLogger(log);
-                //QAP.setLogger(log);
-                foreach(IOptions opt in aOptions)
-                {
-                    timer.Reset();
-                    ALG.Start(opt);
-                    string timerAlg = timer.Stop();
-                    log.msg($"On opt: {opt.getName()} problem {test.nameProblem()} log:{ALG})");
-                    if(test.isExamed())
-                    {
-                        double err = ALG.ResultValue() - examVal;
-                        double errPersent = (err / ((double)examVal) * 100);
-                        test.AddRow(errPersent, opt.getName(), timerAlg, ALG.strCalcCount(), err.ToString(), errPersent.ToString(), ALG.ResultValue().ToString());
-                    }
-                    else
-                    {
-                        tbl.addRow();
-                        tbl.addCells("simple", opt.getName(), timerAlg, ALG.strCalcCount(), "-", "-", ALG.ResultValue().ToString());
-                    }
-                }
-                test.RelaseRow(tbl);
-                tbl.addRow();
-                tbl.addRow();
+            aTest = new List<TestInfo>();
+            while(aProblemFile.Count > 0)
+            {
+                aTest.Add(new TestInfo(aProblemFile[0]));
+                aProblemFile.RemoveAt(0);
             }
-            log.Close();
-            tbl.Close();
+            return path;
+        }
+
+        static List<string> convertResultsToBin(List<string> aPath, string oldExt, string newExt)
+        {
+            List<string> aRes = new List<string>();
+            foreach(string resultPath in aPath)
+            {
+                StreamReader file = new StreamReader(resultPath);
+                string str = file.ReadToEnd();
+
+                string convName = resultPath.Replace(oldExt, newExt);
+                if(!System.IO.File.Exists(convName))
+                    System.IO.File.Create(convName).Close();
+                StreamWriter converter = new StreamWriter(convName);
+                converter.Write(str);
+                converter.Close();
+
+                aRes.Add(convName);
+            }
+            return aRes;
         }
     }
 }

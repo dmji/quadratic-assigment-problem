@@ -6,22 +6,21 @@ namespace Algorithms
 {
     public partial class EvalutionAlgorithm
     {
-        protected List<Individ> MUTATION(List<Individ> src, int count = 0, int type = 0, double mChance = 1)
+        protected List<Individ> MUTATION(List<Individ> src, int M_SIZEi = 0, int M_TYPEi = 0, double M_CHANCEi = 1, int M_SALT_SIZEi = 4)
         {
             int mutationCounter = 0;
             List<Individ> aResult=new List<Individ>(src.ToArray());
             List<int> aMutatedIndividsId = new List<int>();
-            if(src.Count < count)
-                count = src.Count;
-            while (mutationCounter < count)
+            int size = (src.Count < M_SIZEi) ? src.Count : M_SIZEi;
+            while (mutationCounter < size)
             {
                 int iRnd = rand.next(src.Count);
-                if (aMutatedIndividsId.Contains(iRnd) == false)
+                if (aMutatedIndividsId.Contains(iRnd) == false && M_CHANCEi >= rand.next(101))
                 {
-                    switch (type)
+                    switch (M_TYPEi)
                     {
                         case 0:
-                            aResult[iRnd]._mutationSaltation();
+                            aResult[iRnd]._mutationSaltation(M_SALT_SIZEi);
                             break;
                         case 1:
                             aResult[iRnd]._mutationDot();

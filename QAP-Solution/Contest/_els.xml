@@ -1,0 +1,1 @@
+<test name="_els" pathProblems="qap-lib\els*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>

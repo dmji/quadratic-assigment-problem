@@ -21,10 +21,16 @@ namespace Util
             return result;
         }
 
-        public string Stop()
+        public long Stop()
         {
             time.Stop();
-            return time.ElapsedMilliseconds.ToString();
+            return time.ElapsedMilliseconds;
+        }
+
+        public long StopT()
+        {
+            time.Stop();
+            return time.ElapsedTicks;
         }
 
         public override string ToString() => time.ToString();

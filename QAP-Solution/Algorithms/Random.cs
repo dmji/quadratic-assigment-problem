@@ -13,7 +13,10 @@ namespace Algorithms
 
         public static void init(int seed)
         {
-            m_rnd = new Random(seed);
+            if(seed > 0)
+                m_rnd = new Random(seed);
+            else
+                m_rnd = new Random();
         }
 
     }

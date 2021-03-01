@@ -159,9 +159,8 @@ namespace Algorithms
         }
 
         /// <summary>Panmixia</summary>
-        protected List<Individ> REPRODUCTION(List<Individ> aPopulation, int count)
+        protected List<Individ> REPRODUCTION(List<Individ> aPopulation, int C_SIZEi, int C_CHANCEi)
         {
-            int iter=0;
             List<Individ> aResult = new List<Individ>();
             List<int> aPool = new List<int>();
             for(int i = 0; i < aPopulation.Count; i++)
@@ -171,14 +170,15 @@ namespace Algorithms
             //    int rnd1 = rand.next(aPool.Count), rnd2 = rand.next(aPool.Count);
             //    aResult.AddRange(cx_all_crossover(aPopulation[aPool[rnd1]], aPopulation[aPool[rnd2]], count));
             //}
-            while(aPool.Count > 0)
+            while(aPool.Count > 1)
             {
                 int rnd = rand.next(aPool.Count), v1 = aPool[rnd], v2=0;
                 aPool.RemoveAt(rnd);
                 rnd = rand.next(aPool.Count);
                 v2 = aPool[rnd];
                 aPool.RemoveAt(rnd);
-                aResult.AddRange(cx_all_crossover(aPopulation[v1], aPopulation[v2], count));
+                if(C_CHANCEi >= rand.next(101))
+                    aResult.AddRange(cx_all_crossover(aPopulation[v1], aPopulation[v2], C_SIZEi));
             }
             return aResult;
         }

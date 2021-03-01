@@ -16,7 +16,6 @@ namespace Algorithms
         //DIAGNOSTIC TOOLS
         System.Diagnostics.Stopwatch m_timer;
         long m_calculationCounter;
-        long m_stepPredict;
 
         protected void START_TIMER() { m_timer.Start(); }
         protected void STOP_TIMER() { m_timer.Stop(); }
@@ -38,21 +37,14 @@ namespace Algorithms
                 foreach(IPermutation a in m_p)
                     log += a.ToString() + '\n';
             }
-            else if(m_p.Count != 0)
-            {
-                if(m_stepPredict != 0)
-                    log = log + "Step to do: " + m_stepPredict.ToString();
-                log += $"\nIn-work time: {m_timer.ElapsedMilliseconds.ToString()}";
-                log += $"\nCalculated: {m_calculationCounter.ToString()} Current cost: {m_q.calc(m_p[0]).ToString()}\n";
-            }
             else
                 log = ("Not yet started!");
             return log;
         }
 
-        public string strCalcCount() => m_calculationCounter.ToString();
-        public long ResultValue() => m_p[0].cost();
-        public string errorOptimum() => m_q.calc(m_p[0]).ToString();
+        public long getCalcCount() => m_calculationCounter;
+        public long getResultValue() => m_p[0].cost();
+        public long errorOptimum() => m_q.calc(m_p[0]);
 
         protected void diagReset()
         {

@@ -183,10 +183,11 @@ namespace Util
         {
             foreach(string val in str)
             {
-                XmlElement data = m_doc.CreateElement("Data");
-                data.SetAttribute(s[0],  "String");
-                data.InnerText = val;
-                m_row.AppendChild(createCell(data, style));
+                double dP = 0;
+                if(double.TryParse(val,out dP))
+                    addCellsNumber(style, dP);
+                else
+                    addCell(style, val);
             }
             return true;
         }
@@ -196,7 +197,7 @@ namespace Util
             {
                 XmlElement data = m_doc.CreateElement("Data");
                 data.SetAttribute(s[0],  "Number");
-                data.InnerText = val.ToString();
+                data.InnerText = val.ToString().Replace(',','.');
                 m_row.AppendChild(createCell(data, style));
             }
             return true;

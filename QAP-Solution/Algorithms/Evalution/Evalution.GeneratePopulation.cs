@@ -7,7 +7,7 @@ namespace Algorithms
 {
     public partial class EvalutionAlgorithm
     {
-        bool Hemming(List<Individ> aPerm, Individ t)
+        bool Hemming(List<Individ> aPerm, Individ t, int H_MINi)
         {
             int min_distance = t.size();
             foreach(Individ a in aPerm)
@@ -21,19 +21,19 @@ namespace Algorithms
                 if(distance < min_distance)
                     min_distance = distance;
             }
-            return min_distance > DEFINE_START_POPULATION_MIN_HDIST;
+            return min_distance > H_MINi;
         }
 
         /// <summary>Генерация популции со случайным заполнением</summary>
         /// <param name="count">размер популяции</param>
         /// <returns>популяция</returns>
-        protected List<Individ> GEENERETE_POPULATION(int count)
+        protected List<Individ> GEENERETE_POPULATION(int count, int H_MINi)
         {
             List<Individ> res = new List<Individ>();
             while(res.Count < count)
             {
                 Individ temp = new Individ(m_q.calc, size());
-                if(Hemming(res, temp))
+                if(Hemming(res, temp, H_MINi))
                 {
                     msg($"GEENERETE_POPULATION Step {res.Count+1}: created {temp};");
                     res.Add(temp);

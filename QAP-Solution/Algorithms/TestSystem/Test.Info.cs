@@ -18,8 +18,7 @@ namespace Algorithms
             public TestInfo(string problem, string resultPath = "")
             {
                 pathProblem = problem;
-                m_aCriterio = new List<double>();
-                m_aCells = new List<string[]>();
+                resetStats();
                 if(resultPath=="")
                 {
                     resultExam = 0;
@@ -29,17 +28,6 @@ namespace Algorithms
                 {
                     StreamReader file = new StreamReader(resultPath);
                     string str = file.ReadToEnd();
-                  
-                    if(resultPath.Contains(".sln"))
-                    {
-                        string convName = resultPath.Replace(".sln", ".bin");
-                        if(!System.IO.File.Exists(convName))
-                            System.IO.File.Create(convName).Close();
-                        StreamWriter converter = new StreamWriter(convName);
-                        converter.Write(str);
-                        converter.Close();
-                    }
-
                     file.Close();
                     str.Trim(' ');
                     str = str.Replace("\r\n", "\n");
@@ -53,6 +41,18 @@ namespace Algorithms
             public bool isExamed() => bExamExist;
 
             public string nameProblem() => pathProblem.Substring(pathProblem.LastIndexOf("\\")+1, pathProblem.LastIndexOf('.')- pathProblem.LastIndexOf("\\")-1);
+
+            public void generateResultFile(string path, int size, long result, string perm)
+            {
+                if(!System.IO.Directory.Exists(path))
+                    System.IO.Directory.CreateDirectory(path);
+                string resFilePath = path + nameProblem() + ".bin";
+                if(!System.IO.File.Exists(resFilePath))
+                    System.IO.File.Create(resFilePath).Close();
+                StreamWriter wr = new StreamWriter(resFilePath);
+                wr.Write($"{size} {result}\n{perm.Substring(0, perm.IndexOf(':'))}");
+                wr.Close();
+            }
         }
     }
 }
