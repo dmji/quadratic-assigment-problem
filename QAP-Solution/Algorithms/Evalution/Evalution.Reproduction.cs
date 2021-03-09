@@ -7,124 +7,23 @@ namespace Algorithms
 {
     public partial class EvalutionAlgorithm
     {
-        //int _findPool(Individ pool, int that)
-        //{
-        //    int findInd = -1;
-        //    for(int i = 0; i < size(); i++)
-        //        if(a[i] == that)
-        //        {
-        //            findInd = i;
-        //            break;
-        //        }
-        //    if(findInd != -1)
-        //    {
-        //        for(int i = 0; i < temp.Count; i++)
-        //        {
-        //            if(temp[i] == findInd)
-        //                return i;
-        //        }
-        //    }
-        //    return -1;
-        //}
-        ///// <summary>CX - Cycle Crossiver : only one variant return</summary>
-        //protected Individ single_crossover(Individ a, Individ b)
-        //{
-        //    Individ result = new Individ(size(), 0);
-        //    double parentRnd = new Random().NextDouble();
-        //    for(int i=0;i<size();i++)
-        //        result[i] = parentRnd > 0.5 ? a[i] : b[i];
-        //    return result;
-        //}
-
-
-        //protected List<Individ> duo_crossover(Individ a, Individ b)
-        //{
-        //    List<int> temp = new List<int>();
-        //    List<Individ> result = new List<List<int>>();
-        //    //
-        //    //CYCLES CONSTRUCTION
-        //    //
-        //    int ind;
-        //    result.Add(new List<int>());
-        //    for (int i = 0; i < problem_size; i++)
-        //    {
-        //        temp.Add(i);
-        //        result[0].Add(-1);
-        //        result[1].Add(-1);
-        //    }
-        //    while (temp.Count != 0)
-        //    {
-        //        ind = 0;
-        //        do
-        //        {
-        //            int tempind = temp[ind];
-        //            if (new Random().NextDouble() > 0.5)
-        //            {
-        //                if(result[0].Contains(a[tempind])==false)
-        //                    result[0][tempind] = a[tempind];
-        //                else
-        //                    result[0][tempind] = b[tempind];
-        //                if (result[1].Contains(b[tempind]) == false)
-        //                    result[1][tempind] = b[tempind];
-        //                else
-        //                    result[1][tempind] = a[tempind];
-        //            }
-        //            else
-        //            {
-        //                if (result[0].Contains(a[tempind]) == false)
-        //                    result[0][tempind] = b[tempind];
-        //                else
-        //                    result[0][tempind] = a[tempind];
-        //                if (result[1].Contains(b[tempind]) == false)
-        //                    result[1][tempind] = a[tempind];
-        //                else
-        //                    result[1][tempind] = b[tempind];
-        //            }
-        //            temp.RemoveAt(ind);
-        //            ind = _findPool(b[tempind]);
-        //        } while (ind != -1);
-        //    }
-        //    //Console.WriteLine("###\n" + getPermutation(a) + '\n' + getPermutation(b) + '\n' + getPermutation(result) + "\n###");
-        //    return result;
-        //}
-
         /// <summary>CX - Cycle Crossiver : all variant in List return</summary>
         protected List<Individ> cx_all_crossover(Individ a, Individ b, int limiter=-1)
         {
             List<List<int>> aCycles = new List<List<int>>();
+            List<int> aCyclesSingle = new List<int>();
             List<int> aTemp = new List<int>();
-            List<ushort> aPerm = new List<ushort>();
+            List<ushort> perm = new List<ushort>();
             List<Individ> aResult = new List<Individ>();
-            //FUNCTION FOR LOOP
-            void _recursion(List<ushort> src, int iCurCycle)
-            {
-                if(iCurCycle < aCycles.Count)
-                {
-                    foreach(int i in aCycles[iCurCycle])
-                        src[i] = a[i];
-                    _recursion(new List<ushort>(src), iCurCycle + 1);
-                    if(aCycles[iCurCycle].Count > 1)
-                    {
-                        foreach(int i in aCycles[iCurCycle])
-                            src[i] = b[i];
-                        _recursion(new List<ushort>(src), iCurCycle + 1);
-                    }
-                }
-                else
-                {
-                    aResult.Add(new Individ(m_q.calc, src));
-                }
-            }
             //CYCLES CONSTRUCTION
             for(int i = 0; i < size(); i++)
             {
                 aTemp.Add(i);
-                aPerm.Add(0);
+                perm.Add(0);
             }
             while (aTemp.Count != 0)
             {
-                aCycles.Add(new List<int>());
-                List<int> curCycle = aCycles[aCycles.Count - 1];
+                List<int> curCycle = new List<int>();
                 int iTemp = 0;
                 while(iTemp != -1)
                 {
@@ -134,14 +33,57 @@ namespace Algorithms
                     iTemp = a.findIndex(curVal2);
                     iTemp = aTemp.IndexOf(iTemp);
                 }
+                if(curCycle.Count == 1)
+                    aCyclesSingle.Add(curCycle[0]);
+                else
+                    aCycles.Add(curCycle);
             }
             //CYCLES CONSUMING
-            _recursion(aPerm,0);
-            if(limiter>0)
+            //_recursion(aPerm,0);
+            int n = (int)Math.Pow(2, aCycles.Count);
+            if(Math.Pow(2, aCycles.Count) > int.MaxValue)
             {
-                while(aResult.Count>limiter)
-                    aResult.RemoveAt(rand.next(aResult.Count));
+                msg("!aCycles overflow!");
+                throw(new Exception("rand > int"));
             }
+
+            //if(size() > 50)
+            //{
+            for(int i = 0; i < limiter; i++)
+            {
+                int curVal = rand.next(n);
+                for(int j = 0; j < aCycles.Count; j++)
+                {
+                    int it = curVal << j & 1;
+                    foreach(int val in aCycles[j])
+                        perm[val] = it == 0 ? a[val] : b[val];
+                }
+                foreach(int val in aCyclesSingle)
+                    perm[val] = a[val];
+                aResult.Add(new Individ(m_q.calc, perm));
+            }
+            //
+            //}
+            //else
+            //{
+            //    System.Threading.Tasks.ParallelOptions opt = new System.Threading.Tasks.ParallelOptions();
+            //    System.Threading.Tasks.Parallel.For(0, limiter
+            //        , () => { return new List<ushort>(perm); }
+            //        , (int i, System.Threading.Tasks.ParallelLoopState s, List<ushort> p) =>
+            //        {
+            //            int curVal = rand.next(n);
+            //            for(int j = 0; j < aCycles.Count; j++)
+            //            {
+            //                int it = curVal << j & 1;
+            //                foreach(int val in aCycles[j])
+            //                    p[val] = it == 0 ? a[val] : b[val];
+            //            }
+            //            foreach(int val in aCyclesSingle)
+            //                p[val] = a[val];
+            //            return p;
+            //        }
+            //        , (List<ushort> fin) => { Individ finInd = new Individ(m_q.calc, fin); lock(aResult) aResult.Add(finInd); });
+            //}
             return aResult;
         }
 

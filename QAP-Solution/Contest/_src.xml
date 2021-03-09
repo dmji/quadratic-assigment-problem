@@ -1,1 +1,0 @@
-<test name="_src" pathProblems="qap-lib\src*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>

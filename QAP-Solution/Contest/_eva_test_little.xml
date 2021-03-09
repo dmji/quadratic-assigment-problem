@@ -1,0 +1,1 @@
+<test name="_eva_test_little" pathProblems="qap-lib\tai10a*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>

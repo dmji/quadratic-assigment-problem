@@ -54,6 +54,13 @@ namespace Algorithms
                     tbl.addCells("boldGrey", "", "Avg Error, %");
                     tbl.addCell("boldGrey", "Tabbling info, avaraged by size", m_aOptStats[0].m_aResults.Count-1);
                     tbl.addRow();
+                    tbl.addCells("greyColored", "sizes", "total");
+
+                    m_aOptStats[0].m_aResults.Sort((result f, result s) => { if(f.m_size > s.m_size) return 1; else if(f.m_size == s.m_size) return 0; else return -1; });
+                    foreach(result b in m_aOptStats[0].m_aResults)
+                        tbl.addCellsNumber("greyColored", b.m_size);
+                    tbl.addRow();
+
                     foreach(optStat a in m_aOptStats)
                     {
                         a.m_aResults.Sort((result f, result s) => { if(f.m_size > s.m_size) return 1; else if(f.m_size == s.m_size) return 0; else return -1; });
@@ -61,11 +68,8 @@ namespace Algorithms
                         foreach(result b in a.m_aResults)
                             avgRes += b.getResultAvg();
                         avgRes /= a.m_aResults.Count;
-                        tbl.addCells("greyColored", a.m_name+" sizes", avgRes.ToString());
-                        foreach(result b in a.m_aResults)
-                            tbl.addCellsNumber("greyColored", b.m_size);
-                        tbl.addRow();
-                        tbl.addCells("greyColored", a.m_name+" vales", "");
+                      
+                        tbl.addCells("greyColored", a.m_name, avgRes.ToString());
                         foreach(result b in a.m_aResults)
                             tbl.addCellsNumber("greyColored", b.getResultAvg());
                         tbl.addRow();

@@ -14,13 +14,14 @@ namespace Algorithms
         {
             string attr = xml.GetAttribute(attrName);
             string pathDir = path + attr.Substring(0, attr.LastIndexOf('\\') + 1);
-            string regStr = attr.Substring(attr.LastIndexOf('\\') + 1) + ext;
+            string regStr = attr.Substring(attr.LastIndexOf('\\') + 1);
+            RegularSTR regExt = new RegularSTR(ext);
             RegularSTR reg = new RegularSTR(regStr);
             List<string> aResult = new List<string>(System.IO.Directory.GetFiles(pathDir));
             for(int i = 0; i < aResult.Count; i++)
             {
                 string match = aResult[i].Substring(aResult[i].LastIndexOf('\\') + 1);
-                if(!reg.match(match))
+                if(!regExt.match(match) || !reg.match(match))
                     aResult.RemoveAt(i--);
             }
             return aResult;
@@ -134,7 +135,7 @@ namespace Algorithms
             {
                 long examVal = test.exam();
                 double err = resultValue - examVal;
-                double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : 0;
+                double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : 1000;
                 if(bSingleExec)
                     test.AddRow(errPersent, optName, timer, calcs.ToString(), err.ToString(), errPersent.ToString(), resultValue.ToString());
                 else
