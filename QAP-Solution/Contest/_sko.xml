@@ -1,1 +1,1 @@
-<test name="_sko" pathProblems="qap-lib\sko*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
+<test name="_sko" pathProblems="qap-lib\sko*" pathOptions="OptionSetEvolution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>

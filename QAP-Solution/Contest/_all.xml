@@ -1,1 +1,1 @@
-<test name="_all" pathProblems="qap-lib\*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
+<test name="_all" pathProblems="qap-lib\*" pathOptions="OptionSetEvolution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>

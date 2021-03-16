@@ -1,1 +1,1 @@
-<test name="_chr" pathProblems="qap-lib\chr*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
+<test name="_chr" pathProblems="qap-lib\chr*" pathOptions="OptionSetEvolution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>

@@ -1,1 +1,1 @@
-<test name="_kra" pathProblems="qap-lib\kra*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
+<test name="_kra" pathProblems="qap-lib\kra*" pathOptions="OptionSetEvolution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>

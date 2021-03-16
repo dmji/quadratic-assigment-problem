@@ -1,1 +1,1 @@
-<test name="_lipa" pathProblems="qap-lib\lipa*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
+<test name="_lipa" pathProblems="qap-lib\lipa*" pathOptions="OptionSetEvolution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>

@@ -1,1 +1,1 @@
-<test name="good" pathProblems="qap-lib\bur*tho*wil*had*lipa*nug*rou*sko*tai*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
+<test name="good" pathProblems="qap-lib\bur;tho;wil;had;lipa;nug;rou;sko;tai" pathOptions="OptionSetEvolution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>

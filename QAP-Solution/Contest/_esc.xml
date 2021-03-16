@@ -1,1 +1,1 @@
-<test name="_esc" pathProblems="qap-lib\esc*" pathOptions="OptionSetEvalution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
+<test name="_esc" pathProblems="qap-lib\esc*" pathOptions="OptionSetEvolution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
