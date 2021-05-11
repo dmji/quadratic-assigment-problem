@@ -15,31 +15,22 @@ namespace Solution
 			msg("ExportTxt begin");
 			string buf = m_ProblemSize.ToString() + "\n";
 			for(int i = 0; i < m_ProblemSize; i++)
+			{
 				for(int j = 0; j < m_ProblemSize; j++)
-				{
-					if(j == m_ProblemSize - 1)
-						buf = buf + m_tDistance[i, j] + "\n";
-					else
-						buf = buf + m_tDistance[i, j] + " ";
-				}
+					buf = buf + getDist(i, j) + (j == m_ProblemSize - 1 ? "\n" : " ");
+			}
 			buf = buf + '\n';
 			for(int i = 0; i < m_ProblemSize; i++)
+			{	
 				for(int j = 0; j < m_ProblemSize; j++)
-				{
-					if(j == m_ProblemSize - 1)
-						buf = buf + m_tFlow[i, j] + "\n";
-					else
-						buf = buf + m_tFlow[i, j] + " ";
-				}
+					buf = buf + getFlow(i, j) + (j == m_ProblemSize - 1 ? "\n" : " ");
+			}
 			buf = buf + '\n';
 			for(int i = 0; i < m_ProblemSize; i++)
+			{
 				for(int j = 0; j < m_ProblemSize; j++)
-				{
-					if(j == m_ProblemSize - 1)
-						buf = buf + m_tPositionCost[i, j] + "\n";
-					else
-						buf = buf + m_tPositionCost[i, j] + " ";
-				}
+					buf = buf + getPCost(i, j) + (j == m_ProblemSize - 1 ? "\n" : " ");
+			}
 			if(p != null)
 			{
 				buf = buf + "\np={";

@@ -18,9 +18,9 @@ namespace Solution
                 for(int i = 0; i < src.size(); i++)
                 {
                     if(i != a)
-                        min.Add(src.m_tFlow[i, a]);
+                        min.Add(src.getFlow(i, a));
                     if(i != b)
-                        max.Add(src.m_tDistance[i, b]);
+                        max.Add(src.getDist(i, b));
                 }
                 min.Sort();
                 max.Sort();

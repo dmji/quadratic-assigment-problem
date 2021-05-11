@@ -109,8 +109,8 @@ namespace Solution
             for(int i = 0; i < sizeQAP; i++)
                 for(int j = 0; j < sizeQAP; j++)
                 {
-                    result.m_tFlow[i, j] = D[i][j];
-                    result.m_tDistance[i, j] = F[i][j];
+                    result.setFlow(D[i][j], i, j);
+                    result.setDist(F[i][j], i, j);
                 }
             return result;
         }

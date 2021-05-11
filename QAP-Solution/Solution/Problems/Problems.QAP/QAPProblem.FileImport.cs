@@ -59,13 +59,13 @@ namespace Solution
 								switch(iData)
 								{
 									case 0:
-										m_tFlow[i, j] = int.Parse(pData[ind++]);
+										setFlow(int.Parse(pData[ind++]), i, j);
 										break;
 									case 1:
-										m_tDistance[i, j] = int.Parse(pData[ind++]);
+										setDist(int.Parse(pData[ind++]), i, j);
 										break;
 									case 2:
-										m_tPositionCost[i, j] = int.Parse(pData[ind++]);
+										setPCost(int.Parse(pData[ind++]), i, j);
 										break;
 									default:
 										break;
@@ -85,21 +85,21 @@ namespace Solution
 						for(int i = 0; i < m_ProblemSize; i++)
 						{
 							for(int j=0;j<m_ProblemSize;j++)
-								m_tFlow[i, j] = int.Parse(data[ind++]);
+								setFlow(int.Parse(data[ind++]),i,j);
 						}
 						if(data.Length >= 2*n)
                         {
 							for(int i = 0; i < m_ProblemSize; i++)
 							{
 								for(int j = 0; j < m_ProblemSize; j++)
-									m_tDistance[i, j] = int.Parse(data[ind++]);
+									setDist(int.Parse(data[ind++]),i,j);
 							}
 							if(data.Length >= 3*n)
 							{
 								for(int i = 0; i < m_ProblemSize; i++)
 								{
 									for(int j = 0; j < m_ProblemSize; j++)
-										m_tPositionCost[i, j] = int.Parse(data[ind++]);
+										setPCost(int.Parse(data[ind++]), i, j);
 								}
 							}
 						}
