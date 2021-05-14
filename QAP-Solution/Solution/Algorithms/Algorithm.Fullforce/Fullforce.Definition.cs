@@ -2,7 +2,7 @@
 
 namespace Solution
 {
-    public partial class FullforceAlgorithm : Algorithm
+    public partial class FullforceAlgorithm : AAlgorithm
     {
         public override string getName() => "Fullforce algorithm";
 

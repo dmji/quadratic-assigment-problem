@@ -1,6 +1,6 @@
 ﻿namespace Solution
 {
-    public partial class EvolutionAlgorithm : Algorithm
+    public partial class EvolutionAlgorithm : AAlgorithm
     {
         public EvolutionAlgorithm(IProblem problem) : base(problem) { }
 

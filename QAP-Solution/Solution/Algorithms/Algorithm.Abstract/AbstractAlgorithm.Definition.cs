@@ -11,32 +11,30 @@ namespace Solution
         string getValuesNames();
     }
 
-    public abstract partial class Algorithm
+    public interface IAlgorithm
     {
-        protected IProblem m_q;
-        protected List<IPermutation> m_p;
-        protected bool m_bFinish;
+        string getName();
+        void reset(IProblem problem);
+        IPermutation result { get; set; }
+        IOptions GetOptionsSet(string path);
+    }
+
+    public abstract partial class AAlgorithm : IAlgorithm
+    {
+        public void reset(IProblem problem) { diagReset(); m_q = problem; }
+        //ищем 1 индивид вместо нескольких 
+        public IPermutation result { get => m_p[0]; set { m_p.Clear(); m_p.Add(value); } }
+        public static IOptions GetOptionsSet(string path) => null;
+        public IOptions GetOptionsSet(string path) => this.GetOptionsSet(path);
+        public virtual void Start(IOptions prm) { }
+        public abstract string getName();
 
         //size problem
         protected ushort size() => m_q.size();
+        protected AAlgorithm(IProblem problem) { reset(problem); }
 
-        public abstract string getName();
-
-        protected Algorithm(IProblem problem)
-        {
-            reset(problem);
-        }
-
-        public void reset(IProblem problem)
-        {
-            diagReset();
-            m_q = problem;
-        }
-
-        //ищем 1 индивид вместо нескольких 
-        public IPermutation result { get => m_p[0]; set { m_p.Clear(); m_p.Add(value); } }
-
-        public static IOptions GetOptionsSet(string path) => null;
-        public virtual void Start(IOptions prm) { }
+        protected IProblem m_q;
+        protected List<IPermutation> m_p;
+        protected bool m_bFinish;
     }
 }

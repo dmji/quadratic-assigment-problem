@@ -16,7 +16,7 @@ namespace Solution
             foreach(TestInfo test in aTest)
             {
                 CQAPProblem QAP = new CQAPProblem(test.pathProblem);
-                Algorithm ALG = new FullforceAlgorithm(QAP);
+                IAlgorithm ALG = new FullforceAlgorithm(QAP);
                 timer.Reset();
                 ALG.Start(null);
                 Console.WriteLine(timer.Stop());

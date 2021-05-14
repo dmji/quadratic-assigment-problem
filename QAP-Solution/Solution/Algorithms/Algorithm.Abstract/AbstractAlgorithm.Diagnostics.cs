@@ -3,30 +3,9 @@ using System.Collections.Generic;
 
 namespace Solution
 {
-    public abstract partial class Algorithm
+    public abstract partial class AAlgorithm
     {
-        //LOGGER
-        protected Func<string, bool> msg = (string s) => false;
-        public void setLogger(Util.Logger log = null)
-        {
-            msg = log == null ? (string s) => false : log.init();
-        }
-
-        //DIAGNOSTIC TOOLS
-        System.Diagnostics.Stopwatch m_timer;
-        long m_calculationCounter;
-
-        protected void START_TIMER() { m_timer.Start(); }
-        protected void STOP_TIMER() { m_timer.Stop(); }
-
-        //func diagnostic counter
-        protected long calc(IPermutation obj)
-        {
-            lock(m_timer)
-                m_calculationCounter++;
-            return obj.cost();
-        }
-
+        public void setLogger(Util.Logger log = null) { msg = log == null ? ((string s) => false) : log.init(); }
         public override string ToString()
         {
             string log = getName() + " algorithm.\n";
@@ -40,7 +19,6 @@ namespace Solution
                 log = ("Not yet started!");
             return log;
         }
-
         public long getCalcCount() => m_calculationCounter;
         public long getResultValue() => m_p[0].cost();
         public long errorOptimum() => m_q.calc(m_p[0]);
@@ -57,5 +35,20 @@ namespace Solution
             else
                 m_timer.Reset();
         }
+        protected void START_TIMER() { m_timer.Start(); }
+        protected void STOP_TIMER() { m_timer.Stop(); }
+
+        //func diagnostic counter
+        protected long calc(IPermutation obj)
+        {
+            lock(m_timer)
+                m_calculationCounter++;
+            return obj.cost();
+        }
+        //LOGGER
+        protected Func<string, bool> msg = (string s) => false;
+        //DIAGNOSTIC TOOLS
+        System.Diagnostics.Stopwatch m_timer;
+        long m_calculationCounter;
     }
 }

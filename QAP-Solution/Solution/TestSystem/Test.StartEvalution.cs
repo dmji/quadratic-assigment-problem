@@ -34,7 +34,7 @@ namespace Solution
                     tbl.addCells("bold", "Option set", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
                 else
                     tbl.addCells("bold", "Option set", "Avg Timer, ms", "Avg Calc count", "Avg Error", "Avg Error, %", "Avg Result", "Best Result");
-                Algorithm ALG = new EvolutionAlgorithm(QAP);
+                IAlgorithm ALG = new EvolutionAlgorithm(QAP);
 
                 //ALG.setLogger(log);
                 //QAP.setLogger(log);
