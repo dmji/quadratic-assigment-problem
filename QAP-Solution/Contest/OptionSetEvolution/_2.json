@@ -10,6 +10,5 @@
 "S_EXTENDb"		:false,
 "S_DUPLICATEb"	:false,
 "S_TOURNi"		:4,
-"E_LIMi"		:100,
-"U_SEEDi"		:50
+"E_LIMi"		:100
 }
