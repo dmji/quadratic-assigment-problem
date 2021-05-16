@@ -67,11 +67,11 @@ namespace Solution
             }
         }
 
-        public override void Start(IOptions opt)
+        public override IDiagnostic Start(IOptions opt)
         {
             diagReset();
             recursionParallel(new List<ushort>());
+            return this;
         }
-
     }
 }

@@ -15,7 +15,7 @@ namespace Solution
             return curGenCost / (double)aPopulation.Count;
         }
 
-        public override void Start(IOptions obj)
+        public override IDiagnostic Start(IOptions obj)
         {
             Options opt = (Options)obj;
             diagReset();
@@ -80,6 +80,7 @@ namespace Solution
             result = bestIndivid;
             STOP_TIMER();
             m_bFinish = true;
+            return this;
         }
     }
 }

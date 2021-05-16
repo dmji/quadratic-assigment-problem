@@ -3,6 +3,22 @@
 namespace Solution
 {
     /// <summary>Class <c>CPermutation</c> models a single permutation in QAP (like in Evolution algorithm).</summary>
+    public interface IPermutation : IEquatable<object>
+    {
+        /// <summary> Get permutation as ushort array </summary>
+        ushort[] ToArray();
+        /// <summary>index operator</summary>
+        ushort this[int i] { get; set; }
+        /// <summary>return current permutation size</summary>
+        int size();
+        /// <summary>Get. One-line permutation w/ spaces </summary>
+        string ToString();
+        IPermutation Clone();
+        long cost();
+        void swap(int i1, int i2);
+    }
+
+    /// <summary>Class <c>CPermutation</c> models a single permutation in QAP (like in Evolution algorithm).</summary>
     public partial class CPermutation : IPermutation
     {
         Func<IPermutation, long> m_calc = null;
@@ -24,7 +40,8 @@ namespace Solution
         /// <summary>return current permutation size</summary>
         public int size() => m_p.Length;
         /// <summary>index operator</summary>
-        public ushort this[int i] { get => m_p[i]; set { OnEdit(); m_p[i] = value; } }
+        public ushort this[int i] { get => m_p[i]; 
+                                    set { OnEdit(); m_p[i] = value; } }
         /// <summary> Get permutation as ushort array </summary>
         public ushort[] ToArray() => m_p/*.Clone()*/; // ??
         /// <summary>Get. One-line permutation w/ spaces </summary>

@@ -6,7 +6,7 @@ namespace Solution
 	/// <summary>Class <c>Info</c> is all-in one QAP aData.</summary>
 	public partial class CQAPProblem
 	{
-		///<summary>Construct problem from file with formatting:<para>m_ProblemSize</para><para>F-matrix</para><para>D-matrix</para><para>C-matrix</para></summary>
+		///<summary>Construct problem from file with formatting:<para>size()</para><para>F-matrix</para><para>D-matrix</para><para>C-matrix</para></summary>
 		/// <param name="fname">path to file w/ problem</param>
 		public CQAPProblem(string fname) : this()
 		{
@@ -35,8 +35,7 @@ namespace Solution
 						buf = buf.Replace("\n ", "\n");
 					buf = buf.Replace("\r\n", "\n");
 				}
-				m_ProblemSize = ushort.Parse(buf.Substring(0, buf.IndexOf('\n')));
-				init(m_ProblemSize);
+				init(ushort.Parse(buf.Substring(0, buf.IndexOf('\n'))));
 				buf = buf.Substring(buf.IndexOf('\n') + 1);
 				aData = buf.Split("\n\n", StringSplitOptions.RemoveEmptyEntries);
 				if(aData.Length > 1 && aData.Length < 3)
@@ -52,9 +51,9 @@ namespace Solution
 							continue;
 						int ind = 0;
 						string[] pData = aData[iData].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-						for(int i = 0; i < m_ProblemSize; i++)
+						for(int i = 0; i < size(); i++)
 						{
-							for(int j = 0; j < m_ProblemSize; j++)
+							for(int j = 0; j < size(); j++)
 							{
 								switch(iData)
 								{
@@ -79,26 +78,26 @@ namespace Solution
 					buf = buf.Replace("\n\n", "\n");
 					buf = buf.Replace("\n", " ");
 					string[] data = buf.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-					int n = Convert.ToInt32(Math.Pow(m_ProblemSize, 2)), ind=0;
+					int n = Convert.ToInt32(Math.Pow(size(), 2)), ind=0;
 					if(data.Length >= n)
 					{
-						for(int i = 0; i < m_ProblemSize; i++)
+						for(int i = 0; i < size(); i++)
 						{
-							for(int j=0;j<m_ProblemSize;j++)
+							for(int j=0;j<size();j++)
 								setFlow(int.Parse(data[ind++]),i,j);
 						}
 						if(data.Length >= 2*n)
                         {
-							for(int i = 0; i < m_ProblemSize; i++)
+							for(int i = 0; i < size(); i++)
 							{
-								for(int j = 0; j < m_ProblemSize; j++)
+								for(int j = 0; j < size(); j++)
 									setDist(int.Parse(data[ind++]),i,j);
 							}
 							if(data.Length >= 3*n)
 							{
-								for(int i = 0; i < m_ProblemSize; i++)
+								for(int i = 0; i < size(); i++)
 								{
-									for(int j = 0; j < m_ProblemSize; j++)
+									for(int j = 0; j < size(); j++)
 										setPCost(int.Parse(data[ind++]), i, j);
 								}
 							}

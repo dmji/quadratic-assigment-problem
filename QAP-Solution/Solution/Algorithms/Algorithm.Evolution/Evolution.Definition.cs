@@ -48,7 +48,6 @@
                 M_SIZEi = 0;
                 E_LIMi = 0;
                 S_DUPLICATEb = false;
-                U_SEEDi = -1;
             }
 
             public Options(string path)
@@ -72,8 +71,7 @@
                 bool S_EXTENDb,
                 bool S_DUPLICATEb,
                 int S_TOURNi,
-                int E_LIMi,
-                int U_SEEDi
+                int E_LIMi
                 )
             {
                 this.P_SIZEi = P_SIZEi;
@@ -88,7 +86,6 @@
                 this.S_DUPLICATEb = S_DUPLICATEb;
                 this.S_TOURNi = S_TOURNi;
                 this.E_LIMi = E_LIMi;
-                this.U_SEEDi = U_SEEDi;
             }
 
             public void init(Options obj)
@@ -104,8 +101,7 @@
                     obj.S_EXTENDb,
                     obj.S_DUPLICATEb,
                     obj.S_TOURNi,
-                    obj.E_LIMi,
-                    obj.U_SEEDi);
+                    obj.E_LIMi);
             }
 
             public string getValues() => $"{m_name};{P_SIZEi};{H_MINi};{C_SIZEi};{C_CHANCEi};{M_SIZEi};{M_CHANCEi};{M_TYPEi};{M_SALT_SIZEi};{S_EXTENDb};{S_DUPLICATEb};{S_TOURNi};{E_LIMi}";

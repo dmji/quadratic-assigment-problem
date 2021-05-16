@@ -99,11 +99,11 @@ namespace TestSystem
                     for(int i = 0; i < reply_count; i++)
                     {
                         timer.Reset();
-                        ALG.Start(opt);
+                        IDiagnostic result = ALG.Start(opt);
 
                         timerAlg += timer.Stop();
-                        calcCount += ALG.getCalcCount();
-                        long curRes = ALG.getResultValue();
+                        calcCount += result.getCalcCount();
+                        long curRes = result.getResultValue();
                         resultValue += curRes;
                         if(resultBest == 0 || resultBest > curRes)
                             resultBest = curRes;

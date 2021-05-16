@@ -12,17 +12,17 @@
         ///<summary> C-matix</summary>
         int[] m_tPositionCost;
 
-        public void setDist(int val, int i, int j) => m_tDistance[i * m_ProblemSize + j] = val;
-        public void setFlow(int val, int i, int j) => m_tFlow[i * m_ProblemSize + j] = val;
-        public void setPCost(int val, int i, int j) => m_tPositionCost[i * m_ProblemSize + j] = val;
+        public void setDist(int val, int i, int j) => m_tDistance[i * size() + j] = val;
+        public void setFlow(int val, int i, int j) => m_tFlow[i * size() + j] = val;
+        public void setPCost(int val, int i, int j) => m_tPositionCost[i * size() + j] = val;
 
-        public int getDist(int i, int j) => m_tDistance[i*m_ProblemSize+j];
-        public int getFlow(int i, int j) => m_tFlow[i*m_ProblemSize+j];
-        public int getPCost(int i, int j) => m_tPositionCost[i*m_ProblemSize+j];
+        public int getDist(int i, int j) => m_tDistance[i * size() + j];
+        public int getFlow(int i, int j) => m_tFlow[i * size() + j];
+        public int getPCost(int i, int j) => m_tPositionCost[i * size() + j];
 
-        void init(ushort size)
+        protected override void init(ushort size)
         {
-            m_ProblemSize = size;
+            base.init(size);
             m_tDistance = new int[size*size];
             m_tFlow = new int[size * size];
             m_tPositionCost = new int[size * size];

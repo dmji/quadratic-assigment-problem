@@ -8,6 +8,7 @@ namespace Solution
     public partial class CPermutation
     {
         ///<summary>Construct permutation from exist one</summary>
+        public CPermutation(IPermutation src) : this((CPermutation)src) {}
         public CPermutation(CPermutation src) : this(src.m_calc, src.m_p) {}
 
         ///<summary>Construct permutation from list</summary>
