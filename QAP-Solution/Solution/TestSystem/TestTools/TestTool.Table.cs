@@ -2,33 +2,38 @@
 using System.IO;
 using System.Xml;
 
-namespace Solution.Util
+namespace TestSystem
 {
-    public interface ITabler
+    public interface ITabler : IClose
     {
-        public bool addRow();
-        public bool addCell(string style, string str, int mergeRight = 0, int mergeDown = 0);
-        public bool addCells(string style, params string[] str);
-        public bool addCellsNumber(string style, params double[] str);
-        public bool Close();
+        long addRow();
+        bool addCell(string style, string str, int mergeRight = 0, int mergeDown = 0);
+        bool addCells(string style, params string[] str);
+        bool addCellsNumber(string style, params double[] str);
+        long nRows();
     }
 
-    public class TablerEmpty : ITabler
+    public class CTablerEmpty : ITabler
     {
-        public TablerEmpty() { }
-        public bool addRow() => false;
+        public CTablerEmpty() { }
+        public long addRow() => 0;
         public bool addCell(string style, string str, int mergeRight = 0, int mergeDown = 0) => false;
         public bool addCells(string style, params string[] str) => false;
         public bool addCellsNumber(string style, params double[] str) => false;
+
         public bool Close() => false;
+        public long nRows() => 0;
     }
 
-    public class Tabler : ITabler
+    public class CTablerExcel : ITabler
     {
         XmlDocument m_doc;
         XmlNode m_table;
         XmlElement m_row;
         string m_pathResult;
+        long m_nRowCounter;
+
+        public long nRows() => m_nRowCounter;
 
         public class Tags
         {
@@ -49,9 +54,9 @@ namespace Solution.Util
             eMergeDown      = "reservedTAGMergeDownH0",
             ePosition       = "reservedTAGPositionH0",
             eLineStyle      = "reservedTAGLineStyleH0",
-            eTAGWeight      = "reservedTAGWeightH0";
+            eTAGWeight      = "reservedTAGWeightH0",
+            eFormula        = "reservedTAGFormula";
         };
-
         private string filter(string buf)
         {
             return buf.Replace(" xmlns=\"\"", "")
@@ -70,13 +75,13 @@ namespace Solution.Util
             .Replace(Tags.eMergeDown, "ss:MergeDown")
             .Replace(Tags.ePosition, "ss:Position")
             .Replace(Tags.eLineStyle, "ss:LineStyle")
-            .Replace(Tags.eTAGWeight, "ss:Weight");
+            .Replace(Tags.eTAGWeight, "ss:Weight")
+            .Replace(Tags.eFormula, "ss:Formula");
             //.Replace(Tags, );
         }
 
-
-        public Tabler() { }
-        public Tabler(string path, string sAlg, string pathTemplate)
+        public CTablerExcel() { m_nRowCounter = 1; }
+        public CTablerExcel(string path, string sAlg, string pathTemplate)
         {
             if(path.Length > 0 && sAlg.Length > 0 && pathTemplate.Length > 0)
             {
@@ -109,8 +114,83 @@ namespace Solution.Util
                 styles.AppendChild(boldStyleLight);
 
                 m_row = m_doc.CreateElement("Row");
+                m_nRowCounter = 1;
             }
         }
+        public long addRow()
+        {
+            m_row.SetAttribute(Tags.eAutoFitHeight, "0");
+            m_table.AppendChild(m_row);
+            m_row = m_doc.CreateElement("Row");
+            m_nRowCounter++;
+            return m_nRowCounter;
+        }
+        public bool addCell(string style, string str, int mergeRight = 0, int mergeDown = 0)
+        {
+            XmlElement data = m_doc.CreateElement("Data");
+            XmlElement cell;
+            if(str[0]=='=')
+            {
+                cell = createCell(style, data);
+                cell.SetAttribute(Tags.eFormula, str);
+                data.SetAttribute(Tags.eType, "Number");
+            }
+            else
+            {
+                cell = createCell(style, data);
+                data.SetAttribute(Tags.eType, "String");
+                data.InnerText = str;   
+            }
+            if(mergeRight > 0)
+                cell.SetAttribute(Tags.eMergeAcross, mergeRight.ToString());
+            if(mergeDown > 0)
+                cell.SetAttribute(Tags.eMergeDown, mergeDown.ToString());
+            m_row.AppendChild(cell);
+            return true;
+        }
+        public bool addCells(string style, params string[] str)
+        {
+            foreach(string val in str)
+            {
+                if(val.Length > 0)
+                {
+                    double dP = 0;
+                    if(double.TryParse(val, out dP))
+                        addCellsNumber(style, dP);
+                    else
+                        addCell(style, val);
+                }
+            }
+            return true;
+        }
+        public bool addCellsNumber(string style, params double[] str)
+        {
+            foreach(double val in str)
+            {
+                XmlElement data = m_doc.CreateElement("Data");
+                data.SetAttribute(Tags.eType, "Number");
+                data.InnerText = val.ToString().Replace(',', '.');
+                m_row.AppendChild(createCell(style, data));
+            }
+            return true;
+        }
+        public bool Close()
+        {
+            m_table.AppendChild(m_row);
+            m_doc.Save(m_pathResult);
+            StreamReader rd = new StreamReader(m_pathResult);
+            string buf = rd.ReadToEnd();
+            rd.Close();
+            StreamWriter wr = new StreamWriter(m_pathResult);
+            wr.Write(filter(buf));
+            wr.Close();
+            return false;
+        }
+        ~CTablerExcel()
+        {
+            Close();
+        }
+
         private XmlElement createFont(string font, string size, bool bBold)
         {
             XmlElement fontElem = m_doc.CreateElement("Font");
@@ -149,71 +229,14 @@ namespace Solution.Util
             }
             return elem;
         }
-        public bool addRow()
-        {
-            m_row.SetAttribute(Tags.eAutoFitHeight,  "0");
-            m_table.AppendChild(m_row);
-            m_row = m_doc.CreateElement("Row");
-            return true;
-        }
-
-        private XmlElement createCell(XmlElement data, string style)
+        private XmlElement createCell(string style, XmlElement data = null)
         {
             XmlElement cell = m_doc.CreateElement("Cell");
             if(style.Length>0)
                 cell.SetAttribute(Tags.eStyleID,  style);
+            if(data != null)
             cell.AppendChild(data);
             return cell;
-        }
-
-        public bool addCell(string style, string str, int mergeRight = 0, int mergeDown = 0)
-        {
-            XmlElement data = m_doc.CreateElement("Data");
-            data.SetAttribute(Tags.eType,  "String");
-            data.InnerText = str;
-            XmlElement cell = createCell(data, style);
-            if(mergeRight>0)
-                cell.SetAttribute(Tags.eMergeAcross,  mergeRight.ToString());
-            if(mergeDown > 0)
-                cell.SetAttribute(Tags.eMergeDown,  mergeDown.ToString());
-            m_row.AppendChild(cell);
-            return true;
-        }
-        public bool addCells(string style, params string[] str)
-        {
-            foreach(string val in str)
-            {
-                double dP = 0;
-                if(double.TryParse(val,out dP))
-                    addCellsNumber(style, dP);
-                else
-                    addCell(style, val);
-            }
-            return true;
-        }
-        public bool addCellsNumber(string style, params double[] str)
-        {
-            foreach(double val in str)
-            {
-                XmlElement data = m_doc.CreateElement("Data");
-                data.SetAttribute(Tags.eType,  "Number");
-                data.InnerText = val.ToString().Replace(',','.');
-                m_row.AppendChild(createCell(data, style));
-            }
-            return true;
-        }
-
-        public bool Close()
-        {
-            m_table.AppendChild(m_row);
-            m_doc.Save(m_pathResult);
-            StreamReader rd = new StreamReader(m_pathResult);
-            string buf = rd.ReadToEnd();
-            rd.Close();
-            StreamWriter wr = new StreamWriter(m_pathResult);
-            wr.Write(filter(buf));
-            wr.Close();
-            return false;
         }
     }
 }

@@ -1,16 +1,27 @@
 ﻿using System;
 using System.IO;
 
-namespace Solution.Util
+namespace TestSystem
 {
-    public class Logger
+    public interface IClose
+    {
+        bool Close();
+    }
+
+    public interface ILogger : IClose
+    {
+        Func<string, bool> init(string path = "", string sAlg = "");
+        bool msg(string str);
+    }
+
+    public class CLogger : ILogger
     {
         System.Threading.Thread m_thread;
         string m_log="";
         StreamWriter m_stream;
         bool m_bThreadOk;
-        public Logger() {}
-        public Logger(string path, string name) { init(path,name); }
+        public CLogger() {}
+        public CLogger(string path, string name) { init(path,name); }
 
         public Func<string,bool> init(string path="", string sAlg = "")
         {
@@ -71,6 +82,10 @@ namespace Solution.Util
                 }
                 System.Threading.Thread.Sleep(1000);
             }
+        }
+        ~CLogger()
+        {
+            Close();
         }
     }
 }

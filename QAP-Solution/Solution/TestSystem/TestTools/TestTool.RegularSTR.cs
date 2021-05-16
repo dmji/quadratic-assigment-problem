@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Solution.Util
-{
-    public class RegularSTR
+namespace TestSystem
+{ 
+    public class CRegularSTR
     {
         List<string[]> aSplitStr;
 
-        public RegularSTR(string reg)
+        public CRegularSTR(string reg)
         {
             string[] orCondition = reg.Split(';', StringSplitOptions.RemoveEmptyEntries);
             aSplitStr = new List<string[]>();
