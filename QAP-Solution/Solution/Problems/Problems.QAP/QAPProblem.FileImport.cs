@@ -51,9 +51,9 @@ namespace Solution
 							continue;
 						int ind = 0;
 						string[] pData = aData[iData].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-						for(int i = 0; i < size(); i++)
+						for(int i = 0; i < Size(); i++)
 						{
-							for(int j = 0; j < size(); j++)
+							for(int j = 0; j < Size(); j++)
 							{
 								switch(iData)
 								{
@@ -78,26 +78,26 @@ namespace Solution
 					buf = buf.Replace("\n\n", "\n");
 					buf = buf.Replace("\n", " ");
 					string[] data = buf.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-					int n = Convert.ToInt32(Math.Pow(size(), 2)), ind=0;
+					int n = Convert.ToInt32(Math.Pow(Size(), 2)), ind=0;
 					if(data.Length >= n)
 					{
-						for(int i = 0; i < size(); i++)
+						for(int i = 0; i < Size(); i++)
 						{
-							for(int j=0;j<size();j++)
+							for(int j=0;j<Size();j++)
 								setFlow(int.Parse(data[ind++]),i,j);
 						}
 						if(data.Length >= 2*n)
                         {
-							for(int i = 0; i < size(); i++)
+							for(int i = 0; i < Size(); i++)
 							{
-								for(int j = 0; j < size(); j++)
+								for(int j = 0; j < Size(); j++)
 									setDist(int.Parse(data[ind++]),i,j);
 							}
 							if(data.Length >= 3*n)
 							{
-								for(int i = 0; i < size(); i++)
+								for(int i = 0; i < Size(); i++)
 								{
-									for(int j = 0; j < size(); j++)
+									for(int j = 0; j < Size(); j++)
 										setPCost(int.Parse(data[ind++]), i, j);
 								}
 							}

@@ -6,7 +6,7 @@ namespace Solution
     /// <summary>Class <c>Info</c> is all-in one QAP data.</summary>
     public partial class CQAPProblem : AProblem
     {
-        public override bool verify(IPermutation obj)
+        public override bool Verify(IPermutation obj)
         {
             List<ushort> t = new List<ushort>(obj.ToArray());
             t.Sort();
@@ -18,12 +18,12 @@ namespace Solution
             return true;
         }
 
-        public override IPermutation getRandomOne()
+        public override IPermutation GetRandomPermutation()
         {
             List<ushort> t = new List<ushort>();
-            for(ushort i = 0; i < size(); i++)
+            for(ushort i = 0; i < Size(); i++)
                 t.Insert(new System.Random().Next(t.Count), i);
-            return new CPermutation(this.calc, t);
+            return new CPermutation(this.Calc, t);
         }
     }
 }

@@ -6,17 +6,17 @@ namespace TestSystem
 { 
     public class CRegularSTR
     {
-        List<string[]> aSplitStr;
+        List<string[]> m_aSplitStr;
 
         public CRegularSTR(string reg)
         {
             string[] orCondition = reg.Split(';', StringSplitOptions.RemoveEmptyEntries);
-            aSplitStr = new List<string[]>();
+            m_aSplitStr = new List<string[]>();
             foreach(string str in orCondition)
-                aSplitStr.Add(str.Split('*', StringSplitOptions.RemoveEmptyEntries));
+                m_aSplitStr.Add(str.Split('*', StringSplitOptions.RemoveEmptyEntries));
         }
 
-        bool matchAnd(string str, string[] aReg)
+        bool MatchAnd(string str, string[] aReg)
         {
             if(aReg.Length != 0)
             {
@@ -33,13 +33,13 @@ namespace TestSystem
             return true;
         }
 
-        public bool match(string str)
+        public bool Match(string str)
         {
-            if(aSplitStr.Count == 0)
+            if(m_aSplitStr.Count == 0)
                 return true;
-            foreach(string[] reg in aSplitStr)
+            foreach(string[] reg in m_aSplitStr)
             {
-                if(matchAnd(str, reg))
+                if(MatchAnd(str, reg))
                     return true;
             }
             return false;

@@ -6,11 +6,11 @@ namespace Solution
     {
         bool Hemming(List<Individ> aPerm, Individ t, int H_MINi)
         {
-            int min_distance = t.size();
+            int min_distance = t.Size();
             foreach(Individ a in aPerm)
             {
                 int distance = 0;
-                for(int i = 0; i < a.size(); i++)
+                for(int i = 0; i < a.Size(); i++)
                 {
                     if(a[i] != t[i])
                         distance++;
@@ -29,7 +29,7 @@ namespace Solution
             List<Individ> res = new List<Individ>();
             while(res.Count < count)
             {
-                Individ temp = new Individ(m_q.calc, size());
+                Individ temp = new Individ(m_q.Calc, size());
                 if(Hemming(res, temp, H_MINi))
                 {
                     msg($"GEENERETE_POPULATION Step {res.Count+1}: created {temp};");

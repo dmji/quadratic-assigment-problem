@@ -10,12 +10,12 @@ namespace Solution
         /// <summary>index operator</summary>
         ushort this[int i] { get; set; }
         /// <summary>return current permutation size</summary>
-        int size();
+        int Size();
         /// <summary>Get. One-line permutation w/ spaces </summary>
         string ToString();
         IPermutation Clone();
-        long cost();
-        void swap(int i1, int i2);
+        long Cost();
+        void Swap(int i1, int i2);
     }
 
     /// <summary>Class <c>CPermutation</c> models a single permutation in QAP (like in Evolution algorithm).</summary>
@@ -28,7 +28,7 @@ namespace Solution
         bool m_bCalced = false;
 
         protected void OnEdit() { m_bCalced = false; }
-        public long cost()
+        public long Cost()
         {
             if(!m_bCalced)
             {
@@ -38,7 +38,7 @@ namespace Solution
             return m_c;
         }
         /// <summary>return current permutation size</summary>
-        public int size() => m_p.Length;
+        public int Size() => m_p.Length;
         /// <summary>index operator</summary>
         public ushort this[int i] { get => m_p[i]; 
                                     set { OnEdit(); m_p[i] = value; } }
@@ -55,7 +55,7 @@ namespace Solution
             return result + (m_c >= 0 ? (" : " + m_c.ToString()) : "");
         }
         public IPermutation Clone() => new CPermutation(this);
-        public void swap(int i1, int i2)
+        public void Swap(int i1, int i2)
         {
             ushort tmp = m_p[i1];
             m_p[i1] = m_p[i2];
@@ -70,9 +70,9 @@ namespace Solution
                 return true;
             else if(((object)a == null && (object)b != null) || ((object)a != null && (object)b == null))
                 return false;
-            else if(a.size() == b.size())
+            else if(a.Size() == b.Size())
             {
-                for(int i = 0, n = a.size(); i < n; i++)
+                for(int i = 0, n = a.Size(); i < n; i++)
                 {
                     if(a[i] != b[i])
                         return false;

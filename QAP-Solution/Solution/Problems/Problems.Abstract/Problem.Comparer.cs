@@ -30,12 +30,12 @@
 				else
 				{
 					log += $"{x.ToString()}, {y.ToString()}; output: ";
-					if(x.GetType() != y.GetType() || x.size() != y.size() || x.size() != m_ProblemSize)
+					if(x.GetType() != y.GetType() || x.Size() != y.Size() || x.Size() != m_ProblemSize)
 					{
 						msg(log + "ERROR");
 						return -2;
 					}
-					long a = calc(x), b = calc(y);
+					long a = Calc(x), b = Calc(y);
 					if(a == b)
 					{
 						msg(log + "EQUAL(0)");

@@ -12,13 +12,13 @@
         ///<summary> C-matix</summary>
         int[] m_tPositionCost;
 
-        public void setDist(int val, int i, int j) => m_tDistance[i * size() + j] = val;
-        public void setFlow(int val, int i, int j) => m_tFlow[i * size() + j] = val;
-        public void setPCost(int val, int i, int j) => m_tPositionCost[i * size() + j] = val;
+        public void setDist(int val, int i, int j) => m_tDistance[i * Size() + j] = val;
+        public void setFlow(int val, int i, int j) => m_tFlow[i * Size() + j] = val;
+        public void setPCost(int val, int i, int j) => m_tPositionCost[i * Size() + j] = val;
 
-        public int getDist(int i, int j) => m_tDistance[i * size() + j];
-        public int getFlow(int i, int j) => m_tFlow[i * size() + j];
-        public int getPCost(int i, int j) => m_tPositionCost[i * size() + j];
+        public int getDist(int i, int j) => m_tDistance[i * Size() + j];
+        public int getFlow(int i, int j) => m_tFlow[i * Size() + j];
+        public int getPCost(int i, int j) => m_tPositionCost[i * Size() + j];
 
         protected override void init(ushort size)
         {
@@ -31,12 +31,12 @@
         /// <summary>calculate criterion</summary>
         /// <param name="CPermutationSrc">premutation to calculate</param>
         /// <returns>double value</returns>
-        public override long calc(IPermutation src)
+        public override long Calc(IPermutation src)
         {
             long res = 0;
-            for(int i = 0; i < src.size(); i++)
+            for(int i = 0; i < src.Size(); i++)
             {
-                for(int j = 0; j < src.size(); j++)
+                for(int j = 0; j < src.Size(); j++)
                     res += getDist(src[i],src[j]) * getFlow(i, j) + getPCost(i, src[j]);
             }
             return res;

@@ -1,0 +1,3184 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+    <Version>16.00</Version>
+  </DocumentProperties>
+  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+    <AllowPNG />
+  </OfficeDocumentSettings>
+  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+    <WindowHeight>7980</WindowHeight>
+    <WindowWidth>17490</WindowWidth>
+    <WindowTopX>32767</WindowTopX>
+    <WindowTopY>32767</WindowTopY>
+    <ProtectStructure>False</ProtectStructure>
+    <ProtectWindows>False</ProtectWindows>
+  </ExcelWorkbook>
+  <Styles>
+    <Style ss:ID="Default" ss:Name="Normal">
+      <Alignment ss:Vertical="Bottom" />
+      <Borders />
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Color="#000000" />
+      <Interior />
+      <NumberFormat />
+      <Protection />
+    </Style>
+    <Style ss:ID="bgColor">
+      <Interior ss:Color="#FFFFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="reservedStyleSimple">
+      <Interior ss:Color="#FBF7F7" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+    </Style>
+    <Style ss:ID="reservedStyleYellow">
+      <Interior ss:Color="#FFCFF0" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+    </Style>
+    <Style ss:ID="reservedStyleGreen">
+      <Interior ss:Color="#8AFF15" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+    </Style>
+    <Style ss:ID="reservedStyleRed">
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+    </Style>
+    <Style ss:ID="reservedStyleGrey">
+      <Interior ss:Color="#EAEAEA" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+    </Style>
+    <Style ss:ID="reservedStyleGreyBold">
+      <Interior ss:Color="#DFDFDF" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
+    </Style>
+    <Style ss:ID="reservedStyleSimpleBold">
+      <Interior ss:Color="#FFFFF0" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
+    </Style>
+    <Style ss:ID="reservedStyleSimpleBoldLight">
+      <Interior ss:Color="#FFFF96" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="Results">
+    <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="bgColor" ss:DefaultColumnWidth="93" ss:DefaultRowHeight="20">
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">OPTION NAME</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">P_SIZEi</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">H_MINi</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">C_SIZEi</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">C_CHANCEi</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">M_SIZEi</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">M_CHANCEi</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">M_TYPEi</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">M_SALT_SIZEi</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">S_EXTENDb</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">S_DUPLICATEb</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">S_TOURNi</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">E_LIMi</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">10</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">10</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">5</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">False</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">False</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">10</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">False</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">False</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">40</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">40</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">False</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">False</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">60</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">50</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">30</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">False</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">False</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">90</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">50</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">False</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">False</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc128</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 128</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 9</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">64</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">246</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8157</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">68</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">106.25</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">132</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">665</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16343</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">46</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">71.875</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">110</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">901</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32681</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">36</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">56.25</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">100</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">1437</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">49067</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">28</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">43.75</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">92</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">2901</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">81682</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">31.25</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc16a</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 16</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 2</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">68</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8111</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">68</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16213</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">68</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">57</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32461</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">68</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">116</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48579</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">68</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">436</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">80949</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">68</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc16b</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 16</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 1</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">292</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8103</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">292</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16211</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">292</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">68</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32404</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">292</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">136</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48558</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">292</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">487</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">81057</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">292</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc16c</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 16</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 3</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">160</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8116</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">5</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">168</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16227</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">1.25</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">162</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">59</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">32451</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">160</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">115</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48645</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">160</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">422</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">81302</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">160</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc16d</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 16</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 2</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">16</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">7</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8102</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">12.5</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16205</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">12.5</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">55</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">32418</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">16</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">119</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48676</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">12.5</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">407</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">81051</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc16e</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 16</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 3</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">28</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8110</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">7.142857142857142</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">30</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">16209</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">28</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">60</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32386</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">7.142857142857142</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">30</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">133</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48704</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">28</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">451</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">80978</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">28</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc16f</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 16</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 2</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8091</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">1000</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16181</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">1000</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">68</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32361</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">1000</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">142</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48541</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">1000</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">492</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">80901</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">1000</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc16g</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 16</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 2</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">26</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">7</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8109</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">7.6923076923076925</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">28</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">16203</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">26</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">58</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32410</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">26</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">134</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48678</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">26</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">458</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">81051</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">26</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc16h</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 16</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 2</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">996</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8103</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">996</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16251</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">996</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">60</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32469</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">996</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">129</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48585</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">996</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">485</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">81095</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">996</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc16i</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 16</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 2</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">14</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">7</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8097</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">14</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16208</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">14</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">60</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32385</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">14</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">124</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48660</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">14</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">451</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">81000</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">14</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc16j</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 16</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 1</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">7</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8108</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">10</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">16228</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">58</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32384</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">130</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48672</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">468</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">81054</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc32a</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 32</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 3</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">130</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8133</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">92</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">70.76923076923077</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">222</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">38</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16301</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">72</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">55.38461538461539</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">202</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">101</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32597</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">54</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">41.53846153846154</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">184</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">187</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48763</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">46</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">35.38461538461539</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">176</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">573</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">81576</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">24</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">18.461538461538463</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">154</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc32b</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 32</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 3</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">168</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8126</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">128</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">76.19047619047619</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">296</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">37</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16266</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">92</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">54.761904761904766</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">260</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">103</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32544</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">68</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">40.476190476190474</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">236</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">192</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48784</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">47.61904761904761</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">248</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">567</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">81290</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">60</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">35.714285714285715</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">228</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc32c</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 32</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 1</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">642</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8151</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">24</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">3.7383177570093453</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">666</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">39</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16278</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">12</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">1.8691588785046727</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">654</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">108</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32461</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">1.2461059190031152</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">650</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">205</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">48852</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0.3115264797507788</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">644</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">622</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">81368</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0.3115264797507788</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">644</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc32d</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 32</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 3</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">200</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8124</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">44</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">22</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">244</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">38</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16249</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">232</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">102</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32430</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">22</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">11</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">222</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">209</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">48821</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">208</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">609</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">81497</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">216</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc32e</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 32</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 1</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8113</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">42</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16201</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">114</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32380</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">214</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48632</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">641</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">80990</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc32g</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 32</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 3</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">6</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">8097</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">6</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">44</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16197</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">6</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">118</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32414</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">6</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">218</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48647</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">6</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">661</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">81008</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">6</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc32h</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 32</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 1</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">438</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8121</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">38</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8.67579908675799</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">476</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">39</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16283</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">10.95890410958904</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">486</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">106</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32662</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">3.65296803652968</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">454</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">200</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">48685</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">14</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">3.1963470319634704</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">452</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">650</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">81508</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0.91324200913242</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">442</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">esc64a</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Size: 64</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Load time: 1</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="Number">116</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Option set</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="bold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">54</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8142</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">26</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">22.413793103448278</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">142</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">116</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">16268</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">12</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">10.344827586206897</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">128</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">274</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">32553</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">6.896551724137931</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">124</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">473</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">48860</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="greenColored">
+          <Data ss:Type="Number">116</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">1164</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">81485</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">1.7241379310344827</Data>
+        </Cell>
+        <Cell ss:StyleID="simple">
+          <Data ss:Type="Number">118</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="boldGrey">
+          <Data ss:Type="String">Avg Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="boldGrey" ss:MergeAcross="3">
+          <Data ss:Type="String">Tabbling info, avaraged by size</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">sizes</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">total</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">16</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">32</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">64</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="Number">128</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">_0</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R18C5;R98C5;R154C5;R10C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R18C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R98C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R154C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R10C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">_1</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R19C5;R99C5;R155C5;R11C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R19C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R99C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R155C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R11C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">_2</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R20C5;R100C5;R156C5;R12C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R20C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R100C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R156C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R12C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">_3</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R21C5;R101C5;R157C5;R13C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R21C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R101C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R157C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R13C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="greyColored">
+          <Data ss:Type="String">_4</Data>
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R22C5;R102C5;R158C5;R14C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R22C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R102C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R158C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+        <Cell ss:StyleID="greyColored" ss:Formula="=AVERAGE(R14C5)">
+          <Data ss:Type="Number" />
+        </Cell>
+      </Row>
+      <Row />
+    </Table>
+    <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+      <PageSetup>
+        <Header x:Margin="0.3" />
+        <Footer x:Margin="0.3" />
+        <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75" />
+      </PageSetup>
+      <Selected />
+      <Panes>
+        <Pane>
+          <Number>1</Number>
+          <ActiveRow>1</ActiveRow>
+          <ActiveCol>1</ActiveCol>
+        </Pane>
+      </Panes>
+      <ProtectObjects>False</ProtectObjects>
+      <ProtectScenarios>False</ProtectScenarios>
+    </WorksheetOptions>
+  </Worksheet>
+</Workbook>

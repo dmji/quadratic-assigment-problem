@@ -10,8 +10,14 @@ namespace TestSystem
 
     public interface ILogger : IClose
     {
-        Func<string, bool> init(string path = "", string sAlg = "");
-        bool msg(string str);
+        bool Msg(string str, bool bForceConsole = false);
+    }
+
+    public class CEmptyLogger : ILogger
+    {
+        public CEmptyLogger() { }
+        public bool Close() => false;
+        public bool Msg(string str, bool bForceConsole = false) => false;
     }
 
     public class CLogger : ILogger
@@ -20,42 +26,37 @@ namespace TestSystem
         string m_log="";
         StreamWriter m_stream;
         bool m_bThreadOk;
-        public CLogger() {}
-        public CLogger(string path, string name) { init(path,name); }
 
-        public Func<string,bool> init(string path="", string sAlg = "")
+        public CLogger() {}
+        public CLogger(string path, string name) 
         {
-            if(path.Length>0 && sAlg.Length>0)
+            if(path.Length > 0 && name.Length > 0)
             {
                 if(m_stream != null)
                     m_stream.Close();
-                string time = DateTime.Now.ToString();
-                time = time.Replace(":", "_");
-                time = time.Replace(" ", "_");
-                time = time.Replace(".", "_");
-                string pathLog = $"{path}{sAlg}_{time}_log.~.txt";
+                string time = DateTime.Now.ToString().Replace(":", "_").Replace(" ", "_").Replace(".", "_");
+                string pathLog = $"{path}{name}_{time}_log.~.txt";
                 if(!System.IO.File.Exists(pathLog))
                     System.IO.File.Create(pathLog).Close();
                 m_stream = new StreamWriter(pathLog);
-                m_thread = new System.Threading.Thread(threadWorker);
+                m_thread = new System.Threading.Thread(ThreadWorker);
                 m_bThreadOk = true;
                 m_thread.Start();
             }
             if(m_stream == null)
                 throw new Exception("Need init w/ params");
-            return msg;
         }
 
-        public bool msg(string str)
+        public bool Msg(string str, bool bForceConsole=false)
         {
             lock(m_log)
             {
                 m_log += $"{DateTime.Now} {str}\n";
             } 
-            Console.WriteLine($"{DateTime.Now} {str}");
+            if(bForceConsole)
+                Console.WriteLine($"{DateTime.Now} {str}");
             return true;
         }
-
         public bool Close()
         {
             m_bThreadOk = false;
@@ -68,7 +69,7 @@ namespace TestSystem
             return false;
         }
 
-        void threadWorker()
+        void ThreadWorker()
         {
             while(m_bThreadOk || m_log.Length>0)
             {

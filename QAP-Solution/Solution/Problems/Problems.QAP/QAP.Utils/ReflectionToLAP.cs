@@ -2,20 +2,20 @@
 
 namespace Solution
 {
-    public partial class Utils
+    public partial class QAPUtils
     {
         /// <summary>
         /// Generation linear problem for bound method (WIP)
         /// </summary>
         /// <returns>matrix of double</returns>
-        public double[,] ReflectionToLAP(CQAPProblem src)
+        public static double[,] ReflectionToLAP(CQAPProblem src)
         {
             double calcReflection(int a, int b)
             {
-                List<double> min = new List<double>(src.size() - 1), 
-                             max = new List<double>(src.size() - 1);
+                List<double> min = new List<double>(src.Size() - 1), 
+                             max = new List<double>(src.Size() - 1);
 
-                for(int i = 0; i < src.size(); i++)
+                for(int i = 0; i < src.Size(); i++)
                 {
                     if(i != a)
                         min.Add(src.getFlow(i, a));
@@ -27,16 +27,16 @@ namespace Solution
                 max.Reverse();
 
                 double res = 0;
-                for(int i = 0; i < src.size() - 1; i++)
+                for(int i = 0; i < src.Size() - 1; i++)
                     res = res + min[i] * max[i];
                 return res;
             }
 
-            double[,] res = new double[src.size(), src.size()];
+            double[,] res = new double[src.Size(), src.Size()];
 
-            for(int i = 0; i < src.size(); i++)
+            for(int i = 0; i < src.Size(); i++)
             {
-                for(int j = 0; j < src.size(); j++)
+                for(int j = 0; j < src.Size(); j++)
                     res[i, j] = calcReflection(i, j);
             }
             return null;

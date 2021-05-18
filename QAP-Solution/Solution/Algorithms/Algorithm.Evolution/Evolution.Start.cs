@@ -18,7 +18,7 @@ namespace Solution
         public override IDiagnostic Start(IOptions obj)
         {
             Options opt = (Options)obj;
-            diagReset();
+            ResetDiagnostic();
 
             START_TIMER();
 
@@ -61,7 +61,7 @@ namespace Solution
                 //поиск лучшего
                 if(bestIndivid == null)
                     bestIndivid = curGen.Find(x=>calc(x) == min);
-                else if(bestIndivid != null && bestIndivid.cost() > min)
+                else if(bestIndivid != null && bestIndivid.Cost() > min)
                     bestIndivid = curGen.Find(x => calc(x) == min);
 
                 //вычисление суммы
@@ -77,7 +77,7 @@ namespace Solution
                 else
                     CONTROL_ITERATION++;
             }
-            result = bestIndivid;
+            Result = bestIndivid;
             STOP_TIMER();
             m_bFinish = true;
             return this;

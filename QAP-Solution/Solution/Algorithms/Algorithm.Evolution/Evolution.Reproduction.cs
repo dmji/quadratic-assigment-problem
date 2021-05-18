@@ -61,7 +61,7 @@ namespace Solution
                 }
                 foreach(int val in aCyclesSingle)
                     perm[val] = a[val];
-                aResult.Add(new Individ(m_q.calc, perm));
+                aResult.Add(new Individ(m_q.Calc, perm));
             }
             //
             //}

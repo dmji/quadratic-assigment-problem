@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Console-Runner": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\leysh\\source\\repos\\dmji\\quadratic-assigment-problem\\QAP-Solution\\Contest\\_had.xml\""
+    }
+  }
+}

@@ -15,7 +15,7 @@ namespace TestSystem
                 XmlReader xml = XmlReader.Create(path);
                 xml.Read();
 
-                List<string> aProblemFile = STestTools.getArrtibuteDirFiles(xml, "pathProblems", path, ".dat");
+                List<string> aProblemFile = STestTools.GetArrtibuteDirFiles(xml, "pathProblems", path, ".dat");
                 foreach(var file in aProblemFile)
                     aTest.Add(new CTestInfo(file));
             }
@@ -27,7 +27,7 @@ namespace TestSystem
                 IAlgorithm ALG = new FullforceAlgorithm(QAP);
                 timer.Reset();
                 IDiagnostic result = ALG.Start(null);
-                test.generateResultFile(dirPath + "//generated_results//", QAP.size(), result.getResultValue(), ALG.result.ToString());
+                test.GenerateResultFile(dirPath + "//generated_results//", QAP.Size(), result.GetResultValue(), ALG.Result.ToString());
             }
         }
     }

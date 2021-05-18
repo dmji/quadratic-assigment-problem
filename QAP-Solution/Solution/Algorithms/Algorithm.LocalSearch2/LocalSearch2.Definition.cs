@@ -4,7 +4,7 @@ namespace Solution
 {
     public partial class LocalSearchAlgorithm : AAlgorithm
     {
-        public override string getName() => "Fullforce algorithm";
+        public override string Name() => "Fullforce algorithm";
 
         public LocalSearchAlgorithm(IProblem problem) : base(problem) { }
 
@@ -19,34 +19,34 @@ namespace Solution
             double minp_cost = 0;
             int i = 0;
             
-            msg($"sizeQAP={size()} CPermutation: {target.ToString()} Q={target.cost()}");
+            msg($"sizeQAP={size()} CPermutation: {target.ToString()} Q={target.Cost()}");
             do
             {
                 pt = new CPermutation(minp);
-                for(int u = 0; u < pt.size() - 1; u++)
+                for(int u = 0; u < pt.Size() - 1; u++)
                 {
-                    for(int y = u + 1; y < pt.size(); y++)
+                    for(int y = u + 1; y < pt.Size(); y++)
                     {
                         temp = new CPermutation(pt);
-                        temp.swap(y, u);
-                        if(temp.cost() < minp_cost)
+                        temp.Swap(y, u);
+                        if(temp.Cost() < minp_cost)
                         {
                             minp = new CPermutation(temp);
-                            minp_cost = minp.cost();
+                            minp_cost = minp.Cost();
                         }
                     }
                 }
-                msg($"$Local search step{i}: CPermutation: {minp.ToString()} Q={minp.cost()}");
-            } while(stepCount != ++i && pt.cost() != minp.cost());
+                msg($"$Local search step{i}: CPermutation: {minp.ToString()} Q={minp.Cost()}");
+            } while(stepCount != ++i && pt.Cost() != minp.Cost());
         }
 
         public override IDiagnostic Start(IOptions opt)
         {
-            diagReset();
+            ResetDiagnostic();
             var perm = new List<ushort>();
             for(ushort i = 0; i < size(); i++)
                 perm.Add(i);
-            local_search(new CPermutation(m_q.calc, perm));
+            local_search(new CPermutation(m_q.Calc, perm));
             return this;
         }
     }

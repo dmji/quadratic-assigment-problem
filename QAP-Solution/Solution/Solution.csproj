@@ -8,4 +8,8 @@
     <Optimize>false</Optimize>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Solution\" />
+  </ItemGroup>
+
 </Project>

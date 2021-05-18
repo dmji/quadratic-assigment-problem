@@ -6,23 +6,23 @@ namespace TestSystem
 {
     public interface ITabler : IClose
     {
-        long addRow();
-        bool addCell(string style, string str, int mergeRight = 0, int mergeDown = 0);
-        bool addCells(string style, params string[] str);
-        bool addCellsNumber(string style, params double[] str);
-        long nRows();
+        long AddRow();
+        bool AddCell(string style, string str, int mergeRight = 0, int mergeDown = 0);
+        bool AddCells(string style, params string[] str);
+        bool AddCellsNumber(string style, params double[] str);
+        long RowCount();
     }
 
     public class CTablerEmpty : ITabler
     {
         public CTablerEmpty() { }
-        public long addRow() => 0;
-        public bool addCell(string style, string str, int mergeRight = 0, int mergeDown = 0) => false;
-        public bool addCells(string style, params string[] str) => false;
-        public bool addCellsNumber(string style, params double[] str) => false;
+        public long AddRow() => 0;
+        public bool AddCell(string style, string str, int mergeRight = 0, int mergeDown = 0) => false;
+        public bool AddCells(string style, params string[] str) => false;
+        public bool AddCellsNumber(string style, params double[] str) => false;
 
         public bool Close() => false;
-        public long nRows() => 0;
+        public long RowCount() => 0;
     }
 
     public class CTablerExcel : ITabler
@@ -33,9 +33,22 @@ namespace TestSystem
         string m_pathResult;
         long m_nRowCounter;
 
-        public long nRows() => m_nRowCounter;
+        public long RowCount() => m_nRowCounter;
 
-        public class Tags
+        public struct Styles
+        {
+            public static string
+                eStyleSimple            = "reservedStyleSimple",
+                eStyleYellow            = "reservedStyleYellow",
+                eStyleGreen             = "reservedStyleGreen",
+                eStyleRed               = "reservedStyleRed",
+                eStyleGrey              = "reservedStyleGrey",
+                eStyleGreyBold          = "reservedStyleGreyBold",
+                eStyleSimpleBold        = "reservedStyleSimpleBold",
+                eStyleSimpleBoldLight   = "reservedStyleSimpleBoldLight";
+        }
+
+        public struct Tags
         {
             public static string
             eNone           = "reservedTAGH0",
@@ -57,7 +70,7 @@ namespace TestSystem
             eTAGWeight      = "reservedTAGWeightH0",
             eFormula        = "reservedTAGFormula";
         };
-        private string filter(string buf)
+        private string Filter(string buf)
         {
             return buf.Replace(" xmlns=\"\"", "")
             .Replace(Tags.eType, "ss:Type")
@@ -95,29 +108,29 @@ namespace TestSystem
                 m_table = m_doc.GetElementsByTagName("Table")[0];
 
                 XmlNode styles = m_doc.GetElementsByTagName("Styles")[0];
-                styles.AppendChild(createStyle("simple", "#FBF7F7"));
-                styles.AppendChild(createStyle("yellowColored", "#FFCFF0"));
-                styles.AppendChild(createStyle("greenColored", "#8AFF15"));
-                styles.AppendChild(createStyle("redColored", "#FF0000"));
-                styles.AppendChild(createStyle("greyColored", "#EAEAEA"));
+                styles.AppendChild(CreateStyle(Styles.eStyleSimple, "#FBF7F7"));
+                styles.AppendChild(CreateStyle(Styles.eStyleYellow, "#FFCFF0"));
+                styles.AppendChild(CreateStyle(Styles.eStyleGreen, "#8AFF15"));
+                styles.AppendChild(CreateStyle(Styles.eStyleRed, "#FF0000"));
+                styles.AppendChild(CreateStyle(Styles.eStyleGrey, "#EAEAEA"));
 
-                XmlElement boldGreyStyle = createStyle("boldGrey", "#DFDFDF");
-                boldGreyStyle.AppendChild(createFont("Calibri", "11", true));
+                XmlElement boldGreyStyle = CreateStyle(Styles.eStyleGreyBold, "#DFDFDF");
+                boldGreyStyle.AppendChild(CreateFont("Calibri", "11", true));
                 styles.AppendChild(boldGreyStyle);
 
-                XmlElement boldStyle = createStyle("bold", "#FFFFF0");
-                boldStyle.AppendChild(createFont("Calibri", "11", true));
+                XmlElement boldStyle = CreateStyle(Styles.eStyleSimpleBold, "#FFFFF0");
+                boldStyle.AppendChild(CreateFont("Calibri", "11", true));
                 styles.AppendChild(boldStyle);
                 
-                XmlElement boldStyleLight = createStyle("boldLight", "#FFFF96");
-                boldStyleLight.AppendChild(createFont("Calibri", "11", true));
+                XmlElement boldStyleLight = CreateStyle(Styles.eStyleSimpleBoldLight, "#FFFF96");
+                boldStyleLight.AppendChild(CreateFont("Calibri", "11", true));
                 styles.AppendChild(boldStyleLight);
 
                 m_row = m_doc.CreateElement("Row");
                 m_nRowCounter = 1;
             }
         }
-        public long addRow()
+        public long AddRow()
         {
             m_row.SetAttribute(Tags.eAutoFitHeight, "0");
             m_table.AppendChild(m_row);
@@ -125,19 +138,19 @@ namespace TestSystem
             m_nRowCounter++;
             return m_nRowCounter;
         }
-        public bool addCell(string style, string str, int mergeRight = 0, int mergeDown = 0)
+        public bool AddCell(string style, string str, int mergeRight = 0, int mergeDown = 0)
         {
             XmlElement data = m_doc.CreateElement("Data");
             XmlElement cell;
             if(str[0]=='=')
             {
-                cell = createCell(style, data);
+                cell = CreateCell(style, data);
                 cell.SetAttribute(Tags.eFormula, str);
                 data.SetAttribute(Tags.eType, "Number");
             }
             else
             {
-                cell = createCell(style, data);
+                cell = CreateCell(style, data);
                 data.SetAttribute(Tags.eType, "String");
                 data.InnerText = str;   
             }
@@ -148,7 +161,7 @@ namespace TestSystem
             m_row.AppendChild(cell);
             return true;
         }
-        public bool addCells(string style, params string[] str)
+        public bool AddCells(string style, params string[] str)
         {
             foreach(string val in str)
             {
@@ -156,21 +169,21 @@ namespace TestSystem
                 {
                     double dP = 0;
                     if(double.TryParse(val, out dP))
-                        addCellsNumber(style, dP);
+                        AddCellsNumber(style, dP);
                     else
-                        addCell(style, val);
+                        AddCell(style, val);
                 }
             }
             return true;
         }
-        public bool addCellsNumber(string style, params double[] str)
+        public bool AddCellsNumber(string style, params double[] str)
         {
             foreach(double val in str)
             {
                 XmlElement data = m_doc.CreateElement("Data");
                 data.SetAttribute(Tags.eType, "Number");
                 data.InnerText = val.ToString().Replace(',', '.');
-                m_row.AppendChild(createCell(style, data));
+                m_row.AppendChild(CreateCell(style, data));
             }
             return true;
         }
@@ -182,7 +195,7 @@ namespace TestSystem
             string buf = rd.ReadToEnd();
             rd.Close();
             StreamWriter wr = new StreamWriter(m_pathResult);
-            wr.Write(filter(buf));
+            wr.Write(Filter(buf));
             wr.Close();
             return false;
         }
@@ -191,7 +204,7 @@ namespace TestSystem
             Close();
         }
 
-        private XmlElement createFont(string font, string size, bool bBold)
+        private XmlElement CreateFont(string font, string size, bool bBold)
         {
             XmlElement fontElem = m_doc.CreateElement("Font");
             fontElem.SetAttribute(Tags.eFontName, font);
@@ -202,7 +215,7 @@ namespace TestSystem
                 fontElem.SetAttribute(Tags.eBold, "1");
             return fontElem;
         }
-        private XmlElement createStyle(string id, string color, bool bBorder = true)
+        private XmlElement CreateStyle(string id, string color, bool bBorder = true)
         {
             XmlElement elem = m_doc.CreateElement("Style");
             elem.SetAttribute(Tags.eID,  id);
@@ -229,7 +242,7 @@ namespace TestSystem
             }
             return elem;
         }
-        private XmlElement createCell(string style, XmlElement data = null)
+        private XmlElement CreateCell(string style, XmlElement data = null)
         {
             XmlElement cell = m_doc.CreateElement("Cell");
             if(style.Length>0)

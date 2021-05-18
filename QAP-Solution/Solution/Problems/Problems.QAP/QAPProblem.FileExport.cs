@@ -13,33 +13,33 @@ namespace Solution
 		public void export_txt(CPermutation p = null, int omeg = -1, int z = -1)
 		{
 			msg("ExportTxt begin");
-			string buf = size().ToString() + "\n";
-			for(int i = 0; i < size(); i++)
+			string buf = Size().ToString() + "\n";
+			for(int i = 0; i < Size(); i++)
 			{
-				for(int j = 0; j < size(); j++)
-					buf = buf + getDist(i, j) + (j == size() - 1 ? "\n" : " ");
+				for(int j = 0; j < Size(); j++)
+					buf = buf + getDist(i, j) + (j == Size() - 1 ? "\n" : " ");
 			}
 			buf = buf + '\n';
-			for(int i = 0; i < size(); i++)
+			for(int i = 0; i < Size(); i++)
 			{	
-				for(int j = 0; j < size(); j++)
-					buf = buf + getFlow(i, j) + (j == size() - 1 ? "\n" : " ");
+				for(int j = 0; j < Size(); j++)
+					buf = buf + getFlow(i, j) + (j == Size() - 1 ? "\n" : " ");
 			}
 			buf = buf + '\n';
-			for(int i = 0; i < size(); i++)
+			for(int i = 0; i < Size(); i++)
 			{
-				for(int j = 0; j < size(); j++)
-					buf = buf + getPCost(i, j) + (j == size() - 1 ? "\n" : " ");
+				for(int j = 0; j < Size(); j++)
+					buf = buf + getPCost(i, j) + (j == Size() - 1 ? "\n" : " ");
 			}
 			if(p != null)
 			{
 				buf = buf + "\np={";
-				for(int i = 0; i < size(); i++)
+				for(int i = 0; i < Size(); i++)
 					buf = buf + p[i] + ", ";
 				buf = buf + "}";
 			}
 			StreamWriter file;
-			string pathFile = omeg == -1 ? $"ex_{size()}_{DateTime.Now}.bin" : pathFile = $"ex_{size()} {omeg} {z}_{DateTime.Now}.bin";
+			string pathFile = omeg == -1 ? $"ex_{Size()}_{DateTime.Now}.bin" : pathFile = $"ex_{Size()} {omeg} {z}_{DateTime.Now}.bin";
 			if(!System.IO.File.Exists(pathFile))
 				System.IO.File.Create(pathFile).Close();
 			file = new StreamWriter(pathFile);

@@ -4,7 +4,7 @@ namespace Solution
 {
     public partial class FullforceAlgorithm : AAlgorithm
     {
-        public override string getName() => "Fullforce algorithm";
+        public override string Name() => "Fullforce algorithm";
 
         public FullforceAlgorithm(IProblem problem) : base(problem) { }
 
@@ -52,24 +52,24 @@ namespace Solution
             }
             else
             {
-                CPermutation curPerm = new CPermutation(m_q.calc, src);
-                double cur_cost = curPerm.cost();
+                CPermutation curPerm = new CPermutation(m_q.Calc, src);
+                double cur_cost = curPerm.Cost();
                 lock(m_p)
                 {
-                    if(m_p.Count == 0 || cur_cost < result.cost())
+                    if(m_p.Count == 0 || cur_cost < Result.Cost())
                     {
                         m_p.Clear();
-                        m_p.Add(new CPermutation(m_q.calc, src));
+                        m_p.Add(new CPermutation(m_q.Calc, src));
                     }
-                    else if(cur_cost == result.cost())
-                        m_p.Add(new CPermutation(m_q.calc, src));
+                    else if(cur_cost == Result.Cost())
+                        m_p.Add(new CPermutation(m_q.Calc, src));
                 }
             }
         }
 
         public override IDiagnostic Start(IOptions opt)
         {
-            diagReset();
+            ResetDiagnostic();
             recursionParallel(new List<ushort>());
             return this;
         }

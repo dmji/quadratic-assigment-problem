@@ -2,33 +2,33 @@
 {
     public class CTimer
     {
-        System.Diagnostics.Stopwatch time;
+        System.Diagnostics.Stopwatch m_time;
 
         public CTimer()
         {
-            time = new System.Diagnostics.Stopwatch();
-            time.Start();
+            m_time = new System.Diagnostics.Stopwatch();
+            m_time.Start();
         }
 
         public string Reset()
         {
-            string result = time.ElapsedMilliseconds.ToString();
-            time.Restart();
-            return result;
+            string s = m_time.ElapsedMilliseconds.ToString();
+            m_time.Restart();
+            return s;
         }
 
         public long Stop()
         {
-            time.Stop();
-            return time.ElapsedMilliseconds;
+            m_time.Stop();
+            return m_time.ElapsedMilliseconds;
         }
 
         public long StopT()
         {
-            time.Stop();
-            return time.ElapsedTicks;
+            m_time.Stop();
+            return m_time.ElapsedTicks;
         }
 
-        public override string ToString() => time.ToString();
+        public override string ToString() => m_time.ToString();
     }
 }

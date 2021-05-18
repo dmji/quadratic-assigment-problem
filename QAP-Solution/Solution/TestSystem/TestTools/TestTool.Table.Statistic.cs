@@ -19,7 +19,7 @@ namespace TestSystem
             public int m_size;
             public string m_range;
 
-            public void addResult(long row, long cell)
+            public void AddResult(long row, long cell)
             {
                 m_range += (m_range.Length > 0 ? ";" : "") + $"R{row}C{cell}";
             }
@@ -35,7 +35,7 @@ namespace TestSystem
                 m_aRange = new List<SRangeSize>();
             }
 
-            public string getRange()
+            public string GetRange()
             {
                 string result = "";
                 foreach(SRangeSize r in m_aRange)
@@ -45,42 +45,44 @@ namespace TestSystem
         }
 
         List<SStatCollector> m_aStats;
-        public CTestStatistic()
+        long m_cell;
+        public CTestStatistic(long cell)
         {
+            m_cell = cell;
             m_aStats = new List<SStatCollector>();
         }
 
-        public void releaseOptStat(ITabler tbl)
+        public void ReleaseOptStat(ITabler tbl)
         {
             if(m_aStats.Count > 0)
             {
-                tbl.addRow();
-                tbl.addRow();
-                tbl.addCells("boldGrey", "", "Avg Error, %");
-                tbl.addCell("boldGrey", "Tabbling info, avaraged by size", m_aStats[0].m_aRange.Count - 1);
-                tbl.addRow();
-                tbl.addCells("greyColored", "sizes", "total");
+                tbl.AddRow();
+                tbl.AddRow();
+                tbl.AddCells("boldGrey", "", "Avg Error, %");
+                tbl.AddCell("boldGrey", "Tabbling info, avaraged by size", m_aStats[0].m_aRange.Count - 1);
+                tbl.AddRow();
+                tbl.AddCells("greyColored", "sizes", "total");
 
                 m_aStats[0].m_aRange.Sort((SRangeSize f, SRangeSize s) => { if(f.m_size > s.m_size) return 1; else if(f.m_size == s.m_size) return 0; else return -1; });
                 foreach(SRangeSize b in m_aStats[0].m_aRange)
-                    tbl.addCellsNumber("greyColored", b.m_size);
-                tbl.addRow();
+                    tbl.AddCellsNumber("greyColored", b.m_size);
+                tbl.AddRow();
 
                 foreach(var a in m_aStats)
                 {
                     a.m_aRange.Sort((SRangeSize f, SRangeSize s) => { if(f.m_size > s.m_size) return 1; else if(f.m_size == s.m_size) return 0; else return -1; });
 
-                    string allRange = a.getRange();
-                    tbl.addCells("greyColored", a.m_name, $"=AVERAGE({allRange})");
+                    string allRange = a.GetRange();
+                    tbl.AddCells("greyColored", a.m_name, $"=AVERAGE({allRange})");
                     foreach(SRangeSize b in a.m_aRange)
-                        tbl.addCell("greyColored", $"=AVERAGE({b.m_range})");
-                    tbl.addRow();
+                        tbl.AddCell("greyColored", $"=AVERAGE({b.m_range})");
+                    tbl.AddRow();
                 }
                 m_aStats.Clear();
             }
         }
 
-        public void addStat(string name, int size, long row, long cell)
+        public void AddStat(string name, int size, long row)
         {
             bool bOk = false;
             foreach(SStatCollector a in m_aStats)
@@ -92,7 +94,7 @@ namespace TestSystem
                     {
                         if(b.m_size == size)
                         {
-                            b.addResult(row, cell);
+                            b.AddResult(row, m_cell);
                             bInc = true;
                             break;
                         }
@@ -100,7 +102,7 @@ namespace TestSystem
                     if(!bInc)
                     {
                         SRangeSize range = new SRangeSize(size);
-                        range.addResult(row, cell);
+                        range.AddResult(row, m_cell);
                         a.m_aRange.Add(range);
                     }
                     bOk = true;
@@ -111,7 +113,7 @@ namespace TestSystem
             {
                 SStatCollector stat = new SStatCollector(name);
                 SRangeSize range = new SRangeSize(size);
-                range.addResult(row, cell);
+                range.AddResult(row, m_cell);
                 stat.m_aRange.Add(range);
                 m_aStats.Add(stat);
             }

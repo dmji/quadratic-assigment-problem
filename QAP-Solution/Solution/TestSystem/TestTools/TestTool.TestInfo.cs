@@ -8,20 +8,20 @@ namespace TestSystem
         public struct SExam
         {
             public SExam(long val = 0, bool ok = false){ bInit = ok; value = val; }
-            public bool isInit() => bInit;
-            public long val() => value;
+            public bool IsInit() => bInit;
+            public long Value() => value;
             long value;
             bool bInit;
         }
 
         public string pathProblem { get; }
-        SExam val;
+        SExam m_val;
 
         public CTestInfo(string problem, string resultPath = "")
         {
             pathProblem = problem;
             if(resultPath == "")
-                val = new SExam();
+                m_val = new SExam();
             else
             {
                 StreamReader file = new StreamReader(resultPath);
@@ -31,20 +31,20 @@ namespace TestSystem
                 str = str.Replace("\r\n", "\n");
                 string[] strSplitN = str.Split('\n');
                 string[] strSplitNSpace = strSplitN[0].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                val = new SExam(Convert.ToInt64(strSplitNSpace[1]), true);
+                m_val = new SExam(Convert.ToInt64(strSplitNSpace[1]), true);
             }
         }
-        public bool exam(ref long obj)
+        public bool Exam(ref long obj)
         {
-            obj = val.val();
-            return val.isInit();
+            obj = m_val.Value();
+            return m_val.IsInit();
         }
-        public string nameProblem() => pathProblem.Substring(pathProblem.LastIndexOf("\\") + 1, pathProblem.LastIndexOf('.') - pathProblem.LastIndexOf("\\") - 1);
-        public void generateResultFile(string path, int size, long result, string perm)
+        public string Name() => pathProblem.Substring(pathProblem.LastIndexOf("\\") + 1, pathProblem.LastIndexOf('.') - pathProblem.LastIndexOf("\\") - 1);
+        public void GenerateResultFile(string path, int size, long result, string perm)
         {
             if(!System.IO.Directory.Exists(path))
                 System.IO.Directory.CreateDirectory(path);
-            string resFilePath = path + nameProblem() + ".bin";
+            string resFilePath = path + Name() + ".bin";
             if(!System.IO.File.Exists(resFilePath))
                 System.IO.File.Create(resFilePath).Close();
             StreamWriter wr = new StreamWriter(resFilePath);

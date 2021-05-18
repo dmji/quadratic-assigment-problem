@@ -13,19 +13,21 @@ namespace TestSystem
     {
         public struct SRow
         {
-            public SRow(double d, string[] aStr) { value = d; aCells = aStr; }
-            public double value;
-            public string[] aCells;
+            public SRow(double d, string[] aStr) { m_value = d; m_aCells = aStr; }
+            public double m_value;
+            public string[] m_aCells;
         }
         List<SRow> m_aRow;
         ITabler m_table;
         long m_nRowCounter;
+        bool m_bColor;
 
-        public CDelayedRow(ITabler table)
+        public CDelayedRow(ITabler table, bool bColor)
         {
             m_aRow = new List<SRow>();
             m_table = table;
-            m_nRowCounter = table.nRows();
+            m_nRowCounter = table.RowCount();
+            m_bColor = bColor;
         }
         public long AddRow(double criterio, params string[] aStr) 
         { 
@@ -38,14 +40,14 @@ namespace TestSystem
                 return;
 
             // find row with minimal value
-            double minVal = m_aRow.Min(x => x.value);
-            int min = m_aRow.FindIndex(x => x.value == minVal);
+            double minVal = m_aRow.Min(x => x.m_value);
+            int min = m_aRow.FindIndex(x => x.m_value == minVal);
             
             // fill table rows
             for(int i = 0; i < m_aRow.Count; i++)
             {
-                m_table.addRow();
-                m_table.addCells(i == min ? "greenColored" : "simple", m_aRow[i].aCells);
+                m_table.AddRow();
+                m_table.AddCells(i == min && m_bColor ? "greenColored" : "simple", m_aRow[i].m_aCells);
             }
         }
     }
