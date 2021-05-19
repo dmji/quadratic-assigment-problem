@@ -14,15 +14,9 @@ namespace Solution
     /// <summary>Class <c>Info</c> is all-in one QAP data.</summary>
     public abstract partial class AProblem : IProblem
     {
-        //LOGGER
-        TestSystem.ILogger m_log;
-        public void setLogger(TestSystem.ILogger log = null) { m_log = log == null ? new TestSystem.CEmptyLogger() : log; }
-        protected bool msg(string s) => m_log.Msg(s);
-
-        //PROBLEM
         ///<summary>n</summary>
-		ushort m_ProblemSize;
-        public ushort Size() => m_ProblemSize;
+		ushort m_problemSize;
+        public ushort Size() => m_problemSize;
 
         /// <summary>calculate criterion</summary>
         /// <param name="CPermutationSrc">premutation to calculate</param>
@@ -31,8 +25,8 @@ namespace Solution
         public virtual bool Verify(IPermutation obj) => false;
         public virtual IPermutation GetRandomPermutation() => null;
 
-        protected AProblem(ushort size = 0) { init(size); }
-        protected virtual void init(ushort size = 0) { m_ProblemSize = size; }
+        protected AProblem(ushort size = 0) { Init(size); }
+        protected virtual void Init(ushort size = 0) { m_problemSize = size; }
         
     }
 }

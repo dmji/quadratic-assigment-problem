@@ -20,12 +20,10 @@ namespace Solution
             public bool S_DUPLICATEb { get; set; }
             public int S_TOURNi { get; set; }
             public int E_LIMi { get; set; }
-            public int U_SEEDi { get; set; }
 
             string m_name;
 
             public string Name() => m_name;
-            public int GetSeed() => U_SEEDi;
             public void Serielize(string path)
             {
                 if(!System.IO.File.Exists(path))
@@ -50,12 +48,12 @@ namespace Solution
             {
                 System.IO.StreamReader reader = new System.IO.StreamReader(path);
                 string file = reader.ReadToEnd();
-                init(System.Text.Json.JsonSerializer.Deserialize<Options>(file));
+                Init(System.Text.Json.JsonSerializer.Deserialize<Options>(file));
                 m_name = path.Substring(path.LastIndexOf('\\') + 1, path.LastIndexOf('.') - path.LastIndexOf('\\') - 1);
                 reader.Close();
             }
 
-            public void init(
+            public void Init(
                 int P_SIZEi,
                 int H_MINi,
                 int C_SIZEi,
@@ -84,9 +82,9 @@ namespace Solution
                 this.E_LIMi = E_LIMi;
             }
 
-            public void init(Options obj)
+            public void Init(Options obj)
             {
-                init(obj.P_SIZEi,
+                Init(obj.P_SIZEi,
                     obj.H_MINi,
                     obj.C_SIZEi,
                     obj.C_CHANCEi,

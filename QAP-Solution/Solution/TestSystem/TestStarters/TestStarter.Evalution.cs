@@ -52,12 +52,12 @@ namespace TestSystem
             }
 
             string pathLog = path + xml.GetAttribute("pathLog");
-            log = new CLogger(pathLog, $"{xml.GetAttribute("name")}_{EvolutionAlgorithm.getName(true)}");
+            log = new CLogger(pathLog, $"{xml.GetAttribute("name")}_{EvolutionAlgorithm.Name(true)}");
 
 
             string pathTable = path + xml.GetAttribute("pathTable");
             string pathTemplate = path + xml.GetAttribute("pathTemplate");
-            tbl = new CTablerExcel(pathTable, $"{xml.GetAttribute("name")}_{EvolutionAlgorithm.getName(true)}", pathTemplate);
+            tbl = new CTablerExcel(pathTable, $"{xml.GetAttribute("name")}_{EvolutionAlgorithm.Name(true)}", pathTemplate);
         }
 
         public static void StartTestEvolution(string path, int reply_count = 1, bool bLogEnabled = false)
@@ -93,8 +93,8 @@ namespace TestSystem
 
                 if(bLogEnabled)
                 {
-                    ((IDiagnostic)ALG).SetLogger(log);
-                    QAP.setLogger(log);
+                    ALG.SetLogger(log);
+                    QAP.SetLogger(log);
                 }
                 foreach(IOptions opt in aOptions)
                 {
@@ -102,7 +102,7 @@ namespace TestSystem
                     for(int i = 0; i < reply_count; i++)
                     {
                         timer.Reset();
-                        IDiagnostic result = ALG.Start(opt);
+                        IResultAlg result = ALG.Start(opt);
 
                         timerAlg += timer.Stop();
                         calcCount += result.GetCalcCount();

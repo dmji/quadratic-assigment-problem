@@ -29,10 +29,10 @@ namespace Solution
             List<Individ> res = new List<Individ>();
             while(res.Count < count)
             {
-                Individ temp = new Individ(m_q.Calc, size());
+                Individ temp = new Individ(m_problem, Size());
                 if(Hemming(res, temp, H_MINi))
                 {
-                    msg($"GEENERETE_POPULATION Step {res.Count+1}: created {temp};");
+                    Msg($"GEENERETE_POPULATION Step {res.Count+1}: created {temp};");
                     res.Add(temp);
                 }
             }

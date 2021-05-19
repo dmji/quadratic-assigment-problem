@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Solution
 {
-    public partial class QAPUtils
+    public partial struct QAPUtils
     {
-        static int[] rs_count(int sizeQAP)
+        static int[] RS_count(int sizeQAP)
         {
             List<int> rs = new List<int>();
             for(int i = 2; i < sizeQAP; i++)
@@ -22,17 +22,14 @@ namespace Solution
         /// <param name="z">random cap</param>
         /// <param name="p">target permutation for solve</param>
         /// <returns>return CPermutation-permutation with known criteria</returns>
-        public static IProblem PalubetskisTestGeneration(ushort sizeQAP, int omeg, int z, CPermutation p = null)
+        public static IProblem PalubetskisTestGeneration(ushort sizeQAP, int omeg, int z, IPermutation p = null)
         {
+            CQAPProblem result = new CQAPProblem(sizeQAP);
             if(p == null)
-            {
-                List<ushort> ar = new List<ushort>();
-                for(ushort i = 0; i < sizeQAP; i++)
-                    ar.Add(i);
-                p = new CPermutation(null, ar);
-            }
+                p = result.GetRandomPermutation();
+
             List<List<int>> D = new List<List<int>>();
-            int[] rs = rs_count(sizeQAP);
+            int[] rs = RS_count(sizeQAP);
 
             //D countig
             for(int y = 0; y < rs[1]; y++)
@@ -113,13 +110,12 @@ namespace Solution
                     F[i][j] = omegar[p[i]][p[j]];
             }
 
-            CQAPProblem result = new CQAPProblem(sizeQAP);
             for(int i = 0; i < sizeQAP; i++)
             {
                 for(int j = 0; j < sizeQAP; j++)
                 {
-                    result.setFlow(D[i][j], i, j);
-                    result.setDist(F[i][j], i, j);
+                    result.SetFlow(D[i][j], i, j);
+                    result.SetDist(F[i][j], i, j);
                 }
             }
             return result;

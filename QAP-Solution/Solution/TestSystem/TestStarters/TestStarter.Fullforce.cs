@@ -26,7 +26,7 @@ namespace TestSystem
                 IProblem QAP = new CQAPProblem(test.pathProblem);
                 IAlgorithm ALG = new FullforceAlgorithm(QAP);
                 timer.Reset();
-                IDiagnostic result = ALG.Start(null);
+                IResultAlg result = ALG.Start(null);
                 test.GenerateResultFile(dirPath + "//generated_results//", QAP.Size(), result.GetResultValue(), ALG.Result.ToString());
             }
         }

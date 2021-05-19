@@ -8,4 +8,12 @@ namespace Solution
     {
         string Name();
     }
+    public interface IToString
+    {
+        string ToString();
+    }
+    public interface ISetLogger
+    {
+        void SetLogger(TestSystem.ILogger log = null);
+    }
 }

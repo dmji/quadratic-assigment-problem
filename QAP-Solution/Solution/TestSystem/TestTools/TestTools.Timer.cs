@@ -1,6 +1,6 @@
 ﻿namespace TestSystem
 {
-    public class CTimer
+    public class CTimer : Solution.IToString
     {
         System.Diagnostics.Stopwatch m_time;
 

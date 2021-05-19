@@ -46,11 +46,11 @@ namespace TestSystem
             }
 
             string pathLog = path + xml.GetAttribute("pathLog");
-            log = new CLogger(pathLog, $"{xml.GetAttribute("name")}_{EvolutionAlgorithm.getName(true)}"); 
+            log = new CLogger(pathLog, $"{xml.GetAttribute("name")}_{EvolutionAlgorithm.Name(true)}"); 
 
             string pathTable = path + xml.GetAttribute("pathTable");
             string pathTemplate = path + xml.GetAttribute("pathTemplate");
-            tbl = new CTablerExcel(pathTable, $"{xml.GetAttribute("name")}_{EvolutionAlgorithm.getName(true)}", pathTemplate);
+            tbl = new CTablerExcel(pathTable, $"{xml.GetAttribute("name")}_{EvolutionAlgorithm.Name(true)}", pathTemplate);
         }
 
         public static void StartTestLSA2(string path, int reply_count = 1, bool bLogEnable = false)
@@ -73,10 +73,12 @@ namespace TestSystem
 
                     long examVal = 0;
                     bool bExam = test.Exam(ref examVal);
-                    tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {QAP.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
-                    tbl.AddRow();
                     if(reply_count == 1)
+                    {
+                        tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {QAP.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
+                        tbl.AddRow();
                         tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
+                    }
                     else
                         tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Avg Timer, ms", "Avg Calc count", "Avg Error", "Avg Error, %", "Avg Result", "Best Result");
                     IAlgorithm ALG = new LocalSearchAlgorithm(QAP);
@@ -84,12 +86,12 @@ namespace TestSystem
 
                     if(bLogEnable)
                     {
-                        ((IDiagnostic)ALG).SetLogger(log);
-                        QAP.setLogger(log);
+                        ALG.SetLogger(log);
+                        QAP.SetLogger(log);
                     }
 
                     timer.Reset();
-                    IDiagnostic result = ALG.Start(null);
+                    IResultAlg result = ALG.Start(null);
 
                     long timerAlg = timer.Stop();
                     long calcCount = result.GetCalcCount();

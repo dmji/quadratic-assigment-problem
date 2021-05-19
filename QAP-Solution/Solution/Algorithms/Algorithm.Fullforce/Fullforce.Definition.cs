@@ -16,11 +16,11 @@ namespace Solution
             return 0;
         }
 
-        protected void recursionParallel(List<ushort> src)
+        protected void RecursionParallel(List<ushort> src)
         {
             src.Add(0);
             System.Threading.Tasks.ParallelOptions opt = new System.Threading.Tasks.ParallelOptions();
-            System.Threading.Tasks.Parallel.For(0, size(),
+            System.Threading.Tasks.Parallel.For(0, Size(),
                 opt,
                 () => 0,
                (int i, System.Threading.Tasks.ParallelLoopState state, long b) =>
@@ -29,48 +29,47 @@ namespace Solution
                    if(_isExist(src, (ushort)i) == 0)
                    {
                        src[src.Count - 1] = (ushort)i;
-                       recursion(new List<ushort>(src));
+                       Recursion(new List<ushort>(src));
                    }
                    return a;
                },
                (long a) => { });
         }
 
-        protected void recursion(List<ushort> src)
+        protected void Recursion(List<ushort> src)
         {
-            if(src.Count < size())
+            if(src.Count < Size())
             {
                 src.Add(0);
-                for(ushort i = 0; i < size(); i++)
+                for(ushort i = 0; i < Size(); i++)
                 {
                     if(_isExist(src, i) == 0)
                     {
                         src[src.Count - 1] = i;
-                        recursion(new List<ushort>(src));
+                        Recursion(new List<ushort>(src));
                     }
                 }
             }
             else
             {
-                CPermutation curPerm = new CPermutation(m_q.Calc, src);
+                CPermutation curPerm = new CPermutation(m_problem, src);
                 double cur_cost = curPerm.Cost();
-                lock(m_p)
+                lock(m_results)
                 {
-                    if(m_p.Count == 0 || cur_cost < Result.Cost())
+                    if(m_results.Count == 0 || cur_cost <= Result.Cost())
                     {
-                        m_p.Clear();
-                        m_p.Add(new CPermutation(m_q.Calc, src));
+                        if(cur_cost <= Result.Cost())
+                            m_results.Clear();
+                        m_results.Add(curPerm.Clone());
                     }
-                    else if(cur_cost == Result.Cost())
-                        m_p.Add(new CPermutation(m_q.Calc, src));
                 }
             }
         }
 
-        public override IDiagnostic Start(IOptions opt)
+        public override IResultAlg Start(IOptions opt)
         {
             ResetDiagnostic();
-            recursionParallel(new List<ushort>());
+            RecursionParallel(new List<ushort>());
             return this;
         }
     }

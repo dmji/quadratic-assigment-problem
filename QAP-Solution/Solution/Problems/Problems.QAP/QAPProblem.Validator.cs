@@ -23,7 +23,7 @@ namespace Solution
             List<ushort> t = new List<ushort>();
             for(ushort i = 0; i < Size(); i++)
                 t.Insert(new System.Random().Next(t.Count), i);
-            return new CPermutation(this.Calc, t);
+            return new CPermutation(this, t);
         }
     }
 }

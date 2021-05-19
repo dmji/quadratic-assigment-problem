@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="TestSystem.CDelayedRow" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="0.5" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="TestSystem.CDelayedRow.SRow">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\TestTool.Table.DelayRow.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAIAAAAAAAkAAAIBAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.Table.DelayRow.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TestSystem.CEmptyLogger" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAACAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.Logger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TestSystem.CLogger" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="2.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAABQAAAAAAAAjAQAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.Logger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TestSystem.CRegularSTR">
+    <Position X="32.5" Y="3" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgQAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.RegularSTR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTablerEmpty" BaseTypeListCollapsed="true">
+    <Position X="9" Y="0.5" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAgEAAAAACAAgA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.Table.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TestSystem.CTablerExcel" BaseTypeListCollapsed="true">
+    <Position X="9" Y="3.25" Width="5.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="TestSystem.CTablerExcel.Styles" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\TestTool.Table.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="TestSystem.CTablerExcel.Tags" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\TestTool.Table.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAEAACgADAIBBEAAAgEAAAAACAAgA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.Table.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TestSystem.CTestInfo">
+    <Position X="18.25" Y="0.5" Width="4.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="TestSystem.CTestInfo.SExam">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\TestTool.TestInfo.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAYAAAAAAAAAAAAAAAQAgAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.TestInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTestStatistic">
+    <Position X="29" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="TestSystem.CTestStatistic.SRangeSize">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\TestTool.Table.Statistic.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="TestSystem.CTestStatistic.SStatCollector">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\TestTool.Table.Statistic.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAgAAAIAAAAQAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.Table.Statistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTimer">
+    <Position X="32.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAABAAEAAAAAAAAAAAAAAAAIAAAgAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTools.Timer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="TestSystem.STestStarter">
+    <Position X="23" Y="2.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAgIgAAQAAAAAAAAAAAAABA=</HashCode>
+      <FileName>TestSystem\TestStarters\TestStarter.Evalution.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TestSystem.STestTools">
+    <Position X="23" Y="0.5" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAiAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\STestTool.FileExtConverter.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="TestSystem.IClose">
+    <Position X="0.5" Y="0.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.Logger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TestSystem.IDelayedRow">
+    <Position X="14.5" Y="5.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.Table.DelayRow.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TestSystem.ILogger">
+    <Position X="1.75" Y="2" Width="3.25" />
+    <InheritanceLine Type="TestSystem.IClose" FixedFromPoint="true">
+      <Path>
+        <Point X="1.5" Y="1.603" />
+        <Point X="1.5" Y="1.808" />
+        <Point X="3.375" Y="1.808" />
+        <Point X="3.375" Y="2" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.Logger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TestSystem.ITabler">
+    <Position X="0.5" Y="3.5" Width="4.5" />
+    <InheritanceLine Type="TestSystem.IClose" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.5" Y="1.603" />
+        <Point X="1.5" Y="1.808" />
+        <Point X="1.271" Y="1.808" />
+        <Point X="1.271" Y="3.5" />
+        <Point X="1.25" Y="3.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAgEAAAAAAAAgA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.Table.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

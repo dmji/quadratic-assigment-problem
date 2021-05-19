@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Solution.LocalSearchAlgorithm">
+    <Position X="11.75" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAQAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Algorithms\Algorithm.LocalSearch2\LocalSearch2.Definition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.FullforceAlgorithm">
+    <Position X="11.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAACAAAAAAEAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Algorithms\Algorithm.Fullforce\Fullforce.Definition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.EvolutionAlgorithm">
+    <Position X="8.25" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Solution.EvolutionAlgorithm.Individ">
+        <TypeIdentifier>
+          <NewMemberFileName>Algorithms\Algorithm.Evolution\Evolution.Individ.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="Solution.EvolutionAlgorithm.Options">
+        <TypeIdentifier>
+          <NewMemberFileName>Algorithms\Algorithm.Evolution\Evolution.OptionSet.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AABEgAAAACAAAAAAAAQAAAQAAAEAAQAAABAAAAAAACA=</HashCode>
+      <FileName>Algorithms\Algorithm.Evolution\Evolution.Definition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.CQAPProblem">
+    <Position X="0.5" Y="0.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AmAAAoAAAAAAgQAIAAAAAAAAAiEAEAAAAAACAAgAAAA=</HashCode>
+      <FileName>Problems\Problems.QAP\QAPProblem.Definition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Solution.QAPUtils">
+    <Position X="5.25" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAQAg=</HashCode>
+      <FileName>Problems\Problems.QAP\QAP.Utils\ReflectionToLAP.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

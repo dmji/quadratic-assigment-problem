@@ -11,12 +11,12 @@
 			{
 				if(y == null)
 				{
-					msg(log + $"NULL, NULL; output: 0");
+					Msg(log + $"NULL, NULL; output: 0");
 					return 0;
 				}
 				else
 				{
-					msg(log + $"NULL, {y.ToString()}; output: -1");
+					Msg(log + $"NULL, {y.ToString()}; output: -1");
 					return -1;
 				}
 			}
@@ -24,31 +24,31 @@
 			{
 				if(y == null)
 				{
-					msg(log + $"{x.ToString()}, NULL; output: 1");
+					Msg(log + $"{x.ToString()}, NULL; output: 1");
 					return 1;
 				}
 				else
 				{
 					log += $"{x.ToString()}, {y.ToString()}; output: ";
-					if(x.GetType() != y.GetType() || x.Size() != y.Size() || x.Size() != m_ProblemSize)
+					if(x.GetType() != y.GetType() || x.Size() != y.Size() || x.Size() != m_problemSize)
 					{
-						msg(log + "ERROR");
+						Msg(log + "ERROR");
 						return -2;
 					}
 					long a = Calc(x), b = Calc(y);
 					if(a == b)
 					{
-						msg(log + "EQUAL(0)");
+						Msg(log + "EQUAL(0)");
 						return 0;
 					}
 					else if(a > b)
 					{
-						msg(log + $"x({a}) > y({b}) (1)");
+						Msg(log + $"x({a}) > y({b}) (1)");
 						return 1;
 					}
 					else
 					{
-						msg(log + $"x({a}) < y({b}) (-1)");
+						Msg(log + $"x({a}) < y({b}) (-1)");
 						return -1;
 					}
 

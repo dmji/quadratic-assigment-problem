@@ -10,26 +10,26 @@ namespace Solution
 		/// Export current problem to txt
 		/// <para>if current problem is test generated to save param in file path-name</para>
 		/// </summary>
-		public void export_txt(CPermutation p = null, int omeg = -1, int z = -1)
+		public void Serielize(CPermutation p = null, int omeg = -1, int z = -1)
 		{
-			msg("ExportTxt begin");
+			Msg("ExportTxt begin");
 			string buf = Size().ToString() + "\n";
 			for(int i = 0; i < Size(); i++)
 			{
 				for(int j = 0; j < Size(); j++)
-					buf = buf + getDist(i, j) + (j == Size() - 1 ? "\n" : " ");
+					buf = buf + GetDist(i, j) + (j == Size() - 1 ? "\n" : " ");
 			}
 			buf = buf + '\n';
 			for(int i = 0; i < Size(); i++)
 			{	
 				for(int j = 0; j < Size(); j++)
-					buf = buf + getFlow(i, j) + (j == Size() - 1 ? "\n" : " ");
+					buf = buf + GetFlow(i, j) + (j == Size() - 1 ? "\n" : " ");
 			}
 			buf = buf + '\n';
 			for(int i = 0; i < Size(); i++)
 			{
 				for(int j = 0; j < Size(); j++)
-					buf = buf + getPCost(i, j) + (j == Size() - 1 ? "\n" : " ");
+					buf = buf + GetPCost(i, j) + (j == Size() - 1 ? "\n" : " ");
 			}
 			if(p != null)
 			{
@@ -45,7 +45,7 @@ namespace Solution
 			file = new StreamWriter(pathFile);
 			file.WriteLine(buf);
 			file.Close();
-			msg("ExportTxt end");
+			Msg("ExportTxt end");
 		}
 	}
 }

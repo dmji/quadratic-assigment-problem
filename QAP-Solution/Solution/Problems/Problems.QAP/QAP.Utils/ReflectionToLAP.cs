@@ -2,7 +2,7 @@
 
 namespace Solution
 {
-    public partial class QAPUtils
+    public partial struct QAPUtils
     {
         /// <summary>
         /// Generation linear problem for bound method (WIP)
@@ -18,9 +18,9 @@ namespace Solution
                 for(int i = 0; i < src.Size(); i++)
                 {
                     if(i != a)
-                        min.Add(src.getFlow(i, a));
+                        min.Add(src.GetFlow(i, a));
                     if(i != b)
-                        max.Add(src.getDist(i, b));
+                        max.Add(src.GetDist(i, b));
                 }
                 min.Sort();
                 max.Sort();

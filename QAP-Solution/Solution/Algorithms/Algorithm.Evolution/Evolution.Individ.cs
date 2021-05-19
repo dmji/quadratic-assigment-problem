@@ -11,13 +11,13 @@ namespace Solution
             public Individ(CPermutation src) : base(src) { }
 
             ///<summary>Construct permutation from list</summary>
-            public Individ(Func<IPermutation,long> calc,ICollection<ushort> src) : base(calc,src) {}
+            public Individ(IProblem problem,ICollection<ushort> src) : base(problem, src) {}
 
             ///<summary>Construct corrupted permutation, <c>count</c> is problem size, <c>fill</c> is int in all slots </summary>
-            public Individ(Func<IPermutation, long> calc, ushort count, ushort filler) : base(calc, count,filler) {}
+            public Individ(IProblem problem, ushort count, ushort filler) : base(problem, count,filler) {}
 
             ///<summary>Construct random permutation, <c>count</c> is problem size</summary>
-            public Individ(Func<IPermutation, long> calc, ushort count = 0) : base(calc, count, 0)
+            public Individ(IProblem problem, ushort count = 0) : base(problem, count, 0)
             {
                 OnEdit();
                 Random rand = new Random();
@@ -58,7 +58,7 @@ namespace Solution
                 Swap(iRnd, iRnd + 1);
             }
 
-            public int findIndex(ushort a)
+            public int FindIndex(ushort a)
             {
                 for(int i=0;i<Size();i++)
                 {

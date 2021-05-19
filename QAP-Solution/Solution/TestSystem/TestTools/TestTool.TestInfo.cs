@@ -7,11 +7,11 @@ namespace TestSystem
     {
         public struct SExam
         {
-            public SExam(long val = 0, bool ok = false){ bInit = ok; value = val; }
-            public bool IsInit() => bInit;
-            public long Value() => value;
-            long value;
-            bool bInit;
+            public SExam(long val = 0, bool ok = false){ m_bInit = ok; m_value = val; }
+            public bool IsInit() => m_bInit;
+            public long Value() => m_value;
+            long m_value;
+            bool m_bInit;
         }
 
         public string pathProblem { get; }

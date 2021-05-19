@@ -3,7 +3,7 @@
 namespace Solution
 {
     /// <summary>Class <c>CPermutation</c> models a single permutation in QAP (like in Evolution algorithm).</summary>
-    public interface IPermutation : IEquatable<object>
+    public interface IPermutation : IEquatable<object>, IToString
     {
         /// <summary> Get permutation as ushort array </summary>
         ushort[] ToArray();
@@ -12,7 +12,6 @@ namespace Solution
         /// <summary>return current permutation size</summary>
         int Size();
         /// <summary>Get. One-line permutation w/ spaces </summary>
-        string ToString();
         IPermutation Clone();
         long Cost();
         void Swap(int i1, int i2);
@@ -21,7 +20,7 @@ namespace Solution
     /// <summary>Class <c>CPermutation</c> models a single permutation in QAP (like in Evolution algorithm).</summary>
     public partial class CPermutation : IPermutation
     {
-        Func<IPermutation, long> m_calc = null;
+        IProblem m_problem = null;
         ///<summary>permutation</summary>
         ushort[] m_p;
         long m_c;
@@ -32,7 +31,7 @@ namespace Solution
         {
             if(!m_bCalced)
             {
-                m_c = m_calc(this);
+                m_c = m_problem.Calc(this);
                 m_bCalced = true;
             }
             return m_c;
@@ -63,7 +62,6 @@ namespace Solution
             //TODO: add recalc after swap
             OnEdit();
         }
-        public override int GetHashCode() => m_p.GetHashCode();
         public static bool operator ==(CPermutation a, CPermutation b)
         {
             if((object)a == null && (object)b == null)

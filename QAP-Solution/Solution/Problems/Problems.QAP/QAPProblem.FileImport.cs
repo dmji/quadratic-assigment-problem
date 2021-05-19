@@ -10,7 +10,7 @@ namespace Solution
 		/// <param name="fname">path to file w/ problem</param>
 		public CQAPProblem(string fname) : this()
 		{
-			msg($"Start importing problem from file: {fname}");
+			Msg($"Start importing problem from file: {fname}");
 			StreamReader file;
 			string buf = "";
 			string[] aData;
@@ -23,7 +23,7 @@ namespace Solution
 			catch(Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				msg($"Corruption importing. Exception: {ex.Message}");
+				Msg($"Corruption importing. Exception: {ex.Message}");
 				throw ex;
 			}
 			if(buf != "")
@@ -35,7 +35,7 @@ namespace Solution
 						buf = buf.Replace("\n ", "\n");
 					buf = buf.Replace("\r\n", "\n");
 				}
-				init(ushort.Parse(buf.Substring(0, buf.IndexOf('\n'))));
+				Init(ushort.Parse(buf.Substring(0, buf.IndexOf('\n'))));
 				buf = buf.Substring(buf.IndexOf('\n') + 1);
 				aData = buf.Split("\n\n", StringSplitOptions.RemoveEmptyEntries);
 				if(aData.Length > 1 && aData.Length < 3)
@@ -58,13 +58,13 @@ namespace Solution
 								switch(iData)
 								{
 									case 0:
-										setFlow(int.Parse(pData[ind++]), i, j);
+										SetFlow(int.Parse(pData[ind++]), i, j);
 										break;
 									case 1:
-										setDist(int.Parse(pData[ind++]), i, j);
+										SetDist(int.Parse(pData[ind++]), i, j);
 										break;
 									case 2:
-										setPCost(int.Parse(pData[ind++]), i, j);
+										SetPCost(int.Parse(pData[ind++]), i, j);
 										break;
 									default:
 										break;
@@ -84,28 +84,28 @@ namespace Solution
 						for(int i = 0; i < Size(); i++)
 						{
 							for(int j=0;j<Size();j++)
-								setFlow(int.Parse(data[ind++]),i,j);
+								SetFlow(int.Parse(data[ind++]),i,j);
 						}
 						if(data.Length >= 2*n)
                         {
 							for(int i = 0; i < Size(); i++)
 							{
 								for(int j = 0; j < Size(); j++)
-									setDist(int.Parse(data[ind++]),i,j);
+									SetDist(int.Parse(data[ind++]),i,j);
 							}
 							if(data.Length >= 3*n)
 							{
 								for(int i = 0; i < Size(); i++)
 								{
 									for(int j = 0; j < Size(); j++)
-										setPCost(int.Parse(data[ind++]), i, j);
+										SetPCost(int.Parse(data[ind++]), i, j);
 								}
 							}
 						}
 					}
 				}
 			}
-			msg($"Finish importing problem from file: {fname}");
+			Msg($"Finish importing problem from file: {fname}");
 		}
 	}
 }
