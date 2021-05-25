@@ -5,6 +5,13 @@ namespace TestSystem
 {
     public partial struct STestTools
     {
+        public static void CheckDir(string dir)
+        {
+            string pathDir = dir.Substring(0, dir.LastIndexOf('\\'));
+            if(!System.IO.File.Exists(pathDir))
+                System.IO.Directory.CreateDirectory(pathDir);
+        }
+
         public static bool FileExtConverter(List<string> aPath, string oldExt, string newExt)
         {
             List<string> aRes = new List<string>();
