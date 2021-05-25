@@ -5,7 +5,7 @@ using Solution;
 
 namespace TestSystem
 {
-    public partial struct STestStarter
+    public class CTestFullfoce
     {
         public static void StartTestFullforce(string path)
         {

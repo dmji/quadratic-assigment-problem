@@ -4,7 +4,7 @@ namespace Solution
 {
     public partial class LocalSearchAlgorithm : AAlgorithm
     {
-        public override string Name() => "Fullforce algorithm";
+        public override string Name() => "LocalSearchBased";
         public static string Name(bool b) => "LocalSearchBased";
 
         public LocalSearchAlgorithm(IProblem problem) : base(problem) { }
@@ -52,6 +52,8 @@ namespace Solution
         public override IResultAlg Start(IOptions opt)
         {
             ResetDiagnostic();
+            Options t = (Options)opt;
+            t.B_FULLIFY = m_bFinish;
             local_search(m_problem.GetRandomPermutation());
             return this;
         }
