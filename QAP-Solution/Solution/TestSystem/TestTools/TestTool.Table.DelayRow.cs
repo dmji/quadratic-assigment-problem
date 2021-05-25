@@ -22,7 +22,7 @@ namespace TestSystem
         long m_nRowCounter;
         bool m_bColor;
 
-        public CDelayedRow(ITabler table, bool bColor)
+        public CDelayedRow(ITabler table, bool bColor = true)
         {
             m_aRow = new List<SRow>();
             m_table = table;
@@ -44,10 +44,10 @@ namespace TestSystem
             int min = m_aRow.FindIndex(x => x.m_value == minVal);
             
             // fill table rows
-            for(int i = 0; i < m_aRow.Count; i++)
+            for(int i = 0, nRows = m_aRow.Count; i < nRows; i++)
             {
                 m_table.AddRow();
-                m_table.AddCells(i == min && m_bColor ? "greenColored" : "simple", m_aRow[i].m_aCells);
+                m_table.AddCells(i == min && m_bColor && nRows > 1 ? CTablerExcel.Styles.eStyleGreen : CTablerExcel.Styles.eStyleSimple, m_aRow[i].m_aCells);
             }
         }
     }

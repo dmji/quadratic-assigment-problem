@@ -8,7 +8,7 @@ namespace Solution
 	{
 		///<summary>Construct problem from file with formatting:<para>size()</para><para>F-matrix</para><para>D-matrix</para><para>C-matrix</para></summary>
 		/// <param name="fname">path to file w/ problem</param>
-		public CQAPProblem(string fname) : this()
+		public CQAPProblem(string fname)
 		{
 			Msg($"Start importing problem from file: {fname}");
 			StreamReader file;

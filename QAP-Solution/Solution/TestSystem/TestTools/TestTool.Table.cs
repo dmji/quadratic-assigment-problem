@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace TestSystem
 {
-    public interface ITabler : IClose
+    public interface ITabler : Solution.IClose
     {
         long AddRow();
         bool AddCell(string style, string str, int mergeRight = 0, int mergeDown = 0);
@@ -69,29 +69,30 @@ namespace TestSystem
             eLineStyle      = "reservedTAGLineStyleH0",
             eTAGWeight      = "reservedTAGWeightH0",
             eFormula        = "reservedTAGFormula";
+
+            public static string Filter(string buf)
+            {
+                return buf.Replace(" xmlns=\"\"", "")
+                .Replace(Tags.eType, "ss:Type")
+                .Replace(Tags.eFontName, "ss:FontName")
+                .Replace(Tags.eCharSet, "x:CharSet")
+                .Replace(Tags.eFamily, "x:Family")
+                .Replace(Tags.eSize, "ss:Size")
+                .Replace(Tags.eBold, "ss:Bold")
+                .Replace(Tags.eID, "ss:ID")
+                .Replace(Tags.eColor, "ss:Color")
+                .Replace(Tags.ePattern, "ss:Pattern")
+                .Replace(Tags.eStyleID, "ss:StyleID")
+                .Replace(Tags.eAutoFitHeight, "ss:AutoFitHeight")
+                .Replace(Tags.eMergeAcross, "ss:MergeAcross")
+                .Replace(Tags.eMergeDown, "ss:MergeDown")
+                .Replace(Tags.ePosition, "ss:Position")
+                .Replace(Tags.eLineStyle, "ss:LineStyle")
+                .Replace(Tags.eTAGWeight, "ss:Weight")
+                .Replace(Tags.eFormula, "ss:Formula");
+                //.Replace(Tags, );
+            }
         };
-        private string Filter(string buf)
-        {
-            return buf.Replace(" xmlns=\"\"", "")
-            .Replace(Tags.eType, "ss:Type")
-            .Replace(Tags.eFontName, "ss:FontName")
-            .Replace(Tags.eCharSet, "x:CharSet")
-            .Replace(Tags.eFamily, "x:Family")
-            .Replace(Tags.eSize, "ss:Size")
-            .Replace(Tags.eBold, "ss:Bold")
-            .Replace(Tags.eID, "ss:ID")
-            .Replace(Tags.eColor, "ss:Color")
-            .Replace(Tags.ePattern, "ss:Pattern")
-            .Replace(Tags.eStyleID, "ss:StyleID")
-            .Replace(Tags.eAutoFitHeight, "ss:AutoFitHeight")
-            .Replace(Tags.eMergeAcross, "ss:MergeAcross")
-            .Replace(Tags.eMergeDown, "ss:MergeDown")
-            .Replace(Tags.ePosition, "ss:Position")
-            .Replace(Tags.eLineStyle, "ss:LineStyle")
-            .Replace(Tags.eTAGWeight, "ss:Weight")
-            .Replace(Tags.eFormula, "ss:Formula");
-            //.Replace(Tags, );
-        }
 
         public CTablerExcel() { m_nRowCounter = 1; }
         public CTablerExcel(string path, string sAlg, string pathTemplate)
@@ -142,13 +143,13 @@ namespace TestSystem
         {
             XmlElement data = m_doc.CreateElement("Data");
             XmlElement cell;
-            if(str[0]=='=')
-            {
-                cell = CreateCell(style, data);
-                cell.SetAttribute(Tags.eFormula, str);
-                data.SetAttribute(Tags.eType, "Number");
-            }
-            else
+            //if(str[0]=='=')
+            //{
+            //    cell = CreateCell(style, data);
+            //    cell.SetAttribute(Tags.eFormula, str);
+            //    data.SetAttribute(Tags.eType, "Number");
+            //}
+            //else
             {
                 cell = CreateCell(style, data);
                 data.SetAttribute(Tags.eType, "String");
@@ -195,7 +196,7 @@ namespace TestSystem
             string buf = rd.ReadToEnd();
             rd.Close();
             StreamWriter wr = new StreamWriter(m_pathResult);
-            wr.Write(Filter(buf));
+            wr.Write(Tags.Filter(buf));
             wr.Close();
             return false;
         }

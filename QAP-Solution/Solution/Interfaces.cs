@@ -14,6 +14,6 @@ namespace Solution
     }
     public interface ISetLogger
     {
-        void SetLogger(TestSystem.ILogger log = null);
+        void SetLogger(ILogger log = null);
     }
 }

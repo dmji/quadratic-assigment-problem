@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace TestSystem
+namespace Solution
 {
     public interface IClose
     {

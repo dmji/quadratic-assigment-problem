@@ -46,11 +46,11 @@ namespace TestSystem
             }
 
             string pathLog = path + xml.GetAttribute("pathLog");
-            log = new CLogger(pathLog, $"{xml.GetAttribute("name")}_{EvolutionAlgorithm.Name(true)}"); 
+            log = new CLogger(pathLog, $"{xml.GetAttribute("name")}_{LocalSearchAlgorithm.Name(true)}"); 
 
             string pathTable = path + xml.GetAttribute("pathTable");
             string pathTemplate = path + xml.GetAttribute("pathTemplate");
-            tbl = new CTablerExcel(pathTable, $"{xml.GetAttribute("name")}_{EvolutionAlgorithm.Name(true)}", pathTemplate);
+            tbl = new CTablerExcel(pathTable, $"{xml.GetAttribute("name")}_{LocalSearchAlgorithm.Name(true)}", pathTemplate);
         }
 
         public static void StartTestLSA2(string path, int reply_count = 1, bool bLogEnable = false)
@@ -62,28 +62,29 @@ namespace TestSystem
 
             CTimer timer = new CTimer();
 
-            CTestStatistic optStat = new CTestStatistic(1);
+            List<CTestStatistic> aOptStat = new List<CTestStatistic>();
+            aOptStat.Add(new CTestStatistic("Avg Error, %", 5));
+            aOptStat.Add(new CTestStatistic("Avg timer, %", 2));
+            aOptStat.Add(new CTestStatistic("Avg cacl count, %", 3));
+            if(reply_count == 1)
+                tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", "Timer, ms", "Calc count", "Error", "Error, %", "Result", "Optimal");
             foreach(CTestInfo test in aTest)
             {
+                string timeLoad = timer.Stop().ToString();
+                long examVal = 0;
+                bool bExam = test.Exam(ref examVal);
+                CQAPProblem QAP = new CQAPProblem(test.pathProblem);
+                if(reply_count > 1)
+                {
+                    tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {QAP.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
+                    tbl.AddRow();
+                    tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Iteration", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
+                }
+                IDelayedRow row = new CDelayedRow(tbl);
                 for(int i = 0; i < reply_count; i++)
                 {
                     timer.Reset();
-                    CQAPProblem QAP = new CQAPProblem(test.pathProblem);
-                    string timeLoad = timer.Stop().ToString();
-
-                    long examVal = 0;
-                    bool bExam = test.Exam(ref examVal);
-                    if(reply_count == 1)
-                    {
-                        tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {QAP.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
-                        tbl.AddRow();
-                        tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
-                    }
-                    else
-                        tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Avg Timer, ms", "Avg Calc count", "Avg Error", "Avg Error, %", "Avg Result", "Best Result");
                     IAlgorithm ALG = new LocalSearchAlgorithm(QAP);
-                    IDelayedRow row = new CDelayedRow(tbl, false);
-
                     if(bLogEnable)
                     {
                         ALG.SetLogger(log);
@@ -103,19 +104,48 @@ namespace TestSystem
 
                     log.Msg($"Problem {test.Name()}; iteration: {i} done", true);
                     log.Msg($"Problem {test.Name()}; iteration: {i}, log:{ALG})");
-                    AddResult(row, test.Name(), timerAlg.ToString(), calcCount, resultValue, bExam ? examVal : -1, reply_count == 1, null, resultBest.ToString(), QAP.Size());
-
-                    row.Release();
-                    tbl.AddRow();
-                    tbl.AddRow();
+                    if(reply_count == 1)
+                    {
+                        if(bExam)
+                        {
+                            double err = resultValue - examVal;
+                            double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : 1000;
+                            long nRow = row.AddRow(errPersent, test.Name(), timerAlg.ToString(), calcCount.ToString(), err.ToString(), errPersent.ToString(), resultValue.ToString(), examVal.ToString());
+                            if(aOptStat != null)
+                            {
+                                foreach(var optStat in aOptStat)
+                                    optStat.AddStat(QAP.Size().ToString(), QAP.Size(), nRow);
+                            }
+                        }
+                        else
+                            row.AddRow(-1, i.ToString(), timerAlg.ToString(), calcCount.ToString(), "-", "-", resultValue.ToString(), "-");
+                    }
+                    else
+                    {
+                        if(bExam)
+                        {
+                            double err = resultValue - examVal;
+                            double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : 1000;
+                            long nRow = row.AddRow(errPersent, i.ToString(), timerAlg.ToString(), calcCount.ToString(), err.ToString(), errPersent.ToString(), resultValue.ToString());
+                            if(aOptStat != null)
+                            {
+                                foreach(var optStat in aOptStat)
+                                    optStat.AddStat(QAP.Size().ToString(), QAP.Size(), nRow);
+                            }
+                        }
+                        else
+                            row.AddRow(-1, i.ToString(), timerAlg.ToString(), calcCount.ToString(), "-", "-", resultValue.ToString());
+                    }
                 }
+                row.Release();
                 if(reply_count > 1)
                 {
-                    //tbl.addCells();
-                    // todo statistic 
+                    tbl.AddRow();
+                    tbl.AddRow();
                 }
             }
-            optStat.ReleaseOptStat(tbl);
+            foreach(var optStat in aOptStat)
+                optStat.ReleaseOptStat(tbl);
             log.Close();
             tbl.Close();
         }

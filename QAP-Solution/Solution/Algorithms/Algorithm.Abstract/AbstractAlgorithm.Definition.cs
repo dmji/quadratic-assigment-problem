@@ -31,7 +31,7 @@ namespace Solution
 
         // size problem
         protected ushort Size() => m_problem.Size();
-        protected AAlgorithm(IProblem problem) { Reset(problem); }
+        protected AAlgorithm(IProblem problem) { m_log = new CEmptyLogger(); Reset(problem); }
 
         protected IProblem m_problem;
         protected List<IPermutation> m_results;

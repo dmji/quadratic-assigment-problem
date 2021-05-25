@@ -5,8 +5,11 @@ namespace Solution
     public partial class LocalSearchAlgorithm : AAlgorithm
     {
         public override string Name() => "Fullforce algorithm";
+        public static string Name(bool b) => "LocalSearchBased";
 
         public LocalSearchAlgorithm(IProblem problem) : base(problem) { }
+
+        public bool bBreak;
 
         /// <summary>get solve with local search (2-swap method)</summary>
         /// <param name="p">start permutation</param>
@@ -14,30 +17,36 @@ namespace Solution
         public void local_search(IPermutation target, int stepCount = -1)
         {
             IPermutation pt = target.Clone();
-            IPermutation temp = pt.Clone();
             IPermutation minp = pt.Clone();
-            double minp_cost = 0;
             int i = 0;
             
-            Msg($"sizeQAP={Size()} CPermutation: {target.ToString()} Q={target.Cost()}");
+            Msg($"sizeQAP={Size()} CPermutation: {target.ToString()} Q={Calc(target)}");
             do
             {
+                bool bNestedBreak = false;
                 pt = minp.Clone();
                 for(int u = 0; u < pt.Size() - 1; u++)
                 {
                     for(int y = u + 1; y < pt.Size(); y++)
                     {
-                        temp = pt.Clone();
+                        IPermutation temp = pt.Clone();
                         temp.Swap(y, u);
-                        if(temp.Cost() < minp_cost)
+                        if(Calc(temp) < Calc(minp))
                         {
                             minp = temp.Clone();
-                            minp_cost = minp.Cost();
+                            if(bBreak)
+                            {
+                                bNestedBreak = true;
+                                break;
+                            }
                         }
                     }
+                    if(bNestedBreak)
+                        break;
                 }
-                Msg($"$Local search step{i}: CPermutation: {minp.ToString()} Q={minp.Cost()}");
-            } while(stepCount != ++i && pt.Cost() != minp.Cost());
+                Msg($"$Local search step{i}: CPermutation: {minp.ToString()} Q={Calc(minp)}");
+            } while(stepCount != ++i && Calc(pt) != Calc(minp));
+            Result = minp.Clone();
         }
 
         public override IResultAlg Start(IOptions opt)

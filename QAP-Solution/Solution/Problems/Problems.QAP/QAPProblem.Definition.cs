@@ -3,7 +3,7 @@
     /// <summary>Class <c>Info</c> is all-in one QAP data.</summary>
     public partial class CQAPProblem : AProblem
     {
-        public CQAPProblem(ushort size = 0) : base(size) { Init(size); }
+        public CQAPProblem(ushort size = 0) : base() { Init(size); }
 
         /// <summary>D-matrix</summary>
 		int[] m_tDistance;

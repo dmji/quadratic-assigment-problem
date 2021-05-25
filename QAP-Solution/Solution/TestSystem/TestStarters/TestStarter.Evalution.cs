@@ -72,7 +72,11 @@ namespace TestSystem
 
             CTimer timer = new CTimer();
 
-            CTestStatistic optStat = new CTestStatistic(5);
+            List<CTestStatistic> aOptStat = new List<CTestStatistic>();
+            aOptStat.Add(new CTestStatistic("Avg Error, %", 5));
+            aOptStat.Add(new CTestStatistic("Avg timer, %", 2));
+            aOptStat.Add(new CTestStatistic("Avg cacl count, %", 3));
+
             foreach(CTestInfo test in aTest)
             {
                 timer.Reset();
@@ -81,12 +85,12 @@ namespace TestSystem
 
                 long examVal = 0;
                 bool bExam = test.Exam(ref examVal);
-                tbl.AddCells("bold", "Name problem", test.Name(), $"Size: {QAP.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
+                tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {QAP.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
                 tbl.AddRow();
                 if(reply_count == 1)
-                    tbl.AddCells("bold", "Option set", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
+                    tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
                 else
-                    tbl.AddCells("bold", "Option set", "Avg Timer, ms", "Avg Calc count", "Avg Error", "Avg Error, %", "Avg Result", "Best Result");
+                    tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Avg Timer, ms", "Avg Calc count", "Avg Error", "Avg Error, %", "Avg Result", "Best Result");
                 IAlgorithm ALG = new EvolutionAlgorithm(QAP);
 
                 IDelayedRow row = new CDelayedRow(tbl, true);
@@ -110,32 +114,38 @@ namespace TestSystem
                         resultValue += curRes;
                         if(resultBest == 0 || resultBest > curRes)
                             resultBest = curRes;
+
+                        log.Msg($"On opt: {opt.Name()} problem {test.Name()} Iteration: {i}", true);
                     }
                     double avgTimerAlg = timerAlg / reply_count;
                     double avgCalcCount = calcCount / reply_count;
                     double avgResultValue = resultValue / reply_count;
 
                     log.Msg($"On opt: {opt.Name()} problem {test.Name()} log:{ALG})");
-                    AddResult(row, opt.Name(), avgTimerAlg.ToString(), avgCalcCount, avgResultValue, bExam ? examVal : -1, reply_count == 1, optStat, resultBest.ToString(), QAP.Size());
+                    AddResult(row, opt.Name(), avgTimerAlg.ToString(), avgCalcCount, avgResultValue, bExam ? examVal : -1, reply_count == 1, aOptStat, resultBest.ToString(), QAP.Size());
                 }
                 row.Release();
                 tbl.AddRow();
                 tbl.AddRow();
             }
-            optStat.ReleaseOptStat(tbl);
+            foreach(var optStat in aOptStat)
+                optStat.ReleaseOptStat(tbl);
             log.Close();
             tbl.Close();
         }
 
-        public static void AddResult(IDelayedRow row, string optName, string timer, double calcs, double resultValue, long examVal, bool bSingleExec = true, CTestStatistic optStat = null, string resultBest = "", int size = 0)
+        public static void AddResult(IDelayedRow row, string optName, string timer, double calcs, double resultValue, long examVal, bool bSingleExec = true, List<CTestStatistic> aOptStat = null, string resultBest = "", int size = 0)
         {
             if(examVal > -1)
             {
                 double err = resultValue - examVal;
                 double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : 1000;
                 long nRow = row.AddRow(errPersent, optName, timer, calcs.ToString(), err.ToString(), errPersent.ToString(), resultValue.ToString(), bSingleExec ? "" : resultBest);
-                if(optStat != null)
-                    optStat.AddStat(optName, size, nRow);
+                if(aOptStat != null)
+                {
+                    foreach(var optStat in aOptStat)
+                        optStat.AddStat(optName, size, nRow);
+                }
             }
             else
                 row.AddRow(-1, optName, timer, calcs.ToString(), "-", "-", resultValue.ToString(), bSingleExec ? "" : resultBest);

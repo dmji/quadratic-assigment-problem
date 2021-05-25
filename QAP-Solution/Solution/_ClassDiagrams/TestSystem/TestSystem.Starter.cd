@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="TestSystem.CRegularSTR">
+    <Position X="6" Y="6" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgQAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.RegularSTR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTestInfo">
+    <Position X="6.5" Y="0.75" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="TestSystem.CTestInfo.SExam">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\TestTool.TestInfo.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAYAAAAAAAAAAAAAAAQAgAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.TestInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTestStatistic">
+    <Position X="1" Y="3" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="TestSystem.CTestStatistic.SRangeSize">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\TestTool.Table.Statistic.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="TestSystem.CTestStatistic.SStatCollector">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\TestTool.Table.Statistic.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAgAAAIAAAAQAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTool.Table.Statistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTimer">
+    <Position X="4.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAABAAEAAAAAAAAAAAAAAAAIAAAgAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestTools.Timer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="TestSystem.STestStarter">
+    <Position X="1" Y="0.75" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAgIgAAQAAAAAAAAAAAAABA=</HashCode>
+      <FileName>TestSystem\TestStarters\TestStarter.Evalution.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TestSystem.STestTools">
+    <Position X="4.5" Y="8" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAiAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\STestTool.FileExtConverter.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

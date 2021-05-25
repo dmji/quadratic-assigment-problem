@@ -1,7 +1,4 @@
 @ECHO ON
 
-SET PSScript=.\script\start.ps1
-SET Count = 1
-
-Powershell -ExecutionPolicy Bypass -Command "& '%PSScript%' 'LSA' '%Count%'
+"C:\Users\leysh\source\repos\dmji\quadratic-assigment-problem\QAP-Solution\Console-Runner\bin\Release\netcoreapp3.1\Console-Runner.exe" "1111111111111111" "LSA" 10 0
 EXIT /B

@@ -25,7 +25,7 @@ namespace Solution
         public virtual bool Verify(IPermutation obj) => false;
         public virtual IPermutation GetRandomPermutation() => null;
 
-        protected AProblem(ushort size = 0) { Init(size); }
+        protected AProblem(ushort size = 0) { m_log = new CEmptyLogger(); Init(size); }
         protected virtual void Init(ushort size = 0) { m_problemSize = size; }
         
     }

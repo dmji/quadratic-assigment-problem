@@ -1,1 +1,0 @@
-<test name="_eva_test_big" pathProblems="qap-lib\tai256*" pathOptions="OptionSetEvolution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
