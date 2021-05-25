@@ -1,1 +1,1 @@
-<test name="_ste" pathProblems="qap-lib\ste*" pathOptions="OptionSetEvolution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
+<test pathProblems="qap-lib\ste*" options="*"/>

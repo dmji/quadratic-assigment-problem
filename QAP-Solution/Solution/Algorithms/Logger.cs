@@ -34,8 +34,8 @@ namespace Solution
             {
                 if(m_stream != null)
                     m_stream.Close();
-                string time = DateTime.Now.ToString().Replace(":", "_").Replace(" ", "_").Replace(".", "_");
-                string pathLog = $"{path}{name}_{time}_log.~.txt";
+                string time = DateTime.Now.ToString().Replace(":", "_").Replace(" ", "_").Replace(".", "_").Replace("\\", "_");
+                string pathLog = $"{path}{name}_log.~.txt";
                 if(!System.IO.File.Exists(pathLog))
                     System.IO.File.Create(pathLog).Close();
                 TestSystem.STestTools.CheckDir(pathLog);

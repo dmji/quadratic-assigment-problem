@@ -1,1 +1,1 @@
-<test name="_bur" problems="qap-lib\bur*" options="*"/>
+<test problems="qap-lib\bur*" options="*"/>

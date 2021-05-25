@@ -99,8 +99,8 @@ namespace TestSystem
         {
             if(path.Length > 0 && sAlg.Length > 0 && pathTemplate.Length > 0)
             {
-                string time = DateTime.Now.ToString().Replace(":", "_").Replace(" ", "_").Replace(".", "_");
-                m_pathResult = $"{path}{sAlg}_{time}_results.~.xml";
+                string time = DateTime.Now.ToString().Replace(":", "_").Replace(" ", "_").Replace(".", "_").Replace("\\", "_").Replace("/", "_");
+                m_pathResult = $"{path}{sAlg}_results.~.xml";
 
                 m_doc = new XmlDocument();
                 StreamReader template = new StreamReader(pathTemplate);

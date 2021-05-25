@@ -1,1 +1,1 @@
-<test name="_nug" pathProblems="qap-lib\nug*" pathOptions="OptionSetEvolution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
+<test problems="qap-lib\nug*" options="*"/>

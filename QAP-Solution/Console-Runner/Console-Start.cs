@@ -47,7 +47,7 @@ namespace Console_Runner
             string[] alg = { "Undefine", "Evolution", "Local Search", "Full force" };
             if(args.Length > 1)
             {
-                if(args[1].StartsWith("Eva") || args[1].StartsWith("EVA"))
+                if(args[1].StartsWith("Ev") || args[1].StartsWith("EV"))
                     indexAlg = 1;
                 else if(args[1].StartsWith("LSA"))
                     indexAlg = 2;
@@ -105,12 +105,19 @@ namespace Console_Runner
             }
             else
             {
-                string[] aPath = System.IO.File.ReadAllText("paths.txt").Split('\n');
-                for(int i = 0; i < nPaths; i++)
+                if(!System.IO.File.Exists("paths.txt"))
                 {
-
-                    if(sPath[i] == '1')
-                        Start(indexAlg, aPath[i], nReply, bLogEnable);
+                    Console.WriteLine("Paths.txt undefine");
+                    Console.WriteLine(System.IO.Path.GetFullPath("paths.txt"));
+                }
+                else
+                {
+                    string[] aPath = System.IO.File.ReadAllText("paths.txt").Split('\n');
+                    for(int i = 0; i < nPaths; i++)
+                    {
+                        if(sPath[i] == '1')
+                            Start(indexAlg, aPath[i], nReply, bLogEnable);
+                    }
                 }
             }
         }

@@ -67,6 +67,11 @@ namespace TestSystem
         protected void Init()
         {
             // read xml starter
+            while(m_path.Contains('\"'))
+            {
+                var i = m_path.IndexOf('\"')+1;
+                m_path = m_path.Substring(i, m_path.LastIndexOf('\"') - i);
+            }
             XmlReader xml = XmlReader.Create(m_path);
             xml.Read();
 

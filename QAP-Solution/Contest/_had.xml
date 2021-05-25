@@ -1,1 +1,1 @@
-<test name="_had" pathProblems="qap-lib\had*" pathOptions="OptionSetEvolution\*" pathLog="logs\" pathTable="results\" pathTemplate="template.xml"></test>
+<test problems="qap-lib\had*" options="*"/>
