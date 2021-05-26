@@ -1,31 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
-  <Class Name="Solution.LocalSearchAlgorithm">
-    <Position X="11.75" Y="3" Width="2" />
+  <Class Name="Solution.CLocalSearchAlgorithm">
+    <Position X="8.75" Y="3" Width="2" />
+    <NestedTypes>
+      <Class Name="Solution.CLocalSearchAlgorithm.Options" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Algorithms\Algorithm.LocalSearch2\LocalSearch2.Options.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAQAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <HashCode>AAAAAAAAACABAAAAAAAAAAQAAAAAAAAAAAAAAAACAAA=</HashCode>
       <FileName>Algorithms\Algorithm.LocalSearch2\LocalSearch2.Definition.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Solution.FullforceAlgorithm">
-    <Position X="11.75" Y="0.5" Width="2" />
+  <Class Name="Solution.CFullforceAlgorithm">
+    <Position X="8.75" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAACAAAAAAEAQAAAAAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Algorithms\Algorithm.Fullforce\Fullforce.Definition.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Solution.EvolutionAlgorithm">
-    <Position X="8.25" Y="0.5" Width="3.25" />
+  <Class Name="Solution.CQAPProblem">
+    <Position X="0.5" Y="0.5" Width="4.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="Solution.EvolutionAlgorithm.Individ">
+      <Struct Name="Solution.CQAPProblem.SQAPUtils" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Problems\Problems.QAP\QAP.Utils\ReflectionToLAP.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AmAAAoAAAAAAgQAIAAAAAAAAAiEAEAAAAAASAAgAAAA=</HashCode>
+      <FileName>Problems\Problems.QAP\QAPProblem.FileExport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.CEvolutionAlgorithm">
+    <Position X="5.25" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Solution.CEvolutionAlgorithm.CIndivid" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Algorithms\Algorithm.Evolution\Evolution.Individ.cs</NewMemberFileName>
         </TypeIdentifier>
       </Class>
-      <Class Name="Solution.EvolutionAlgorithm.Options">
+      <Class Name="Solution.CEvolutionAlgorithm.COptions" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Algorithms\Algorithm.Evolution\Evolution.OptionSet.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -37,19 +62,5 @@
       <FileName>Algorithms\Algorithm.Evolution\Evolution.Definition.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Solution.CQAPProblem">
-    <Position X="0.5" Y="0.5" Width="4.5" />
-    <TypeIdentifier>
-      <HashCode>AmAAAoAAAAAAgQAIAAAAAAAAAiEAEAAAAAACAAgAAAA=</HashCode>
-      <FileName>Problems\Problems.QAP\QAPProblem.Definition.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Struct Name="Solution.QAPUtils">
-    <Position X="5.25" Y="0.5" Width="2.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAQAg=</HashCode>
-      <FileName>Problems\Problems.QAP\QAP.Utils\ReflectionToLAP.cs</FileName>
-    </TypeIdentifier>
-  </Struct>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

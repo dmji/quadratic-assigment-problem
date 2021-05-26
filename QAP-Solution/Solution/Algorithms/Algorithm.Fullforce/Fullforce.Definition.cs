@@ -2,11 +2,11 @@
 
 namespace Solution
 {
-    public partial class FullforceAlgorithm : AAlgorithm
+    public partial class CFullforceAlgorithm : AAlgorithm
     {
         public override string Name() => "Fullforce algorithm";
 
-        public FullforceAlgorithm(IProblem problem) : base(problem) { }
+        public CFullforceAlgorithm(IProblem problem) : base(problem) { }
 
         protected int _isExist(List<ushort> src, ushort point)
         {

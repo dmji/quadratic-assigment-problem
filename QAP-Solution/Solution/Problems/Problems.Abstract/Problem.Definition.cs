@@ -6,6 +6,7 @@ namespace Solution
     public interface IProblem
     {
         long Calc(IPermutation src);
+        long CalcedSwap(IPermutation src, int ix, int iy);
         ushort Size();
         bool Verify(IPermutation obj);
         IPermutation GetRandomPermutation();
@@ -22,11 +23,11 @@ namespace Solution
         /// <param name="CPermutationSrc">premutation to calculate</param>
         /// <returns>double value</returns>
         public virtual long Calc(IPermutation src) => 0;
+        public virtual long CalcedSwap(IPermutation src, int ix, int iy) => 0;
         public virtual bool Verify(IPermutation obj) => false;
         public virtual IPermutation GetRandomPermutation() => null;
 
         protected AProblem(ushort size = 0) { m_log = new CEmptyLogger(); Init(size); }
         protected virtual void Init(ushort size = 0) { m_problemSize = size; }
-        
     }
 }

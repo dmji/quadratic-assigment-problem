@@ -9,8 +9,8 @@ namespace TestSystem
         string m_curOpt;
         public CTestLSA2(string path, int count, bool bm_log) : base(path, count, bm_log) { }
 
-        protected override IOptions GetOptionsAlg(string path) => new LocalSearchAlgorithm.Options(path);
-        protected override string GetAlgName() => LocalSearchAlgorithm.Name(true);
+        protected override IOptions GetOptionsAlg(string path) => new CLocalSearchAlgorithm.Options(path);
+        protected override string GetAlgName() => CLocalSearchAlgorithm.Name(true);
         protected override void InitLogger()
         {
             // create logger
@@ -23,7 +23,7 @@ namespace TestSystem
             m_tbl = new CTablerExcel(pathTable, $"{m_xmlName}_{GetAlgName()}_{m_curOpt}", pathTemplate);
         }
 
-        public void Start()
+        public override void Start()
         {
             Init();
             CTimer timer = new CTimer();
@@ -56,7 +56,7 @@ namespace TestSystem
                     for(int i = 0; i < m_nCount; i++)
                     {
                         timer.Reset();
-                        IAlgorithm ALG = new LocalSearchAlgorithm(QAP);
+                        IAlgorithm ALG = new CLocalSearchAlgorithm(QAP);
                         EnableLog(QAP, ALG);
 
                         timer.Reset();

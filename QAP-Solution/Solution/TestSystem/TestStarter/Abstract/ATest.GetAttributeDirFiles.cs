@@ -6,9 +6,9 @@ using System.Xml;
 
 namespace TestSystem
 {
-    public partial struct STestTools
+    public abstract partial class ATest
     {
-        public static List<string> GetArrtibuteDirFiles(XmlReader xml, string attrName, string path, string ext)
+        protected static List<string> GetArrtibuteDirFiles(XmlReader xml, string attrName, string path, string ext)
         {
             string regStr = xml.GetAttribute(attrName);
             if(regStr.Contains('\\'))

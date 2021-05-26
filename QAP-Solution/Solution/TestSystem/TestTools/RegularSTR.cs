@@ -16,7 +16,7 @@ namespace TestSystem
                 m_aSplitStr.Add(str.Split('*', StringSplitOptions.RemoveEmptyEntries));
         }
 
-        bool MatchAnd(string str, string[] aReg)
+        bool And(string str, string[] aReg)
         {
             if(aReg.Length != 0)
             {
@@ -39,9 +39,9 @@ namespace TestSystem
                 return true;
             foreach(string[] reg in m_aSplitStr)
             {
-                if(MatchAnd(str, reg))
+                if(And(str, reg))
                     return true;
-            }
+            }   
             return false;
         }
     }

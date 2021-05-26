@@ -2,7 +2,7 @@
 
 namespace Solution
 {
-    public partial class LocalSearchAlgorithm : AAlgorithm
+    public partial class CLocalSearchAlgorithm : AAlgorithm
     {
         public class Options : IOptions
         {

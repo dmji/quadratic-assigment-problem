@@ -1,1 +1,1 @@
-<test pathProblems="qap-lib\ste*" options="*"/>
+<test problems="qap-lib\ste*" options="*"/>

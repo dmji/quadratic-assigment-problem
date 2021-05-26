@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Solution
 {
-    public partial class EvolutionAlgorithm
+    public partial class CEvolutionAlgorithm
     {
-        public class Options : IOptions
+        public class COptions : IOptions
         {
             public int P_SIZEi { get; set; }
             public int H_MINi { get; set; }
@@ -29,11 +29,11 @@ namespace Solution
                 if(!System.IO.File.Exists(path))
                     System.IO.File.Create(path).Close();
                 System.IO.StreamWriter export = new System.IO.StreamWriter(path);
-                export.WriteLine(System.Text.Json.JsonSerializer.Serialize<Options>(this));
+                export.WriteLine(System.Text.Json.JsonSerializer.Serialize<COptions>(this));
                 export.Close();
             }
 
-            public Options()
+            public COptions()
             {
                 P_SIZEi = 0;
                 C_SIZEi = 0;
@@ -44,11 +44,11 @@ namespace Solution
                 S_DUPLICATEb = false;
             }
 
-            public Options(string path)
+            public COptions(string path)
             {
                 System.IO.StreamReader reader = new System.IO.StreamReader(path);
                 string file = reader.ReadToEnd();
-                Init(System.Text.Json.JsonSerializer.Deserialize<Options>(file));
+                Init(System.Text.Json.JsonSerializer.Deserialize<COptions>(file));
                 m_name = path.Substring(path.LastIndexOf('\\') + 1, path.LastIndexOf('.') - path.LastIndexOf('\\') - 1);
                 reader.Close();
             }
@@ -82,7 +82,7 @@ namespace Solution
                 this.E_LIMi = E_LIMi;
             }
 
-            public void Init(Options obj)
+            public void Init(COptions obj)
             {
                 Init(obj.P_SIZEi,
                     obj.H_MINi,

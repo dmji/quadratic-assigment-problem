@@ -8,13 +8,13 @@
     <NestedTypes>
       <Struct Name="TestSystem.CDelayedRow.SRow">
         <TypeIdentifier>
-          <NewMemberFileName>TestSystem\TestTools\TestTool.Table.DelayRow.cs</NewMemberFileName>
+          <NewMemberFileName>TestSystem\TestTools\Table.DelayRow.cs</NewMemberFileName>
         </TypeIdentifier>
       </Struct>
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAIAAAAAAAkAAAIBAAAAA=</HashCode>
-      <FileName>TestSystem\TestTools\TestTool.Table.DelayRow.cs</FileName>
+      <FileName>TestSystem\TestTools\Table.DelayRow.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -22,7 +22,7 @@
     <Position X="4" Y="2.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAgEAAAAACAAgA=</HashCode>
-      <FileName>TestSystem\TestTools\TestTool.Table.cs</FileName>
+      <FileName>TestSystem\TestTools\Table.Definition.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -34,18 +34,18 @@
     <NestedTypes>
       <Struct Name="TestSystem.CTablerExcel.Styles" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>TestSystem\TestTools\TestTool.Table.cs</NewMemberFileName>
+          <NewMemberFileName>TestSystem\TestTools\Table.Definition.cs</NewMemberFileName>
         </TypeIdentifier>
       </Struct>
       <Struct Name="TestSystem.CTablerExcel.Tags" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>TestSystem\TestTools\TestTool.Table.cs</NewMemberFileName>
+          <NewMemberFileName>TestSystem\TestTools\Table.Definition.cs</NewMemberFileName>
         </TypeIdentifier>
       </Struct>
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAEAACgADAIABEAAAgEAAAAACAAgA=</HashCode>
-      <FileName>TestSystem\TestTools\TestTool.Table.cs</FileName>
+      <FileName>TestSystem\TestTools\Table.Definition.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -53,14 +53,14 @@
     <Position X="4" Y="0.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAA=</HashCode>
-      <FileName>TestSystem\TestTools\TestTool.Table.DelayRow.cs</FileName>
+      <FileName>TestSystem\TestTools\Table.DelayRow.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="TestSystem.ITabler">
     <Position X="0.5" Y="0.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAgEAAAAAAAAgA=</HashCode>
-      <FileName>TestSystem\TestTools\TestTool.Table.cs</FileName>
+      <FileName>TestSystem\TestTools\Table.Definition.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

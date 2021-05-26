@@ -8,15 +8,14 @@ namespace TestSystem
     {
         public CTestEvolution(string path, int count, bool bLog) : base(path, count, bLog) {}
 
-        protected override IOptions GetOptionsAlg(string path) => new EvolutionAlgorithm.Options(path);
-        protected override string GetAlgName() => EvolutionAlgorithm.Name(true);
+        protected override IOptions GetOptionsAlg(string path) => new CEvolutionAlgorithm.COptions(path);
+        protected override string GetAlgName() => CEvolutionAlgorithm.Name(true);
 
-
-        public void Start()
+        public override void Start()
         {
             Init();
             InitLogger();
-            STestTools.WriteOptionsHeader(m_tbl, m_aOptions);
+            WriteOptionsHeader(m_tbl, m_aOptions);
             CTimer timer = new CTimer();
 
             m_aOptStat = new List<CTestStatistic>();
@@ -39,7 +38,7 @@ namespace TestSystem
                 else
                     m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Avg Timer, ms", "Avg Calc count", "Avg Error", "Avg Error, %", "Avg Result", "Best Result");
                 
-                IAlgorithm ALG = new EvolutionAlgorithm(QAP);
+                IAlgorithm ALG = new CEvolutionAlgorithm(QAP);
                 IDelayedRow row = new CDelayedRow(m_tbl, true);
                 EnableLog(QAP, ALG);
                 foreach(IOptions opt in m_aOptions)

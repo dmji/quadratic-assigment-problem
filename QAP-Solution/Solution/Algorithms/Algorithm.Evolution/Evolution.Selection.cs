@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Solution
 {
-    public partial class EvolutionAlgorithm
+    public partial class CEvolutionAlgorithm
     {
-        protected List<Individ> SELECTION(List<Individ> src,int populationSize, int BtournamentSize=2)
+        protected List<CIndivid> SELECTION(List<CIndivid> src,int populationSize, int BtournamentSize=2)
         {
             Random rand = new Random();
-            List<Individ> aResult = new List<Individ>();
+            List<CIndivid> aResult = new List<CIndivid>();
             if(src.Count == 0)
                 Msg("T");
             for (int i = 0; i < populationSize; i++)

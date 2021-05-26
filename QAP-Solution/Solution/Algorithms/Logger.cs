@@ -38,7 +38,7 @@ namespace Solution
                 string pathLog = $"{path}{name}_log.~.txt";
                 if(!System.IO.File.Exists(pathLog))
                     System.IO.File.Create(pathLog).Close();
-                TestSystem.STestTools.CheckDir(pathLog);
+                TestSystem.SFile.CheckDir(pathLog);
                 m_stream = new StreamWriter(pathLog);
                 m_thread = new System.Threading.Thread(ThreadWorker);
                 m_bThreadOk = true;

@@ -4,7 +4,7 @@ using Solution;
 
 namespace TestSystem
 {
-    public partial struct STestTools
+    public abstract partial class ATest
     {
         /// <summary>Write options table for excel output</summary>
         /// <param name="table">export interface</param>

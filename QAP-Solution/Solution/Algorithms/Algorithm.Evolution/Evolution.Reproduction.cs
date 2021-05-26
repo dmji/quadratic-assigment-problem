@@ -5,16 +5,16 @@ using System.Text;
 
 namespace Solution
 {
-    public partial class EvolutionAlgorithm
+    public partial class CEvolutionAlgorithm
     {
         /// <summary>CX - Cycle Crossiver : all variant in List return</summary>
-        protected List<Individ> CX_all_crossover(Individ a, Individ b, int limiter=-1)
+        protected List<CIndivid> CX_all_crossover(CIndivid a, CIndivid b, int limiter=-1)
         {
             List<List<int>> aCycles = new List<List<int>>();
             List<int> aCyclesSingle = new List<int>();
             List<int> aTemp = new List<int>();
             List<ushort> perm = new List<ushort>();
-            List<Individ> aResult = new List<Individ>();
+            List<CIndivid> aResult = new List<CIndivid>();
             //CYCLES CONSTRUCTION
             for(int i = 0; i < Size(); i++)
             {
@@ -61,7 +61,7 @@ namespace Solution
                 }
                 foreach(int val in aCyclesSingle)
                     perm[val] = a[val];
-                aResult.Add(new Individ(m_problem, perm));
+                aResult.Add(new CIndivid(m_problem, perm));
             }
             //
             //}
@@ -89,10 +89,10 @@ namespace Solution
         }
 
         /// <summary>Panmixia</summary>
-        protected List<Individ> REPRODUCTION(List<Individ> aPopulation, int C_SIZEi, int C_CHANCEi)
+        protected List<CIndivid> REPRODUCTION(List<CIndivid> aPopulation, int C_SIZEi, int C_CHANCEi)
         {
             Random rand = new Random();
-            List<Individ> aResult = new List<Individ>();
+            List<CIndivid> aResult = new List<CIndivid>();
             List<int> aPool = new List<int>();
             for(int i = 0; i < aPopulation.Count; i++)
                 aPool.Add(i);

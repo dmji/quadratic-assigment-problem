@@ -1,71 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="TestSystem.CRegularSTR">
-    <Position X="6" Y="6" Width="3" />
+    <Position X="3" Y="4.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAgQAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TestSystem\TestTools\TestTool.RegularSTR.cs</FileName>
+      <HashCode>AAAAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>TestSystem\TestTools\RegularSTR.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestSystem.CTestInfo">
-    <Position X="6.5" Y="0.75" Width="2.5" />
-    <Compartments>
-      <Compartment Name="Nested Types" Collapsed="false" />
-    </Compartments>
+    <Position X="0.5" Y="4.25" Width="2.25" />
     <NestedTypes>
-      <Struct Name="TestSystem.CTestInfo.SExam">
+      <Struct Name="TestSystem.CTestInfo.SExam" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>TestSystem\TestTools\TestTool.TestInfo.cs</NewMemberFileName>
+          <NewMemberFileName>TestSystem\TestTools\TestInfo.cs</NewMemberFileName>
         </TypeIdentifier>
       </Struct>
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAAYAAAAAAAAAAAAAAAQAgAAAAABAAAAAAAAAAAA=</HashCode>
-      <FileName>TestSystem\TestTools\TestTool.TestInfo.cs</FileName>
+      <FileName>TestSystem\TestTools\TestInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TestSystem.CTestStatistic">
-    <Position X="1" Y="3" Width="3.25" />
-    <Compartments>
-      <Compartment Name="Nested Types" Collapsed="false" />
-    </Compartments>
+    <Position X="5.25" Y="5" Width="2" />
     <NestedTypes>
-      <Struct Name="TestSystem.CTestStatistic.SRangeSize">
+      <Class Name="TestSystem.CTestStatistic.SRangeSize" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>TestSystem\TestTools\TestTool.Table.Statistic.cs</NewMemberFileName>
+          <NewMemberFileName>TestSystem\TestTools\Table.Statistic.cs</NewMemberFileName>
         </TypeIdentifier>
-      </Struct>
-      <Struct Name="TestSystem.CTestStatistic.SStatCollector">
+      </Class>
+      <Class Name="TestSystem.CTestStatistic.SStatCollector" Collapsed="true">
         <TypeIdentifier>
-          <NewMemberFileName>TestSystem\TestTools\TestTool.Table.Statistic.cs</NewMemberFileName>
+          <NewMemberFileName>TestSystem\TestTools\Table.Statistic.cs</NewMemberFileName>
         </TypeIdentifier>
-      </Struct>
+      </Class>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAgAAAIAAAAQAAAAAAA=</HashCode>
-      <FileName>TestSystem\TestTools\TestTool.Table.Statistic.cs</FileName>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAgAAAIAAAAQAgAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\Table.Statistic.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestSystem.CTimer">
-    <Position X="4.5" Y="3.5" Width="1.75" />
+  <Class Name="TestSystem.CTimer" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="2.5" Width="2" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAABAAEAAAAAAAAAAAAAAAAIAAAgAAAAAA=</HashCode>
-      <FileName>TestSystem\TestTools\TestTools.Timer.cs</FileName>
+      <FileName>TestSystem\TestTools\Timer.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Struct Name="TestSystem.STestStarter">
-    <Position X="1" Y="0.75" Width="5.25" />
+  <Class Name="TestSystem.ATest">
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABAAAAAAAAAAAAAAgIgAAQAAAAAAAAAAAAABA=</HashCode>
-      <FileName>TestSystem\TestStarters\TestStarter.Evalution.cs</FileName>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestStarter\ATest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTestEvolution">
+    <Position X="0.5" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAIAAAAAAAAAIAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestStarter\CTestEvolution.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTestLSA2">
+    <Position X="3" Y="2" Width="2" />
+    <InheritanceLine Type="TestSystem.ATest" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="1.796" />
+        <Point X="3" Y="1.906" />
+        <Point X="4" Y="1.906" />
+        <Point X="4" Y="2" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAIAACCAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestStarter\CTestLSA2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="TestSystem.STestTools">
+    <Position X="5.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAiAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>TestSystem\TestTools\STestTool.FileExtConverter.cs</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="TestSystem.STestTools">
-    <Position X="4.5" Y="8" Width="4.5" />
+  <Struct Name="TestSystem.SFile">
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQAAAAAAAAAAiAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TestSystem\TestTools\STestTool.FileExtConverter.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>TestSystem\TestTools\SFile.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Font Name="Segoe UI" Size="9" />

@@ -59,11 +59,11 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="Solution.IPermutation">
-    <Position X="5.5" Y="3.75" Width="2" />
+    <Position X="5.25" Y="3.75" Width="2" />
     <InheritanceLine Type="Solution.IToString" ManuallyRouted="true" FixedToPoint="true">
       <Path>
         <Point X="4.75" Y="5.375" />
-        <Point X="5.5" Y="5.375" />
+        <Point X="5.25" Y="5.375" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -72,9 +72,9 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="Solution.IProblem">
-    <Position X="4.75" Y="0.5" Width="2.75" />
+    <Position X="5" Y="0.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAgQAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAAAAAgQAIAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Problems\Problems.Abstract\Problem.Definition.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -96,8 +96,9 @@
     <Position X="3.25" Y="3.5" Width="1.5" />
     <InheritanceLine Type="Solution.IClose" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
-        <Point X="5.188" Y="3.353" />
-        <Point X="5.188" Y="4.116" />
+        <Point X="5.5" Y="3.312" />
+        <Point X="4.924" Y="3.312" />
+        <Point X="4.924" Y="4.116" />
         <Point X="4.75" Y="4.116" />
       </Path>
     </InheritanceLine>
@@ -107,7 +108,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="Solution.IClose">
-    <Position X="5" Y="2.25" Width="1.25" />
+    <Position X="5.5" Y="2.5" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Algorithms\Logger.cs</FileName>

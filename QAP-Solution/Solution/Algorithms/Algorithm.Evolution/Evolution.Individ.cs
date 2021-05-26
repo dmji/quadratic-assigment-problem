@@ -3,21 +3,21 @@ using System.Collections.Generic;
 
 namespace Solution
 {
-    public partial class EvolutionAlgorithm
+    public partial class CEvolutionAlgorithm
     {
-        protected class Individ : CPermutation
+        protected class CIndivid : CPermutation
         {
             ///<summary>Construct permutation from exist one</summary>
-            public Individ(CPermutation src) : base(src) { }
+            public CIndivid(CPermutation src) : base(src) { }
 
             ///<summary>Construct permutation from list</summary>
-            public Individ(IProblem problem,ICollection<ushort> src) : base(problem, src) {}
+            public CIndivid(IProblem problem,ICollection<ushort> src) : base(problem, src) {}
 
             ///<summary>Construct corrupted permutation, <c>count</c> is problem size, <c>fill</c> is int in all slots </summary>
-            public Individ(IProblem problem, ushort count, ushort filler) : base(problem, count,filler) {}
+            public CIndivid(IProblem problem, ushort count, ushort filler) : base(problem, count,filler) {}
 
             ///<summary>Construct random permutation, <c>count</c> is problem size</summary>
-            public Individ(IProblem problem, ushort count = 0) : base(problem, count, 0)
+            public CIndivid(IProblem problem, ushort count = 0) : base(problem, count, 0)
             {
                 OnEdit();
                 Random rand = new Random();

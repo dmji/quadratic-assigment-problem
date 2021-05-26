@@ -17,7 +17,7 @@ namespace Console_Runner
                     new CTestLSA2(sPath, nReply, bLogEnable).Start();
                     break;
                 case 3:
-                    CTestFullfoce.StartTestFullforce(sPath);
+                    new CTestFullfoce(sPath).Start();
                     break;
                 default:
                     Console.WriteLine("Error algorithm type");
@@ -28,13 +28,13 @@ namespace Console_Runner
 
         static void Main(string[] args)
         {
-            int nPaths = 1;
+            bool bPaths = false;
             string sPath;
             if(args.Length > 0)
             {
                 sPath = args[0];
-                if(sPath.Length == 16)
-                    nPaths = 16;
+                if(sPath.Length == 1)
+                    bPaths = true;
             }
             else
             {
@@ -68,9 +68,7 @@ namespace Console_Runner
 
             int nReply = 0;
             if(args.Length > 2)
-            {
                 nReply = System.Int16.Parse(args[2]);
-            }
             else
             {
                 Console.WriteLine("Enter execution count of test:");
@@ -98,8 +96,7 @@ namespace Console_Runner
             string[] log = { "without", "with" };
             Console.WriteLine($"== Test system load {log[bLogEnable ? 1:0]} logging");
 
-
-            if(nPaths == 1)
+            if(!bPaths)
             {
                 Start(indexAlg, sPath, nReply, bLogEnable);
             }
@@ -113,11 +110,8 @@ namespace Console_Runner
                 else
                 {
                     string[] aPath = System.IO.File.ReadAllText("paths.txt").Split('\n');
-                    for(int i = 0; i < nPaths; i++)
-                    {
-                        if(sPath[i] == '1')
-                            Start(indexAlg, aPath[i], nReply, bLogEnable);
-                    }
+                    foreach(var s in aPath)
+                        Start(indexAlg, s, nReply, bLogEnable);
                 }
             }
         }

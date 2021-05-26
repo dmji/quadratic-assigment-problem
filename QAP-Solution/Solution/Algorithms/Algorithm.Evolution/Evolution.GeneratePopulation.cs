@@ -2,12 +2,12 @@
 
 namespace Solution
 {
-    public partial class EvolutionAlgorithm
+    public partial class CEvolutionAlgorithm
     {
-        bool Hemming(List<Individ> aPerm, Individ t, int H_MINi)
+        bool Hemming(List<CIndivid> aPerm, CIndivid t, int H_MINi)
         {
             int min_distance = t.Size();
-            foreach(Individ a in aPerm)
+            foreach(CIndivid a in aPerm)
             {
                 int distance = 0;
                 for(int i = 0; i < a.Size(); i++)
@@ -24,12 +24,12 @@ namespace Solution
         /// <summary>Генерация популции со случайным заполнением</summary>
         /// <param name="count">размер популяции</param>
         /// <returns>популяция</returns>
-        protected List<Individ> GEENERETE_POPULATION(int count, int H_MINi)
+        protected List<CIndivid> GEENERETE_POPULATION(int count, int H_MINi)
         {
-            List<Individ> res = new List<Individ>();
+            List<CIndivid> res = new List<CIndivid>();
             while(res.Count < count)
             {
-                Individ temp = new Individ(m_problem, Size());
+                CIndivid temp = new CIndivid(m_problem, Size());
                 if(Hemming(res, temp, H_MINi))
                 {
                     Msg($"GEENERETE_POPULATION Step {res.Count+1}: created {temp};");

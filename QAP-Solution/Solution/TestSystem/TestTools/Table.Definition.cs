@@ -191,7 +191,7 @@ namespace TestSystem
         public bool Close()
         {
             m_table.AppendChild(m_row);
-            STestTools.CheckDir(m_pathResult);
+            SFile.CheckDir(m_pathResult);
             m_doc.Save(m_pathResult);
             StreamReader rd = new StreamReader(m_pathResult);
             string buf = rd.ReadToEnd();

@@ -2,12 +2,12 @@
 
 namespace Solution
 {
-    public partial class LocalSearchAlgorithm : AAlgorithm
+    public partial class CLocalSearchAlgorithm : AAlgorithm
     {
         public override string Name() => "LocalSearchBased";
         public static string Name(bool b) => "LocalSearchBased";
 
-        public LocalSearchAlgorithm(IProblem problem) : base(problem) { }
+        public CLocalSearchAlgorithm(IProblem problem) : base(problem) { }
 
         public bool bBreak;
 
