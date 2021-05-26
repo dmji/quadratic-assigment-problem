@@ -54,18 +54,15 @@
             for(int ij = 0; ij < src.Size(); ij++)
             {
                 var j = src[ij];
-                if(j == y)
-                    res += (GetDist(x, x) - GetDist(y, y)) * GetFlow(iy, iy);
-                else if(j == x)
-                    res += (GetDist(y, y) - GetDist(x, x)) * GetFlow(ix, ix);
-                else
-                { 
-                    res += (GetDist(y, j) - GetDist(x, j)) * GetFlow(ix, ij);
-                    res += (GetDist(j, y) - GetDist(j, x)) * GetFlow(ij, ix);
-                    res += (GetDist(x, j) - GetDist(y, j)) * GetFlow(iy, ij);
-                    res += (GetDist(j, x) - GetDist(j, y)) * GetFlow(ij, iy);
-                }
+                if(j == y || j == x)
+                    continue;
+                res += (GetDist(y, j) - GetDist(x, j)) * GetFlow(ix, ij);
+                res += (GetDist(j, y) - GetDist(j, x)) * GetFlow(ij, ix);
+                res += (GetDist(x, j) - GetDist(y, j)) * GetFlow(iy, ij);
+                res += (GetDist(j, x) - GetDist(j, y)) * GetFlow(ij, iy);
             }
+            res += (GetDist(x, x) - GetDist(y, y)) * GetFlow(iy, iy);
+            res += (GetDist(y, y) - GetDist(x, x)) * GetFlow(ix, ix);
             return res;
         }
     }
