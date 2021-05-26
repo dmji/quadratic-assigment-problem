@@ -50,20 +50,22 @@
         public override long CalcedSwap(IPermutation src, int ix, int iy)
         {
             int x = src[ix], y = src[iy];
-            long res = src.Cost();
+            long res = Calc(src);
             for(int ij = 0; ij < src.Size(); ij++)
             {
                 var j = src[ij];
-                res += (GetDist(y, j) - GetDist(x, j)) * GetFlow(ix, ij);
-                res += (GetDist(x, j) - GetDist(y, j)) * GetFlow(iy, ij);
-                res += (GetDist(j, y) - GetDist(j, x)) * GetFlow(ij, ix);
-                res += (GetDist(j, x) - GetDist(j, y)) * GetFlow(ij, iy);
+                if(j == y)
+                    res += (GetDist(x, x) - GetDist(y, y)) * GetFlow(iy, iy);
+                else if(j == x)
+                    res += (GetDist(y, y) - GetDist(x, x)) * GetFlow(ix, ix);
+                else
+                { 
+                    res += (GetDist(y, j) - GetDist(x, j)) * GetFlow(ix, ij);
+                    res += (GetDist(j, y) - GetDist(j, x)) * GetFlow(ij, ix);
+                    res += (GetDist(x, j) - GetDist(y, j)) * GetFlow(iy, ij);
+                    res += (GetDist(j, x) - GetDist(j, y)) * GetFlow(ij, iy);
+                }
             }
-            res += (GetDist(y, x) - GetDist(x, y)) * GetFlow(ix, iy);
-            res += (GetDist(x, y) - GetDist(y, x)) * GetFlow(iy, ix);
-            res += (GetDist(y, y) - GetDist(x, x)) * GetFlow(ix, ix);
-            res += (GetDist(x, x) - GetDist(y, y)) * GetFlow(iy, iy);
-            src.Swap(ix, iy);
             return res;
         }
     }

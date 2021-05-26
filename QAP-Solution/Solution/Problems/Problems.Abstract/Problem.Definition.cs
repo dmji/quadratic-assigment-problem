@@ -23,7 +23,7 @@ namespace Solution
         /// <param name="CPermutationSrc">premutation to calculate</param>
         /// <returns>double value</returns>
         public virtual long Calc(IPermutation src) => 0;
-        public virtual long CalcedSwap(IPermutation src, int ix, int iy) => 0;
+        public virtual long CalcedSwap(IPermutation src, int ix, int iy) => long.MinValue;
         public virtual bool Verify(IPermutation obj) => false;
         public virtual IPermutation GetRandomPermutation() => null;
 

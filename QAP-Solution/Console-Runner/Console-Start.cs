@@ -85,12 +85,12 @@ namespace Console_Runner
 
             bool bLogEnable = false;
             if(args.Length > 3)
-                bLogEnable = args[3].StartsWith("log");
+                bLogEnable = args[3].StartsWith("Y");
             else
             {
                 Console.WriteLine("Decide is log enable (skip to false):");
                 string s = Console.ReadLine();
-                if(s.StartsWith("Yes") || s.StartsWith("yes") || s.StartsWith("tru") || s.StartsWith("Tru") || s.StartsWith("Ok") || s.StartsWith("ok") || s.StartsWith("OK"))
+                if(s.StartsWith("Y") || s.StartsWith("y") || s.StartsWith("tru") || s.StartsWith("Tru") || s.StartsWith("Ok") || s.StartsWith("ok") || s.StartsWith("OK"))
                     bLogEnable = true;
             }
             string[] log = { "without", "with" };

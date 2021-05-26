@@ -16,11 +16,10 @@ namespace Solution
         /// <returns>local optimal solution</returns>
         public void local_search(IPermutation target, int stepCount = -1)
         {
+            Msg($"sizeQAP={Size()} CPermutation: {target.ToString()} Q={Calc(target)}");
             IPermutation pt = target.Clone();
             IPermutation minp = pt.Clone();
             int i = 0;
-            
-            Msg($"sizeQAP={Size()} CPermutation: {target.ToString()} Q={Calc(target)}");
             do
             {
                 bool bNestedBreak = false;

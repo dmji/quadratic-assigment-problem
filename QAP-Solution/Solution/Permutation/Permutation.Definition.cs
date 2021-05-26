@@ -56,11 +56,14 @@ namespace Solution
         public IPermutation Clone() => new CPermutation(this);
         public void Swap(int i1, int i2)
         {
+            long val = m_problem.CalcedSwap(this, i1, i2);
             ushort tmp = m_p[i1];
             m_p[i1] = m_p[i2];
             m_p[i2] = tmp;
-            //TODO: add recalc after swap
-            OnEdit();
+            if(val == long.MinValue)
+                OnEdit();
+            else
+                m_c = val;
         }
         public static bool operator ==(CPermutation a, CPermutation b)
         {

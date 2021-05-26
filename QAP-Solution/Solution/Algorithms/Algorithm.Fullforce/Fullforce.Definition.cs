@@ -53,12 +53,12 @@ namespace Solution
             else
             {
                 CPermutation curPerm = new CPermutation(m_problem, src);
-                double cur_cost = curPerm.Cost();
+                double cur_cost = Calc(curPerm);
                 lock(m_results)
                 {
-                    if(m_results.Count == 0 || cur_cost <= Result.Cost())
+                    if(m_results.Count == 0 || cur_cost <= Calc(Result))
                     {
-                        if(cur_cost <= Result.Cost())
+                        if(cur_cost <= Calc(Result))
                             m_results.Clear();
                         m_results.Add(curPerm.Clone());
                     }

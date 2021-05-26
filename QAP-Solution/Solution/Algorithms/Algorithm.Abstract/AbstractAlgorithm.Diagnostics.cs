@@ -16,8 +16,7 @@ namespace Solution
         //func diagnostic counter
         protected long Calc(IPermutation obj)
         {
-            lock(m_log)
-                m_calculationCounter++;
+            m_calculationCounter++;
             return obj.Cost();
         }
 

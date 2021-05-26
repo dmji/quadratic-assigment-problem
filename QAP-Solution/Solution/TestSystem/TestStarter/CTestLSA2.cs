@@ -33,6 +33,7 @@ namespace TestSystem
             {
                 m_curOpt = iOpt == 0 ? "A" : "B";
                 InitLogger();
+                m_log.Msg($"Option {m_aOptions[iOpt].Name()} start", true);
 
                 m_aOptStat = new List<CTestStatistic>();
                 m_aOptStat.Add(new CTestStatistic("Avg Error, %", 5));
@@ -42,6 +43,7 @@ namespace TestSystem
                     m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", "Timer, ms", "Calc count", "Error", "Error, %", "Result", "Optimal");
                 foreach(CTestInfo test in m_aTest)
                 {
+                    m_log.Msg($"Test {test.Name()} started", true);
                     string timeLoad = timer.Stop().ToString();
                     long examVal = 0;
                     bool bExam = test.Exam(ref examVal);
