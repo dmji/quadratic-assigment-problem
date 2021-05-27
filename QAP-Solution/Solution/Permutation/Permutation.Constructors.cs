@@ -9,7 +9,9 @@ namespace Solution
     {
         ///<summary>Construct permutation from exist one</summary>
         public CPermutation(IPermutation src) : this((CPermutation)src) {}
-        public CPermutation(CPermutation src) : this(src.m_problem, src.m_p) {}
+        public CPermutation(CPermutation src) : this(src.m_problem, src.m_p) { 
+            m_bCalced = src.m_bCalced; m_c = src.m_c; 
+        }
 
         ///<summary>Construct permutation from list</summary>
         public CPermutation(IProblem problem, ICollection<ushort> src)

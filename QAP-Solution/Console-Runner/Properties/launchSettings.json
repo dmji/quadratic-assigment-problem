@@ -2,7 +2,7 @@
   "profiles": {
     "Console-Runner": {
       "commandName": "Project",
-      "commandLineArgs": "\"C:\\Users\\leysh\\source\\repos\\dmji\\quadratic-assigment-problem\\QAP-Solution\\Contest\\_kra.xml\" \"LSA\" \"5\" Y"
+      "commandLineArgs": "\"C:\\Users\\leysh\\source\\repos\\dmji\\quadratic-assigment-problem\\QAP-Solution\\Contest\\_lipa.xml\" \"LSA\" \"5\" 0"
     }
   }
 }

@@ -16,7 +16,8 @@ namespace Solution
         /// <returns>local optimal solution</returns>
         public void local_search(IPermutation target, int stepCount = -1)
         {
-            Msg($"sizeQAP={Size()} CPermutation: {target.ToString()} Q={Calc(target)}");
+            Calc(target);
+            Msg($"sizeQAP={Size()} CPermutation: {target.ToString()}");
             IPermutation pt = target.Clone();
             IPermutation minp = pt.Clone();
             int i = 0;
@@ -43,7 +44,7 @@ namespace Solution
                     if(bNestedBreak)
                         break;
                 }
-                Msg($"$Local search step{i}: CPermutation: {minp.ToString()} Q={Calc(minp)}");
+                Msg($"$Local search step{i}: CPermutation: {minp.ToString()}");
             } while(stepCount != ++i && Calc(pt) != Calc(minp));
             Result = minp.Clone();
         }
@@ -52,7 +53,7 @@ namespace Solution
         {
             ResetDiagnostic();
             Options t = (Options)opt;
-            t.B_FULLIFY = m_bFinish;
+            bBreak = t.B_FULLIFY;
             local_search(m_problem.GetRandomPermutation());
             return this;
         }
