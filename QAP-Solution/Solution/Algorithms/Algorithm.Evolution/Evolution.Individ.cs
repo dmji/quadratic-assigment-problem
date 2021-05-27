@@ -9,6 +9,7 @@ namespace Solution
         {
             ///<summary>Construct permutation from exist one</summary>
             public CIndivid(CPermutation src) : base(src) { }
+            public CIndivid(IPermutation src) : base(src) { }
 
             ///<summary>Construct permutation from list</summary>
             public CIndivid(IProblem problem,ICollection<ushort> src) : base(problem, src) {}

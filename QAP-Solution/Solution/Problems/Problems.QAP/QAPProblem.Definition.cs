@@ -33,15 +33,11 @@
         /// <returns>double value</returns>
         public override long Calc(IPermutation src)
         {
-            string s = "";
             long res = 0;
             for(int i = 0; i < src.Size(); i++)
             {
                 for(int j = 0; j < src.Size(); j++)
-                {
-                    s += $"+D[{src[i]}][{src[j]}]*F[{i}][{j}]";
                     res += GetDist(src[i], src[j]) * GetFlow(i, j); // + GetPCost(i, src[j]);
-                }
             }
 
             return res;
@@ -49,8 +45,17 @@
         
         public override long CalcedSwap(IPermutation src, int ix, int iy)
         {
+            bool bDebug = false;
             int x = src[ix], y = src[iy];
-            long res = Calc(src);
+            long res = src.Cost();
+            if(bDebug)
+            {
+                if(Calc(src) != res)
+                {
+                    Msg("ERROR VALUE CALCULATED CALCEDSWAP");
+                    throw new System.Exception("SUKA");
+                }
+            }
             for(int ij = 0; ij < src.Size(); ij++)
             {
                 var j = src[ij];
@@ -63,6 +68,19 @@
             }
             res += (GetDist(x, x) - GetDist(y, y)) * GetFlow(iy, iy);
             res += (GetDist(y, y) - GetDist(x, x)) * GetFlow(ix, ix);
+
+            var t = src.Clone();
+            var tx = t[ix];
+            t[ix] = t[iy];
+            t[iy] = tx;
+            if(bDebug)
+            {
+                if(Calc(t) != res)
+                {
+                    Msg("ERROR VALUE CALCULATED CALCEDSWAP");
+                    throw new System.Exception("SUKA");
+                }
+            }
             return res;
         }
     }

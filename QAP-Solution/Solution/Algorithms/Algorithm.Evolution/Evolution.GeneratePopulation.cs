@@ -29,7 +29,7 @@ namespace Solution
             List<CIndivid> res = new List<CIndivid>();
             while(res.Count < count)
             {
-                CIndivid temp = new CIndivid(m_problem, Size());
+                CIndivid temp = new CIndivid(m_problem.GetRandomPermutation());
                 if(Hemming(res, temp, H_MINi))
                 {
                     Msg($"GEENERETE_POPULATION Step {res.Count+1}: created {temp};");

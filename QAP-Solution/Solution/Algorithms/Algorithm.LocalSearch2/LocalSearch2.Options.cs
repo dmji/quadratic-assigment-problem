@@ -7,6 +7,7 @@ namespace Solution
         public class Options : IOptions
         {
             public bool B_FULLIFY { get; set; }
+            public IPermutation m_p;
 
             string m_name;
 

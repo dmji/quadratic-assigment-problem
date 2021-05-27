@@ -52,7 +52,7 @@ namespace Solution
             }
             else
             {
-                CPermutation curPerm = new CPermutation(m_problem, src);
+                IPermutation curPerm = new CPermutation(m_problem, src);
                 double cur_cost = Calc(curPerm);
                 lock(m_results)
                 {

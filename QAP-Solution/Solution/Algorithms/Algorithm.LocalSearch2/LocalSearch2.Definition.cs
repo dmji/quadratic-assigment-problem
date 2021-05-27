@@ -54,7 +54,10 @@ namespace Solution
             ResetDiagnostic();
             Options t = (Options)opt;
             bBreak = t.B_FULLIFY;
-            local_search(m_problem.GetRandomPermutation());
+            if(t.m_p != null)
+                local_search(t.m_p);
+            else
+                local_search(m_problem.GetRandomPermutation());
             return this;
         }
     }
