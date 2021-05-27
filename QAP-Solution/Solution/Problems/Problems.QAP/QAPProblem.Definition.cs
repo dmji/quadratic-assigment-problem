@@ -33,13 +33,22 @@
         /// <returns>double value</returns>
         public override long Calc(IPermutation src)
         {
+            bool bDebug = false;
             long res = 0;
+            if(bDebug)
+            {
+                string s = "";
+                for(int i = 0; i < src.Size(); i++)
+                {
+                    for(int j = 0; j < src.Size(); j++)
+                        s += $"+D[{src[i]}][{src[j]}]*F[{i}][{j}]";
+                }
+            }
             for(int i = 0; i < src.Size(); i++)
             {
                 for(int j = 0; j < src.Size(); j++)
                     res += GetDist(src[i], src[j]) * GetFlow(i, j); // + GetPCost(i, src[j]);
             }
-
             return res;
         }
         
@@ -56,25 +65,75 @@
                     throw new System.Exception("SUKA");
                 }
             }
+           
+            
             for(int ij = 0; ij < src.Size(); ij++)
             {
                 var j = src[ij];
                 if(j == y || j == x)
                     continue;
+
                 res += (GetDist(y, j) - GetDist(x, j)) * GetFlow(ix, ij);
                 res += (GetDist(j, y) - GetDist(j, x)) * GetFlow(ij, ix);
                 res += (GetDist(x, j) - GetDist(y, j)) * GetFlow(iy, ij);
                 res += (GetDist(j, x) - GetDist(j, y)) * GetFlow(ij, iy);
             }
+
             res += (GetDist(x, x) - GetDist(y, y)) * GetFlow(iy, iy);
             res += (GetDist(y, y) - GetDist(x, x)) * GetFlow(ix, ix);
 
-            var t = src.Clone();
-            var tx = t[ix];
-            t[ix] = t[iy];
-            t[iy] = tx;
+            res += (GetDist(x, y) - GetDist(y, x)) * GetFlow(iy, ix);
+            res += (GetDist(y, x) - GetDist(x, y)) * GetFlow(ix, iy);
+
             if(bDebug)
             {
+                string s1 = "";
+                string s2 = "";
+
+                s1 += $"+D[{x}][{x}]*F[{iy}][{iy}]";
+                s2 += $"+D[{y}][{y}]*F[{iy}][{iy}]";
+
+                s1 += $"+D[{y}][{y}]*F[{ix}][{ix}]";
+                s2 += $"+D[{x}][{x}]*F[{ix}][{ix}]";
+
+                for(int ij = 0; ij < src.Size(); ij++)
+                {
+                    var j = src[ij];
+                    if(j == y || j == x)
+                        continue;
+                    s1 += $"+D[{y}][{j}]*F[{ix}][{ij}]";
+                    s2 += $"+D[{x}][{j}]*F[{ix}][{ij}]";
+                }
+
+                for(int ij = 0; ij < src.Size(); ij++)
+                {
+                    var j = src[ij];
+                    if(j == y || j == x)
+                        continue;
+                    s1 += $"+D[{j}][{y}]*F[{ij}][{ix}]";
+                    s2 += $"+D[{j}][{x}]*F[{ij}][{ix}]";
+                }
+
+                for(int ij = 0; ij < src.Size(); ij++)
+                {
+                    var j = src[ij];
+                    if(j == y || j == x)
+                        continue;
+                    s1 += $"+D[{x}][{j}]*F[{iy}][{ij}]";
+                    s2 += $"+D[{y}][{j}]*F[{iy}][{ij}]";
+                }
+                for(int ij = 0; ij < src.Size(); ij++)
+                {
+                    var j = src[ij];
+                    if(j == y || j == x)
+                        continue;
+                    s1 += $"+D[{j}][{x}]*F[{ij}][{iy}]";
+                    s2 += $"+D[{j}][{y}]*F[{ij}][{iy}]";
+                }
+                var t = src.Clone();
+                var tx = t[ix];
+                t[ix] = t[iy];
+                t[iy] = tx;
                 if(Calc(t) != res)
                 {
                     Msg("ERROR VALUE CALCULATED CALCEDSWAP");

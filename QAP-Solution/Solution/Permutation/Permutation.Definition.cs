@@ -29,6 +29,8 @@ namespace Solution
         protected void OnEdit() { m_bCalced = false; }
         public long Cost()
         {
+            if(m_bCalced == true && m_c < 0)
+                throw new Exception("WTF");
             if(!m_bCalced)
             {
                 m_c = m_problem.Calc(this);

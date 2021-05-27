@@ -59,8 +59,11 @@ namespace TestSystem
                 {
                     timer.Reset();
                     IAlgorithm ALG = new CLocalSearchAlgorithm(QAP);
-                    EnableLog(QAP, ALG);
-                    QAP.SetLogger(log);
+                    if(m_logEnabled)
+                    {
+                        ALG.SetLogger(log);
+                        QAP.SetLogger(log);
+                    }
                     timer.Reset();
                     IResultAlg result = ALG.Start(curOption);
 
@@ -132,6 +135,7 @@ namespace TestSystem
                 t.Add(new System.Threading.Thread(StartThread));
                 t[t.Count - 1].Start();
                 System.Threading.Thread.Sleep(100);
+                t[iOpt].Join();
             }
             for(int iOpt = 0; iOpt < m_aOptions.Count; iOpt++)
                 t[iOpt].Join();
