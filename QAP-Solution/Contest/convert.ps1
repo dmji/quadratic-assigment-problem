@@ -5,6 +5,7 @@ $files = Get-ChildItem -Path $location -Force -Recurse
 foreach($file in $files)
 {
     $path = $file.Fullname
+    if($path.Contains(".xml"))
     {
         $excel = new-object -comobject Excel.Application
         $excel.Visible = $false
@@ -19,6 +20,6 @@ foreach($file in $files)
         $sh.SaveAs($pathNew, 51)
         $workbook.Close()
         $excel.Quit()
+        Remove-Item $path
     }
-    Remove-Item $path
 }

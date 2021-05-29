@@ -47,9 +47,9 @@ namespace Console_Runner
             string[] alg = { "Undefine", "Evolution", "Local Search", "Full force" };
             if(args.Length > 1)
             {
-                if(args[1].StartsWith("Ev") || args[1].StartsWith("EV"))
+                if(args[1].StartsWith("E") || args[1].StartsWith("E"))
                     indexAlg = 1;
-                else if(args[1].StartsWith("LSA"))
+                else if(args[1].StartsWith("L"))
                     indexAlg = 2;
                 else if(args[1].StartsWith("F"))
                     indexAlg = 3;
