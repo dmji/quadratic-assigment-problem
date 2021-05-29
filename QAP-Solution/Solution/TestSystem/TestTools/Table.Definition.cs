@@ -143,13 +143,6 @@ namespace TestSystem
         {
             XmlElement data = m_doc.CreateElement("Data");
             XmlElement cell;
-            //if(str[0]=='=')
-            //{
-            //    cell = CreateCell(style, data);
-            //    cell.SetAttribute(Tags.eFormula, str);
-            //    data.SetAttribute(Tags.eType, "Number");
-            //}
-            //else
             {
                 cell = CreateCell(style, data);
                 data.SetAttribute(Tags.eType, "String");

@@ -60,7 +60,7 @@ namespace TestSystem
                         aResultFile.AddRange(aResultFileToConvert);
                 }
 
-                m_aTest = new List<CTestInfo>();
+                m_aTest = new List<ITestInfo>();
                 while(aProblemFile.Count > 0)
                 {
                     int index = aProblemFile[0].LastIndexOf('\\') + 1;
@@ -73,7 +73,7 @@ namespace TestSystem
                     {
                         if(aResultFile[i].Contains(name))
                         {
-                            m_aTest.Add(new CTestInfo(aProblemFile[0], aResultFile[i]));
+                            m_aTest.Add(createTestInfo(aProblemFile[0], aResultFile[i]));
                             aResultFile.RemoveAt(i--);
                             bExamFound = true;
                             break;

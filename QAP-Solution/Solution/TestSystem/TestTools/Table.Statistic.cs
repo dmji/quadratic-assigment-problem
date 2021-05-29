@@ -15,13 +15,16 @@ namespace TestSystem
             { 
                 m_size = size;
                 m_range = "";
+                m_nRange = 0;
             }
             public int m_size;
             public string m_range;
+            public int m_nRange;
 
             public void AddResult(long row, long cell)
             {
                 m_range += (m_range.Length > 0 ? ";" : "") + $"R{row}C{cell}";
+                m_nRange++;
             }
         }
         public class SStatCollector
@@ -85,6 +88,56 @@ namespace TestSystem
                         tbl.AddCell(CTablerExcel.Styles.eStyleGrey, $"=СРЗНАЧ({b.m_range})");
                     tbl.AddRow();
                 }
+
+                // add groups stats
+                {
+                    tbl.AddRow();
+                    tbl.AddRow();
+
+                    // find avg result count for group
+                    int nTotal=0;
+                    int excelMaxRange = 256;
+                    foreach(SRangeSize a in m_aStats[0].m_aRange)
+                        nTotal += a.m_nRange;
+                    if(nTotal / 6 <= 200)
+                        excelMaxRange = nTotal / 6;
+
+                    foreach(var a in m_aStats)
+                    {
+                        tbl.AddCell(CTablerExcel.Styles.eStyleSimpleBold, a.m_name,1);
+                        tbl.AddRow();
+                        int nameL = 0, nameH = 0;
+                        string s = "";
+                        int nS = 0;
+                        foreach(SRangeSize b in a.m_aRange)
+                        {
+                            if(nS + b.m_nRange >= excelMaxRange && nS > 0)
+                            {
+                                tbl.AddCells(CTablerExcel.Styles.eStyleGrey, $"от {nameL} до {nameH}", $"=СРЗНАЧ({s})");
+                                tbl.AddRow();
+                                nS = 0;
+                                s = "";
+                            }
+                            if(nS == 0) nameL = b.m_size;
+                            if(nS > 0) s += ";";
+
+                            s += b.m_range;
+                            nS += b.m_nRange;
+                            nameH = b.m_size;
+                        }
+                        if(nS > 0)
+                        {
+                            tbl.AddCells(CTablerExcel.Styles.eStyleGrey, $"от {nameL} до {nameH}", $"=СРЗНАЧ({s})");
+                            tbl.AddRow();
+                            nS = 0;
+                            s = "";
+                        }
+                    }
+                    tbl.AddRow();
+                    tbl.AddRow();
+
+                }
+
                 m_aStats.Clear();
             }
         }

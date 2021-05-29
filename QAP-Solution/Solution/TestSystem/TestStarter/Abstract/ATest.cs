@@ -18,7 +18,7 @@ namespace TestSystem
         protected string m_path;
         protected ILogger m_log;
         protected ITabler m_tbl;
-        protected List<CTestInfo> m_aTest;
+        protected List<ITestInfo> m_aTest;
         protected List<IOptions> m_aOptions;
         protected List<CTestStatistic> m_aOptStat;
 
@@ -35,6 +35,7 @@ namespace TestSystem
             m_xmlName = "";
         }
         protected virtual string GetAlgName() => "Undefine";
+        protected virtual ITestInfo createTestInfo(string problem, string result) => new CTestInfo(problem, result);
         protected virtual IOptions GetOptionsAlg(string path) => null;
         protected void EnableLog(AProblem QAP, IAlgorithm ALG)
         {

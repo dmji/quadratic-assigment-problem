@@ -3,7 +3,14 @@ using System.IO;
 
 namespace TestSystem
 {
-    public class CTestInfo
+    public interface ITestInfo
+    {
+        bool Exam(ref long obj);
+        string Name();
+        string pathProblem { get; }
+    }
+
+    public class CTestInfo : ITestInfo
     {
         public struct SExam
         {
