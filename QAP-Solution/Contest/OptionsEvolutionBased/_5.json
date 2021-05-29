@@ -1,0 +1,14 @@
+{
+"P_SIZEi"		:200,
+"H_MINi"		:2,
+"C_SIZEi"		:120,
+"C_CHANCEi"		:100,
+"M_SIZEi"		:50,
+"M_CHANCEi"		:100,
+"M_TYPEi"		:0,
+"M_SALT_SIZEi"	:4,
+"S_EXTENDb"		:false,
+"S_DUPLICATEb"	:false,
+"S_TOURNi"		:4,
+"E_LIMi"		:100
+}

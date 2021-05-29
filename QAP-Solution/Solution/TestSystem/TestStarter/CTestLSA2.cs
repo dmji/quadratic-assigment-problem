@@ -6,8 +6,8 @@ namespace TestSystem
 {
     public class CTestInfoLSA : CTestInfo
     {
-        public IPermutation m_perm;
-        public CTestInfoLSA(string problem, string resultPath = "") : base(problem, resultPath) { m_perm = null; }
+        public List<IPermutation> m_aPerm;
+        public CTestInfoLSA(string problem, string resultPath = "") : base(problem, resultPath) { m_aPerm = new List<IPermutation>(); }
     }
 
     public class CTestLSA2 : ATest
@@ -72,11 +72,10 @@ namespace TestSystem
 
                         // use single permutation for one test in all options
                         {
-                            ref IPermutation p = ref ((CTestInfoLSA)test).m_perm;
-                            if(p == null)
-                            {
-                                p = QAP.GetRandomPermutation();
-                            }
+                            CTestInfoLSA t = (CTestInfoLSA)test;
+                            if(t.m_aPerm.Count <= i)
+                                t.m_aPerm.Add(QAP.GetRandomPermutation());
+                            IPermutation p = t.m_aPerm[i];
                             ((CLocalSearchAlgorithm.Options)curOption).m_p = p.Clone();
                         }
 
