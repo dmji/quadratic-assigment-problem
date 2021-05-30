@@ -8,9 +8,12 @@ namespace TestSystem
     {
         protected virtual void InitLogger()
         {
-            // create logger
-            string pathLog = m_path + "logs\\";
-            m_log = new CLogger(pathLog, $"{m_xmlName}_{GetAlgName()}");
+            if(m_logEnabled)
+            {
+                // create logger
+                string pathLog = m_path + "logs\\";
+                m_log = new CLogger(pathLog, $"{m_xmlName}_{GetAlgName()}");
+            }
 
             // create tabler
             string pathTable = m_path + "results\\";

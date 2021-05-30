@@ -4,8 +4,8 @@ namespace Solution
 {
     public partial class CFullforceAlgorithm : AAlgorithm
     {
+        string m_logSync = "";
         public override string Name() => "Fullforce algorithm";
-
         public CFullforceAlgorithm(IProblem problem) : base(problem) { }
 
         protected int _isExist(List<ushort> src, ushort point)
@@ -54,9 +54,15 @@ namespace Solution
             {
                 IPermutation curPerm = new CPermutation(m_problem, src);
                 double cur_cost = Calc(curPerm);
+                lock(m_logSync)
+                    Msg($"{curPerm.ToString()}");
                 lock(m_results)
                 {
-                    if(m_results.Count == 0 || cur_cost <= Calc(Result))
+                    if(m_results.Count == 0)
+                    {
+                        m_results.Add(curPerm.Clone());
+                    }
+                    else if(cur_cost <= Calc(Result))
                     {
                         if(cur_cost <= Calc(Result))
                             m_results.Clear();

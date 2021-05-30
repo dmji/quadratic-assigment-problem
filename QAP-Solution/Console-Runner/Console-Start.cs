@@ -17,7 +17,7 @@ namespace Console_Runner
                     new CTestLSA2(sPath, nReply, bLogEnable).Start();
                     break;
                 case 3:
-                    new CTestFullfoce(sPath).Start();
+                    new CTestFullfoce(sPath, bLogEnable).Start();
                     break;
                 default:
                     Console.WriteLine("Error algorithm type");
