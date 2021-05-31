@@ -19,6 +19,9 @@ namespace Console_Runner
                 case 3:
                     new CTestFullfoce(sPath, bLogEnable).Start();
                     break;
+                case 4:
+                    new CTestGRASP(sPath, nReply, bLogEnable).Start();
+                    break;
                 default:
                     Console.WriteLine("Error algorithm type");
                     break;
@@ -44,7 +47,7 @@ namespace Console_Runner
 
             Console.WriteLine($"== Test system load with option: {sPath}");
             int indexAlg = -1;
-            string[] alg = { "Undefine", "Evolution", "Local Search", "Full force" };
+            string[] alg = { "Undefine", "Evolution", "Local Search", "Full force", "GRASP" };
             if(args.Length > 1)
             {
                 if(args[1].StartsWith("E") || args[1].StartsWith("E"))
@@ -53,6 +56,8 @@ namespace Console_Runner
                     indexAlg = 2;
                 else if(args[1].StartsWith("F"))
                     indexAlg = 3;
+                else if(args[1].StartsWith("G"))
+                    indexAlg = 4;
             }
             else
             {
@@ -90,7 +95,9 @@ namespace Console_Runner
             {
                 Console.WriteLine("Decide is log enable (skip to false):");
                 string s = Console.ReadLine();
-                if(s.StartsWith("Y") || s.StartsWith("y") || s.StartsWith("tru") || s.StartsWith("Tru") || s.StartsWith("Ok") || s.StartsWith("ok") || s.StartsWith("OK"))
+                if(s.StartsWith("Y") || s.StartsWith("y")
+                    || s.StartsWith("T") || s.StartsWith("t") 
+                    || s.StartsWith("O") || s.StartsWith("o"))
                     bLogEnable = true;
             }
             string[] log = { "without", "with" };

@@ -90,7 +90,7 @@ namespace TestSystem
             if(examVal > -1)
             {
                 double err = resultValue - examVal;
-                double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : 1000;
+                double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : resultValue == 0 ? 0 : 1000;
                 long nRow = row.AddRow(errPersent, optName, timer, calcs.ToString(), err.ToString(), errPersent.ToString(), resultValue.ToString(), m_nCount == 1 ? "" : resultBest);
                 if(m_aOptStat != null)
                 {

@@ -14,6 +14,8 @@ namespace TestSystem
                 string pathLog = m_path + "logs\\";
                 m_log = new CLogger(pathLog, $"{m_xmlName}_{GetAlgName()}");
             }
+            else
+                m_log = new CEmptyLogger();
 
             // create tabler
             string pathTable = m_path + "results\\";
