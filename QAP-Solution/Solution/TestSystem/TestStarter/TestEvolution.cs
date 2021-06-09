@@ -4,9 +4,9 @@ using Solution;
 
 namespace TestSystem
 {
-    public partial class CTestGRASP : ATest
+    public partial class CTestEvolution : ATest
     {
-        public CTestGRASP(string path, int count, bool bLog) : base(path, count, bLog) {}
+        public CTestEvolution(string path, int count, bool bLog) : base(path, count, bLog) {}
 
         protected override IOptions GetOptionsAlg(string path) => new CEvolutionAlgorithm.COptions(path);
         protected override string GetAlgName() => CEvolutionAlgorithm.Name(true);
@@ -26,7 +26,7 @@ namespace TestSystem
             foreach(CTestInfo test in m_aTest)
             {
                 timer.Reset();
-                AProblem QAP = new CQAPProblem(test.pathProblem);
+                AProblem QAP = new CQAProblem(test.pathProblem);
                 string timeLoad = timer.Stop().ToString();
 
                 long examVal = 0;
@@ -39,10 +39,8 @@ namespace TestSystem
                     m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Avg Timer, ms", "Avg Calc count", "Avg Error", "Avg Error, %", "Avg Result", "Best Result");
                 
                 IAlgorithm ALG = new CEvolutionAlgorithm(QAP);
-                IAlgorithm ALG_LSA = new CLocalSearchAlgorithm(QAP);
                 IDelayedRow row = new CDelayedRow(m_tbl, true);
                 EnableLog(QAP, ALG);
-                EnableLog(QAP, ALG_LSA);
                 foreach(IOptions opt in m_aOptions)
                 {
                     string optName = opt.Name();
@@ -50,17 +48,8 @@ namespace TestSystem
                     for(int i = 0; i < m_nCount; i++)
                     {
                         timer.Reset();
-
-                        // start evolution
                         IResultAlg result = ALG.Start(opt);
 
-                        // start lsa
-                        CLocalSearchAlgorithm.Options optLSA = new CLocalSearchAlgorithm.Options();
-                        optLSA.m_p = ALG.Result;
-                        optLSA.B_FULLIFY = true;
-                        ALG_LSA.Start(optLSA);
-
-                        // statistic
                         timerAlg += timer.Stop();
                         calcCount += result.GetCalcCount();
 
@@ -90,7 +79,7 @@ namespace TestSystem
             if(examVal > -1)
             {
                 double err = resultValue - examVal;
-                double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : resultValue == 0 ? 0 : 1000;
+                double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : 1000;
                 long nRow = row.AddRow(errPersent, optName, timer, calcs.ToString(), err.ToString(), errPersent.ToString(), resultValue.ToString(), m_nCount == 1 ? "" : resultBest);
                 if(m_aOptStat != null)
                 {

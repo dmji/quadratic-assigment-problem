@@ -78,7 +78,7 @@ namespace TestSystem
                     {
                         if(aResultFile[i].Contains(name))
                         {
-                            m_aTest.Add(createTestInfo(aProblemFile[0], aResultFile[i]));
+                            m_aTest.Add(CreateTestInfo(aProblemFile[0], aResultFile[i]));
                             aResultFile.RemoveAt(i--);
                             bExamFound = true;
                             break;

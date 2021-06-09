@@ -42,7 +42,7 @@ namespace TestSystem
             CTimer timer = new CTimer();
             foreach(CTestInfo test in aTest)
             {
-                AProblem QAP = new CQAPProblem(test.pathProblem);
+                AProblem QAP = new CQAProblem(test.pathProblem);
                 IAlgorithm ALG = new CFullforceAlgorithm(QAP);
                 EnableLog(QAP, ALG);
                 timer.Reset();

@@ -35,7 +35,7 @@ namespace TestSystem
             m_xmlName = "";
         }
         protected virtual string GetAlgName() => "Undefine";
-        protected virtual ITestInfo createTestInfo(string problem, string result) => new CTestInfo(problem, result);
+        protected virtual ITestInfo CreateTestInfo(string problem, string result) => new CTestInfo(problem, result);
         protected virtual IOptions GetOptionsAlg(string path) => null;
         protected void EnableLog(AProblem QAP, IAlgorithm ALG)
         {

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="TestSystem.CDelayedRow" BaseTypeListCollapsed="true">
-    <Position X="4" Y="5" Width="3.25" />
+    <Position X="4" Y="0.75" Width="3.25" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -19,7 +19,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TestSystem.CTablerEmpty" BaseTypeListCollapsed="true">
-    <Position X="4" Y="2.25" Width="3.25" />
+    <Position X="0.5" Y="4.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAgEAAAAACAAgA=</HashCode>
       <FileName>TestSystem\TestTools\Table.Definition.cs</FileName>
@@ -27,7 +27,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TestSystem.CTablerExcel" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="3.5" Width="3.25" />
+    <Position X="7.5" Y="0.75" Width="3.25" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -50,7 +50,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="TestSystem.IDelayedRow">
-    <Position X="4" Y="0.5" Width="3.25" />
+    <Position X="0.5" Y="2.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAA=</HashCode>
       <FileName>TestSystem\TestTools\Table.DelayRow.cs</FileName>

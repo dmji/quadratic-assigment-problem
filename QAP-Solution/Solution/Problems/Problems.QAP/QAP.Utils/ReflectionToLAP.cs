@@ -2,7 +2,7 @@
 
 namespace Solution
 {
-    public partial class CQAPProblem : AProblem
+    public partial class CQAProblem : AProblem
     {
         public partial struct SQAPUtils
         {
@@ -10,7 +10,7 @@ namespace Solution
             /// Generation linear problem for bound method (WIP)
             /// </summary>
             /// <returns>matrix of double</returns>
-            public static double[,] ReflectionToLAP(CQAPProblem src)
+            public static double[,] ReflectionToLAP(CQAProblem src)
             {
                 double calcReflection(int a, int b)
                 {

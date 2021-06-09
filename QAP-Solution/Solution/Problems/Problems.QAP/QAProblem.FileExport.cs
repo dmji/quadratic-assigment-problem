@@ -4,7 +4,7 @@ using System.IO;
 namespace Solution
 {
 	/// <summary>Class <c>Info</c> is all-in one QAP data.</summary>
-	public partial class CQAPProblem
+	public partial class CQAProblem
 	{
 		/// <summary>
 		/// Export current problem to txt

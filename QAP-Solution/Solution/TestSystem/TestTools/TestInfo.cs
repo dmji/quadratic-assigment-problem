@@ -31,9 +31,7 @@ namespace TestSystem
                 m_val = new SExam();
             else
             {
-                StreamReader file = new StreamReader(resultPath);
-                string str = file.ReadToEnd();
-                file.Close();
+                string str = new CFile(resultPath).ReadToEnd();
                 str.Trim(' ');
                 str = str.Replace("\r\n", "\n");
                 string[] strSplitN = str.Split('\n');
@@ -49,14 +47,7 @@ namespace TestSystem
         public string Name() => pathProblem.Substring(pathProblem.LastIndexOf("\\") + 1, pathProblem.LastIndexOf('.') - pathProblem.LastIndexOf("\\") - 1);
         public void GenerateResultFile(string path, int size, long result, string perm)
         {
-            if(!System.IO.Directory.Exists(path))
-                System.IO.Directory.CreateDirectory(path);
-            string resFilePath = path + Name() + ".bin";
-            if(!System.IO.File.Exists(resFilePath))
-                System.IO.File.Create(resFilePath).Close();
-            StreamWriter wr = new StreamWriter(resFilePath);
-            wr.Write($"{size} {result}\n{perm.Substring(0, perm.IndexOf(':'))}");
-            wr.Close();
+            new CFile(path + Name() + ".bin").WriteTotal($"{size} {result}\n{perm.Substring(0, perm.IndexOf(':'))}");
         }
     }
 }

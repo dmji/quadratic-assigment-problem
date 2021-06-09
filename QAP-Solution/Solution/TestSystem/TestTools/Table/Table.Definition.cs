@@ -184,14 +184,10 @@ namespace TestSystem
         public bool Close()
         {
             m_table.AppendChild(m_row);
-            SFile.CheckDir(m_pathResult);
-            m_doc.Save(m_pathResult);
-            StreamReader rd = new StreamReader(m_pathResult);
-            string buf = rd.ReadToEnd();
-            rd.Close();
-            StreamWriter wr = new StreamWriter(m_pathResult);
-            wr.Write(Tags.Filter(buf));
-            wr.Close();
+            CFile file = new CFile(m_pathResult);
+            m_doc.Save(file.GetPath());
+            string buf = file.ReadToEnd();
+            file.WriteTotal(Tags.Filter(buf));
             return false;
         }
         ~CTablerExcel()

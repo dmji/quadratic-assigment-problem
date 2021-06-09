@@ -22,7 +22,7 @@ namespace Solution
 
     public class CLogger : ILogger
     {
-        StreamWriter m_stream;
+        TestSystem.CFile m_stream;
 
         public CLogger() {}
         public CLogger(string path, string name) 
@@ -33,10 +33,7 @@ namespace Solution
                     m_stream.Close();
                 string time = DateTime.Now.ToString().Replace(":", "_").Replace(" ", "_").Replace(".", "_").Replace("\\", "_");
                 string pathLog = $"{path}{name}_log.~.txt";
-                if(!System.IO.File.Exists(pathLog))
-                    System.IO.File.Create(pathLog).Close();
-                TestSystem.SFile.CheckDir(pathLog);
-                m_stream = new StreamWriter(pathLog);
+                m_stream = new TestSystem.CFile(pathLog);
             }
             if(m_stream == null)
                 throw new Exception("Need init w/ params");

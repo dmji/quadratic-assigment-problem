@@ -13,6 +13,7 @@ namespace Solution
         int Size();
         /// <summary>Get. One-line permutation w/ spaces </summary>
         IPermutation Clone();
+        bool Verify();
         long Cost();
         void Swap(int i1, int i2);
     }
@@ -95,5 +96,7 @@ namespace Solution
             else
                 return false;
         }
+
+        public bool Verify() => m_problem.Verify(this);
     }
 }

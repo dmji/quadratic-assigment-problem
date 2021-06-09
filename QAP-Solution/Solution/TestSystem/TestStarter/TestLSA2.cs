@@ -17,7 +17,7 @@ namespace TestSystem
 
         protected override IOptions GetOptionsAlg(string path) => new CLocalSearchAlgorithm.Options(path);
         protected override string GetAlgName() => CLocalSearchAlgorithm.Name(true);
-        protected override ITestInfo createTestInfo(string problem, string result) => new CTestInfoLSA(problem, result);
+        protected override ITestInfo CreateTestInfo(string problem, string result) => new CTestInfoLSA(problem, result);
         protected override void InitLogger()
         {
             // create logger
@@ -54,7 +54,7 @@ namespace TestSystem
                     string timeLoad = timer.Stop().ToString();
                     long examVal = 0;
                     bool bExam = test.Exam(ref examVal);
-                    CQAPProblem QAP = new CQAPProblem(test.pathProblem);
+                    CQAProblem QAP = new CQAProblem(test.pathProblem);
                     if(m_nCount > 1)
                     {
                         m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {QAP.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");

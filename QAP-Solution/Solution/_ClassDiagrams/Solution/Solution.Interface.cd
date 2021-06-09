@@ -63,11 +63,13 @@
     <InheritanceLine Type="Solution.IToString" ManuallyRouted="true" FixedToPoint="true">
       <Path>
         <Point X="4.75" Y="5.375" />
-        <Point X="5.25" Y="5.375" />
+        <Point X="5" Y="5.375" />
+        <Point X="5" Y="5.496" />
+        <Point X="5.25" Y="5.496" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAACAAAABAAAAABAAAAAAAAAABAABA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgQAACAAAABAAAAABAAAAAAAAAABAABA=</HashCode>
       <FileName>Permutation\Permutation.Definition.cs</FileName>
     </TypeIdentifier>
   </Interface>

@@ -4,28 +4,15 @@ using System.IO;
 namespace Solution
 {
 	/// <summary>Class <c>Info</c> is all-in one QAP aData.</summary>
-	public partial class CQAPProblem
+	public partial class CQAProblem
 	{
 		///<summary>Construct problem from file with formatting:<para>size()</para><para>F-matrix</para><para>D-matrix</para><para>C-matrix</para></summary>
 		/// <param name="fname">path to file w/ problem</param>
-		public CQAPProblem(string fname)
+		public CQAProblem(string fname)
 		{
 			Msg($"Start importing problem from file: {fname}");
-			StreamReader file;
-			string buf = "";
+			string buf = new TestSystem.CFile(fname).ReadToEnd();
 			string[] aData;
-			try
-			{
-				file = new StreamReader(fname);
-				buf = file.ReadToEnd();
-				file.Close();
-			}
-			catch(Exception ex)
-			{
-				Console.WriteLine(ex.Message);
-				Msg($"Corruption importing. Exception: {ex.Message}");
-				throw ex;
-			}
 			if(buf != "")
 			{
 				{

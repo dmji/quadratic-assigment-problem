@@ -1,9 +1,9 @@
 ﻿namespace Solution
 {
     /// <summary>Class <c>Info</c> is all-in one QAP data.</summary>
-    public partial class CQAPProblem : AProblem
+    public partial class CQAProblem : AProblem
     {
-        public CQAPProblem(ushort size = 0) : base() { Init(size); }
+        public CQAProblem(ushort size = 0) : base() { Init(size); }
 
         /// <summary>D-matrix</summary>
 		int[] m_tDistance;
@@ -57,12 +57,14 @@
             bool bDebug = false;
             int x = src[ix], y = src[iy];
             long res = src.Cost();
+            if(ix == iy)
+                return res;
             if(bDebug)
             {
                 if(Calc(src) != res)
                 {
                     Msg("ERROR VALUE CALCULATED CALCEDSWAP");
-                    throw new System.Exception("SUKA");
+                    throw new System.Exception("WRONG CALC");
                 }
             }
            
@@ -137,7 +139,7 @@
                 if(Calc(t) != res)
                 {
                     Msg("ERROR VALUE CALCULATED CALCEDSWAP");
-                    throw new System.Exception("SUKA");
+                    throw new System.Exception("WRONGCALCEDSWAP");
                 }
             }
             return res;

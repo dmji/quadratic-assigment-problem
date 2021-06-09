@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Solution
 {
-    public partial class CQAPProblem : AProblem
+    public partial class CQAProblem : AProblem
     {
         public partial struct SQAPUtils
         {
@@ -26,7 +26,7 @@ namespace Solution
             /// <returns>return CPermutation-permutation with known criteria</returns>
             public static IProblem PalubetskisTestGeneration(ushort sizeQAP, int omeg, int z, IPermutation p = null)
             {
-                CQAPProblem result = new CQAPProblem(sizeQAP);
+                CQAProblem result = new CQAProblem(sizeQAP);
                 if(p == null)
                     p = result.GetRandomPermutation();
 
