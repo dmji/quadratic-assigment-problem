@@ -24,7 +24,14 @@ namespace Solution
             string m_name;
 
             public string Name() => m_name;
-            public void Serielize(string path)
+            
+            public void Deserialize(string path)
+            {
+                Init(System.Text.Json.JsonSerializer.Deserialize<COptions>(new TestSystem.CFile(path).ReadToEnd()));
+                m_name = path.Substring(path.LastIndexOf('\\') + 1, path.LastIndexOf('.') - path.LastIndexOf('\\') - 1);
+            }
+
+            public void Serialize(string path)
             {
                 if(!System.IO.File.Exists(path))
                     System.IO.File.Create(path).Close();
@@ -46,11 +53,7 @@ namespace Solution
 
             public COptions(string path)
             {
-                System.IO.StreamReader reader = new System.IO.StreamReader(path);
-                string file = reader.ReadToEnd();
-                Init(System.Text.Json.JsonSerializer.Deserialize<COptions>(file));
-                m_name = path.Substring(path.LastIndexOf('\\') + 1, path.LastIndexOf('.') - path.LastIndexOf('\\') - 1);
-                reader.Close();
+                Deserialize(path);
             }
 
             public void Init(

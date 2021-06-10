@@ -17,7 +17,7 @@ namespace Solution
         public void local_search(IPermutation target, int stepCount = -1)
         {
             Calc(target);
-            Msg($"sizeQAP={Size()} CPermutation: {target.ToString()}");
+            Msg($"size={Size()} CPermutation: {target.ToString()}");
             IPermutation pt = target.Clone();
             IPermutation minp = pt.Clone();
             int i = 0;
@@ -31,13 +31,16 @@ namespace Solution
                     {
                         IPermutation temp = pt.Clone();
                         temp.Swap(y, u);
-                        if(Calc(temp) < Calc(minp))
+                        if(m_problem.isValid(temp))
                         {
-                            minp = temp.Clone();
-                            if(bBreak)
+                            if(m_problem.PermutationComparision(temp, minp) == 1)
                             {
-                                bNestedBreak = true;
-                                break;
+                                minp = temp.Clone();
+                                if(bBreak)
+                                {
+                                    bNestedBreak = true;
+                                    break;
+                                }
                             }
                         }
                     }
@@ -49,7 +52,7 @@ namespace Solution
             Result = minp.Clone();
         }
 
-        public override IResultAlg Start(IOptions opt)
+        public override void Start(IOptions opt)
         {
             ResetDiagnostic();
             Options t = (Options)opt;
@@ -58,7 +61,6 @@ namespace Solution
                 local_search(t.m_p);
             else
                 local_search(m_problem.GetRandomPermutation());
-            return this;
         }
     }
 }

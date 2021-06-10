@@ -11,11 +11,11 @@ namespace Solution
             long curGenCost = 0;
             foreach(CIndivid a in aPopulation)
                 curGenCost += Calc(a);
-            //вычисление среднего значения поколения
+            // вычисление среднего значения поколения
             return curGenCost / (double)aPopulation.Count;
         }
 
-        public override IResultAlg Start(IOptions obj)
+        public override void Start(IOptions obj)
         {
             COptions opt = (COptions)obj;
             ResetDiagnostic();
@@ -24,23 +24,23 @@ namespace Solution
             int POPULATION_ITERATION = 0            // всего итераций
                 , CONTROL_ITERATION=0;              // итераций для выхода
             
-            //генерация начальной популяции
-            //GEENERETE_POPULATION - создает P_SIZEi перестановок с Хемминговым расстоянием не равным 0
+            // генерация начальной популяции
+            // GEENERETE_POPULATION - создает P_SIZEi перестановок с Хемминговым расстоянием не равным 0
             List<CIndivid> curGen = GEENERETE_POPULATION(opt.P_SIZEi, opt.H_MINi);
             double prevGenAvgCost = GenerationAvgCost(curGen);
             while (CONTROL_ITERATION <= opt.E_LIMi)
             {
                 Msg($"Start. Iteration {++POPULATION_ITERATION} begin");
-                //создание нового поколения
+                // создание нового поколения
                 List<CIndivid> nextGen = REPRODUCTION(curGen, opt.C_SIZEi, opt.C_CHANCEi);
 
-                //мутация с вероятностью MUTATION_CHANCE всех индивидов нового поколения
+                // мутация с вероятностью MUTATION_CHANCE всех индивидов нового поколения
                 nextGen=MUTATION(nextGen, opt.M_SIZEi, opt.M_TYPEi, opt.M_CHANCEi, opt.M_SALT_SIZEi);
                 
                 if(opt.S_EXTENDb)
                     nextGen.AddRange(curGen); // использование прошлого поколения в селекции
 
-                //очистка от дубликатов
+                // очистка от дубликатов
                 if(!opt.S_DUPLICATEb)
                 {
                     List<CIndivid> aDuplicateless = new List<CIndivid>();
@@ -50,6 +50,13 @@ namespace Solution
                         nextGen.RemoveAll(x => nextGen[0].Equals(x) == true);
                     }
                     nextGen = aDuplicateless;
+                }
+
+                // проверка на валидность для задачи
+                foreach(var p in nextGen)
+                {
+                    if(!m_problem.isValid(p))
+                        m_problem.Repair(p);
                 }
 
                 //селекция
@@ -62,11 +69,12 @@ namespace Solution
                 else if(bestIndivid != null && bestIndivid.Cost() > min)
                     bestIndivid = curGen.Find(x => Calc(x) == min);
 
-                //вычисление суммы
+                // вычисление суммы
                 double curGenAvgCost = GenerationAvgCost(curGen);
                 double delta = curGenAvgCost - prevGenAvgCost;
                 Msg($"Start. Iteration {POPULATION_ITERATION}. AvgCost={curGenAvgCost}, delta={delta}, CurrentBest: {bestIndivid}");
-                //проверка на увеличение среднего на 1%
+                
+                // проверка на увеличение среднего на 1%
                 if(delta > prevGenAvgCost / 100)
                 {
                     prevGenAvgCost = curGenAvgCost;
@@ -77,7 +85,6 @@ namespace Solution
             }
             Result = bestIndivid;
             m_bFinish = true;
-            return this;
         }
     }
 }

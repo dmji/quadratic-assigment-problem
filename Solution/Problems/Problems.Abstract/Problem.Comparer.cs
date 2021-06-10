@@ -4,9 +4,9 @@
 	{
 		/// <summary>Comparer</summary>
 		/// <returns>0 - equal, 1 - x>y, -1 - x<y </returns>
-		protected int CPermutationComparision(IPermutation x, IPermutation y) // decrease -> y-x // increase -> x-y
+		public virtual int PermutationComparision(IPermutation x, IPermutation y) // decrease -> y-x // increase -> x-y
 		{
-			string log = $"CPermutationComparision input: ";
+			string log = $"PermutationComparision input: ";
 			if(x == null)
 			{
 				if(y == null)

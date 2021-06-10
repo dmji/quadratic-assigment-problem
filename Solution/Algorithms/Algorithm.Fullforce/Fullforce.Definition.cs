@@ -52,31 +52,33 @@ namespace Solution
             }
             else
             {
-                IPermutation curPerm = new CPermutation(m_problem, src);
-                double cur_cost = Calc(curPerm);
+                CPermutation curPerm = new CPermutation(m_problem, src);
                 lock(m_logSync)
-                    Msg($"{curPerm.ToString()}");
+                    Msg($"{curPerm}");
                 lock(m_results)
                 {
                     if(m_results.Count == 0)
                     {
                         m_results.Add(curPerm.Clone());
                     }
-                    else if(cur_cost <= Calc(Result))
+                    else
                     {
-                        if(cur_cost <= Calc(Result))
-                            m_results.Clear();
-                        m_results.Add(curPerm.Clone());
+                        int cmp = m_problem.PermutationComparision(curPerm, Result);
+                        if(cmp > -1)
+                        {
+                            if(cmp != 0)
+                                m_results.Clear();
+                            m_results.Add(curPerm.Clone());
+                        }
                     }
                 }
             }
         }
 
-        public override IResultAlg Start(IOptions opt)
+        public override void Start(IOptions opt)
         {
             ResetDiagnostic();
             RecursionParallel(new List<ushort>());
-            return this;
         }
     }
 }

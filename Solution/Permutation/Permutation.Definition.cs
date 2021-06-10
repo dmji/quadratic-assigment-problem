@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Solution
 {
@@ -6,14 +7,13 @@ namespace Solution
     public interface IPermutation : IEquatable<object>, IToString
     {
         /// <summary> Get permutation as ushort array </summary>
-        ushort[] ToArray();
+        List<ushort> ToArray();
         /// <summary>index operator</summary>
         ushort this[int i] { get; set; }
         /// <summary>return current permutation size</summary>
         int Size();
         /// <summary>Get. One-line permutation w/ spaces </summary>
         IPermutation Clone();
-        bool Verify();
         long Cost();
         void Swap(int i1, int i2);
     }
@@ -21,7 +21,7 @@ namespace Solution
     /// <summary>Class <c>CPermutation</c> models a single permutation in QAP (like in Evolution algorithm).</summary>
     public partial class CPermutation : IPermutation
     {
-        IProblem m_problem = null;
+        protected IProblem m_problem = null;
         ///<summary>permutation</summary>
         ushort[] m_p;
         long m_c;
@@ -45,7 +45,7 @@ namespace Solution
         public ushort this[int i] { get => m_p[i]; 
                                     set { OnEdit(); m_p[i] = value; } }
         /// <summary> Get permutation as ushort array </summary>
-        public ushort[] ToArray() => m_p/*.Clone()*/; // ??
+        public List<ushort> ToArray() => new List<ushort>(m_p); // ??
         /// <summary>Get. One-line permutation w/ spaces </summary>
         public override string ToString()
         {
@@ -70,6 +70,9 @@ namespace Solution
             else
                 m_c = val;
         }
+
+        public static bool operator >(CPermutation a, IPermutation b) => a.m_problem.PermutationComparision(a, b) == 1;
+        public static bool operator <(CPermutation a, IPermutation b) => a.m_problem.PermutationComparision(a, b) == -1;
         public static bool operator ==(CPermutation a, CPermutation b)
         {
             if((object)a == null && (object)b == null)
@@ -97,6 +100,6 @@ namespace Solution
                 return false;
         }
 
-        public bool Verify() => m_problem.Verify(this);
+        public bool Verify() => m_problem.isValid(this);
     }
 }

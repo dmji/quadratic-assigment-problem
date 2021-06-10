@@ -3,13 +3,7 @@ using System.Collections.Generic;
 
 namespace Solution
 {
-    public interface IResultAlg
-    {
-        long GetCalcCount();
-        long GetResultValue();
-    }
-
-    public abstract partial class AAlgorithm : IResultAlg
+    public abstract partial class AAlgorithm
     {
         public long GetResultValue() => m_results[0].Cost();
 

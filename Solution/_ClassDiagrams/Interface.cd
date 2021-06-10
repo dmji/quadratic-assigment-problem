@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Interface Name="Solution.IAlgorithm">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <InheritanceLine Type="Solution.IName" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="3.353" />
+        <Point X="3" Y="3.75" />
+      </Path>
+    </InheritanceLine>
+    <InheritanceLine Type="Solution.IToString" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="5.562" />
+        <Point X="3.877" Y="5.562" />
+        <Point X="3.877" Y="5.562" />
+        <Point X="3.75" Y="5.562" />
+      </Path>
+    </InheritanceLine>
+    <InheritanceLine Type="Solution.ISetLogger" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="6.562" />
+        <Point X="2.812" Y="6.562" />
+        <Point X="2.812" Y="6.27" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACCAABAAAAAAAAgQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\Algorithm.Abstract\AbstractAlgorithm.Definition.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.IName">
+    <Position X="2.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.IOptions">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <InheritanceLine Type="Solution.IName" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.5" Y="2.25" />
+        <Point X="2.5" Y="1.92" />
+        <Point X="2" Y="1.92" />
+        <Point X="2" Y="1.938" />
+      </Path>
+    </InheritanceLine>
+    <InheritanceLine Type="Solution.ISerialize" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.188" Y="2.25" />
+        <Point X="1.188" Y="2.054" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Algorithms\Algorithm.Evolution\Evolution.Definition.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.IPermutation">
+    <Position X="4" Y="2.25" Width="1.5" />
+    <InheritanceLine Type="Solution.IToString" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.75" Y="5" />
+        <Point X="4.75" Y="4.916" />
+        <Point X="4.75" Y="4.916" />
+        <Point X="4.75" Y="4.833" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAACAAAABAAAAABAAAAAAAAAABAABA=</HashCode>
+      <FileName>Permutation\Permutation.Definition.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.IProblem">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <InheritanceLine Type="Solution.ISetLogger" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4" Y="6.75" />
+        <Point X="0.938" Y="6.75" />
+        <Point X="0.938" Y="6.266" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAiAAIAAAAAAAAACAAAAAAAAAQAAAAAEA=</HashCode>
+      <FileName>Problems\Problems.Abstract\Problem.Definition.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.ISetLogger">
+    <Position X="4" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.IToString">
+    <Position X="4" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.ILogger">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <InheritanceLine Type="Solution.IClose" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="4" Y="1.312" />
+        <Point X="3.75" Y="1.312" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Algorithms\Logger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.IClose">
+    <Position X="4" Y="0.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Algorithms\Logger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TestSystem.IDelayedRow">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\Table\Table.DelayRow.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TestSystem.ITabler">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAgEAAAAAAAAgA=</HashCode>
+      <FileName>TestSystem\TestTools\Table\Table.Definition.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TestSystem.ITest">
+    <Position X="5.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestStarter\Abstract\Test.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TestSystem.ITestInfo">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestInfo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.ISerialize">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

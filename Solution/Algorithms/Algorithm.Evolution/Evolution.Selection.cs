@@ -18,7 +18,7 @@ namespace Solution
                 for (int iTour = 0; iTour < BtournamentSize; iTour++)
                 {
                     int curIndex = rand.Next(src.Count);
-                    if (bestIndex == -1 || Calc(src[bestIndex]) > Calc(src[curIndex]))
+                    if (bestIndex == -1 || src[bestIndex] > src[curIndex])
                         bestIndex = curIndex;
                 }
                 aResult.Add(src[bestIndex]);

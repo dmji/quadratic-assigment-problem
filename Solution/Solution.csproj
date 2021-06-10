@@ -18,11 +18,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Solution\" />
+    <Compile Remove="Solution\**" />
+    <EmbeddedResource Remove="Solution\**" />
+    <None Remove="Solution\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="_ClassDiagrams\TestSystem\" />
   </ItemGroup>
 
 </Project>

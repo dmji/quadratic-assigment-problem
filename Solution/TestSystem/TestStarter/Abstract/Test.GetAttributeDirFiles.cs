@@ -8,23 +8,30 @@ namespace TestSystem
 {
     public abstract partial class ATest
     {
-        protected static List<string> GetArrtibuteDirFiles(XmlReader xml, string attrName, string path, string ext)
+        protected static List<string> GetArrtibuteDirFiles(XmlReader xml, string attrName, string path, bool bGetExams = false)
         {
-            string regStr = xml.GetAttribute(attrName);
-            if(regStr.Contains('\\'))
+            string filtr = xml.GetAttribute(attrName);
+            string filtrExt = xml.GetAttribute(attrName+"Ext");
+            if(filtr.Contains('\\'))
             {
-                path = path + regStr.Substring(0, regStr.LastIndexOf('\\') + 1);
-                regStr = regStr.Substring(regStr.LastIndexOf('\\') + 1);
+                path = path + filtr.Substring(0, filtr.LastIndexOf('\\') + 1);
+                filtr = filtr.Substring(filtr.LastIndexOf('\\') + 1);
             }
-            CRegularSTR regExt = new CRegularSTR(ext);
-            CRegularSTR reg = new CRegularSTR(regStr);
 
-            List<string> aResult = new List<string>(System.IO.Directory.GetFiles(path));
-            for(int i = 0; i < aResult.Count; i++)
+            List<string> aResult = new List<string>();
+            var aFilter = filtr.Split(';');
+            var aFilterExt = filtrExt.Split(';');
+            if(bGetExams)
             {
-                string match = aResult[i].Substring(aResult[i].LastIndexOf('\\') + 1);
-                if(!regExt.Match(match) || !reg.Match(match))
-                    aResult.RemoveAt(i--);
+                for(int i = 0; i < aFilterExt.Length; i++)
+                    aFilterExt[i] += ".exam";
+            }
+            var opt = new EnumerationOptions();
+            opt.RecurseSubdirectories = true;
+            foreach(var s in aFilter)
+            {
+                foreach(var ext in aFilterExt)
+                    aResult.InsertRange(0, System.IO.Directory.GetFiles(path, $"{s}*.{ext}", opt));
             }
             return aResult;
         }

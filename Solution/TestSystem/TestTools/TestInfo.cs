@@ -27,7 +27,7 @@ namespace TestSystem
         public CTestInfo(string problem, string resultPath = "")
         {
             pathProblem = problem;
-            if(resultPath == "")
+            if(resultPath == "" || resultPath == null)
                 m_val = new SExam();
             else
             {
@@ -45,9 +45,5 @@ namespace TestSystem
             return m_val.IsInit();
         }
         public string Name() => pathProblem.Substring(pathProblem.LastIndexOf("\\") + 1, pathProblem.LastIndexOf('.') - pathProblem.LastIndexOf("\\") - 1);
-        public void GenerateResultFile(string path, int size, long result, string perm)
-        {
-            new CFile(path + Name() + ".bin").WriteTotal($"{size} {result}\n{perm.Substring(0, perm.IndexOf(':'))}");
-        }
     }
 }

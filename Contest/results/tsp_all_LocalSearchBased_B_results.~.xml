@@ -1,0 +1,2274 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
+  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+    <Version>16.00</Version>
+  </DocumentProperties>
+  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+    <AllowPNG />
+  </OfficeDocumentSettings>
+  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+    <WindowHeight>7980</WindowHeight>
+    <WindowWidth>17490</WindowWidth>
+    <WindowTopX>32767</WindowTopX>
+    <WindowTopY>32767</WindowTopY>
+    <ProtectStructure>False</ProtectStructure>
+    <ProtectWindows>False</ProtectWindows>
+  </ExcelWorkbook>
+  <Styles>
+    <Style ss:ID="Default" ss:Name="Normal">
+      <Alignment ss:Vertical="Bottom" />
+      <Borders />
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Color="#000000" />
+      <Interior />
+      <NumberFormat />
+      <Protection />
+    </Style>
+    <Style ss:ID="bgColor">
+      <Interior ss:Color="#FFFFFF" ss:Pattern="Solid" />
+    </Style>
+    <Style ss:ID="reservedStyleSimple">
+      <Interior ss:Color="#FBF7F7" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+    </Style>
+    <Style ss:ID="reservedStyleYellow">
+      <Interior ss:Color="#FFCFF0" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+    </Style>
+    <Style ss:ID="reservedStyleGreen">
+      <Interior ss:Color="#8AFF15" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+    </Style>
+    <Style ss:ID="reservedStyleRed">
+      <Interior ss:Color="#FF0000" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+    </Style>
+    <Style ss:ID="reservedStyleGrey">
+      <Interior ss:Color="#EAEAEA" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+    </Style>
+    <Style ss:ID="reservedStyleGreyBold">
+      <Interior ss:Color="#DFDFDF" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
+    </Style>
+    <Style ss:ID="reservedStyleSimpleBold">
+      <Interior ss:Color="#FFFFF0" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
+    </Style>
+    <Style ss:ID="reservedStyleSimpleBoldLight">
+      <Interior ss:Color="#FFFF96" ss:Pattern="Solid" />
+      <Borders>
+        <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" />
+        <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" />
+      </Borders>
+      <Font ss:FontName="Calibri" x:CharSet="204" x:Family="Swiss" ss:Size="11" ss:Bold="1" />
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="Results">
+    <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="bgColor" ss:DefaultColumnWidth="93" ss:DefaultRowHeight="20">
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimpleBold">
+          <Data ss:Type="String">Name problem</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimpleBold">
+          <Data ss:Type="String">br17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimpleBold">
+          <Data ss:Type="String">Size: 17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimpleBold">
+          <Data ss:Type="String">Load time: 0</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimpleBold">
+          <Data ss:Type="String">Optimal:</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimpleBold">
+          <Data ss:Type="Number">39</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimpleBold">
+          <Data ss:Type="String">Iteration</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimpleBold">
+          <Data ss:Type="String">Timer, ms</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimpleBold">
+          <Data ss:Type="String">Calc count</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimpleBold">
+          <Data ss:Type="String">Error</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimpleBold">
+          <Data ss:Type="String">Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimpleBold">
+          <Data ss:Type="String">Result</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">0</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">11</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleGreen">
+          <Data ss:Type="Number">1</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGreen">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGreen">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGreen">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGreen">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGreen">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">6</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">5</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">115.38461538461537</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">5</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">5</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">6</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">7</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">35</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">7</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">7</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">33</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">9</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">5</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">10</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">6</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">11</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">12</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">13</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">13</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">14</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">8</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">15</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">16</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">7</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">115.38461538461537</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">6</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">15</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">22</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">3</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">9</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">24</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">5</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">33</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">4</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">26</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">2</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">115.38461538461537</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">28</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">28</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">30</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">15</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">13</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">32</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">43</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">115.38461538461537</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">33</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">13</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">34</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">35</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">15</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">36</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">11</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">13</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">37</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">15</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">55</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">141.02564102564102</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">94</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">38</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">39</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">10</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">40</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">37</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">42</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">43</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">13</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">44</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">33</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">115.38461538461537</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">46</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">47</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">14</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">49</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">50</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">15</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">51</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">28</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">52</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">53</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">33</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">54</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">16</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">115.38461538461537</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">55</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">56</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">57</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">22</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">115.38461538461537</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">58</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">59</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">60</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">15</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">115.38461538461537</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">61</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">62</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">13</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">15</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">63</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">64</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">37</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">65</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">10</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">115.38461538461537</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">66</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">30</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">67</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">22</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">68</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">46</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">69</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">35</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">33</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">70</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">49</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">55</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">141.02564102564102</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">94</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">71</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">37</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">72</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">73</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">74</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">22</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">75</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">115.38461538461537</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">76</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">77</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">13</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">78</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">79</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">81</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">22</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">33</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">82</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">83</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">55</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">141.02564102564102</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">94</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">18</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">85</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">22</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">86</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">37</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">24</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">33</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">88</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">115.38461538461537</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">89</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">22</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">48</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">123.07692307692308</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">87</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">90</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">29</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">33</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">91</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">24</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">92</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">15</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">19</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">93</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">94</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">22</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">27</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">95</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">30</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">31</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">96</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">21</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">23</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">45</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">115.38461538461537</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">84</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">97</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">98</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">28</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">35</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">99</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">20</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">25</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">41</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">105.12820512820514</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleSimple">
+          <Data ss:Type="Number">80</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleGreyBold">
+          <Data ss:Type="String">Avg Error, %</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGreyBold">
+          <Data ss:Type="String">Value</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleGrey">
+          <Data ss:Type="String">-</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGrey">
+          <Data ss:Type="String">=СРЗНАЧ(R3C5;R4C5;R5C5;R6C5;R7C5;R8C5;R9C5;R10C5;R11C5;R12C5;R13C5;R14C5;R15C5;R16C5;R17C5;R18C5;R19C5;R20C5;R21C5;R22C5;R23C5;R24C5;R25C5;R26C5;R27C5;R28C5;R29C5;R30C5;R31C5;R32C5;R33C5;R34C5;R35C5;R36C5;R37C5;R38C5;R39C5;R40C5;R41C5;R42C5;R43C5;R44C5;R45C5;R46C5;R47C5;R48C5;R49C5;R50C5;R51C5;R52C5;R53C5;R54C5;R55C5;R56C5;R57C5;R58C5;R59C5;R60C5;R61C5;R62C5;R63C5;R64C5;R65C5;R66C5;R67C5;R68C5;R69C5;R70C5;R71C5;R72C5;R73C5;R74C5;R75C5;R76C5;R77C5;R78C5;R79C5;R80C5;R81C5;R82C5;R83C5;R84C5;R85C5;R86C5;R87C5;R88C5;R89C5;R90C5;R91C5;R92C5;R93C5;R94C5;R95C5;R96C5;R97C5;R98C5;R99C5;R100C5;R101C5;R102C5)</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimpleBold" ss:MergeAcross="1">
+          <Data ss:Type="String">-</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleGrey">
+          <Data ss:Type="String">от 17 до 17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGrey">
+          <Data ss:Type="String">=СРЗНАЧ(R3C5;R4C5;R5C5;R6C5;R7C5;R8C5;R9C5;R10C5;R11C5;R12C5;R13C5;R14C5;R15C5;R16C5;R17C5;R18C5;R19C5;R20C5;R21C5;R22C5;R23C5;R24C5;R25C5;R26C5;R27C5;R28C5;R29C5;R30C5;R31C5;R32C5;R33C5;R34C5;R35C5;R36C5;R37C5;R38C5;R39C5;R40C5;R41C5;R42C5;R43C5;R44C5;R45C5;R46C5;R47C5;R48C5;R49C5;R50C5;R51C5;R52C5;R53C5;R54C5;R55C5;R56C5;R57C5;R58C5;R59C5;R60C5;R61C5;R62C5;R63C5;R64C5;R65C5;R66C5;R67C5;R68C5;R69C5;R70C5;R71C5;R72C5;R73C5;R74C5;R75C5;R76C5;R77C5;R78C5;R79C5;R80C5;R81C5;R82C5;R83C5;R84C5;R85C5;R86C5;R87C5;R88C5;R89C5;R90C5;R91C5;R92C5;R93C5;R94C5;R95C5;R96C5;R97C5;R98C5;R99C5;R100C5;R101C5;R102C5)</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleGreyBold">
+          <Data ss:Type="String">Avg timer, %</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGreyBold">
+          <Data ss:Type="String">Value</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleGrey">
+          <Data ss:Type="String">-</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGrey">
+          <Data ss:Type="String">=СРЗНАЧ(R3C2;R4C2;R5C2;R6C2;R7C2;R8C2;R9C2;R10C2;R11C2;R12C2;R13C2;R14C2;R15C2;R16C2;R17C2;R18C2;R19C2;R20C2;R21C2;R22C2;R23C2;R24C2;R25C2;R26C2;R27C2;R28C2;R29C2;R30C2;R31C2;R32C2;R33C2;R34C2;R35C2;R36C2;R37C2;R38C2;R39C2;R40C2;R41C2;R42C2;R43C2;R44C2;R45C2;R46C2;R47C2;R48C2;R49C2;R50C2;R51C2;R52C2;R53C2;R54C2;R55C2;R56C2;R57C2;R58C2;R59C2;R60C2;R61C2;R62C2;R63C2;R64C2;R65C2;R66C2;R67C2;R68C2;R69C2;R70C2;R71C2;R72C2;R73C2;R74C2;R75C2;R76C2;R77C2;R78C2;R79C2;R80C2;R81C2;R82C2;R83C2;R84C2;R85C2;R86C2;R87C2;R88C2;R89C2;R90C2;R91C2;R92C2;R93C2;R94C2;R95C2;R96C2;R97C2;R98C2;R99C2;R100C2;R101C2;R102C2)</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimpleBold" ss:MergeAcross="1">
+          <Data ss:Type="String">-</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleGrey">
+          <Data ss:Type="String">от 17 до 17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGrey">
+          <Data ss:Type="String">=СРЗНАЧ(R3C2;R4C2;R5C2;R6C2;R7C2;R8C2;R9C2;R10C2;R11C2;R12C2;R13C2;R14C2;R15C2;R16C2;R17C2;R18C2;R19C2;R20C2;R21C2;R22C2;R23C2;R24C2;R25C2;R26C2;R27C2;R28C2;R29C2;R30C2;R31C2;R32C2;R33C2;R34C2;R35C2;R36C2;R37C2;R38C2;R39C2;R40C2;R41C2;R42C2;R43C2;R44C2;R45C2;R46C2;R47C2;R48C2;R49C2;R50C2;R51C2;R52C2;R53C2;R54C2;R55C2;R56C2;R57C2;R58C2;R59C2;R60C2;R61C2;R62C2;R63C2;R64C2;R65C2;R66C2;R67C2;R68C2;R69C2;R70C2;R71C2;R72C2;R73C2;R74C2;R75C2;R76C2;R77C2;R78C2;R79C2;R80C2;R81C2;R82C2;R83C2;R84C2;R85C2;R86C2;R87C2;R88C2;R89C2;R90C2;R91C2;R92C2;R93C2;R94C2;R95C2;R96C2;R97C2;R98C2;R99C2;R100C2;R101C2;R102C2)</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleGreyBold">
+          <Data ss:Type="String">Avg cacl count, %</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGreyBold">
+          <Data ss:Type="String">Value</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleGrey">
+          <Data ss:Type="String">-</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGrey">
+          <Data ss:Type="String">=СРЗНАЧ(R3C3;R4C3;R5C3;R6C3;R7C3;R8C3;R9C3;R10C3;R11C3;R12C3;R13C3;R14C3;R15C3;R16C3;R17C3;R18C3;R19C3;R20C3;R21C3;R22C3;R23C3;R24C3;R25C3;R26C3;R27C3;R28C3;R29C3;R30C3;R31C3;R32C3;R33C3;R34C3;R35C3;R36C3;R37C3;R38C3;R39C3;R40C3;R41C3;R42C3;R43C3;R44C3;R45C3;R46C3;R47C3;R48C3;R49C3;R50C3;R51C3;R52C3;R53C3;R54C3;R55C3;R56C3;R57C3;R58C3;R59C3;R60C3;R61C3;R62C3;R63C3;R64C3;R65C3;R66C3;R67C3;R68C3;R69C3;R70C3;R71C3;R72C3;R73C3;R74C3;R75C3;R76C3;R77C3;R78C3;R79C3;R80C3;R81C3;R82C3;R83C3;R84C3;R85C3;R86C3;R87C3;R88C3;R89C3;R90C3;R91C3;R92C3;R93C3;R94C3;R95C3;R96C3;R97C3;R98C3;R99C3;R100C3;R101C3;R102C3)</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleSimpleBold" ss:MergeAcross="1">
+          <Data ss:Type="String">-</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0">
+        <Cell ss:StyleID="reservedStyleGrey">
+          <Data ss:Type="String">от 17 до 17</Data>
+        </Cell>
+        <Cell ss:StyleID="reservedStyleGrey">
+          <Data ss:Type="String">=СРЗНАЧ(R3C3;R4C3;R5C3;R6C3;R7C3;R8C3;R9C3;R10C3;R11C3;R12C3;R13C3;R14C3;R15C3;R16C3;R17C3;R18C3;R19C3;R20C3;R21C3;R22C3;R23C3;R24C3;R25C3;R26C3;R27C3;R28C3;R29C3;R30C3;R31C3;R32C3;R33C3;R34C3;R35C3;R36C3;R37C3;R38C3;R39C3;R40C3;R41C3;R42C3;R43C3;R44C3;R45C3;R46C3;R47C3;R48C3;R49C3;R50C3;R51C3;R52C3;R53C3;R54C3;R55C3;R56C3;R57C3;R58C3;R59C3;R60C3;R61C3;R62C3;R63C3;R64C3;R65C3;R66C3;R67C3;R68C3;R69C3;R70C3;R71C3;R72C3;R73C3;R74C3;R75C3;R76C3;R77C3;R78C3;R79C3;R80C3;R81C3;R82C3;R83C3;R84C3;R85C3;R86C3;R87C3;R88C3;R89C3;R90C3;R91C3;R92C3;R93C3;R94C3;R95C3;R96C3;R97C3;R98C3;R99C3;R100C3;R101C3;R102C3)</Data>
+        </Cell>
+      </Row>
+      <Row ss:AutoFitHeight="0" />
+      <Row ss:AutoFitHeight="0" />
+      <Row />
+    </Table>
+    <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+      <PageSetup>
+        <Header x:Margin="0.3" />
+        <Footer x:Margin="0.3" />
+        <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75" />
+      </PageSetup>
+      <Selected />
+      <Panes>
+        <Pane>
+          <Number>1</Number>
+          <ActiveRow>1</ActiveRow>
+          <ActiveCol>1</ActiveCol>
+        </Pane>
+      </Panes>
+      <ProtectObjects>False</ProtectObjects>
+      <ProtectScenarios>False</ProtectScenarios>
+    </WorksheetOptions>
+  </Worksheet>
+</Workbook>

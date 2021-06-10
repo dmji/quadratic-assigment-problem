@@ -1,6 +1,6 @@
 ﻿namespace Solution
 {
-    public interface IOptions : IName
+    public interface IOptions : IName, ISerialize
     {
         string GetValues();
         string GetValuesNames();

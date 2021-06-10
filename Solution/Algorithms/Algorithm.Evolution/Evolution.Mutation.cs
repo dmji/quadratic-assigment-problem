@@ -10,7 +10,7 @@ namespace Solution
         {
             Random rand = new Random();
             int mutationCounter = 0;
-            List<CIndivid> aResult=new List<CIndivid>(src.ToArray());
+            List<CIndivid> aResult = new List<CIndivid>(src.ToArray());
             List<int> aMutatedIndividsId = new List<int>();
             int size = (src.Count < M_SIZEi) ? src.Count : M_SIZEi;
             while (mutationCounter < size)

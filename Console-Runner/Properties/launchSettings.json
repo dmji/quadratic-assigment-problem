@@ -2,7 +2,7 @@
   "profiles": {
     "Console-Runner": {
       "commandName": "Project",
-      "commandLineArgs": "\"C:\\Users\\leysh\\source\\repos\\dmji\\quadratic-assigment-problem\\QAP-Solution\\Contest\\_all.xml\" \"G\" \"1\" \"#Y\""
+      "commandLineArgs": "\"C:\\Users\\leysh\\source\\repos\\dmji\\unn-vkr\\Contest\\tsp_all.xml\" \"L\" \"2\" \"1Y\""
     }
   }
 }

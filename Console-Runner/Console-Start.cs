@@ -109,14 +109,14 @@ namespace Console_Runner
             }
             else
             {
-                if(!System.IO.File.Exists("paths.txt"))
+                if(!System.IO.File.Exists("_paths.txt"))
                 {
                     Console.WriteLine("Paths.txt undefine");
                     Console.WriteLine(System.IO.Path.GetFullPath("paths.txt"));
                 }
                 else
                 {
-                    string[] aPath = System.IO.File.ReadAllText("paths.txt").Split('\n');
+                    string[] aPath = System.IO.File.ReadAllText("_paths.txt").Split('\n');
                     foreach(var s in aPath)
                         Start(indexAlg, s, nReply, bLogEnable);
                 }

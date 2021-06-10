@@ -3,7 +3,7 @@
 namespace Solution
 {
     /// <summary>Class <c>Info</c> is all-in one QAP data.</summary>
-    public abstract partial class AProblem : ISetLogger
+    public abstract partial class AProblem
     {
         ILogger m_log;
 

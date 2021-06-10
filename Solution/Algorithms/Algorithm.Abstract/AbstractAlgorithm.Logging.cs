@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Solution
 {
-    public abstract partial class AAlgorithm : ISetLogger
+    public abstract partial class AAlgorithm
     {
         ILogger m_log;
         public void SetLogger(ILogger log = null) { m_log = log == null ? new CEmptyLogger() : log; }

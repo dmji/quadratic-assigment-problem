@@ -12,6 +12,7 @@ namespace TestSystem
     {
         public virtual void Start() { }
 
+        protected AProblem m_problem;
         protected string m_xmlName;
         protected bool m_logEnabled;
         protected int m_nCount;
@@ -24,6 +25,7 @@ namespace TestSystem
 
         protected ATest(string path = "", int count = 1, bool bLog = false)
         {
+            m_problem = null;
             m_path = path;
             m_nCount = count;
             m_logEnabled = bLog;
@@ -42,7 +44,7 @@ namespace TestSystem
             if(m_logEnabled)
             {
                 ALG.SetLogger(m_log);
-                QAP.SetLogger(m_log);
+                //QAP.SetLogger(m_log);
             }
         }
         protected void Close()

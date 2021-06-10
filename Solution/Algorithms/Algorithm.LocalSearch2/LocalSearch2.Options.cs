@@ -12,13 +12,14 @@ namespace Solution
             string m_name;
 
             public string Name() => m_name;
-            public void Serielize(string path)
+            public void Serialize(string path)
             {
-                if(!System.IO.File.Exists(path))
-                    System.IO.File.Create(path).Close();
-                System.IO.StreamWriter export = new System.IO.StreamWriter(path);
-                export.WriteLine(System.Text.Json.JsonSerializer.Serialize<Options>(this));
-                export.Close();
+                new TestSystem.CFile(path).WriteTotal(System.Text.Json.JsonSerializer.Serialize<Options>(this));
+            }
+            public void Deserialize(string path)
+            {
+                Init(System.Text.Json.JsonSerializer.Deserialize<Options>(new TestSystem.CFile(path).ReadToEnd()));
+                m_name = path.Substring(path.LastIndexOf('\\') + 1, path.LastIndexOf('.') - path.LastIndexOf('\\') - 1);
             }
 
             public Options()
@@ -28,11 +29,7 @@ namespace Solution
 
             public Options(string path)
             {
-                System.IO.StreamReader reader = new System.IO.StreamReader(path);
-                string file = reader.ReadToEnd();
-                Init(System.Text.Json.JsonSerializer.Deserialize<Options>(file));
-                m_name = path.Substring(path.LastIndexOf('\\') + 1, path.LastIndexOf('.') - path.LastIndexOf('\\') - 1);
-                reader.Close();
+                Deserialize(path);
             }
 
             public void Init(bool B_FULLIFY)

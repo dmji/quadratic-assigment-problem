@@ -32,8 +32,8 @@ namespace TestSystem
                 // seporate absolute path
                 m_path = m_path.Substring(0, m_path.LastIndexOf('\\') + 1);
 
-
-                List<string> aProblemFile = GetArrtibuteDirFiles(xml, "problems", m_path, ".dat");
+                List<string> aProblemFile = GetArrtibuteDirFiles(xml, "problems", m_path);
+                InitProblem(aProblemFile[0]);
                 foreach(var file in aProblemFile)
                     aTest.Add(new CTestInfo(file));
             }
@@ -42,13 +42,12 @@ namespace TestSystem
             CTimer timer = new CTimer();
             foreach(CTestInfo test in aTest)
             {
-                AProblem QAP = new CQAProblem(test.pathProblem);
-                IAlgorithm ALG = new CFullforceAlgorithm(QAP);
-                EnableLog(QAP, ALG);
+                m_problem.Deserialize(test.pathProblem);
+                IAlgorithm ALG = new CFullforceAlgorithm(m_problem);
+                EnableLog(m_problem, ALG);
                 timer.Reset();
-                IResultAlg result = ALG.Start(null);
-                test.GenerateResultFile(dirPath + "//generated_results//", QAP.Size(), result.GetResultValue(), ALG.Result.ToString());
-
+                ALG.Start(null);
+                m_log.Msg($"{m_problem.Size()} {ALG.GetResultValue()}\n{ALG.Result.ToString()}");
             }
         }
     }

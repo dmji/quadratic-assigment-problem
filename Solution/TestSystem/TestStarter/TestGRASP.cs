@@ -26,23 +26,23 @@ namespace TestSystem
             foreach(CTestInfo test in m_aTest)
             {
                 timer.Reset();
-                AProblem QAP = new CQAProblem(test.pathProblem);
+                m_problem.Deserialize(test.pathProblem);
                 string timeLoad = timer.Stop().ToString();
 
                 long examVal = 0;
                 bool bExam = test.Exam(ref examVal);
-                m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {QAP.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
+                m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {m_problem.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
                 m_tbl.AddRow();
                 if(m_nCount == 1)
                     m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
                 else
                     m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Avg Timer, ms", "Avg Calc count", "Avg Error", "Avg Error, %", "Avg Result", "Best Result");
                 
-                IAlgorithm ALG = new CEvolutionAlgorithm(QAP);
-                IAlgorithm ALG_LSA = new CLocalSearchAlgorithm(QAP);
+                IAlgorithm ALG = new CEvolutionAlgorithm(m_problem);
+                IAlgorithm ALG_LSA = new CLocalSearchAlgorithm(m_problem);
                 IDelayedRow row = new CDelayedRow(m_tbl, true);
-                EnableLog(QAP, ALG);
-                EnableLog(QAP, ALG_LSA);
+                EnableLog(m_problem, ALG);
+                EnableLog(m_problem, ALG_LSA);
                 foreach(IOptions opt in m_aOptions)
                 {
                     string optName = opt.Name();
@@ -52,7 +52,7 @@ namespace TestSystem
                         timer.Reset();
 
                         // start evolution
-                        IResultAlg result = ALG.Start(opt);
+                        ALG.Start(opt);
 
                         // start lsa
                         CLocalSearchAlgorithm.Options optLSA = new CLocalSearchAlgorithm.Options();
@@ -62,9 +62,9 @@ namespace TestSystem
 
                         // statistic
                         timerAlg += timer.Stop();
-                        calcCount += result.GetCalcCount();
+                        calcCount += ALG.GetCalcCount();
 
-                        long curRes = result.GetResultValue();
+                        long curRes = ALG.GetResultValue();
                         resultValue += curRes;
                         if(resultBest == 0 || resultBest > curRes)
                             resultBest = curRes;
@@ -76,30 +76,26 @@ namespace TestSystem
                     double avgResultValue = resultValue / m_nCount;
 
                     m_log.Msg($"On opt: {optName} problem {test.Name()} log:{ALG})");
-                    AddResult(row, optName, avgTimerAlg.ToString(), avgCalcCount, avgResultValue, bExam ? examVal : -1, resultBest.ToString(), QAP.Size());
+                    if(bExam)
+                    {
+                        double err = avgResultValue - examVal;
+                        double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : avgResultValue == 0 ? 0 : 1000;
+                        long nRow = row.AddRow(errPersent, optName, avgTimerAlg.ToString(), avgCalcCount.ToString(), err.ToString(), errPersent.ToString(), avgResultValue.ToString(), m_nCount == 1 ? "" : resultBest.ToString());
+                        if(m_aOptStat != null)
+                        {
+                            foreach(var optStat in m_aOptStat)
+                                optStat.AddStat(optName, m_problem.Size(), nRow);
+                        }
+                    }
+                    else
+                        row.AddRow(-1, optName, avgTimerAlg.ToString(), avgCalcCount.ToString(), "-", "-", avgResultValue.ToString(), m_nCount == 1 ? "" : resultBest.ToString());
+
                 }
                 row.Release();
                 m_tbl.AddRow();
                 m_tbl.AddRow();
             }
             Close();
-        }
-
-        public void AddResult(IDelayedRow row, string optName, string timer, double calcs, double resultValue, long examVal, string resultBest = "", int size = 0)
-        {
-            if(examVal > -1)
-            {
-                double err = resultValue - examVal;
-                double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : resultValue == 0 ? 0 : 1000;
-                long nRow = row.AddRow(errPersent, optName, timer, calcs.ToString(), err.ToString(), errPersent.ToString(), resultValue.ToString(), m_nCount == 1 ? "" : resultBest);
-                if(m_aOptStat != null)
-                {
-                    foreach(var optStat in m_aOptStat)
-                        optStat.AddStat(optName, size, nRow);
-                }
-            }
-            else
-                row.AddRow(-1, optName, timer, calcs.ToString(), "-", "-", resultValue.ToString(), m_nCount == 1 ? "" : resultBest);
         }
     }
 }

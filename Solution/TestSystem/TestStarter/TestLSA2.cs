@@ -26,7 +26,7 @@ namespace TestSystem
 
             // create tabler
             string pathTable = m_path + "results\\";
-            string pathTemplate = m_path + "template.xml";
+            string pathTemplate = m_path + "_template.xml";
             m_tbl = new CTablerExcel(pathTable, $"{m_xmlName}_{GetAlgName()}_{m_curOpt}", pathTemplate);
         }
 
@@ -54,10 +54,10 @@ namespace TestSystem
                     string timeLoad = timer.Stop().ToString();
                     long examVal = 0;
                     bool bExam = test.Exam(ref examVal);
-                    CQAProblem QAP = new CQAProblem(test.pathProblem);
+                    m_problem.Deserialize(test.pathProblem);
                     if(m_nCount > 1)
                     {
-                        m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {QAP.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
+                        m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {m_problem.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
                         m_tbl.AddRow();
                         m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Iteration", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
                     }
@@ -65,26 +65,25 @@ namespace TestSystem
                     for(int i = 0; i < m_nCount; i++)
                     {
                         timer.Reset();
-                        IAlgorithm ALG = new CLocalSearchAlgorithm(QAP);
-                        EnableLog(QAP, ALG);
+                        IAlgorithm ALG = new CLocalSearchAlgorithm(m_problem);
+                        EnableLog(m_problem, ALG);
                         timer.Reset();
-                        QAP.Size();
 
                         // use single permutation for one test in all options
                         {
                             CTestInfoLSA t = (CTestInfoLSA)test;
                             if(t.m_aPerm.Count <= i)
-                                t.m_aPerm.Add(QAP.GetRandomPermutation());
+                                t.m_aPerm.Add(m_problem.GetRandomPermutation());
                             IPermutation p = t.m_aPerm[i];
                             ((CLocalSearchAlgorithm.Options)curOption).m_p = p.Clone();
                         }
 
                         // start alg with permutation from test
-                        IResultAlg result = ALG.Start(curOption);
+                        ALG.Start(curOption);
 
                         long timerAlg = timer.Stop();
-                        long calcCount = result.GetCalcCount();
-                        long curRes = result.GetResultValue();
+                        long calcCount = ALG.GetCalcCount();
+                        long curRes = ALG.GetResultValue();
                         long resultValue = curRes;
                         long resultBest = 0;
                         if(resultBest == 0 || resultBest > curRes)
@@ -102,7 +101,7 @@ namespace TestSystem
                                 if(aOptStat != null)
                                 {
                                     foreach(var optStat in aOptStat)
-                                        optStat.AddStat("-", QAP.Size(), nRow);
+                                        optStat.AddStat("-", m_problem.Size(), nRow);
                                 }
                             }
                             else
@@ -118,7 +117,7 @@ namespace TestSystem
                                 if(aOptStat != null)
                                 {
                                     foreach(var optStat in aOptStat)
-                                        optStat.AddStat("-", QAP.Size(), nRow);
+                                        optStat.AddStat("-", m_problem.Size(), nRow);
                                 }
                             }
                             else

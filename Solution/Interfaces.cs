@@ -16,4 +16,9 @@ namespace Solution
     {
         void SetLogger(ILogger log = null);
     }
+    public interface ISerialize
+    {
+        void Serialize(string path);
+        void Deserialize(string path);
+    }
 }

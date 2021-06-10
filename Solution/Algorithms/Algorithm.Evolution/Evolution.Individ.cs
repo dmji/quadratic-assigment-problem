@@ -39,7 +39,7 @@ namespace Solution
             {
                 OnEdit();
                 Random rand = new Random();
-                List<ushort> pool = new List<ushort>(this.ToArray());
+                List<ushort> pool = ToArray();
                 ushort iFirst = (ushort)rand.Next(Size());
                 pool.Remove(iFirst);
                 for(int i = 0; i < M_SALT_SIZEi; i++)
@@ -68,6 +68,9 @@ namespace Solution
                 }
                 return -1;
             }
+
+            public static bool operator >(CIndivid a, CIndivid b) => a.m_problem.PermutationComparision(a, b) == 1;
+            public static bool operator <(CIndivid a, CIndivid b) => a.m_problem.PermutationComparision(a, b) == -1;
         }
     }
 }

@@ -4,14 +4,16 @@ namespace Solution
 {
     public interface IAlgorithm : IName, IToString, ISetLogger
     {
-        public IResultAlg Start(IOptions option);
+        public void Start(IOptions option);
         void Reset(IProblem problem);
+        long GetCalcCount();
+        long GetResultValue();
         IPermutation Result { get; set; }
     }
 
     public abstract partial class AAlgorithm : IAlgorithm
     {
-        public virtual IResultAlg Start(IOptions prm) => this;
+        public virtual void Start(IOptions prm) { }
         public abstract string Name();
         public void Reset(IProblem problem) { ResetDiagnostic(); m_problem = problem; }
         public IPermutation Result { get => m_results[0]; set { m_results.Clear(); m_results.Add(value); } }

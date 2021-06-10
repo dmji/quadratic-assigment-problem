@@ -51,15 +51,18 @@
                 }
             }
 
-            res = res - (GetDist(ix, x) + GetDist(iy, y)) + (GetDist(ix, y) + GetDist(iy, x));
+            res -= GetDist(ix, x);
+            res -= GetDist(iy, y);
+            res += GetDist(ix, y); 
+            res += GetDist(iy, x);
 
             if(bDebug)
             {
                 string s1 = "";
                 string s2 = "";
 
-                s1 += $"-R[{ix}][{x}]";
-                s1 += $"-R[{iy}][{y}]";
+                s1 += $"+R[{ix}][{x}]";
+                s1 += $"+R[{iy}][{y}]";
 
                 s2 += $"+R[{ix}][{y}]";
                 s2 += $"+R[{iy}][{x}]";

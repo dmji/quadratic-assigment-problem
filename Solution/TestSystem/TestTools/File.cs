@@ -39,8 +39,7 @@ namespace TestSystem
             StreamWriter wr = new StreamWriter(m_path, true);
             foreach(string s in m_delayStr)
                 wr.Write(s);
-            if(bClose)
-                wr.Close();
+            wr.Close();
         }
         public void Write(string s) 
         {

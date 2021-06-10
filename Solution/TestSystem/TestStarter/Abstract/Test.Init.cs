@@ -6,20 +6,25 @@ namespace TestSystem
 {
     public abstract partial class ATest : ITest
     {
+        protected virtual void InitProblem(string s)
+        {
+            if(s.Contains("\\Library\\qap\\"))
+                m_problem = new CQAProblem();
+            else if(s.Contains("\\Library\\tsp\\"))
+                m_problem = new CTSProblem();
+            else
+                throw new System.Exception("Problem undefine");
+        }
+
         protected virtual void InitLogger()
         {
-            if(m_logEnabled)
-            {
-                // create logger
-                string pathLog = m_path + "logs\\";
-                m_log = new CLogger(pathLog, $"{m_xmlName}_{GetAlgName()}");
-            }
-            else
-                m_log = new CEmptyLogger();
+            // create logger
+            string pathLog = m_path + "logs\\";
+            m_log = new CLogger(pathLog, $"{m_xmlName}_{GetAlgName()}");
 
             // create tabler
             string pathTable = m_path + "results\\";
-            string pathTemplate = m_path + "template.xml";
+            string pathTemplate = m_path + "_template.xml";
             m_tbl = new CTablerExcel(pathTable, $"{m_xmlName}_{GetAlgName()}", pathTemplate);
         }
         protected void Init()
@@ -41,8 +46,8 @@ namespace TestSystem
 
             // get options files
             {
-                string path = m_path + "Options" + GetAlgName() + '\\';
-                List<string> aOptionsFile = GetArrtibuteDirFiles(xml, "options", path, "json");
+                string path = m_path + "Options\\" + GetAlgName() + '\\';
+                List<string> aOptionsFile = GetArrtibuteDirFiles(xml, "options", path);
                 m_aOptions = new List<IOptions>();
                 foreach(string str in aOptionsFile)
                     m_aOptions.Add(GetOptionsAlg(str));
@@ -52,25 +57,19 @@ namespace TestSystem
             // collect problems+exams to test
             {
                 // get problems input
-                List<string> aProblemFile = GetArrtibuteDirFiles(xml, "problems", m_path, ".dat");
+                List<string> aProblemFile = GetArrtibuteDirFiles(xml, "problems", m_path);
+
+                InitProblem(aProblemFile[0]);
 
                 // get problems exam
-                List<string> aResultFile = GetArrtibuteDirFiles(xml, "problems", m_path, ".bin");
+                List<string> aResultFile = GetArrtibuteDirFiles(xml, "problems", m_path, true);
                 List<string> aResultFileCorrupt = new List<string>();
-
-                // convert sln to bin fils
-                {
-                    List<string> aResultFileToConvert = GetArrtibuteDirFiles(xml, "problems", m_path, ".sln");
-                    if(FileExtConverter(aResultFileToConvert, ".sln", ".bin"))
-                        aResultFile.AddRange(aResultFileToConvert);
-                }
 
                 m_aTest = new List<ITestInfo>();
                 while(aProblemFile.Count > 0)
                 {
                     int index = aProblemFile[0].LastIndexOf('\\') + 1;
-                    string name = aProblemFile[0].Substring(index, aProblemFile[0].LastIndexOf('.') - index) + ".bin";
-                    CRegularSTR reg = new CRegularSTR(name);
+                    string name = aProblemFile[0].Substring(index) + ".exam";
                     bool bExamFound = false;
 
                     // try to find exam for problem
@@ -88,14 +87,14 @@ namespace TestSystem
                     // exam not fount
                     if(!bExamFound)
                     {
-                        m_aTest.Add(new CTestInfo(aProblemFile[0]));
+                        m_aTest.Add(CreateTestInfo(aProblemFile[0], null));
                         aResultFileCorrupt.Add(m_aTest[m_aTest.Count - 1].Name());
                     }
                     aProblemFile.RemoveAt(0);
                 }
 
                 // workflow info for exams
-                if(aResultFileCorrupt.Count > 0)
+                if(m_log != null && aResultFileCorrupt.Count > 0)
                     m_log.Msg($"Exam not fount for {aResultFileCorrupt.Count} problem.");
             }
         }

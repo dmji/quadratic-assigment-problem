@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="TestSystem.ATest">
+    <Position X="1" Y="0.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAACCAQAIAAAIQAAAiAAAUCCQAEAAQCQACEAAA=</HashCode>
+      <FileName>TestSystem\TestStarter\Abstract\Test.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TestSystem.CDelayedRow" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="3.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="TestSystem.CDelayedRow.SRow" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\Table\Table.DelayRow.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAIAAAAAAAkAAAIBAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\Table\Table.DelayRow.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TestSystem.CFile">
+    <Position X="8" Y="8" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAQAAAAACAAAAAAAAIAGAAIA=</HashCode>
+      <FileName>TestSystem\TestTools\File.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTablerEmpty" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="0.75" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAgEAAAAACAAgA=</HashCode>
+      <FileName>TestSystem\TestTools\Table\Table.Definition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TestSystem.CTablerExcel" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="0.75" Width="5.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="TestSystem.CTablerExcel.Styles" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\Table\Table.Definition.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="TestSystem.CTablerExcel.Tags" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\Table\Table.Definition.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAEAACgADAIABEAAAgEAAAAACAAgA=</HashCode>
+      <FileName>TestSystem\TestTools\Table\Table.Definition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TestSystem.CTestEvolution">
+    <Position X="4.5" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestStarter\TestEvolution.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTestFullfoce">
+    <Position X="4.5" Y="5.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestStarter\TestFullforce.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTestInfo">
+    <Position X="8.25" Y="0.5" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="TestSystem.CTestInfo.SExam" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\TestInfo.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAQAgAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\TestInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TestSystem.CTestInfoLSA">
+    <Position X="8.25" Y="4.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestStarter\TestLSA2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTestLSA2">
+    <Position X="4.5" Y="2.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAACCAAAIAAAAAAAAAAAAACAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestStarter\TestLSA2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTestStatistic">
+    <Position X="21.5" Y="3.25" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="TestSystem.CTestStatistic.SRangeSize" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\Table.Statistic.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="TestSystem.CTestStatistic.SStatCollector" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TestSystem\TestTools\Table.Statistic.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAgAAAIAAAAQAgAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\Table\Table.Statistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestSystem.CTimer" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="8.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAABAAEAAAAAAAAAAAAAAAAIAAAgAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\Timer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
