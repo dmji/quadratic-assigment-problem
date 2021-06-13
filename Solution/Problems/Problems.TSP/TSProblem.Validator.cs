@@ -50,10 +50,10 @@ namespace Solution
                 t[i] = pool[val];
                 pool.RemoveAt(val);
             }
-            if(!isValid(t) || bWrongPerm)
-                return GetRandomPermutation();
-            else
-                return new CPermutation(this, t);
+            var perm = new CPermutation(this, t);
+            if(!isValid(perm) || bWrongPerm)
+                Repair(perm);
+            return perm;
         }
 
         public override bool Repair(IPermutation obj)
@@ -90,9 +90,9 @@ namespace Solution
             else
             {
                 bOK = true;
-                bool bOkLocal = false;
                 while(aProblems.Count > 0)
                 {
+                    bool bOkLocal = false;
                     bool bProblemIndex = false;
                     int index = aProblems[0], isolve = -1;
                     for(int i = 0; i < Size(); i++)

@@ -31,8 +31,8 @@ namespace Solution
             {
                 if(m_stream != null)
                     m_stream.Close();
-                string time = DateTime.Now.ToString().Replace(":", "_").Replace(" ", "_").Replace(".", "_").Replace("\\", "_");
-                string pathLog = $"{path}{name}_log.~.txt";
+                string time = DateTime.Now.ToString().Replace(":", "_").Replace(" ", "_").Replace(".", "_").Replace("\\", "_").Replace("/", "_").Replace("-", "_");
+                string pathLog = $"{path}{name}_{time}_log.~.txt";
                 m_stream = new TestSystem.CFile(pathLog);
             }
             if(m_stream == null)

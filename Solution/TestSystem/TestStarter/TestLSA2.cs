@@ -50,6 +50,9 @@ namespace TestSystem
                     m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", "Timer, ms", "Calc count", "Error", "Error, %", "Result", "Optimal");
                 foreach(ITestInfo test in m_aTest)
                 {
+                    if(test.Size() > 300)
+                        continue;
+
                     m_log.Msg($"Test {test.Name()} started", true);
                     string timeLoad = timer.Stop().ToString();
                     long examVal = 0;

@@ -7,6 +7,7 @@ namespace TestSystem
     {
         bool Exam(ref long obj);
         string Name();
+        int Size();
         string pathProblem { get; }
     }
 
@@ -14,11 +15,12 @@ namespace TestSystem
     {
         public struct SExam
         {
-            public SExam(long val = 0, bool ok = false){ m_bInit = ok; m_value = val; }
+            public SExam(int size, long val = 0, bool ok = false){ m_size = size; m_bInit = ok; m_value = val; }
             public bool IsInit() => m_bInit;
             public long Value() => m_value;
             long m_value;
             bool m_bInit;
+            public int m_size;
         }
 
         public string pathProblem { get; }
@@ -36,9 +38,10 @@ namespace TestSystem
                 str = str.Replace("\r\n", "\n");
                 string[] strSplitN = str.Split('\n');
                 string[] strSplitNSpace = strSplitN[0].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                m_val = new SExam(Convert.ToInt64(strSplitNSpace[1]), true);
+                m_val = new SExam(Int32.Parse(strSplitNSpace[0]), Convert.ToInt64(strSplitNSpace[1]), true);
             }
         }
+        public int Size() => m_val.IsInit() ? m_val.m_size : -1;
         public bool Exam(ref long obj)
         {
             obj = m_val.Value();

@@ -37,8 +37,8 @@ namespace TestSystem
                 foreach(var file in aProblemFile)
                     aTest.Add(new CTestInfo(file));
             }
-            InitLogger();
-            
+            InitLogger();         
+
             CTimer timer = new CTimer();
             foreach(CTestInfo test in aTest)
             {

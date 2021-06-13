@@ -33,7 +33,7 @@ namespace TestSystem
             return res;
         }
         public string GetPath() => m_path;
-        public string GetExt() => m_path.Substring(m_path.LastIndexOf('.'));
+        public string GetNameExt() => m_path.Substring(m_path.LastIndexOf('\\'));
         public void Close(bool bClose = true)
         {
             StreamWriter wr = new StreamWriter(m_path, true);
