@@ -17,7 +17,6 @@ namespace Solution
         public abstract string Name();
         public void Reset(IProblem problem) { ResetDiagnostic(); m_problem = problem; }
         public IPermutation Result { get => m_result; set { m_result = value; } }
-        public IPermutation Worst { get => m_worst; set { m_worst = value; } }
         public override string ToString()
         {
             string log = Name() + " algorithm.\n";
@@ -37,7 +36,6 @@ namespace Solution
 
         protected IProblem m_problem;
         protected IPermutation m_result;
-        protected IPermutation m_worst;
         protected bool m_bFinish;
     }
 }

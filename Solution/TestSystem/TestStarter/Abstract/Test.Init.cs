@@ -93,10 +93,6 @@ namespace TestSystem
                     aProblemFile.RemoveAt(0);
                 }
 
-                // workflow info for exams
-                if(m_log != null && aResultFileCorrupt.Count > 0)
-                    m_log.Msg($"Exam not fount for {aResultFileCorrupt.Count} problem.");
-
                 for(int i=0;i<m_aTest.Count;i++)
                 {
                     if(m_aTest[i].Size() > 300)

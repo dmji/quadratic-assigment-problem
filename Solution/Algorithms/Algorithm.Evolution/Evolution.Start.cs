@@ -21,7 +21,6 @@ namespace Solution
             ResetDiagnostic();
 
             CIndivid bestIndivid = null;
-            CIndivid worstIndivid = null;
             int POPULATION_ITERATION = 0            // всего итераций
                 , CONTROL_ITERATION=0;              // итераций для выхода
             
@@ -70,17 +69,10 @@ namespace Solution
                 else if(bestIndivid.Cost() > min)
                     bestIndivid = curGen.Find(x => Calc(x) == min);
 
-                // find worst
-                var max = curGen.Max(x => Calc(x));
-                if(worstIndivid == null)
-                    worstIndivid = curGen.Find(x => Calc(x) == max);
-                else if(worstIndivid.Cost() < max)
-                    worstIndivid = curGen.Find(x => Calc(x) == max);
-
                 // вычисление суммы
                 double curGenAvgCost = GenerationAvgCost(curGen);
                 double delta = curGenAvgCost - prevGenAvgCost;
-                Msg($"Start. Iteration {POPULATION_ITERATION}. AvgCost={curGenAvgCost}, delta={delta}, CurrentBest: {bestIndivid}");
+                Msg($"Start. Iteration {POPULATION_ITERATION}. AvgCost={curGenAvgCost}, delta={delta}, CurrentBest: {bestIndivid.Cost()}");
                 
                 // проверка на увеличение среднего на 1%
                 if(delta > prevGenAvgCost / 100)
@@ -92,7 +84,6 @@ namespace Solution
                     CONTROL_ITERATION++;
             }
             Result = bestIndivid;
-            Worst = worstIndivid;
             m_bFinish = true;
         }
     }

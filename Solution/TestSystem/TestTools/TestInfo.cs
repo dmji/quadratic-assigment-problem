@@ -6,6 +6,7 @@ namespace TestSystem
     public interface ITestInfo
     {
         bool Exam(ref long obj);
+        bool Worst(ref long obj);
         string Name();
         int Size();
         string pathProblem { get; }
@@ -51,15 +52,13 @@ namespace TestSystem
             {
                 string str = new CFile(resultPath).ReadToEnd();
                 str.Trim(' ');
-                str = str.Replace("\r\n", "\n");
-                string[] strSplitN = str.Split('\n');
-                string[] strSplitNSpace = strSplitN[0].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                str = str.Replace("\r\n", "\n").Replace('\n', ' ');
+                string[] strSplitNSpace = str.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
                 if(strSplitNSpace.Length > 2)
                     m_val = new SExam(Int32.Parse(strSplitNSpace[0]), Convert.ToInt64(strSplitNSpace[1]), true, Convert.ToInt64(strSplitNSpace[2]), true);
                 else
                     m_val = new SExam(Int32.Parse(strSplitNSpace[0]), Convert.ToInt64(strSplitNSpace[1]), true);
-
             }
         }
 
@@ -68,6 +67,12 @@ namespace TestSystem
         {
             obj = m_val.Value();
             return m_val.IsInit();
+        }
+        
+        public bool Worst(ref long obj)
+        {
+            obj = m_val.WorstValue();
+            return m_val.IsInitWorst();
         }
         public string Name() => pathProblem.Substring(pathProblem.LastIndexOf("\\") + 1, pathProblem.LastIndexOf('.') - pathProblem.LastIndexOf("\\") - 1);
     }

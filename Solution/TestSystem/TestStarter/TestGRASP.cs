@@ -23,6 +23,7 @@ namespace TestSystem
             m_aOptStat.Add(new CTestStatistic("Avg timer, %", 2));
             m_aOptStat.Add(new CTestStatistic("Avg cacl count, %", 3));
 
+            SetLogger(m_problem);
             foreach(CTestInfo test in m_aTest)
             {
                 timer.Reset();
@@ -44,8 +45,8 @@ namespace TestSystem
                 IAlgorithm ALG = new CEvolutionAlgorithm(m_problem);
                 IAlgorithm ALG_LSA = new CLocalSearchAlgorithm(m_problem);
                 IDelayedRow row = new CDelayedRow(m_tbl, true);
-                EnableLog(m_problem, ALG);
-                EnableLog(m_problem, ALG_LSA);
+                SetLogger(ALG_LSA);
+                SetLogger(ALG);
                 long resultBestOverall = 0;
                 foreach(IOptions opt in m_aOptions)
                 {

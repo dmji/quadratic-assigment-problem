@@ -17,7 +17,7 @@ namespace Solution
         public void local_search(IPermutation target, int stepCount = -1)
         {
             Calc(target);
-            Msg($"size={Size()} CPermutation: {target.ToString()}");
+            Msg($"size={Size()} CPermutation: {target.Cost()}");
             IPermutation pt = target.Clone();
             IPermutation minp = pt.Clone();
             int i = 0;
@@ -47,7 +47,7 @@ namespace Solution
                     if(bNestedBreak)
                         break;
                 }
-                Msg($"$Local search step{i}: CPermutation: {minp.ToString()}");
+                Msg($"$Local search step{i}: CPermutation: {minp.Cost()}");
             } while(stepCount != ++i && Calc(pt) != Calc(minp));
             Result = minp.Clone();
         }

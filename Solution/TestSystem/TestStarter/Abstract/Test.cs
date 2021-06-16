@@ -39,12 +39,11 @@ namespace TestSystem
         protected virtual string GetAlgName() => "Undefine";
         protected virtual ITestInfo CreateTestInfo(string problem, string result) => new CTestInfo(problem, result);
         protected virtual IOptions GetOptionsAlg(string path) => null;
-        protected void EnableLog(AProblem QAP, IAlgorithm ALG)
+        protected void SetLogger(ISetLogger obj)
         {
             if(m_logEnabled)
             {
-                ALG.SetLogger(m_log);
-                //QAP.SetLogger(m_log);
+                obj.SetLogger(m_log);
             }
         }
         protected void Close()
