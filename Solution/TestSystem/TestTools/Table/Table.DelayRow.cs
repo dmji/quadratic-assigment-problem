@@ -46,8 +46,8 @@ namespace TestSystem
             // fill table rows
             for(int i = 0, nRows = m_aRow.Count; i < nRows; i++)
             {
-                m_table.AddRow();
-                m_table.AddCells(i == min && m_bColor && nRows > 1 ? CTablerExcel.Styles.eStyleGreen : CTablerExcel.Styles.eStyleSimple, m_aRow[i].m_aCells);
+                var row = m_table.AddRow();
+                row.AddCells(i == min && m_bColor && nRows > 1 ? CTablerExcel.Styles.eStyleGreen : CTablerExcel.Styles.eStyleSimple, m_aRow[i].m_aCells);
             }
         }
     }

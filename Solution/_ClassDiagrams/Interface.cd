@@ -47,7 +47,9 @@
     </InheritanceLine>
     <InheritanceLine Type="Solution.ISerialize" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="1.188" Y="2.25" />
+        <Point X="1.532" Y="2.25" />
+        <Point X="1.532" Y="2.148" />
+        <Point X="1.188" Y="2.148" />
         <Point X="1.188" Y="2.054" />
       </Path>
     </InheritanceLine>
@@ -58,16 +60,8 @@
   </Interface>
   <Interface Name="Solution.IPermutation">
     <Position X="4" Y="2.25" Width="1.5" />
-    <InheritanceLine Type="Solution.IToString" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="4.75" Y="5" />
-        <Point X="4.75" Y="4.916" />
-        <Point X="4.75" Y="4.916" />
-        <Point X="4.75" Y="4.833" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAACAAAABAAAAABAAAAAAAAAABAABA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAACAAAABAAACABAAAAAAAAAABAABA=</HashCode>
       <FileName>Permutation\Permutation.Definition.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -126,11 +120,12 @@
       <FileName>TestSystem\TestTools\Table\Table.DelayRow.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="TestSystem.ITabler">
+  <Interface Name="TestSystem.IRow">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAgEAAAAAAAAgA=</HashCode>
-      <FileName>TestSystem\TestTools\Table\Table.Definition.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAEAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>TestSystem\TestTools\Table\Table.Row.cs</FileName>
+      <NewMemberFileName>TestSystem\TestTools\Table\Table.Definition.cs</NewMemberFileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="TestSystem.ITest">
@@ -143,12 +138,12 @@
   <Interface Name="TestSystem.ITestInfo">
     <Position X="5.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAAAgAAAAAAAAAQAAAAAAABAAAAAAAAAAAA=</HashCode>
       <FileName>TestSystem\TestTools\TestInfo.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Solution.ISerialize">
-    <Position X="0.5" Y="2.25" Width="1.5" />
+    <Position X="0.5" Y="2.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces.cs</FileName>

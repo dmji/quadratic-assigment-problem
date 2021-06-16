@@ -62,7 +62,7 @@ namespace TestSystem
                 InitProblem(aProblemFile[0]);
 
                 // get problems exam
-                List<string> aResultFile = GetArrtibuteDirFiles(xml, "problems", m_path, true);
+                List<string> aResultFile = GetArrtibuteDirFiles(xml, "problems", m_path, "exam");
                 List<string> aResultFileCorrupt = new List<string>();
 
                 m_aTest = new List<ITestInfo>();

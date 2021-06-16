@@ -10,15 +10,13 @@ namespace Solution
         {
             Random rand = new Random();
             List<CIndivid> aResult = new List<CIndivid>();
-            if(src.Count == 0)
-                Msg("T");
             for (int i = 0; i < populationSize; i++)
             {
                 int bestIndex = -1;
                 for (int iTour = 0; iTour < BtournamentSize; iTour++)
                 {
                     int curIndex = rand.Next(src.Count);
-                    if (bestIndex == -1 || src[bestIndex] > src[curIndex])
+                    if(bestIndex == -1 || m_problem.PermutationComparision(src[curIndex], src[bestIndex]) == 1)
                         bestIndex = curIndex;
                 }
                 aResult.Add(src[bestIndex]);

@@ -10,17 +10,10 @@ namespace TestSystem
             List<string> aRes = new List<string>();
             foreach(string resultPath in aPath)
             {
-                StreamReader file = new StreamReader(resultPath);
-                string str = file.ReadToEnd();
+                string str = new CFile(resultPath).ReadToEnd();
 
                 string convName = resultPath.Replace(oldExt, newExt);
-                if(!File.Exists(convName))
-                    File.Create(convName).Close();
-                
-                StreamWriter converter = new StreamWriter(convName);
-                converter.Write(str);
-                converter.Close();
-
+                new CFile(convName).WriteTotal(str);
                 aRes.Add(convName);
                 File.Delete(resultPath);
             }

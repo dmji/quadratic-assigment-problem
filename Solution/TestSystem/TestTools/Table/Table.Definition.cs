@@ -6,21 +6,14 @@ namespace TestSystem
 {
     public interface ITabler : Solution.IClose
     {
-        long AddRow();
-        bool AddCell(string style, string str, int mergeRight = 0, int mergeDown = 0);
-        bool AddCells(string style, params string[] str);
-        bool AddCellsNumber(string style, params double[] str);
+        IRow AddRow();
         long RowCount();
     }
 
     public class CTablerEmpty : ITabler
     {
         public CTablerEmpty() { }
-        public long AddRow() => 0;
-        public bool AddCell(string style, string str, int mergeRight = 0, int mergeDown = 0) => false;
-        public bool AddCells(string style, params string[] str) => false;
-        public bool AddCellsNumber(string style, params double[] str) => false;
-
+        public IRow AddRow() => null;
         public bool Close() => false;
         public long RowCount() => 0;
     }
@@ -29,12 +22,9 @@ namespace TestSystem
     {
         XmlDocument m_doc;
         XmlNode m_table;
-        XmlElement m_row;
         string m_pathResult;
         long m_nRowCounter;
-
         public long RowCount() => m_nRowCounter;
-
         public struct Styles
         {
             public static string
@@ -47,7 +37,6 @@ namespace TestSystem
                 eStyleSimpleBold        = "reservedStyleSimpleBold",
                 eStyleSimpleBoldLight   = "reservedStyleSimpleBoldLight";
         }
-
         public struct Tags
         {
             public static string
@@ -94,7 +83,7 @@ namespace TestSystem
             }
         };
 
-        public CTablerExcel() { m_nRowCounter = 1; }
+        public CTablerExcel() { m_nRowCounter = 0; }
         public CTablerExcel(string path, string sAlg, string pathTemplate)
         {
             if(path.Length > 0 && sAlg.Length > 0 && pathTemplate.Length > 0)
@@ -127,63 +116,13 @@ namespace TestSystem
                 boldStyleLight.AppendChild(CreateFont("Calibri", "11", true));
                 styles.AppendChild(boldStyleLight);
 
-                m_row = m_doc.CreateElement("Row");
-                m_nRowCounter = 1;
+                m_nRowCounter = 0;
             }
         }
-        public long AddRow()
-        {
-            m_row.SetAttribute(Tags.eAutoFitHeight, "0");
-            m_table.AppendChild(m_row);
-            m_row = m_doc.CreateElement("Row");
-            m_nRowCounter++;
-            return m_nRowCounter;
-        }
-        public bool AddCell(string style, string str, int mergeRight = 0, int mergeDown = 0)
-        {
-            XmlElement data = m_doc.CreateElement("Data");
-            XmlElement cell;
-            {
-                cell = CreateCell(style, data);
-                data.SetAttribute(Tags.eType, "String");
-                data.InnerText = str;   
-            }
-            if(mergeRight > 0)
-                cell.SetAttribute(Tags.eMergeAcross, mergeRight.ToString());
-            if(mergeDown > 0)
-                cell.SetAttribute(Tags.eMergeDown, mergeDown.ToString());
-            m_row.AppendChild(cell);
-            return true;
-        }
-        public bool AddCells(string style, params string[] str)
-        {
-            foreach(string val in str)
-            {
-                if(val.Length > 0)
-                {
-                    double dP = 0;
-                    if(double.TryParse(val, out dP))
-                        AddCellsNumber(style, dP);
-                    else
-                        AddCell(style, val);
-                }
-            }
-            return true;
-        }
-        public bool AddCellsNumber(string style, params double[] str)
-        {
-            foreach(double val in str)
-            {
-                XmlElement data = m_doc.CreateElement("Data");
-                data.SetAttribute(Tags.eType, "Number");
-                data.InnerText = val.ToString().Replace(',', '.');
-                m_row.AppendChild(CreateCell(style, data));
-            }
-            return true;
-        }
+        public IRow AddRow() => new CRowExcel(m_doc, m_table, ++m_nRowCounter);
+
         public bool Close()
         {
-            m_table.AppendChild(m_row);
             CFile file = new CFile(m_pathResult);
             m_doc.Save(file.GetPath());
             string buf = file.ReadToEnd();
@@ -232,15 +171,6 @@ namespace TestSystem
                 elem.AppendChild(borders);
             }
             return elem;
-        }
-        private XmlElement CreateCell(string style, XmlElement data = null)
-        {
-            XmlElement cell = m_doc.CreateElement("Cell");
-            if(style.Length>0)
-                cell.SetAttribute(Tags.eStyleID,  style);
-            if(data != null)
-            cell.AppendChild(data);
-            return cell;
         }
     }
 }

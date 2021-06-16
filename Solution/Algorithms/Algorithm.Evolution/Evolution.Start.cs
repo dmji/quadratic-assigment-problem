@@ -21,6 +21,7 @@ namespace Solution
             ResetDiagnostic();
 
             CIndivid bestIndivid = null;
+            CIndivid worstIndivid = null;
             int POPULATION_ITERATION = 0            // всего итераций
                 , CONTROL_ITERATION=0;              // итераций для выхода
             
@@ -56,18 +57,25 @@ namespace Solution
                 foreach(var p in nextGen)
                 {
                     if(!m_problem.isValid(p))
-                        m_problem.Repair(p);
+                        p.Repair();
                 }
 
                 //селекция
                 curGen = SELECTION(nextGen, opt.P_SIZEi, opt.S_TOURNi);
 
                 var min = curGen.Min(x => Calc(x));
-                //поиск лучшего
+                // find best
                 if(bestIndivid == null)
                     bestIndivid = curGen.Find(x=>Calc(x) == min);
-                else if(bestIndivid != null && bestIndivid.Cost() > min)
+                else if(bestIndivid.Cost() > min)
                     bestIndivid = curGen.Find(x => Calc(x) == min);
+
+                // find worst
+                var max = curGen.Max(x => Calc(x));
+                if(worstIndivid == null)
+                    worstIndivid = curGen.Find(x => Calc(x) == max);
+                else if(worstIndivid.Cost() < max)
+                    worstIndivid = curGen.Find(x => Calc(x) == max);
 
                 // вычисление суммы
                 double curGenAvgCost = GenerationAvgCost(curGen);
@@ -84,6 +92,7 @@ namespace Solution
                     CONTROL_ITERATION++;
             }
             Result = bestIndivid;
+            Worst = worstIndivid;
             m_bFinish = true;
         }
     }

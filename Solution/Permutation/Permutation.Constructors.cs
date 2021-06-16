@@ -23,15 +23,5 @@ namespace Solution
             src.CopyTo(m_p, 0);
             m_problem = problem;
         }
-
-        ///<summary>Construct corrupted permutation, <c>count</c> is problem size, <c>fill</c> is int in all slots </summary>
-        public CPermutation(IProblem problem, ushort count, ushort filler)
-        {
-            OnEdit();
-            m_p = new ushort[count];
-            for(int i = 0; i < count; i++)
-                m_p[i]=filler;
-            m_problem = problem;
-        }
     }
 }

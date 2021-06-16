@@ -1,1 +1,1 @@
-<test problems="qap-lib\*" options="*"/>
+<test problems="Library\qap\" problemsExt="bin"  options="" optionsExt="json"/>

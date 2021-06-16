@@ -16,15 +16,15 @@ namespace Solution
         public virtual void Start(IOptions prm) { }
         public abstract string Name();
         public void Reset(IProblem problem) { ResetDiagnostic(); m_problem = problem; }
-        public IPermutation Result { get => m_results[0]; set { m_results.Clear(); m_results.Add(value); } }
+        public IPermutation Result { get => m_result; set { m_result = value; } }
+        public IPermutation Worst { get => m_worst; set { m_worst = value; } }
         public override string ToString()
         {
             string log = Name() + " algorithm.\n";
             if(m_bFinish)
             {
-                log += $"Finished with {m_calculationCounter} calculations. Final cost: {m_problem.Calc(m_results[0]).ToString()}\n";
-                foreach(IPermutation a in m_results)
-                    log += a.ToString() + '\n';
+                log += $"Finished with {m_calculationCounter} calculations. Final cost: {m_result.Cost().ToString()}\n";
+                log += m_result.ToString() + '\n';
             }
             else
                 log = ("Not yet started!");
@@ -36,7 +36,8 @@ namespace Solution
         protected AAlgorithm(IProblem problem) { m_log = new CEmptyLogger(); Reset(problem); }
 
         protected IProblem m_problem;
-        protected List<IPermutation> m_results;
+        protected IPermutation m_result;
+        protected IPermutation m_worst;
         protected bool m_bFinish;
     }
 }

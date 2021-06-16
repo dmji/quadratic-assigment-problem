@@ -16,10 +16,11 @@ namespace Solution
             {
                 new TestSystem.CFile(path).WriteTotal(System.Text.Json.JsonSerializer.Serialize<Options>(this));
             }
-            public void Deserialize(string path)
+            public bool Deserialize(string path)
             {
                 Init(System.Text.Json.JsonSerializer.Deserialize<Options>(new TestSystem.CFile(path).ReadToEnd()));
                 m_name = path.Substring(path.LastIndexOf('\\') + 1, path.LastIndexOf('.') - path.LastIndexOf('\\') - 1);
+                return true;
             }
 
             public Options()

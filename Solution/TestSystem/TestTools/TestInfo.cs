@@ -15,11 +15,27 @@ namespace TestSystem
     {
         public struct SExam
         {
-            public SExam(int size, long val = 0, bool ok = false){ m_size = size; m_bInit = ok; m_value = val; }
+            public SExam(int size, long val = 0, bool bValInit = false, long worst = 0, bool bWorstInit = false) 
+            { 
+                m_size = size;
+
+                m_bInit = bValInit; 
+                m_value = val;
+
+                m_bInitWorst = bWorstInit;
+                m_valueWorst = worst;
+            }
+
             public bool IsInit() => m_bInit;
             public long Value() => m_value;
             long m_value;
             bool m_bInit;
+
+            public bool IsInitWorst() => m_bInitWorst;
+            public long WorstValue() => m_valueWorst;
+            long m_valueWorst;
+            bool m_bInitWorst;
+
             public int m_size;
         }
 
@@ -38,9 +54,15 @@ namespace TestSystem
                 str = str.Replace("\r\n", "\n");
                 string[] strSplitN = str.Split('\n');
                 string[] strSplitNSpace = strSplitN[0].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                m_val = new SExam(Int32.Parse(strSplitNSpace[0]), Convert.ToInt64(strSplitNSpace[1]), true);
+
+                if(strSplitNSpace.Length > 2)
+                    m_val = new SExam(Int32.Parse(strSplitNSpace[0]), Convert.ToInt64(strSplitNSpace[1]), true, Convert.ToInt64(strSplitNSpace[2]), true);
+                else
+                    m_val = new SExam(Int32.Parse(strSplitNSpace[0]), Convert.ToInt64(strSplitNSpace[1]), true);
+
             }
         }
+
         public int Size() => m_val.IsInit() ? m_val.m_size : -1;
         public bool Exam(ref long obj)
         {

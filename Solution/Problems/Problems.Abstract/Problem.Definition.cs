@@ -24,7 +24,7 @@ namespace Solution
         public ushort Size() => m_problemSize;
         
         public virtual void Serialize(string src) { }
-        public virtual void Deserialize(string src) { }
+        public virtual bool Deserialize(string src) => false;
         
         /// <summary>calculate criterion</summary>
         /// <param name="CPermutationSrc">premutation to calculate</param>

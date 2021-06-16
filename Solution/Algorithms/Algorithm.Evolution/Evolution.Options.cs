@@ -25,10 +25,11 @@ namespace Solution
 
             public string Name() => m_name;
             
-            public void Deserialize(string path)
+            public bool Deserialize(string path)
             {
                 Init(System.Text.Json.JsonSerializer.Deserialize<COptions>(new TestSystem.CFile(path).ReadToEnd()));
                 m_name = path.Substring(path.LastIndexOf('\\') + 1, path.LastIndexOf('.') - path.LastIndexOf('\\') - 1);
+                return true;
             }
 
             public void Serialize(string path)

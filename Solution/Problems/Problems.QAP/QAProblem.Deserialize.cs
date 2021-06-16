@@ -8,7 +8,7 @@ namespace Solution
 	{
 		///<summary>Construct problem from file with formatting:<para>size()</para><para>F-matrix</para><para>D-matrix</para><para>C-matrix</para></summary>
 		/// <param name="fname">path to file w/ problem</param>
-		public override void Deserialize(string fname)
+		public override bool Deserialize(string fname)
 		{
 			Msg($"Start importing problem from file: {fname}");
 			string buf = new TestSystem.CFile(fname).ReadToEnd();
@@ -93,6 +93,7 @@ namespace Solution
 				}
 			}
 			Msg($"Finish importing problem from file: {fname}");
+			return true;
 		}
 	}
 }

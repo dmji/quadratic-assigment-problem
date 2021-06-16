@@ -4,6 +4,11 @@ using System.Text;
 
 namespace Solution
 {
+    public static class Consts
+    {
+        public static bool bDebug = false;
+    }
+
     public interface IName
     {
         string Name();
@@ -19,6 +24,6 @@ namespace Solution
     public interface ISerialize
     {
         void Serialize(string path);
-        void Deserialize(string path);
+        bool Deserialize(string path);
     }
 }

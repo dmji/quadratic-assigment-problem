@@ -5,7 +5,7 @@ namespace Solution
 {
     public abstract partial class AAlgorithm
     {
-        public long GetResultValue() => m_results[0].Cost();
+        public long GetResultValue() => m_result.Cost();
 
         //func diagnostic counter
         protected long Calc(IPermutation obj)
@@ -20,16 +20,9 @@ namespace Solution
         protected void ResetDiagnostic()
         {
             m_bFinish = false;
-            if(m_results != null)
-                m_results.Clear();
-            else
-                m_results = new List<IPermutation>();
-
+            if(m_result != null)
+                m_result = null;
             m_calculationCounter = 0;
-            if(m_results == null)
-                m_results = new List<IPermutation>();
-            else
-                m_results.Clear();
         }
         public long GetCalcCount() => m_calculationCounter;
         

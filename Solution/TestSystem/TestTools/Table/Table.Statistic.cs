@@ -63,18 +63,18 @@ namespace TestSystem
             if(m_aStats.Count > 0)
             {
                 tbl.AddRow();
-                tbl.AddRow();
+                var row = tbl.AddRow();
                 bool bSingle = m_aStats[0].m_aRange.Count == 1 ? true : false;
-                tbl.AddCells(CTablerExcel.Styles.eStyleGreyBold, "", m_statName);
-                tbl.AddCell(CTablerExcel.Styles.eStyleGreyBold, bSingle ? "Value" : "Tabbling info, avaraged by size", bSingle ? 0 : m_aStats[0].m_aRange.Count);
+                row.AddCells(CTablerExcel.Styles.eStyleGreyBold, "", m_statName);
+                row.AddCell(CTablerExcel.Styles.eStyleGreyBold, bSingle ? "Value" : "Tabbling info, avaraged by size", bSingle ? 0 : m_aStats[0].m_aRange.Count);
                 
-                tbl.AddRow();
+                row = tbl.AddRow();
                 if(!bSingle)
                 {
-                    tbl.AddCells(CTablerExcel.Styles.eStyleGrey, "sizes", "total");
+                    row.AddCells(CTablerExcel.Styles.eStyleGrey, "sizes", "total");
                     m_aStats[0].m_aRange.Sort((SRangeSize f, SRangeSize s) => { if(f.m_size > s.m_size) return 1; else if(f.m_size == s.m_size) return 0; else return -1; });
                     foreach(SRangeSize b in m_aStats[0].m_aRange)
-                        tbl.AddCellsNumber(CTablerExcel.Styles.eStyleGrey, b.m_size);
+                        row.AddCellsNumber(CTablerExcel.Styles.eStyleGrey, b.m_size);
                     tbl.AddRow();
                 }
                 foreach(var a in m_aStats)
@@ -83,15 +83,18 @@ namespace TestSystem
                         a.m_aRange.Sort((SRangeSize f, SRangeSize s) => { if(f.m_size > s.m_size) return 1; else if(f.m_size == s.m_size) return 0; else return -1; });
 
                     string allRange = a.GetRange();
-                    tbl.AddCells(CTablerExcel.Styles.eStyleGrey, a.m_name, bSingle ? "" : $"=СРЗНАЧ({allRange})");
+
+                    // total col
+                    row.AddCells(CTablerExcel.Styles.eStyleGrey, a.m_name, bSingle ? "" : $"=СРЗНАЧ({allRange})");
+                    
+                    // single cols
                     foreach(SRangeSize b in a.m_aRange)
-                        tbl.AddCell(CTablerExcel.Styles.eStyleGrey, $"=СРЗНАЧ({b.m_range})");
-                    tbl.AddRow();
+                        row.AddCell(CTablerExcel.Styles.eStyleGrey, $"=СРЗНАЧ({b.m_range})");
+                    row = tbl.AddRow();
                 }
 
                 // add groups stats
                 {
-                    tbl.AddRow();
                     tbl.AddRow();
 
                     // find avg result count for group
@@ -102,19 +105,29 @@ namespace TestSystem
                     if(nTotal / 6 <= 200)
                         excelMaxRange = nTotal / 6;
 
+                    List<bool> aBHeaders = new List<bool>();
+                    List<IRow> aRows = new List<IRow>();
+                    aRows.Add(tbl.AddRow());
+                    aRows[0].AddCell(CTablerExcel.Styles.eStyleSimpleBold, "Size");
                     foreach(var a in m_aStats)
                     {
-                        tbl.AddCell(CTablerExcel.Styles.eStyleSimpleBold, a.m_name,1);
-                        tbl.AddRow();
+                        aRows[0].AddCell(CTablerExcel.Styles.eStyleSimpleBold,a.m_name);
+
                         int nameL = 0, nameH = 0;
                         string s = "";
                         int nS = 0;
+                        int iRow = 0;
                         foreach(SRangeSize b in a.m_aRange)
                         {
                             if(nS + b.m_nRange >= excelMaxRange && nS > 0)
                             {
-                                tbl.AddCells(CTablerExcel.Styles.eStyleGrey, $"от {nameL} до {nameH}", $"=СРЗНАЧ({s})");
-                                tbl.AddRow();
+                                iRow++;
+                                if(iRow > aRows.Count - 1)
+                                {
+                                    aRows.Add(tbl.AddRow());
+                                    aRows[iRow].AddCell(CTablerExcel.Styles.eStyleGrey, $"от {nameL} до {nameH}");
+                                }
+                                aRows[iRow].AddCell(CTablerExcel.Styles.eStyleGrey, $"=СРЗНАЧ({s})");
                                 nS = 0;
                                 s = "";
                             }
@@ -127,17 +140,18 @@ namespace TestSystem
                         }
                         if(nS > 0)
                         {
-                            tbl.AddCells(CTablerExcel.Styles.eStyleGrey, $"от {nameL} до {nameH}", $"=СРЗНАЧ({s})");
-                            tbl.AddRow();
-                            nS = 0;
-                            s = "";
+                            iRow++;
+                            if(iRow > aRows.Count - 1)
+                            {
+                                aRows.Add(tbl.AddRow());
+                                aRows[iRow].AddCell(CTablerExcel.Styles.eStyleGrey, $"от {nameL} до {nameH}");
+                            }
+                            aRows[iRow].AddCell(CTablerExcel.Styles.eStyleGrey, $"=СРЗНАЧ({s})");
                         }
                     }
-                    tbl.AddRow();
-                    tbl.AddRow();
-
                 }
-
+                tbl.AddRow();
+                tbl.AddRow();
                 m_aStats.Clear();
             }
         }

@@ -38,8 +38,7 @@ namespace Solution
                 else
                     aCycles.Add(curCycle);
             }
-            //CYCLES CONSUMING
-            //_recursion(aPerm,0);
+
             int n = (int)Math.Pow(2, aCycles.Count);
             if(Math.Pow(2, aCycles.Count) > int.MaxValue)
             {
@@ -48,8 +47,6 @@ namespace Solution
             }
 
             Random rand = new Random();
-            //if(size() > 50)
-            //{
             for(int i = 0; i < limiter; i++)
             {
                 int curVal = rand.Next(n);
@@ -63,28 +60,6 @@ namespace Solution
                     perm[val] = a[val];
                 aResult.Add(new CIndivid(m_problem, perm));
             }
-            //
-            //}
-            //else
-            //{
-            //    System.Threading.Tasks.ParallelOptions opt = new System.Threading.Tasks.ParallelOptions();
-            //    System.Threading.Tasks.Parallel.For(0, limiter
-            //        , () => { return new List<ushort>(perm); }
-            //        , (int i, System.Threading.Tasks.ParallelLoopState s, List<ushort> p) =>
-            //        {
-            //            int curVal = rand.Next(n);
-            //            for(int j = 0; j < aCycles.Count; j++)
-            //            {
-            //                int it = curVal << j & 1;
-            //                foreach(int val in aCycles[j])
-            //                    p[val] = it == 0 ? a[val] : b[val];
-            //            }
-            //            foreach(int val in aCyclesSingle)
-            //                p[val] = a[val];
-            //            return p;
-            //        }
-            //        , (List<ushort> fin) => { Individ finInd = new Individ(m_q.calc, fin); lock(aResult) aResult.Add(finInd); });
-            //}
             return aResult;
         }
 

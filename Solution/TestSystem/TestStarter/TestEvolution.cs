@@ -27,18 +27,23 @@ namespace TestSystem
             foreach(CTestInfo test in m_aTest)
             {
                 timer.Reset();
-                m_problem.Deserialize(test.pathProblem);
+                if(!m_problem.Deserialize(test.pathProblem))
+                    continue;
                 string timeLoad = timer.Stop().ToString();
 
                 long examVal = 0;
                 bool bExam = test.Exam(ref examVal);
-                m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {m_problem.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
-                m_tbl.AddRow();
+
+                var rowHeader = m_tbl.AddRow();
+                rowHeader.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {m_problem.Size()}", $"Load time: {timeLoad}", "Optimal + Worst:", bExam ? examVal.ToString() : "");
+                var rowSec = m_tbl.AddRow();
                 if(m_nCount == 1)
-                    m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
+                    rowSec.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
                 else
-                    m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Avg Timer, ms", "Avg Calc count", "Avg Error", "Avg Error, %", "Avg Result", "Best Result");
-                
+                    rowSec.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Avg Timer, ms", "Avg Calc count", "Avg Error", "Avg Error, %", "Avg Result", "Best Result");
+
+                long testWorstValue = 0;
+
                 IAlgorithm ALG = new CEvolutionAlgorithm(m_problem);
                 IDelayedRow row = new CDelayedRow(m_tbl, true);
                 EnableLog(m_problem, ALG);
@@ -66,20 +71,17 @@ namespace TestSystem
                     double avgResultValue = resultValue / m_nCount;
 
                     m_log.Msg($"On opt: {optName} problem {test.Name()} log:{ALG})");
-                    if(bExam)
+                    
+                    string errStr = $"=RC6-R{rowHeader.GetIndex()}C6";
+                    string errPersentStr = $"=100*(RC6-R{rowHeader.GetIndex()}C6)/(R{rowHeader.GetIndex()}C[1]-R{rowHeader.GetIndex()}C6)";
+                    long nRow = row.AddRow(avgResultValue, optName, avgTimerAlg.ToString(), avgCalcCount.ToString(), errStr, errPersentStr, avgResultValue.ToString(), m_nCount == 1 ? "" : resultBest.ToString());
+                    if(m_aOptStat != null)
                     {
-                        double err = avgResultValue - examVal;
-                        double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : 1000;
-                        long nRow = row.AddRow(errPersent, optName, avgTimerAlg.ToString(), avgCalcCount.ToString(), err.ToString(), errPersent.ToString(), avgResultValue.ToString(), m_nCount == 1 ? "" : resultBest.ToString());
-                        if(m_aOptStat != null)
-                        {
-                            foreach(var optStat in m_aOptStat)
-                                optStat.AddStat(optName, m_problem.Size(), nRow);
-                        }
+                        foreach(var optStat in m_aOptStat)
+                            optStat.AddStat(optName, m_problem.Size(), nRow);
                     }
-                    else
-                        row.AddRow(-1, optName, avgTimerAlg.ToString(), avgCalcCount.ToString(), "-", "-", avgResultValue.ToString(), m_nCount == 1 ? "" : resultBest.ToString());
                 }
+                rowHeader.AddCell(CTablerExcel.Styles.eStyleSimpleBold, testWorstValue.ToString()); 
                 row.Release();
                 m_tbl.AddRow();
                 m_tbl.AddRow();

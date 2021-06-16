@@ -8,9 +8,8 @@ namespace Solution
 	{
 		///<summary>Construct problem from file with formatting:<para>size()</para><para>F-matrix</para><para>D-matrix</para><para>C-matrix</para></summary>
 		/// <param name="fname">path to file w/ problem</param>
-		public override void Deserialize(string fname)
+		public override bool Deserialize(string fname)
 		{
-			Msg($"Start importing problem from file: {fname}");
 			TestSystem.CFile file = new TestSystem.CFile(fname);
 			string buf= file.ReadToEnd();
 
@@ -28,6 +27,16 @@ namespace Solution
 					break;
 				}
 			}
+			string sWeightType = "";
+			foreach(var s in aData)
+			{
+				if(s.Contains("EDGE_WEIGHT_TYPE"))
+				{
+					var str = s.Split(':', StringSplitOptions.RemoveEmptyEntries);
+					sWeightType = str[1].Trim();
+					break;
+				}
+			}
 
 			if(cDimension == 0)
             {
@@ -38,7 +47,7 @@ namespace Solution
 			if(buf.Contains("NODE_COORD_SECTION"))
 			{
 				buf = buf.Substring(buf.IndexOf("NODE_COORD_SECTION") + "NODE_COORD_SECTION".Length);
-				DeserializeNodeCoord(buf);
+				return DeserializeNodeCoord(buf, sWeightType);
 			}
 			else if(buf.Contains("EDGE_WEIGHT_FORMAT"))
 			{
@@ -57,66 +66,141 @@ namespace Solution
 				switch(sType)
                 {
 					case "FULL_MATRIX":
-						DeserializeFullMatrix(buf);
+						return DeserializeFullMatrix(buf);
 						break;
 					case "UPPER_ROW":
-						DeserializePartMatrix(buf, false, false);
+						return DeserializePartMatrix(buf, false, false);
 						break;
 					case "LOWER_ROW":
-						DeserializePartMatrix(buf, true, false);
+						return DeserializePartMatrix(buf, true, false);
 						break;
 					case "UPPER_DIAG_ROW":
-						DeserializePartMatrix(buf, false, true);
+						return DeserializePartMatrix(buf, false, true);
 						break;
 					case "LOWER_DIAG_ROW":
-						DeserializePartMatrix(buf, true, true);
+						return DeserializePartMatrix(buf, true, true);
 						break;
 					default:
 						throw new Exception("Deserialize Error Unknown type");
                 }
-
-				
-			}			
-			Msg($"Finish importing problem from file: {fname}");
+			}	
+			else
+				throw new Exception("Deserialize Error Unknown listing");
 		}
 
-		void DeserializeNodeCoord(string buf)
-        {
+		bool DeserializeNodeCoord(string buf, string type)
+		{
 			var aStr = buf.Split('\n', StringSplitOptions.RemoveEmptyEntries);
-			System.Collections.Generic.List<double> x = new System.Collections.Generic.List<double>(), y = new System.Collections.Generic.List<double>();
-			for(int i = 0; i < Size(); i++)
-            {
-				var aData = aStr[i].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-				if(aData.Length < 3)
-                {
-					i--;
-					continue;
-                }
-				x.Add(double.Parse(aData[1].Trim().Replace('.', ',')));
-				y.Add(double.Parse(aData[2].Trim().Replace('.', ',')));
-            }
-
-			for(int i = 0; i < Size(); i++)
+			switch(type)
 			{
-				for(int j = 0; j < Size(); j++)
-				{
-					double xp = System.Math.Abs(x[i] - x[j]); 
-					double yp = System.Math.Abs(y[i] - y[j]); 
-					SetDist((int)System.Math.Sqrt(xp * xp + yp * yp),i, j);
-				}
+				case "EUC_2D":
+					{
+						System.Collections.Generic.List<double> x = new System.Collections.Generic.List<double>()
+							, y = new System.Collections.Generic.List<double>();
+						for(int i = 0; i < Size(); i++)
+						{
+							var aData = aStr[i].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+							if(aData.Length < 3)
+							{
+								i--;
+								continue;
+							}
+							x.Add(double.Parse(aData[1].Trim().Replace('.', ',')));
+							y.Add(double.Parse(aData[2].Trim().Replace('.', ',')));
+						}
+
+						for(int i = 0; i < Size(); i++)
+						{
+							for(int j = 0; j < Size(); j++)
+							{
+								var xp = x[i] - x[j];
+								var yp = y[i] - y[j];
+								SetDist((int)(System.Math.Sqrt(xp * xp + yp * yp) + 0.5), i, j);
+							}
+						}
+						break;
+					}
+				case "GEO":
+                    {
+						return false;
+						System.Collections.Generic.List<double> x = new System.Collections.Generic.List<double>(), y = new System.Collections.Generic.List<double>();
+						var PI = 3.141592;
+						for(int i = 0; i < Size(); i++)
+						{
+							var aData = aStr[i].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+							if(aData.Length < 3)
+							{
+								i--;
+								continue;
+							}
+							var curX = double.Parse(aData[1].Trim().Replace('.', ','));
+							var degX = (int)curX;
+							var minX = curX - degX;
+							x.Add(PI * (degX + 5.0 * minX / 3.0) / 180.0);
+							var curY = double.Parse(aData[2].Trim().Replace('.', ','));
+							var degY = (int)curY;
+							var minY = curY - (int)curY;
+							y.Add(PI * (degY + 5.0 * minY / 3.0) / 180.0);
+						}
+
+						var RRR = 6378.388;
+						for(int i = 0; i < Size(); i++)
+						{
+							for(int j = 0; j < Size(); j++)
+							{
+								var q1 = Math.Cos(y[i] - y[j]);
+								var q2 = Math.Cos(x[i] - x[j]);
+								var q3 = Math.Cos(x[i] + x[j]);
+								SetDist((int)(RRR * Math.Acos(0.5 * ((1.0 + q1) * q2 - (1.0 - q1) * q3)) + 1.0), i, j);
+							}
+						}
+						break;
+					}
+				case "ATT":
+					{
+						System.Collections.Generic.List<double> x = new System.Collections.Generic.List<double>(), y = new System.Collections.Generic.List<double>();
+
+						for(int i = 0; i < Size(); i++)
+						{
+							var aData = aStr[i].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+							if(aData.Length < 3)
+							{
+								i--;
+								continue;
+							}
+							x.Add(double.Parse(aData[1].Trim().Replace('.', ',')));
+							y.Add(double.Parse(aData[2].Trim().Replace('.', ',')));
+						}
+
+						for(int i = 0; i < Size(); i++)
+						{
+							for(int j = 0; j < Size(); j++)
+							{
+								double xd = x[i] - x[j];
+								double yd = y[i] - y[j];
+								var rij = Math.Sqrt((xd * xd + yd * yd) / 10.0);
+								var tij = (int)(rij + 0.5);
+								SetDist((int)( tij < rij ? tij + 1 : tij), i, j);
+							}
+						}
+						break;
+					}
 			}
+			return true;
         }
 
-		void DeserializePartMatrix(string buf, bool bLower, bool bDiag) 
+		bool DeserializePartMatrix(string buf, bool bLower, bool bDiag) 
 		{
 			var aDist = buf.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 			int iDist = 0;
+			int nDiag = 0;
 			for(int i = 0; i < Size(); i++)
 			{
-				for(int j = bLower ? 0 : i, n = bLower ? i : Size(); j < n; j++)
+				for(int j = bLower ? 0 : i, n = bLower ? i+1 : Size(); j < n; j++)
 				{
 					if(i == j)
 					{
+						nDiag++;
 						SetDist(0, i, j);
 						if(bDiag)
 							iDist++;
@@ -129,9 +213,10 @@ namespace Solution
 					}					
 				}
 			}
+			return true;
 		}
 
-		void DeserializeFullMatrix(string buf)
+		bool DeserializeFullMatrix(string buf)
         {
 			var aDist = buf.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 			int iDist = 0;
@@ -143,6 +228,7 @@ namespace Solution
 				for(int j = 0; j < Size(); j++)
 					SetDist(System.Int32.Parse(aDist[iDist++]), i, j);
 			}
+			return true;
         }
 	}
 }

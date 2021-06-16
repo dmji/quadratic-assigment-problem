@@ -31,10 +31,7 @@ namespace Solution
             {
                 CIndivid temp = new CIndivid(m_problem.GetRandomPermutation());
                 if(Hemming(res, temp, H_MINi))
-                {
-                    Msg($"GEENERETE_POPULATION Step {res.Count+1}: created {temp};");
                     res.Add(temp);
-                }
             }
             return res;
         }

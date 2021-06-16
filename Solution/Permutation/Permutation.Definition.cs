@@ -16,6 +16,7 @@ namespace Solution
         IPermutation Clone();
         long Cost();
         void Swap(int i1, int i2);
+        void Repair();
     }
 
     /// <summary>Class <c>CPermutation</c> models a single permutation in QAP (like in Evolution algorithm).</summary>
@@ -31,7 +32,7 @@ namespace Solution
         public long Cost()
         {
             if(m_bCalced == true && m_c < 0)
-                throw new Exception("WTF");
+                m_bCalced = false;
             if(!m_bCalced)
             {
                 m_c = m_problem.Calc(this);
@@ -42,8 +43,11 @@ namespace Solution
         /// <summary>return current permutation size</summary>
         public int Size() => m_p.Length;
         /// <summary>index operator</summary>
-        public ushort this[int i] { get => m_p[i]; 
-                                    set { OnEdit(); m_p[i] = value; } }
+        public ushort this[int i]
+        {
+            get => m_p[i];
+            set { OnEdit(); m_p[i] = value; }
+        }
         /// <summary> Get permutation as ushort array </summary>
         public List<ushort> ToArray() => new List<ushort>(m_p); // ??
         /// <summary>Get. One-line permutation w/ spaces </summary>
@@ -51,7 +55,7 @@ namespace Solution
         {
             string result = "";
             int i = 0;
-            for(; i < m_p.Length-1; i++)
+            for(; i < m_p.Length - 1; i++)
                 result = result + m_p[i] + " ";
             result = result + m_p[i];
             return result + (m_c >= 0 ? (" : " + m_c.ToString()) : "");
@@ -71,35 +75,10 @@ namespace Solution
                 m_c = val;
         }
 
-        public static bool operator >(CPermutation a, IPermutation b) => a.m_problem.PermutationComparision(a, b) == 1;
-        public static bool operator <(CPermutation a, IPermutation b) => a.m_problem.PermutationComparision(a, b) == -1;
-        public static bool operator ==(CPermutation a, CPermutation b)
+        public void Repair()
         {
-            if((object)a == null && (object)b == null)
-                return true;
-            else if(((object)a == null && (object)b != null) || ((object)a != null && (object)b == null))
-                return false;
-            else if(a.Size() == b.Size())
-            {
-                for(int i = 0, n = a.Size(); i < n; i++)
-                {
-                    if(a[i] != b[i])
-                        return false;
-                }
-                return true;
-            }
-            else
-                return false;
+            m_problem.Repair(this);
+            OnEdit();
         }
-        public static bool operator !=(CPermutation a, CPermutation b) => !(a == b);
-        public override bool Equals(object a)
-        {
-            if(a is CPermutation)
-                return this == (CPermutation)a;
-            else
-                return false;
-        }
-
-        public bool Verify() => m_problem.isValid(this);
     }
 }

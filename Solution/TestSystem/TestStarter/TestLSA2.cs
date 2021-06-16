@@ -33,6 +33,7 @@ namespace TestSystem
         public override void Start()
         {
             Init();
+            System.Console.WriteLine("Total test " + m_aTest.Count);
             List<IPermutation> aPermToTest = new List<IPermutation>();
             for(int iOpt = 0; iOpt < m_aOptions.Count; iOpt++)
             {
@@ -46,23 +47,23 @@ namespace TestSystem
                 aOptStat.Add(new CTestStatistic("Avg Error, %", 5));
                 aOptStat.Add(new CTestStatistic("Avg timer, %", 2));
                 aOptStat.Add(new CTestStatistic("Avg cacl count, %", 3));
+                
                 if(m_nCount == 1)
-                    m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", "Timer, ms", "Calc count", "Error", "Error, %", "Result", "Optimal");
+                    m_tbl.AddRow().AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", "Timer, ms", "Calc count", "Error", "Error, %", "Result", "Optimal" ,"Worst");
                 foreach(ITestInfo test in m_aTest)
                 {
-                    if(test.Size() > 300)
-                        continue;
-
                     m_log.Msg($"Test {test.Name()} started", true);
                     string timeLoad = timer.Stop().ToString();
                     long examVal = 0;
                     bool bExam = test.Exam(ref examVal);
-                    m_problem.Deserialize(test.pathProblem);
+                    if(!m_problem.Deserialize(test.pathProblem))
+                        continue;
+                    var rowHeader = m_tbl.AddRow();
                     if(m_nCount > 1)
                     {
-                        m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {m_problem.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
-                        m_tbl.AddRow();
-                        m_tbl.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Iteration", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
+                        rowHeader.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {m_problem.Size()}", $"Load time: {timeLoad}", "Optimal:", bExam ? examVal.ToString() : "");
+                        var rowSec = m_tbl.AddRow();
+                        rowSec.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Iteration", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
                     }
                     IDelayedRow row = new CDelayedRow(m_tbl);
                     for(int i = 0; i < m_nCount; i++)
@@ -98,9 +99,9 @@ namespace TestSystem
                         {
                             if(bExam)
                             {
-                                double err = resultValue - examVal;
-                                double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : 1000;
-                                long nRow = row.AddRow(errPersent, test.Name(), timerAlg.ToString(), calcCount.ToString(), err.ToString(), errPersent.ToString(), resultValue.ToString(), examVal.ToString());
+                                string errStr = $"=RC6-R{rowHeader.GetIndex()}C";
+                                string errPersentStr = $"=100*(RC6-R{rowHeader.GetIndex()}C)/(=R{rowHeader.GetIndex()}C[1]-R{rowHeader.GetIndex()}C)";
+                                long nRow = row.AddRow(resultValue, test.Name(), timerAlg.ToString(), calcCount.ToString(), errStr, errPersentStr, resultValue.ToString(), examVal.ToString());
                                 if(aOptStat != null)
                                 {
                                     foreach(var optStat in aOptStat)
@@ -112,19 +113,14 @@ namespace TestSystem
                         }
                         else
                         {
-                            if(bExam)
+                            string errStr = $"=RC6-R{rowHeader.GetIndex()}C6";
+                            string errPersentStr = $"=100*(RC6-R{rowHeader.GetIndex()}C6)/(R{rowHeader.GetIndex()}C[1]-R{rowHeader.GetIndex()}C6)";
+                            long nRow = row.AddRow(resultValue,i.ToString(), timerAlg.ToString(), calcCount.ToString(), errStr, errPersentStr, resultValue.ToString());
+                            if(aOptStat != null)
                             {
-                                double err = resultValue - examVal;
-                                double errPersent = examVal != 0 ? (err / ((double)examVal) * 100) : 1000;
-                                long nRow = row.AddRow(errPersent, i.ToString(), timerAlg.ToString(), calcCount.ToString(), err.ToString(), errPersent.ToString(), resultValue.ToString());
-                                if(aOptStat != null)
-                                {
-                                    foreach(var optStat in aOptStat)
-                                        optStat.AddStat("-", m_problem.Size(), nRow);
-                                }
+                                foreach(var optStat in aOptStat)
+                                    optStat.AddStat("-", m_problem.Size(), nRow);
                             }
-                            else
-                                row.AddRow(-1, i.ToString(), timerAlg.ToString(), calcCount.ToString(), "-", "-", resultValue.ToString());
                         }
                     }
                     row.Release();

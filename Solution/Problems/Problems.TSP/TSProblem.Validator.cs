@@ -8,15 +8,12 @@ namespace Solution
     {
         public bool isValid(List<ushort> obj)
         {
+            return true;
             if(Size() != obj.Count)
                 return false;
-            List<ushort> t = obj.ToList();
-            t.Sort();
-            if(t[0] != 0 || t[t.Count - 1] != t.Count - 1)
-                return false;
-            for(ushort i = 0; i < t.Count - 1; i++)
+            for(ushort i = 0; i < obj.Count/* - 1*/; i++)
             {
-                if(t[i] == t[i + 1] || obj[i] == i || GetDist(i, obj[i]) <=0)
+                if(obj[i] == i || GetDist(i, obj[i]) <=0)
                     return false;
             }
             return true;

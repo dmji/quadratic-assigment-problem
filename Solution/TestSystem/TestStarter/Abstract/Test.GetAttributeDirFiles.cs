@@ -8,10 +8,10 @@ namespace TestSystem
 {
     public abstract partial class ATest
     {
-        protected static List<string> GetArrtibuteDirFiles(XmlReader xml, string attrName, string path, bool bGetExams = false)
+        protected static List<string> GetArrtibuteDirFiles(XmlReader xml, string attrName, string path, string sType = "")
         {
             string filtr = xml.GetAttribute(attrName);
-            string filtrExt = xml.GetAttribute(attrName+"Ext");
+            string filtrExt = xml.GetAttribute(attrName + "Ext");
             if(filtr.Contains('\\'))
             {
                 path = path + filtr.Substring(0, filtr.LastIndexOf('\\') + 1);
@@ -21,10 +21,19 @@ namespace TestSystem
             List<string> aResult = new List<string>();
             var aFilter = filtr.Split(';');
             var aFilterExt = filtrExt.Split(';');
-            if(bGetExams)
+            switch(sType)
             {
-                for(int i = 0; i < aFilterExt.Length; i++)
-                    aFilterExt[i] += ".exam";
+                case "exam":
+                    for(int i = 0; i < aFilterExt.Length; i++)
+                        aFilterExt[i] += ".exam";
+                    break;
+                case "tour":
+                    for(int i = 0; i < aFilterExt.Length; i++)
+                        aFilterExt[i] += ".tour";
+                    break;
+                default:
+                    break;
+
             }
             var opt = new EnumerationOptions();
             opt.RecurseSubdirectories = true;

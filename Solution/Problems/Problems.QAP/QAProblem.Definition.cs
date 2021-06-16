@@ -33,7 +33,7 @@
         /// <returns>double value</returns>
         public override long Calc(IPermutation src)
         {
-            bool bDebug = false;
+            bool bDebug = Consts.bDebug;
             long res = 0;
             if(bDebug)
             {
@@ -54,7 +54,7 @@
         
         public override long CalcedSwap(IPermutation src, int ix, int iy)
         {
-            bool bDebug = false;
+            bool bDebug = Consts.bDebug;
             int x = src[ix], y = src[iy];
             long res = src.Cost();
             if(ix == iy)

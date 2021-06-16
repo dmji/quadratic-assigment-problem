@@ -55,20 +55,18 @@ namespace Solution
                 CPermutation curPerm = new CPermutation(m_problem, src);
                 lock(m_logSync)
                     Msg($"{curPerm}");
-                lock(m_results)
+                lock(m_result)
                 {
-                    if(m_results.Count == 0)
+                    if(m_result == null)
                     {
-                        m_results.Add(curPerm.Clone());
+                        m_result = curPerm.Clone();
                     }
                     else
                     {
                         int cmp = m_problem.PermutationComparision(curPerm, Result);
                         if(cmp > -1)
                         {
-                            if(cmp != 0)
-                                m_results.Clear();
-                            m_results.Add(curPerm.Clone());
+                            m_result = curPerm.Clone();
                         }
                     }
                 }
