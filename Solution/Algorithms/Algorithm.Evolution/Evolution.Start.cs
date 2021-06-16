@@ -55,7 +55,7 @@ namespace Solution
                 // проверка на валидность для задачи
                 foreach(var p in nextGen)
                 {
-                    if(!m_problem.isValid(p))
+                    if(m_problem.isValid(p) > 0)
                         p.Repair();
                 }
 

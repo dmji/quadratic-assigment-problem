@@ -6,18 +6,19 @@ namespace Solution
     /// <summary>Class <c>Info</c> is all-in one QAP data.</summary>
     public partial class CQAProblem : AProblem
     {
-        public override bool isValid(IPermutation obj)
+        public override int isValid(IPermutation obj)
         {
+            List<ushort> aProblem = new List<ushort>();
             List<ushort> t = obj.ToArray();
             t.Sort();
             if(t[0] != 0 || t[t.Count - 1] != t.Count - 1)
-                return false;
+                return obj.Size();
             for(int i=0;i<t.Count-1;i++)
             {
                 if(t[i] == t[i + 1])
-                    return false;
+                    aProblem.Add((ushort)i);
             }
-            return true;
+            return aProblem.Count;
         }
 
         public override IPermutation GetRandomPermutation()

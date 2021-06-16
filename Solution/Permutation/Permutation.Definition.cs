@@ -15,7 +15,7 @@ namespace Solution
         /// <summary>Get. One-line permutation w/ spaces </summary>
         IPermutation Clone();
         long Cost();
-        void Swap(int i1, int i2);
+        int Swap(int i1, int i2);
         void Repair();
     }
 
@@ -61,7 +61,7 @@ namespace Solution
             return result + (m_c >= 0 ? (" : " + m_c.ToString()) : "");
         }
         public IPermutation Clone() => new CPermutation(this);
-        public void Swap(int i1, int i2)
+        public int Swap(int i1, int i2)
         {
             long val = long.MinValue;
             if(m_bCalced)
@@ -73,6 +73,10 @@ namespace Solution
                 OnEdit();
             else
                 m_c = val;
+            var valid = m_problem.isValid(this);
+            if(valid > 0)
+                OnEdit();
+            return valid;
         }
 
         public void Repair()

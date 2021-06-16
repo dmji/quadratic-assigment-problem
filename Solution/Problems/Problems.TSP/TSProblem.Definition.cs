@@ -71,7 +71,7 @@
                 // x pos
                 res -= GetDist(src[y], src[x]);
                 res += GetDist(src[x], src[y]);
-                
+
                 // y pos
                 res -= GetDist(src[x], src[x + 1]);
                 res += GetDist(src[y], src[x + 1]);
@@ -94,48 +94,17 @@
             {
                 res -= GetDist(src[xPrev], src[x]);
                 res -= GetDist(src[y], src[yNext]);
+                res -= GetDist(src[x], src[x + 1]);
+                res -= GetDist(src[y - 1], src[y]);
 
-                if(x + 1 != y && (y + 1) % Size() != x)
-                {
-                    res -= GetDist(src[x], src[x + 1]);
-                    res -= GetDist(src[y - 1], src[y]);
-
-                    res += GetDist(src[y], src[x + 1]);
-                    res += GetDist(src[y - 1], src[x]);
-                }
-                else
-                {
-                    res -= GetDist(src[x], src[y]);
-                    res += GetDist(src[y], src[x]);
-                }
+                res += GetDist(src[y], src[x + 1]);
+                res += GetDist(src[y - 1], src[x]);
                 res += GetDist(src[xPrev], src[y]);
                 res += GetDist(src[x], src[yNext]);
             }            
 
             if(bDebug)
             {
-                string s1 = "";
-                string s2 = "";
-
-                //s1 += $"+R[{src[xPrev]}][{src[x]}]";
-                //s1 += $"+R[{src[y]}][{src[yNext]}]";
-
-                //if(x + 1 != y)
-                //{
-                //    s1 += $"+R[{src[x]}][{src[x + 1]}]";
-                //    s1 += $"+R[{src[y - 1]}][{src[y]}]";
-                //    s2 += $"+R[{src[y]}][{src[x + 1]}]";
-                //    s2 += $"+R[{src[y - 1]}][{src[x]}]";
-                //}
-                //else
-                //{
-                //    s1 += $"+R[{src[y]}][{src[x]}]";
-                //    s2 += $"+R[{src[x]}][{src[y]}]";
-                //}
-
-                //s2 += $"+R[{src[xPrev]}][{src[y]}]";
-                //s2 += $"+R[{src[x]}][{src[yNext]}]";
-
                 var t = src.Clone();
                 var tx = t[x];
                 t[x] = t[y];

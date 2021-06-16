@@ -31,7 +31,7 @@ namespace Solution
                     {
                         IPermutation temp = pt.Clone();
                         temp.Swap(y, u);
-                        if(m_problem.isValid(temp))
+                        if(m_problem.isValid(temp) == 0)
                         {
                             if(m_problem.PermutationComparision(temp, minp) == 1)
                             {

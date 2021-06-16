@@ -6,19 +6,19 @@ namespace Solution
     /// <summary>Class <c>Info</c> is all-in one QAP data.</summary>
     public partial class CTSProblem : AProblem
     {
-        public bool isValid(List<ushort> obj)
+        public int isValid(List<ushort> obj)
         {
-            return true;
-            if(Size() != obj.Count)
-                return false;
-            for(ushort i = 0; i < obj.Count/* - 1*/; i++)
+            List<int> aProblems = new List<int>();
+            for(ushort i = 1; i < obj.Count; i++)
             {
-                if(obj[i] == i || GetDist(i, obj[i]) <=0)
-                    return false;
+                if(GetDist(obj[i - 1], obj[i]) <= 0)
+                    aProblems.Add(i);
             }
-            return true;
+            if(GetDist(obj[obj.Count - 1], obj[0]) <= 0)
+                aProblems.Add(0);
+            return aProblems.Count;
         }
-        public override bool isValid(IPermutation obj) => isValid(obj.ToArray());
+        public override int isValid(IPermutation obj) => isValid(obj.ToArray());
 
         public override IPermutation GetRandomPermutation()
         {
@@ -48,7 +48,7 @@ namespace Solution
                 pool.RemoveAt(val);
             }
             var perm = new CPermutation(this, t);
-            if(!isValid(perm) || bWrongPerm)
+            if(isValid(perm) > 0 || bWrongPerm)
                 Repair(perm);
             return perm;
         }
@@ -56,32 +56,26 @@ namespace Solution
         public override bool Repair(IPermutation obj)
         {
             List<int> aProblems = new List<int>();
-            for(int i = 0; i < obj.Size(); i++)
+            for(ushort i = 1; i < obj.Size(); i++)
             {
-                if(obj[i] == i || GetDist(i, obj[i]) <= 0)
+                if(GetDist(obj[i - 1], obj[i]) <= 0)
                     aProblems.Add(i);
             }
+            if(GetDist(obj[obj.Size() - 1], obj[0]) <= 0)
+                aProblems.Add(0);
 
             bool bOK = false;
             if(aProblems.Count == 1)
             {
-                int index = aProblems[0], isolve = -1;
+                int index = aProblems[0];
                 for(int i = 0; i < Size(); i++)
                 {
                     if(i != index)
                     {
-                        if(GetDist(i, obj[index]) > 0 && GetDist(index, obj[i]) > 0 && obj[i] != index)
-                        {
-                            bOK = true;
-                            if(isolve == -1 || CalcedSwap(obj, index, i) < CalcedSwap(obj, index, isolve))
-                                isolve = i;
-                        }
+                        if(obj.Swap(index, i) == 0)
+                            return true;
+                        obj.Swap(index, i);
                     }
-                }
-                if(bOK)
-                {
-                    obj.Swap(index, isolve);
-                    return true;
                 }
             }
             else
@@ -90,32 +84,29 @@ namespace Solution
                 while(aProblems.Count > 0)
                 {
                     bool bOkLocal = false;
-                    bool bProblemIndex = false;
                     int index = aProblems[0], isolve = -1;
                     for(int i = 0; i < Size(); i++)
                     {
                         if(i != index)
                         {
-                            if(GetDist(i, obj[index]) > 0 && GetDist(index, obj[i]) > 0 && obj[i] != index)
+                            bOkLocal = true;
+                            if(obj.Swap(i, index) < aProblems.Count)
                             {
-                                bOkLocal = true;
-                                if(isolve == -1 || CalcedSwap(obj, index, i) < CalcedSwap(obj, index, isolve))
-                                    isolve = i;
+                                isolve = i;
                                 if(aProblems.Contains(i))
                                 {
-                                    isolve = i;
-                                    bProblemIndex = true;
+                                    aProblems.Remove(isolve);
+                                    obj.Swap(i, index);
                                     break;
                                 }
                             }
+                            obj.Swap(i, index);
                         }
                     }
                     if(bOkLocal)
                     {
                         obj.Swap(index, isolve);
                         aProblems.RemoveAt(0);
-                        if(bProblemIndex)
-                            aProblems.Remove(isolve);
                     }
                     else
                     {

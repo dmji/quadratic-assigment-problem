@@ -9,7 +9,7 @@ namespace Solution
         long CalcedSwap(IPermutation src, int ix, int iy);
         ushort Size();
 
-        bool isValid(IPermutation obj);
+        int isValid(IPermutation obj);
         bool Repair(IPermutation obj);
 
         IPermutation GetRandomPermutation();
@@ -33,7 +33,7 @@ namespace Solution
         public virtual long Calc(IPermutation src) => 0;
         public virtual long CalcedSwap(IPermutation src, int ix, int iy) => long.MinValue;
 
-        public virtual bool isValid(IPermutation obj) => true;
+        public virtual int isValid(IPermutation obj) => 0;
         public virtual bool Repair(IPermutation obj) => false;
         public virtual IPermutation GetRandomPermutation() => null;
 
