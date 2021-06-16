@@ -6,7 +6,7 @@ namespace Solution
 {
     public static class Consts
     {
-        public static bool bDebug = false;
+        public static bool bDebug = true;
     }
 
     public interface IName
