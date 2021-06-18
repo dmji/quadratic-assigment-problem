@@ -54,7 +54,8 @@
             {
                 if(Calc(src) != res)
                 {
-                    Msg("ERROR VALUE CALCULATED CALCEDSWAP");
+                    if(m_log != null)
+                        Msg("ERROR VALUE CALCULATED CALCEDSWAP");
                     throw new System.Exception("WRONG CALC");
                 }
             }
@@ -111,7 +112,8 @@
                 t[y] = tx;
                 if(Calc(t) != res)
                 {
-                    Msg("ERROR VALUE CALCULATED CALCEDSWAP");
+                    if(m_log != null)
+                        Msg("ERROR VALUE CALCULATED CALCEDSWAP");
                     throw new System.Exception("WRONGCALCEDSWAP");
                 }
             }

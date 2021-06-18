@@ -17,7 +17,7 @@ namespace Solution
     }
 
     /// <summary>Class <c>Info</c> is all-in one QAP data.</summary>
-    public abstract partial class AProblem : IProblem
+    public abstract partial class AProblem : ALoggerContainer, IProblem
     {
         ///<summary>n</summary>
 		ushort m_problemSize;
@@ -37,7 +37,7 @@ namespace Solution
         public virtual bool Repair(IPermutation obj) => false;
         public virtual IPermutation GetRandomPermutation() => null;
 
-        protected AProblem(ushort size = 0) { m_log = new CEmptyLogger(); Init(size); }
+        protected AProblem(ushort size = 0) { m_log = null; Init(size); }
         protected virtual void Init(ushort size = 0) { m_problemSize = size; }
     }
 }

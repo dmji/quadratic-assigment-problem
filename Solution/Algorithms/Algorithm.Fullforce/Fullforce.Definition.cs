@@ -53,8 +53,13 @@ namespace Solution
             else
             {
                 CPermutation curPerm = new CPermutation(m_problem, src);
-                lock(m_logSync)
-                    Msg($"{curPerm}");
+                if(m_log != null)
+                {
+                    lock(m_logSync)
+                    {
+                        Msg($"{curPerm}");
+                    }
+                }
                 lock(m_result)
                 {
                     if(m_result == null)

@@ -6,7 +6,7 @@ namespace TestSystem
     public interface IDelayedRow
     {
         long AddRow(double criterio, params string[] aStr);
-        void Release();
+        void Release(ITabler table);
     }
 
     public class CDelayedRow : IDelayedRow
@@ -18,14 +18,12 @@ namespace TestSystem
             public string[] m_aCells;
         }
         List<SRow> m_aRow;
-        ITabler m_table;
         long m_nRowCounter;
         bool m_bColor;
 
         public CDelayedRow(ITabler table, bool bColor = true)
         {
             m_aRow = new List<SRow>();
-            m_table = table;
             m_nRowCounter = table.RowCount();
             m_bColor = bColor;
         }
@@ -34,7 +32,7 @@ namespace TestSystem
             m_aRow.Add(new SRow(criterio, aStr));
             return m_nRowCounter + m_aRow.Count;
         }
-        public void Release()
+        public void Release(ITabler table)
         {
             if(m_aRow.Count == 0)
                 return;
@@ -45,10 +43,7 @@ namespace TestSystem
             
             // fill table rows
             for(int i = 0, nRows = m_aRow.Count; i < nRows; i++)
-            {
-                var row = m_table.AddRow();
-                row.AddCells(i == min && m_bColor && nRows > 1 ? CTablerExcel.Styles.eStyleGreen : CTablerExcel.Styles.eStyleSimple, m_aRow[i].m_aCells);
-            }
+                table.AddRow().AddCells(i == min && m_bColor && nRows > 1 ? CTablerExcel.Styles.eStyleGreen : CTablerExcel.Styles.eStyleSimple, m_aRow[i].m_aCells);
         }
     }
 }

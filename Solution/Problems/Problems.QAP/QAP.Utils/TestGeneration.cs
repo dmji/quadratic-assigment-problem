@@ -7,17 +7,6 @@ namespace Solution
     {
         public partial struct SQAPUtils
         {
-            static int[] RS_count(int sizeQAP)
-            {
-                List<int> rs = new List<int>();
-                for(int i = 2; i < sizeQAP; i++)
-                    if(sizeQAP % i == 0) rs.Add(i);
-                while(rs.Count > 2) { rs.RemoveAt(0); rs.RemoveAt(rs.Count - 1); }
-                if(rs.Count == 0) { rs.Add(1); rs.Add(sizeQAP); }
-                else if(rs.Count == 1) rs.Add(rs[0]);
-                return rs.ToArray();
-            }
-
             /// <summary>Generation test problem w/ known solve </summary>
             /// <param name="sizeQAP">size for generation problem</param>
             /// <param name="omeg">quality-param</param>
@@ -31,7 +20,22 @@ namespace Solution
                     p = result.GetRandomPermutation();
 
                 List<List<int>> D = new List<List<int>>();
-                int[] rs = RS_count(sizeQAP);
+
+                List<int> rs = new List<int>();
+                for(int i = 2; i < sizeQAP; i++)
+                    if(sizeQAP % i == 0) rs.Add(i);
+                while(rs.Count > 2) 
+                { 
+                    rs.RemoveAt(0); 
+                    rs.RemoveAt(rs.Count - 1); 
+                }
+                if(rs.Count == 0) 
+                { 
+                    rs.Add(1); 
+                    rs.Add(sizeQAP); 
+                }
+                else if(rs.Count == 1) 
+                    rs.Add(rs[0]);
 
                 //D countig
                 for(int y = 0; y < rs[1]; y++)

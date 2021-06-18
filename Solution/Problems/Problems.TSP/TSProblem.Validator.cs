@@ -64,39 +64,45 @@ namespace Solution
             if(GetDist(obj[obj.Size() - 1], obj[0]) <= 0)
                 aProblems.Add(0);
 
+            if(aProblems.Count == 0)
+                return true;
+
             bool bOK = false;
-            if(aProblems.Count == 1)
+            while(aProblems.Count > 0)
             {
-                int index = aProblems[0];
-                for(int i = 0; i < Size(); i++)
+                if(aProblems.Count == 1)
                 {
-                    if(i != index)
+                    int index = aProblems[0];
+                    for(int i = 0; i < Size(); i++)
                     {
-                        if(obj.Swap(index, i) == 0)
-                            return true;
-                        obj.Swap(index, i);
+                        if(i != index)
+                        {
+                            if(obj.Swap(index, i) == 0)
+                                return true;
+                            obj.Swap(index, i);
+                        }
                     }
+                    bOK = false;
+                    break;
                 }
-            }
-            else
-            {
-                bOK = true;
-                while(aProblems.Count > 0)
+                else if(aProblems.Count > 1)
                 {
+                    bOK = true;
                     bool bOkLocal = false;
                     int index = aProblems[0], isolve = -1;
                     for(int i = 0; i < Size(); i++)
                     {
                         if(i != index)
                         {
-                            bOkLocal = true;
-                            if(obj.Swap(i, index) < aProblems.Count)
+                            var tswap = obj.Swap(i, index);
+                            if(tswap < aProblems.Count)
                             {
+                                bOkLocal = true;
                                 isolve = i;
-                                if(aProblems.Contains(i))
+                                if(aProblems.Contains(isolve))
                                 {
                                     aProblems.Remove(isolve);
-                                    obj.Swap(i, index);
+                                    obj.Swap(isolve, index);
                                     break;
                                 }
                             }
@@ -106,7 +112,8 @@ namespace Solution
                     if(bOkLocal)
                     {
                         obj.Swap(index, isolve);
-                        aProblems.RemoveAt(0);
+                        if(aProblems.Count > 0)
+                            aProblems.RemoveAt(0);
                     }
                     else
                     {
@@ -115,7 +122,6 @@ namespace Solution
                     }
                 }
             }
-
             if(!bOK)
                 obj = GetRandomPermutation();
             return true;

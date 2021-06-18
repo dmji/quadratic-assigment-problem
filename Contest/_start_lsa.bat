@@ -1,5 +1,5 @@
 @ECHO ON
 
-..\Console-Runner\bin\Release\netcoreapp3.1\Console-Runner.exe "1111111111111111" "LSA" 10 0
+..\Console-Runner\bin\Release\netcoreapp3.1\Console-Runner.exe 1 "L" 10 0
 
 EXIT /B

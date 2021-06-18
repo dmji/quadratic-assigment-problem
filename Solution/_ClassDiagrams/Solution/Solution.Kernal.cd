@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Solution.CLocalSearchAlgorithm">
-    <Position X="8.75" Y="3.25" Width="2" />
+    <Position X="3.75" Y="4.75" Width="3" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
       <Class Name="Solution.CLocalSearchAlgorithm.Options" Collapsed="true">
         <TypeIdentifier>
@@ -12,40 +15,33 @@
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAAAAACABAAAAAAAAAAQAAAAAAAAAAAAAAAACAAA=</HashCode>
-      <FileName>Algorithms\Algorithm.LocalSearch2\LocalSearch2.Definition.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Solution.CFullforceAlgorithm">
-    <Position X="8.75" Y="0.5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAACAAAAAAEAQAAAAAAAAAAAAAAAAQACA=</HashCode>
-      <FileName>Algorithms\Algorithm.Fullforce\Fullforce.Definition.cs</FileName>
+      <FileName>Algorithms\Algorithm.LocalSearch2\LocalSearch2.Options.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Solution.CQAProblem">
-    <Position X="0.5" Y="0.5" Width="4.5" />
+    <Position X="0.5" Y="0.5" Width="3" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Struct Name="Solution.CQAProblem.SQAPUtils" Collapsed="true">
+      <Struct Name="Solution.CQAProblem.SQAPUtils">
         <TypeIdentifier>
           <NewMemberFileName>Problems\Problems.QAP\QAP.Utils\ReflectionToLAP.cs</NewMemberFileName>
         </TypeIdentifier>
       </Struct>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AmAAAoAAAAAAgQAIAAAAAAAAAiEAEAAAAAASAAgAAAA=</HashCode>
+      <HashCode>AmAAAoAAAAAACAAIAAAAAAAAAiFAEAAAAAASAAgAAEA=</HashCode>
       <FileName>Problems\Problems.QAP\QAP.Utils\ReflectionToLAP.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Solution.CEvolutionAlgorithm">
-    <Position X="5.25" Y="0.5" Width="3.25" />
+    <Position X="7" Y="0.5" Width="3" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="Solution.CEvolutionAlgorithm.CIndivid" Collapsed="true">
+      <Class Name="Solution.CEvolutionAlgorithm.CIndivid">
         <TypeIdentifier>
           <NewMemberFileName>Algorithms\Algorithm.Evolution\Evolution.Individ.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -60,6 +56,13 @@
     <TypeIdentifier>
       <HashCode>AABEgAAAACAAAAAAAAQAAAQAAAEAAQAAABAAAAAAACA=</HashCode>
       <FileName>Algorithms\Algorithm.Evolution\Evolution.Definition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.CTSProblem">
+    <Position X="3.75" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AmAAAgAAAAAACAAIAAAAAAAAACBAAAAAAAASBAAAAEA=</HashCode>
+      <FileName>Problems\Problems.TSP\TSProblem.Comparer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

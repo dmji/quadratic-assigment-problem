@@ -66,9 +66,11 @@ namespace Solution
             long val = long.MinValue;
             if(m_bCalced)
                 val = m_problem.CalcedSwap(this, i1, i2);
+
             ushort tmp = m_p[i1];
             m_p[i1] = m_p[i2];
             m_p[i2] = tmp;
+
             if(val == long.MinValue)
                 OnEdit();
             else

@@ -12,16 +12,18 @@ namespace Solution
 		/// </summary>
 		public void Serialize()
 		{
-			Msg("ExportTxt begin");
+			if(m_log != null)
+				Msg("ExportTxt begin");
 			string buf = Size().ToString() + "\n";
 			for(int i = 0; i < Size(); i++)
 			{
 				for(int j = 0; j < Size(); j++)
 					buf = buf + GetDist(i, j) + (j == Size() - 1 ? "\n" : " ");
 			}
-			TestSystem.CFile file = new TestSystem.CFile($"ex_{Size()}_{DateTime.Now}.bin");
+			TestSystem.CFile file = new TestSystem.CFile($"ex_{Size()}_{DateTime.Now}.atsp");
 			file.WriteTotal(buf);
-			Msg("ExportTxt end");
+			if(m_log != null)
+				Msg("ExportTxt end");
 		}
 	}
 }

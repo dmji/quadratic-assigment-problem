@@ -16,37 +16,36 @@ namespace TestSystem
                 throw new System.Exception("Problem undefine");
         }
 
-        protected virtual void InitLogger()
+        protected virtual void InitLogger(ITabler table)
         {
             // create logger
             string pathLog = m_path + "logs\\";
-            m_log = new CLogger(pathLog, $"{m_xmlName}_{GetAlgName()}");
+            m_log = new CLogger(pathLog, $"{m_path.GetNameExt()}_{GetAlgName()}");
 
             // create tabler
             string pathTable = m_path + "results\\";
             string pathTemplate = m_path + "_template.xml";
-            m_tbl = new CTablerExcel(pathTable, $"{m_xmlName}_{GetAlgName()}", pathTemplate);
+            table = new CTablerExcel(pathTable, $"{m_path.GetNameExt()}_{GetAlgName()}", pathTemplate);
         }
+
         protected void Init()
         {
             // read xml starter
-            while(m_path.Contains('\"'))
+            XmlReader xml = null;
             {
-                var i = m_path.IndexOf('\"')+1;
-                m_path = m_path.Substring(i, m_path.LastIndexOf('\"') - i);
+                string path = m_path.GetPath();
+                while(path.Contains('\"'))
+                {
+                    var i = path.IndexOf('\"') + 1;
+                    path = path.Substring(i, path.LastIndexOf('\"') - i);
+                }
+                xml = XmlReader.Create(path);
+                xml.Read();
             }
-            XmlReader xml = XmlReader.Create(m_path);
-            xml.Read();
-
-            // get xml name
-            m_xmlName = m_path.Substring(m_path.LastIndexOf('\\') + 1, m_path.LastIndexOf('.') - (m_path.LastIndexOf('\\') + 1));
-
-            // seporate absolute path
-            m_path = m_path.Substring(0, m_path.LastIndexOf('\\') + 1);
 
             // get options files
             {
-                string path = m_path + "Options\\" + GetAlgName() + '\\';
+                string path = m_path.GetDir() + "Options\\" + GetAlgName() + '\\';
                 List<string> aOptionsFile = GetArrtibuteDirFiles(xml, "options", path);
                 m_aOptions = new List<IOptions>();
                 foreach(string str in aOptionsFile)
@@ -57,12 +56,12 @@ namespace TestSystem
             // collect problems+exams to test
             {
                 // get problems input
-                List<string> aProblemFile = GetArrtibuteDirFiles(xml, "problems", m_path);
+                List<string> aProblemFile = GetArrtibuteDirFiles(xml, "problems", m_path.GetDir());
 
                 InitProblem(aProblemFile[0]);
 
                 // get problems exam
-                List<string> aResultFile = GetArrtibuteDirFiles(xml, "problems", m_path, "exam");
+                List<string> aResultFile = GetArrtibuteDirFiles(xml, "problems", m_path.GetDir(), "exam");
                 List<string> aResultFileCorrupt = new List<string>();
 
                 m_aTest = new List<ITestInfo>();

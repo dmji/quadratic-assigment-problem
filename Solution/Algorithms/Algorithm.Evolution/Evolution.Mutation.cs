@@ -6,7 +6,7 @@ namespace Solution
 {
     public partial class CEvolutionAlgorithm
     {
-        protected List<CIndivid> MUTATION(List<CIndivid> src, int M_SIZEi = 0, int M_TYPEi = 0, double M_CHANCEi = 1, int M_SALT_SIZEi = 4)
+        protected List<CIndivid> Mutation(List<CIndivid> src, int M_SIZEi = 0, int M_TYPEi = 0, double M_CHANCEi = 1, int M_SALT_SIZEi = 4)
         {
             Random rand = new Random();
             int mutationCounter = 0;
@@ -21,10 +21,10 @@ namespace Solution
                     switch (M_TYPEi)
                     {
                         case 0:
-                            aResult[iRnd]._mutationSaltation(M_SALT_SIZEi);
+                            aResult[iRnd].MutationSaltation(M_SALT_SIZEi);
                             break;
                         case 1:
-                            aResult[iRnd]._mutationDot();
+                            aResult[iRnd].MutationDot();
                             break;
                     }
                     mutationCounter++;

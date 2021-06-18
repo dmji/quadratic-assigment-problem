@@ -11,7 +11,7 @@ namespace Solution
         IPermutation Result { get; set; }
     }
 
-    public abstract partial class AAlgorithm : IAlgorithm
+    public abstract partial class AAlgorithm : ALoggerContainer, IAlgorithm
     {
         public virtual void Start(IOptions prm) { }
         public abstract string Name();
@@ -32,7 +32,7 @@ namespace Solution
 
         // size problem
         protected ushort Size() => m_problem.Size();
-        protected AAlgorithm(IProblem problem) { m_log = new CEmptyLogger(); Reset(problem); }
+        protected AAlgorithm(IProblem problem) { m_log = null; Reset(problem); }
 
         protected IProblem m_problem;
         protected IPermutation m_result;

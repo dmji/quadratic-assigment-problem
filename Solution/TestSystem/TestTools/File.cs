@@ -34,6 +34,7 @@ namespace TestSystem
         }
         public string GetPath() => m_path;
         public string GetNameExt() => m_path.Substring(m_path.LastIndexOf('\\'));
+        public string GetDir() => m_path.Substring(0, m_path.LastIndexOf('\\'));
         public void Close(bool bClose = true)
         {
             StreamWriter wr = new StreamWriter(m_path, true);

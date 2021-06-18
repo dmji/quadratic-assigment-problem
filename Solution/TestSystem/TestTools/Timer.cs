@@ -10,6 +10,7 @@
             m_time.Start();
         }
 
+        public static string DataTime() => System.DateTime.Now.ToString().Replace(":", "_").Replace(" ", "_").Replace(".", "_").Replace("\\", "_").Replace("/", "_").Replace("-", "_");
         public string Reset()
         {
             string s = m_time.ElapsedMilliseconds.ToString();

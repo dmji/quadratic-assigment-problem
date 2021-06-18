@@ -14,8 +14,9 @@ namespace TestSystem
         public override void Start()
         {
             Init();
-            InitLogger();
-            WriteOptionsHeader(m_tbl, m_aOptions);
+            ITabler table = null;
+            InitLogger(table);
+            WriteOptionsHeader(table, m_aOptions);
             CTimer timer = new CTimer();
 
             m_aOptStat = new List<CTestStatistic>();
@@ -24,6 +25,7 @@ namespace TestSystem
             m_aOptStat.Add(new CTestStatistic("Avg cacl count, %", 3));
 
             SetLogger(m_problem);
+
             foreach(CTestInfo test in m_aTest)
             {
                 timer.Reset();
@@ -34,9 +36,9 @@ namespace TestSystem
                 long examVal = 0;
                 bool bExam = test.Exam(ref examVal);
 
-                var hrow = m_tbl.AddRow();
+                var hrow = table.AddRow();
                 hrow.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {m_problem.Size()}", $"Load time: {timeLoad}", "Optimal + Worst:", bExam ? examVal.ToString() : "");
-                var trow = m_tbl.AddRow();
+                var trow = table.AddRow();
                 if(m_nCount == 1)
                     trow.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
                 else
@@ -44,7 +46,7 @@ namespace TestSystem
                 
                 IAlgorithm ALG = new CEvolutionAlgorithm(m_problem);
                 IAlgorithm ALG_LSA = new CLocalSearchAlgorithm(m_problem);
-                IDelayedRow row = new CDelayedRow(m_tbl, true);
+                IDelayedRow row = new CDelayedRow(table, true);
                 SetLogger(ALG_LSA);
                 SetLogger(ALG);
                 long resultBestOverall = 0;
@@ -73,14 +75,14 @@ namespace TestSystem
                         resultValue += curRes;
                         if(resultBest < curRes)
                             resultBest = curRes;
-
-                        m_log.Msg($"On opt: {optName} problem {test.Name()} Iteration: {i}", true);
+                        if(m_log != null)
+                            m_log.Msg($"On opt: {optName} problem {test.Name()} Iteration: {i}", true);
                     }
                     double avgTimerAlg = timerAlg / m_nCount;
                     double avgCalcCount = calcCount / m_nCount;
                     double avgResultValue = resultValue / m_nCount;
-
-                    //m_log.Msg($"On opt: {optName} problem {test.Name()} log:{ALG})");
+                    //if(m_log != null)
+                    //  m_log.Msg($"On opt: {optName} problem {test.Name()} log:{ALG})");
                     //if(bExam)
                     //{
                     //    double err = avgResultValue - examVal;
@@ -105,11 +107,11 @@ namespace TestSystem
                 buf= buf.Replace('\n', ' ').Trim();
                 buf = buf + " " + resultBestOverall;
                 file.WriteTotal(buf);
-                row.Release();
-                m_tbl.AddRow();
-                m_tbl.AddRow();
+                row.Release(table);
+                table.AddRow();
+                table.AddRow();
             }
-            Close();
+            Close(table);
         }
     }
 }

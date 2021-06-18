@@ -10,21 +10,14 @@ namespace TestSystem
         long RowCount();
     }
 
-    public class CTablerEmpty : ITabler
-    {
-        public CTablerEmpty() { }
-        public IRow AddRow() => null;
-        public bool Close() => false;
-        public long RowCount() => 0;
-    }
-
     public class CTablerExcel : ITabler
     {
         XmlDocument m_doc;
         XmlNode m_table;
-        string m_pathResult;
-        long m_nRowCounter;
-        public long RowCount() => m_nRowCounter;
+        CFile m_outFile;
+        long m_nRows;
+
+        public long RowCount() => m_nRows;
         public struct Styles
         {
             public static string
@@ -83,13 +76,12 @@ namespace TestSystem
             }
         };
 
-        public CTablerExcel() { m_nRowCounter = 0; }
-        public CTablerExcel(string path, string sAlg, string pathTemplate)
+        public CTablerExcel(string path = "", string sAlg = "", string pathTemplate = "")
         {
+            m_nRows = 0;
             if(path.Length > 0 && sAlg.Length > 0 && pathTemplate.Length > 0)
             {
-                string time = DateTime.Now.ToString().Replace(":", "_").Replace(" ", "_").Replace(".", "_").Replace("\\", "_").Replace("/", "_").Replace("-", "_");
-                m_pathResult = $"{path}{sAlg}_{time}_results.~.xml";
+                m_outFile = new CFile($"{path}{sAlg}_{CTimer.DataTime()}_results.~.xml");
 
                 m_doc = new XmlDocument();
                 StreamReader template = new StreamReader(pathTemplate);
@@ -115,18 +107,15 @@ namespace TestSystem
                 XmlElement boldStyleLight = CreateStyle(Styles.eStyleSimpleBoldLight, "#FFFF96");
                 boldStyleLight.AppendChild(CreateFont("Calibri", "11", true));
                 styles.AppendChild(boldStyleLight);
-
-                m_nRowCounter = 0;
             }
         }
-        public IRow AddRow() => new CRowExcel(m_doc, m_table, ++m_nRowCounter);
+        public IRow AddRow() => new CRowExcel(m_doc, m_table, ++m_nRows);
 
         public bool Close()
         {
-            CFile file = new CFile(m_pathResult);
-            m_doc.Save(file.GetPath());
-            string buf = file.ReadToEnd();
-            file.WriteTotal(Tags.Filter(buf));
+            m_doc.Save(m_outFile.GetPath());
+            string buf = m_outFile.ReadToEnd();
+            m_outFile.WriteTotal(Tags.Filter(buf));
             return false;
         }
         ~CTablerExcel()
@@ -134,7 +123,7 @@ namespace TestSystem
             Close();
         }
 
-        private XmlElement CreateFont(string font, string size, bool bBold)
+        XmlElement CreateFont(string font, string size, bool bBold)
         {
             XmlElement fontElem = m_doc.CreateElement("Font");
             fontElem.SetAttribute(Tags.eFontName, font);
@@ -145,7 +134,7 @@ namespace TestSystem
                 fontElem.SetAttribute(Tags.eBold, "1");
             return fontElem;
         }
-        private XmlElement CreateStyle(string id, string color, bool bBorder = true)
+        XmlElement CreateStyle(string id, string color, bool bBorder = true)
         {
             XmlElement elem = m_doc.CreateElement("Style");
             elem.SetAttribute(Tags.eID,  id);

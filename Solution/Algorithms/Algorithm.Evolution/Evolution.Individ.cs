@@ -13,7 +13,7 @@ namespace Solution
 
             /// <summary>Макромутация: Сальтация </summary>
             /// <param name="src"></param>
-            public void _mutationSaltation(int M_SALT_SIZEi = 4)
+            public void MutationSaltation(int M_SALT_SIZEi = 4)
             {
                 Random rand = new Random();
                 List<ushort> pool = ToArray();
@@ -29,7 +29,7 @@ namespace Solution
 
             /// <summary>Точечная мутация</summary>
             /// <param name="src"></param>
-            public void _mutationDot()
+            public void MutationDot()
             {
                 int iRnd = new Random().Next(Size() - 1);
                 Swap(iRnd, iRnd + 1);

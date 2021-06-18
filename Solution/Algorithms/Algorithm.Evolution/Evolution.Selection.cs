@@ -6,7 +6,7 @@ namespace Solution
 {
     public partial class CEvolutionAlgorithm
     {
-        protected List<CIndivid> SELECTION(List<CIndivid> src,int populationSize, int BtournamentSize=2)
+        protected List<CIndivid> Selection(List<CIndivid> src,int populationSize, int BtournamentSize=2)
         {
             Random rand = new Random();
             List<CIndivid> aResult = new List<CIndivid>();

@@ -4,7 +4,7 @@ namespace Solution
 {
     public partial class CEvolutionAlgorithm
     {
-        bool Hemming(List<CIndivid> aPerm, CIndivid t, int H_MINi)
+        bool CheckHemming(List<CIndivid> aPerm, CIndivid t, int H_MINi)
         {
             int min_distance = t.Size();
             foreach(CIndivid a in aPerm)
@@ -24,13 +24,13 @@ namespace Solution
         /// <summary>Генерация популции со случайным заполнением</summary>
         /// <param name="count">размер популяции</param>
         /// <returns>популяция</returns>
-        protected List<CIndivid> GEENERETE_POPULATION(int count, int H_MINi)
+        protected List<CIndivid> GeneratePopulation(int count, int H_MINi)
         {
             List<CIndivid> res = new List<CIndivid>();
             while(res.Count < count)
             {
                 CIndivid temp = new CIndivid(m_problem.GetRandomPermutation());
-                if(Hemming(res, temp, H_MINi))
+                if(CheckHemming(res, temp, H_MINi))
                     res.Add(temp);
             }
             return res;

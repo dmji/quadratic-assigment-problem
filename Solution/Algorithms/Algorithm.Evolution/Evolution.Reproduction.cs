@@ -8,7 +8,7 @@ namespace Solution
     public partial class CEvolutionAlgorithm
     {
         /// <summary>CX - Cycle Crossiver : all variant in List return</summary>
-        protected List<CIndivid> CX_all_crossover(CIndivid a, CIndivid b, int limiter=-1)
+        protected List<CIndivid> CrossoverCX(CIndivid a, CIndivid b, int limiter=-1)
         {
             List<List<int>> aCycles = new List<List<int>>();
             List<int> aCyclesSingle = new List<int>();
@@ -42,7 +42,8 @@ namespace Solution
             int n = (int)Math.Pow(2, aCycles.Count);
             if(Math.Pow(2, aCycles.Count) > int.MaxValue)
             {
-                Msg("!aCycles overflow!");
+                if(m_log != null)
+                    Msg("!aCycles overflow!");
                 throw(new Exception("rand > int"));
             }
 
@@ -64,7 +65,7 @@ namespace Solution
         }
 
         /// <summary>Panmixia</summary>
-        protected List<CIndivid> REPRODUCTION(List<CIndivid> aPopulation, int C_SIZEi, int C_CHANCEi)
+        protected List<CIndivid> Reproduction(List<CIndivid> aPopulation, int C_SIZEi, int C_CHANCEi)
         {
             Random rand = new Random();
             List<CIndivid> aResult = new List<CIndivid>();
@@ -79,7 +80,7 @@ namespace Solution
                 v2 = aPool[rnd];
                 aPool.RemoveAt(rnd);
                 if(C_CHANCEi >= rand.Next(101))
-                    aResult.AddRange(CX_all_crossover(aPopulation[v1], aPopulation[v2], C_SIZEi));
+                    aResult.AddRange(CrossoverCX(aPopulation[v1], aPopulation[v2], C_SIZEi));
             }
             return aResult;
         }

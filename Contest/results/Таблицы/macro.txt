@@ -1,0 +1,8 @@
+    Dim Bas As String
+    Dim Base As String
+    Bas = "F"
+    For I = 0 To 135
+        Base = Bas + CStr(1 + 14 * I)
+        Range(Base).Select
+        ActiveCell.FormulaR1C1 = "='[ñðàâíåíèå.xlsx]Õóäøåå äëÿ ÊÇÍ'!R" + CStr(I + 1) + "C2"
+    Next I

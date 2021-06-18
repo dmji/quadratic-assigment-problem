@@ -68,29 +68,28 @@ namespace TestSystem
                 row.AddCells(CTablerExcel.Styles.eStyleGreyBold, "", m_statName);
                 row.AddCell(CTablerExcel.Styles.eStyleGreyBold, bSingle ? "Value" : "Tabbling info, avaraged by size", bSingle ? 0 : m_aStats[0].m_aRange.Count);
                 
-                row = tbl.AddRow();
+                
                 if(!bSingle)
                 {
+                    row = tbl.AddRow();
                     row.AddCells(CTablerExcel.Styles.eStyleGrey, "sizes", "total");
                     m_aStats[0].m_aRange.Sort((SRangeSize f, SRangeSize s) => { if(f.m_size > s.m_size) return 1; else if(f.m_size == s.m_size) return 0; else return -1; });
                     foreach(SRangeSize b in m_aStats[0].m_aRange)
                         row.AddCellsNumber(CTablerExcel.Styles.eStyleGrey, b.m_size);
-                    tbl.AddRow();
                 }
                 foreach(var a in m_aStats)
                 {
                     if(!bSingle)
                         a.m_aRange.Sort((SRangeSize f, SRangeSize s) => { if(f.m_size > s.m_size) return 1; else if(f.m_size == s.m_size) return 0; else return -1; });
 
+                    row = tbl.AddRow();
                     string allRange = a.GetRange();
-
                     // total col
-                    row.AddCells(CTablerExcel.Styles.eStyleGrey, a.m_name, bSingle ? "" : $"=СРЗНАЧ({allRange})");
+                    row.AddCells(CTablerExcel.Styles.eStyleGrey, a.m_name, bSingle ? "" : $"=СРЗНАЧ(RC[1]:RC[{a.m_aRange.Count}])");
                     
                     // single cols
                     foreach(SRangeSize b in a.m_aRange)
                         row.AddCell(CTablerExcel.Styles.eStyleGrey, $"=СРЗНАЧ({b.m_range})");
-                    row = tbl.AddRow();
                 }
 
                 // add groups stats
@@ -108,7 +107,7 @@ namespace TestSystem
                     List<bool> aBHeaders = new List<bool>();
                     List<IRow> aRows = new List<IRow>();
                     aRows.Add(tbl.AddRow());
-                    aRows[0].AddCell(CTablerExcel.Styles.eStyleSimpleBold, "Size");
+                    aRows[0].AddCell(CTablerExcel.Styles.eStyleSimpleBold, m_statName);
                     foreach(var a in m_aStats)
                     {
                         aRows[0].AddCell(CTablerExcel.Styles.eStyleSimpleBold,a.m_name);
@@ -150,7 +149,6 @@ namespace TestSystem
                         }
                     }
                 }
-                tbl.AddRow();
                 tbl.AddRow();
                 m_aStats.Clear();
             }

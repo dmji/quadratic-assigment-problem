@@ -12,7 +12,8 @@ namespace Solution
 		/// </summary>
 		public void Serialize(CPermutation p = null, int omeg = -1, int z = -1)
 		{
-			Msg("ExportTxt begin");
+			if(m_log != null)
+				Msg("ExportTxt begin");
 			string buf = Size().ToString() + "\n";
 			for(int i = 0; i < Size(); i++)
 			{
@@ -45,7 +46,8 @@ namespace Solution
 			file = new StreamWriter(pathFile);
 			file.WriteLine(buf);
 			file.Close();
-			Msg("ExportTxt end");
+			if(m_log != null)
+				Msg("ExportTxt end");
 		}
 	}
 }

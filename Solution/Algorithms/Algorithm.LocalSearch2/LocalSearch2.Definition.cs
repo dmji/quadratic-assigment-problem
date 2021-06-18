@@ -9,15 +9,14 @@ namespace Solution
 
         public CLocalSearchAlgorithm(IProblem problem) : base(problem) { }
 
-        public bool bBreak;
-
         /// <summary>get solve with local search (2-swap method)</summary>
         /// <param name="p">start permutation</param>
         /// <returns>local optimal solution</returns>
-        public void local_search(IPermutation target, int stepCount = -1)
+        public void Alg(IPermutation target, bool bBreak, int stepCount = -1)
         {
             Calc(target);
-            Msg($"size={Size()} CPermutation: {target.Cost()}");
+            if(m_log != null)
+                Msg($"size={Size()} CPermutation: {target.Cost()}");
             IPermutation pt = target.Clone();
             IPermutation minp = pt.Clone();
             int i = 0;
@@ -30,8 +29,7 @@ namespace Solution
                     for(int y = u + 1; y < pt.Size(); y++)
                     {
                         IPermutation temp = pt.Clone();
-                        temp.Swap(y, u);
-                        if(m_problem.isValid(temp) == 0)
+                        if(temp.Swap(y, u) == 0)
                         {
                             if(m_problem.PermutationComparision(temp, minp) == 1)
                             {
@@ -47,7 +45,8 @@ namespace Solution
                     if(bNestedBreak)
                         break;
                 }
-                Msg($"$Local search step{i}: CPermutation: {minp.Cost()}");
+                if(m_log != null)
+                    Msg($"$Local search step{i}: CPermutation: {minp.Cost()}");
             } while(stepCount != ++i && Calc(pt) != Calc(minp));
             Result = minp.Clone();
         }
@@ -55,12 +54,16 @@ namespace Solution
         public override void Start(IOptions opt)
         {
             ResetDiagnostic();
-            Options t = (Options)opt;
-            bBreak = t.B_FULLIFY;
-            if(t.m_p != null)
-                local_search(t.m_p);
+            Options t = opt is Options ? (Options)opt : null;
+
+            if(t != null)
+            {
+                if(t.m_p == null)
+                    t.m_p = m_problem.GetRandomPermutation();
+                Alg(t.m_p, t.B_FULLIFY);
+            }
             else
-                local_search(m_problem.GetRandomPermutation());
+                Alg(m_problem.GetRandomPermutation(), t.B_FULLIFY);
         }
     }
 }

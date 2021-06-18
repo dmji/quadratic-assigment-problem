@@ -10,7 +10,8 @@ namespace Solution
 		/// <param name="fname">path to file w/ problem</param>
 		public override bool Deserialize(string fname)
 		{
-			Msg($"Start importing problem from file: {fname}");
+			if(m_log != null)
+				Msg($"Start importing problem from file: {fname}");
 			string buf = new TestSystem.CFile(fname).ReadToEnd();
 			string[] aData;
 			if(buf != "")
@@ -92,7 +93,8 @@ namespace Solution
 					}
 				}
 			}
-			Msg($"Finish importing problem from file: {fname}");
+			if(m_log != null)
+				Msg($"Finish importing problem from file: {fname}");
 			return true;
 		}
 	}

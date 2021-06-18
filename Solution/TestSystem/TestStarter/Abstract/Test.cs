@@ -13,12 +13,10 @@ namespace TestSystem
         public virtual void Start() { }
 
         protected AProblem m_problem;
-        protected string m_xmlName;
         protected bool m_logEnabled;
         protected int m_nCount;
-        protected string m_path;
+        protected CFile m_path;
         protected ILogger m_log;
-        protected ITabler m_tbl;
         protected List<ITestInfo> m_aTest;
         protected List<IOptions> m_aOptions;
         protected List<CTestStatistic> m_aOptStat;
@@ -26,15 +24,13 @@ namespace TestSystem
         protected ATest(string path = "", int count = 1, bool bLog = false)
         {
             m_problem = null;
-            m_path = path;
+            m_path = new CFile(path);
             m_nCount = count;
             m_logEnabled = bLog;
             m_log = null;
-            m_tbl = null;
             m_aTest = null;
             m_aOptions = null;
             m_aOptStat = null;
-            m_xmlName = "";
         }
         protected virtual string GetAlgName() => "Undefine";
         protected virtual ITestInfo CreateTestInfo(string problem, string result) => new CTestInfo(problem, result);
@@ -46,12 +42,13 @@ namespace TestSystem
                 obj.SetLogger(m_log);
             }
         }
-        protected void Close()
+
+        protected void Close(ITabler table)
         {
             foreach(var optStat in m_aOptStat)
-                optStat.ReleaseOptStat(m_tbl);
+                optStat.ReleaseOptStat(table);
             m_log.Close();
-            m_tbl.Close();
+            table.Close();
             m_aTest.Clear();
             m_aOptions.Clear();
             m_aOptStat.Clear();

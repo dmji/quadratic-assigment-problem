@@ -13,11 +13,11 @@ namespace Solution
         bool Msg(string str, bool bForceConsole = false);
     }
 
-    public class CEmptyLogger : ILogger
+    public abstract class ALoggerContainer
     {
-        public CEmptyLogger() { }
-        public bool Close() => false;
-        public bool Msg(string str, bool bForceConsole = false) => false;
+        protected ILogger m_log;
+        public void SetLogger(ILogger log = null) { m_log = log; }
+        protected bool Msg(string s) => m_log.Msg(s, true);
     }
 
     public class CLogger : ILogger
@@ -31,8 +31,7 @@ namespace Solution
             {
                 if(m_stream != null)
                     m_stream.Close();
-                string time = DateTime.Now.ToString().Replace(":", "_").Replace(" ", "_").Replace(".", "_").Replace("\\", "_").Replace("/", "_").Replace("-", "_");
-                string pathLog = $"{path}{name}_{time}_log.~.txt";
+                string pathLog = $"{path}{name}_{TestSystem.CTimer.DataTime()}_log.~.txt";
                 m_stream = new TestSystem.CFile(pathLog);
             }
             if(m_stream == null)

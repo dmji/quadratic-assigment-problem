@@ -14,9 +14,10 @@ namespace TestSystem
         public override void Start()
         {
             Init();
-            InitLogger();
+            ITabler table = null;
+            InitLogger(table);
 
-            WriteOptionsHeader(m_tbl, m_aOptions);
+            WriteOptionsHeader(table, m_aOptions);
             CTimer timer = new CTimer();
 
             m_aOptStat = new List<CTestStatistic>();
@@ -37,9 +38,9 @@ namespace TestSystem
                 long worstVal = 0;
                 bool bWorst = test.Worst(ref worstVal);
 
-                var rowHeader = m_tbl.AddRow();
+                var rowHeader = table.AddRow();
                 rowHeader.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Name problem", test.Name(), $"Size: {m_problem.Size()}", $"Load time: {timeLoad}", "Optimal + Worst:", bExam ? examVal.ToString() : "", bWorst ? worstVal.ToString() : "");
-                var rowSec = m_tbl.AddRow();
+                var rowSec = table.AddRow();
                 if(m_nCount == 1)
                     rowSec.AddCells(CTablerExcel.Styles.eStyleSimpleBold, "Option set", "Timer, ms", "Calc count", "Error", "Error, %", "Result");
                 else
@@ -47,7 +48,7 @@ namespace TestSystem
 
                 IAlgorithm ALG = new CEvolutionAlgorithm(m_problem);
                 SetLogger(ALG);
-                IDelayedRow row = new CDelayedRow(m_tbl, true);
+                IDelayedRow row = new CDelayedRow(table, true);
                 foreach(IOptions opt in m_aOptions)
                 {
                     string optName = opt.Name();
@@ -65,14 +66,14 @@ namespace TestSystem
                         if(resultBest == 0 || resultBest > curRes)
                             resultBest = curRes;
 
-                        if(!(m_log is CEmptyLogger))
+                        if(m_log != null)
                             m_log.Msg($"On opt: {optName} problem {test.Name()} Iteration: {i}", true);
                     }
                     double avgTimerAlg = timerAlg / m_nCount;
                     double avgCalcCount = calcCount / m_nCount;
                     double avgResultValue = resultValue / m_nCount;
 
-                    if(!(m_log is CEmptyLogger))
+                    if(m_log != null)
                         m_log.Msg($"On opt: {optName} problem {test.Name()} log:{ALG})");
                     
                     string errStr = $"=RC6-R{rowHeader.GetIndex()}C6";
@@ -84,11 +85,11 @@ namespace TestSystem
                             optStat.AddStat(optName, m_problem.Size(), nRow);
                     }
                 }
-                row.Release();
-                m_tbl.AddRow();
-                m_tbl.AddRow();
+                row.Release(table);
+                table.AddRow();
+                table.AddRow();
             }
-            Close();
+            Close(table);
         }
     }
 }
